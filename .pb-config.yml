@@ -1,0 +1,19 @@
+title: WebRH Schema Editor
+
+paths:
+  data:
+    - /resources/fixtures
+  schemas:
+    - /resources/fixtures
+  templates:
+    - /resources/fixtures
+extensions:
+  data: .docs.json
+  schemas: .json
+  templates: .twig
+assets:
+  css:
+  js:
+  footer_js:
+dev: true
+

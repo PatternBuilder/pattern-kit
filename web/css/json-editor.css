@@ -1,0 +1,178 @@
+@font-face {
+    font-family: Overpass;
+    src: url("/resources/fixtures/fonts/overpass_regular-web.eot");
+    src: url("/resources/fixtures/fonts/overpass_regular-web.eot?#iefix") format("eot"),
+         url("/resources/fixtures/fonts/overpass_regular-web.woff") format("woff"),
+         url("/resources/fixtures/fonts/overpass_regular-web.ttf") format("truetype"),
+         url("/resources/fixtures/fonts/overpass_regular-web.svg#webfontLTZe4IYH") format("svg");
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: Overpass;
+    src: url("/resources/fixtures/fonts/overpass_bold-web.eot");
+    src: url("/resources/fixtures/fonts/overpass_bold-web.eot?#iefix") format("eot"),
+         url("/resources/fixtures/fonts/overpass_bold-web.woff") format("woff"),
+         url("/resources/fixtures/fonts/overpass_bold-web.ttf") format("truetype"),
+         url("/resources/fixtures/fonts/overpass_bold-web.svg#webfontzAU82Ltw") format("svg");
+    font-weight: 800;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: Overpass;
+    src: url("/resources/fixtures/fonts/overpass_light-webfont.eot");
+    src: url("/resources/fixtures/fonts/overpass_light-webfont.eot?#iefix") format("eot"),
+         url("/resources/fixtures/fonts/overpass_light-webfont.woff") format("woff"),
+         url("/resources/fixtures/fonts/overpass_light-webfont.ttf") format("truetype"),
+         url("/resources/fixtures/fonts/overpass_light-webfont.svg#webfontzAU82Ltw") format("svg");
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+@-webkit-keyframes androidBugfix {from { padding: 0; } to { padding: 0; }}
+body { -webkit-animation: androidBugfix infinite 1s; }
+@media (min-width:1800px) {
+  body, html {
+    height: 100%;
+  }
+  .left {
+    width: 50%;
+    float: left;
+    height: 100%;
+    overflow: scroll;
+  }
+  .right {
+    padding: 0 1%;
+    height: 100%;
+    left: 50%;
+    overflow: scroll;
+  }
+}
+.right {
+  background: white;
+  padding-top: 10px;
+}
+.right > * {
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+#display_holder {
+  width: 100%;
+
+  border: 0;
+}
+#editor_holder {
+  /*height: 0;
+  overflow: hidden;*/
+  max-width: 1400px;
+  margin: 0 auto;
+  font-size: 12px;
+}
+
+#editor_holder .btn {
+  font-size: 12px;
+  padding: 3px 6px;
+}
+
+#editor_holder .form-control {
+  font-size: 12px;
+  padding: 3px 6px;
+  height: 26px;
+}
+
+#editor_holder .list-group-item {
+  padding: 6px 6px;
+}
+
+.navbar-default {
+  background-color: #252527;
+}
+
+.navbar-default .navbar-nav>li>a, .navbar-default .navbar-nav>li>a:focus {
+  color: white;
+}
+
+.navbar-default .navbar-nav>li>a:hover, .navbar-default .navbar-nav .open .dropdown-menu>li>a:hover {
+  color: #aaa !important;
+}
+
+.page-header {
+    padding-bottom: 9px;
+    margin: 40px 10px 0px;
+    border-bottom: 1px solid #eee;
+}
+
+h1 {
+  font-size: 24px;
+  margin: 5px 0;
+}
+
+h2 {
+  font-size: 20px;
+  margin: 8px 0;
+}
+
+h3 {
+  font-size: 14px;
+  margin: 5px 0;
+}
+
+p {
+  margin-bottom: 5px;
+}
+
+.well {
+  margin-bottom: 10px;
+}
+
+#json_holder {
+  display: block;
+  max-width: 1400px;
+  margin: 0 auto;
+
+}
+#json_holder pre {
+  font-size: 14px;
+  font-family: monospace;
+  margin-bottom: 100px;
+}
+
+#json_holder .valid {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+.ace_editor {
+  height: 300px !important;
+}
+
+.sceditor-container *{
+  box-sizing: content-box;
+  -moz-box-sizing: border-box;
+}
+.background {
+  display: none;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  background: rgba(255,255,255,.5);
+}
+
+
+.well .table-bordered  {
+  border: 0px;
+}
+.well .table-bordered>thead>tr>th,
+.well .table-bordered>tbody>tr>td {
+  border: 0px;
+}
+
+.well .table-bordered>thead>tr>th ,
+.well .table-bordered>tbody>tr~tr {
+  border-top: 1px #dedede solid;
+}
