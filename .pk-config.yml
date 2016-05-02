@@ -11,6 +11,12 @@ extensions:
   data: .docs.json
   schemas: .json
   templates: .twig
+categories:
+    - Pattern
+    - Sub Pattern
+    - Layout
+    - Component
+    - Atom
 assets:
   css:
   js:

@@ -119,30 +119,42 @@ function get_asset_path($name, $type) {
 
 function getNav($pattern) {
   global $app;
-  $schemas = array();
+  $categories = $app['config']['categories'];
+  $schema_paths = array();
   $nav = array();
+  $nav['title'] = $app['config']['title'];
 
   foreach ($app['config']['paths']['schemas'] as $path) {
     $files = scandir("./" . $path);
-    $schemas[] = array(
+    $schema_paths[] = array(
         'location' => $path,
         'files' => $files
       );
   }
 
-  foreach ($schemas as $path) {
+  foreach ($categories as $category) {
+    $value = strtolower(str_replace(' ', '_', $category));
+    $nav['categories'][$value] = array();
+    $nav['categories'][$value]['title'] = $category;
+    $nav['categories'][$value]['path'] = '/' . $value;
+  }
+
+  foreach ($schema_paths as $path) {
     foreach ($path['files'] as $file) {
       if (strpos($file, 'json') !== false) {
         $nav_item = array();
-        $schema_name = substr($file, 0, -5);
         $contents = json_decode(file_get_contents('./' . $path['location'] . "/" . $file), true);
-        $nav_item['category'] = isset($contents['category']) ? $contents['category'] : "";
-        $nav_item['title'] = isset($contents['title']) ? $contents['title'] : $schema_name;
-        $nav_item['path'] = $schema_name;
-        if ($schema_name == $pattern) {
+        $contents['name'] = substr($file, 0, -5);
+        $category = isset($contents['category']) ? $contents['category'] : false;
+        $nav_item['title'] = isset($contents['title']) ? $contents['title'] : $contents['name'];
+        $nav_item['path'] = '/schema/'. $contents['name'];
+        if ($contents['name'] == $pattern) {
             $nav_item['active'] = true;
         }
-        $nav[] = $nav_item;
+        if ($category) {
+            $nav['categories'][$category]['items'][] = $nav_item;
+        }
+
       }
     }
   }

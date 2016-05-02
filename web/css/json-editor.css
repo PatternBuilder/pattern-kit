@@ -44,8 +44,6 @@
 }
 
 .sg-snippet-resize-handle {
-    -webkit-transform: translate(0px, 0px);
-          transform: translate(0px, 0px);
     height: 100px;
     width: 30px;
     margin-top: -50px;
@@ -55,8 +53,6 @@
     -moz-transition: all .4s;
     transition: all .4s;
     background: black;
-/*    visibility: hidden;
-    opacity: 0*/
 }
 
 .sg-snippet-resize-handle:before {
