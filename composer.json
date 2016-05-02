@@ -13,7 +13,7 @@
         "twig/twig": "1.18.*",
         "silex/silex": "=1.2.5",
         "justinrainbow/json-schema": "~1.4",
-        "deralex/yaml-config-service-provider": "1.0.x-dev",
+        "deralex/yaml-config-service-provider": "@dev",
         "monolog/monolog": "~1.6",
         "nesbot/Carbon": "~1.6"
     },

@@ -19,6 +19,7 @@
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
     <script type="text/javascript" src="{{vendor_path}}web/js/json-editor.js"></script>
     <script type="text/javascript" src="{{vendor_path}}web/js/lzstring.js"></script>
+    <script src="//cdn.jsdelivr.net/interact.js/1.2.6/interact.min.js"></script>
     <script type="text/javascript" src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
     <script src="//cdn.jsdelivr.net/sceditor/1.4.3/jquery.sceditor.bbcode.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.0/ace.js"></script>
@@ -37,9 +38,15 @@
       <p>{{raw_schema.description}}</p>
     </div>
     </div>
-
-    <iframe id="display_holder"></iframe>
-
+    <div class="js-snippet-preview sg-snippet-preview">
+      <div class="js-snippet-source sg-snippet-source">
+        <iframe id="display_holder"></iframe>
+      </div>
+      <div class="js-resize-length">
+        <div class="sg-snippet-resize-handle pos-left js-snippet-resize-handle-left" draggable="true"></div>
+        <div class="sg-snippet-resize-handle pos-right js-snippet-resize-handle-right" draggable="true"></div>
+      </div>
+    </div>
     <hr>
   </div>
 
@@ -109,7 +116,7 @@
       </script>
 
       <script type="text/javascript" src="{{vendor_path}}web/js/schema_editor.js"></script>
-      <script src="//localhost:1336/livereload.js"></script>
+
 
 
 </body>

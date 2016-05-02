@@ -19,7 +19,7 @@ define("ROOT_PATH", __DIR__ . "/..");
 
 
 $app = new Application();
-$app->register(new YamlConfigServiceProvider("./.pb-config.yml"));
+$app->register(new YamlConfigServiceProvider("./.pk-config.yml"));
 
 
 //handling CORS preflight request

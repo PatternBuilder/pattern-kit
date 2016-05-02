@@ -32,6 +32,70 @@
 }
 
 
+.resize-overlay {
+    pointer-events: none;
+    position: relative;
+}
+
+.sg-snippet-preview {
+  position: relative;
+  margin: 0 auto;
+  min-height: 300px;
+}
+
+.sg-snippet-resize-handle {
+    -webkit-transform: translate(0px, 0px);
+          transform: translate(0px, 0px);
+    height: 100px;
+    width: 30px;
+    margin-top: -50px;
+    position: absolute;
+    top: 50%;
+    -webkit-transition: all .4s;
+    -moz-transition: all .4s;
+    transition: all .4s;
+    background: black;
+/*    visibility: hidden;
+    opacity: 0*/
+}
+
+.sg-snippet-resize-handle:before {
+    background: url('icon-drag.svg') no-repeat;
+    position: absolute;
+    top: 50%;
+    content: '';
+    height: 17px;
+    margin-top: -8px;
+    width: 11px
+}
+
+.sg-snippet-resize-handle.pos-right {
+    border-right: 1px solid #ccc;
+    left: -30px;
+    cursor: e-resize
+}
+
+.sg-snippet-resize-handle.pos-right:before {
+    left: 10px
+}
+
+.sg-snippet-resize-handle.pos-left {
+    border-left: 1px solid #ccc;
+    cursor: w-resize;
+    right: -30px
+}
+
+.sg-snippet-resize-handle.pos-left:before {
+    right: 10px
+}
+
+.sg-snippet:hover .sg-snippet-resize-handle {
+    opacity: 1;
+    visibility: visible
+}
+
+
+
 @-webkit-keyframes androidBugfix {from { padding: 0; } to { padding: 0; }}
 body { -webkit-animation: androidBugfix infinite 1s; }
 @media (min-width:1800px) {
@@ -62,7 +126,6 @@ body { -webkit-animation: androidBugfix infinite 1s; }
 }
 #display_holder {
   width: 100%;
-
   border: 0;
 }
 #editor_holder {
