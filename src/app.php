@@ -10,6 +10,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use PatternKit\RoutesLoader;
 use Carbon\Carbon;
+use Mni\FrontYAML\Parser;
 
 
 
@@ -96,17 +97,19 @@ $app['twig'] = $app->share($app->extend('twig', function($twig, $app) {
 function get_asset_path($name, $type) {
     global $app;
 
-    if (in_array($type, array("templates", "data", "schemas"))) {
+    if (in_array($type, array("templates", "data", "schemas", "docs"))) {
         $return = NULL;
         $paths = $app['config']['paths'][$type];
 
-        foreach ($paths as $path) {
-            $extension = $app['config']['extensions'][$type];
-            $dir =  './' . $path;
-            $file_path = "{$dir}/{$name}{$extension}";
-            if (is_dir($dir) && is_readable($file_path)) {
-                $return = $file_path;
-                break;
+        if ($paths) {
+            foreach ($paths as $path) {
+                $extension = $app['config']['extensions'][$type];
+                $dir =  './' . $path;
+                $file_path = "{$dir}/{$name}{$extension}";
+                if (is_dir($dir) && is_readable($file_path)) {
+                    $return = $file_path;
+                    break;
+                }
             }
         }
 
@@ -235,6 +238,7 @@ $app->get('schema/{pattern}', function ($pattern) use ($app) {
     $path = get_asset_path($pattern, 'schemas');
     $seed_path = get_asset_path($pattern, 'data');
     $template_path = get_asset_path($pattern, 'templates');
+    $docs_path = get_asset_path($pattern, 'docs');
     $data = array();
 
 
@@ -265,7 +269,18 @@ $app->get('schema/{pattern}', function ($pattern) use ($app) {
         $data["app_config"] = $app['config'];
     }
 
+
+    $docs_file = file_get_contents('file://' . realpath($docs_path));
+
+    $parser = new Parser();
+
+    $docs_data = $parser->parse($docs_file);
+
+    $data['docs_yaml'] = $docs_data->getYAML();
+    $data['docs_content'] = $docs_data->getContent();
+
     $data['schema'] = json_encode($schema);
+    $data['docs_json'] = (array) $seed_data;
     $data['starting'] = json_encode($seed_data);
     $data['raw_schema'] = (array) json_decode(file_get_contents($path), true);
     if ($template_path) {

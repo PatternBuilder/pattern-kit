@@ -89,6 +89,7 @@ interact('.js-resize-length')
 var editor_update = function(markup, json) {
     $("#display_holder").attr('srcdoc', markup);
     $("#json_holder pre").text(JSON.stringify(json,null,2));
+    $("#twig_holder").text(JSON.stringify(json,null,2));
     updateDirectLink();
     $('#display_holder').load(function(){
         handleHeights();

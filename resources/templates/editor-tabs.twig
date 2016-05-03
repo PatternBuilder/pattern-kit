@@ -1,7 +1,6 @@
 <div>
-
   <!-- Nav tabs -->
-  <ul class="nav nav-tabs" role="tablist">
+  <ul class="nav nav-tabs" role="tablist" style="margin-bottom: 15px">
     {% for tab in tabs %}
       <li role="presentation" class="{{tab.active ? "active"}}"><a href="#{{tab.title|replace(' ', '_')}}" aria-controls="{{tab.title|replace(' ', '_')}}" role="tab" data-toggle="tab">{{tab.title}}</a></li>
     {% endfor %}
@@ -12,7 +11,5 @@
     {% for tab in tabs %}
       <div role="tabpanel" class="tab-pane {{ tab.active ? "active" }}" id="{{tab.title|replace(' ', '_')}}">{{tab.content|raw}}</div>
     {% endfor %}
-
   </div>
-
 </div>

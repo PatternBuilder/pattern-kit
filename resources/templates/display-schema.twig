@@ -27,11 +27,19 @@
     <pre><code>{{template_markup}}</code></pre>
   {% endset %}
 
+  {% set docs %}
+    {% include 'docs.twig' with {
+      "meta": docs_yaml,
+      "content": docs_content,
+      "data": docs_json
+     } only %}
+  {% endset %}
+
   {% set tabs_data = {
       'tabs': [
         {
           'title': 'Docs',
-          'content': 'Docs Go Here',
+          'content': docs,
           'active': true
         },
         {

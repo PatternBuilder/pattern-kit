@@ -163,26 +163,26 @@ body { -webkit-animation: androidBugfix infinite 1s; }
     border-bottom: 1px solid #eee;
 }
 
-h1 {
+#editor_holder h1 {
   font-size: 24px;
   margin: 5px 0;
 }
 
-h2 {
+#editor_holder h2 {
   font-size: 20px;
   margin: 8px 0;
 }
 
-h3 {
+#editor_holder h3 {
   font-size: 14px;
   margin: 5px 0;
 }
 
-p {
+#editor_holder p {
   margin-bottom: 5px;
 }
 
-.well {
+#editor_holder .well {
   margin-bottom: 10px;
 }
 
