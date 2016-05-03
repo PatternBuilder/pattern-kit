@@ -39,8 +39,7 @@
 
 .sg-snippet-preview {
   position: relative;
-  margin: 0 auto;
-  min-height: 300px;
+  margin: 20px auto;
 }
 
 .sg-snippet-resize-handle {
@@ -52,11 +51,10 @@
     -webkit-transition: all .4s;
     -moz-transition: all .4s;
     transition: all .4s;
-    background: black;
 }
 
 .sg-snippet-resize-handle:before {
-    background: url('icon-drag.svg') no-repeat;
+    background: url('../img/icon-drag.svg') no-repeat;
     position: absolute;
     top: 50%;
     content: '';
@@ -67,7 +65,7 @@
 
 .sg-snippet-resize-handle.pos-right {
     border-right: 1px solid #ccc;
-    left: -30px;
+    left: -40px;
     cursor: e-resize
 }
 
@@ -78,7 +76,7 @@
 .sg-snippet-resize-handle.pos-left {
     border-left: 1px solid #ccc;
     cursor: w-resize;
-    right: -30px
+    right: -40px
 }
 
 .sg-snippet-resize-handle.pos-left:before {

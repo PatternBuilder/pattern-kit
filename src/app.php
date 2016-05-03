@@ -132,12 +132,15 @@ function getNav($pattern) {
       );
   }
 
-  foreach ($categories as $category) {
-    $value = strtolower(str_replace(' ', '_', $category));
-    $nav['categories'][$value] = array();
-    $nav['categories'][$value]['title'] = $category;
-    $nav['categories'][$value]['path'] = '/' . $value;
+  if ($categories) {
+      foreach ($categories as $category) {
+        $value = strtolower(str_replace(' ', '_', $category));
+        $nav['categories'][$value] = array();
+        $nav['categories'][$value]['title'] = $category;
+        $nav['categories'][$value]['path'] = '/' . $value;
+      }
   }
+
 
   foreach ($schema_paths as $path) {
     foreach ($path['files'] as $file) {
@@ -209,6 +212,21 @@ $app->get('tests/{name}/{data_array}', function ($name, $data_array) use ($app) 
 ->value('data_array', 0);
 
 
+
+// $app->get('/{category}', function ($category) use ($app) {
+
+//     if (in_array($category, $app['config']['categories']) ) {
+//         foreach ($app['config']['paths']['schemas'] as $path) {
+//           $files = scandir("./" . $path);
+//           foreach ($files as $file) {
+//               $contents = json_decode(file_get_contents('./' . $path . "/" . $file), true);
+
+//           }
+//         }
+//     }
+
+//     return $app['twig']->render("display-schema.twig", $data);
+// }
 
 
 $app->get('schema/{pattern}', function ($pattern) use ($app) {
