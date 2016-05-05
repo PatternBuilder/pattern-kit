@@ -1,0 +1,11 @@
+
+<ul class="nav nav-pills nav-stacked">
+   {% for item in secondary_nav %}
+    <li class="dropdown">
+      <a href="{{item.path}}"  role="button" aria-haspopup="true" aria-expanded="false">
+        {{item.title}}
+      </a>
+    </li>
+  {% endfor %}
+</ul>
+

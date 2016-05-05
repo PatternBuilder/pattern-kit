@@ -32,6 +32,64 @@
 }
 
 
+.resize-overlay {
+    pointer-events: none;
+    position: relative;
+}
+
+.sg-snippet-preview {
+  position: relative;
+  margin: 20px auto;
+}
+
+.sg-snippet-resize-handle {
+    height: 100px;
+    width: 30px;
+    margin-top: -50px;
+    position: absolute;
+    top: 50%;
+    -webkit-transition: all .4s;
+    -moz-transition: all .4s;
+    transition: all .4s;
+}
+
+.sg-snippet-resize-handle:before {
+    background: url('../img/icon-drag.svg') no-repeat;
+    position: absolute;
+    top: 50%;
+    content: '';
+    height: 17px;
+    margin-top: -8px;
+    width: 11px
+}
+
+.sg-snippet-resize-handle.pos-right {
+    border-right: 1px solid #ccc;
+    left: -40px;
+    cursor: e-resize
+}
+
+.sg-snippet-resize-handle.pos-right:before {
+    left: 10px
+}
+
+.sg-snippet-resize-handle.pos-left {
+    border-left: 1px solid #ccc;
+    cursor: w-resize;
+    right: -40px
+}
+
+.sg-snippet-resize-handle.pos-left:before {
+    right: 10px
+}
+
+.sg-snippet:hover .sg-snippet-resize-handle {
+    opacity: 1;
+    visibility: visible
+}
+
+
+
 @-webkit-keyframes androidBugfix {from { padding: 0; } to { padding: 0; }}
 body { -webkit-animation: androidBugfix infinite 1s; }
 @media (min-width:1800px) {
@@ -51,7 +109,27 @@ body { -webkit-animation: androidBugfix infinite 1s; }
     overflow: scroll;
   }
 }
+
+.content {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.secondary-nav {
+  width: 250px;
+  margin-right: 10px;
+  float: left;
+}
+.left {
+  flex-grow: 1;
+  flex-basis: 900px;
+}
+.secondary-nav ~ .left {
+  flex-basis: 300px;
+}
 .right {
+  flex-grow: 1;
+  flex-basis: 900px;
   background: white;
   padding-top: 10px;
 }
@@ -62,7 +140,6 @@ body { -webkit-animation: androidBugfix infinite 1s; }
 }
 #display_holder {
   width: 100%;
-
   border: 0;
 }
 #editor_holder {
@@ -106,26 +183,26 @@ body { -webkit-animation: androidBugfix infinite 1s; }
     border-bottom: 1px solid #eee;
 }
 
-h1 {
+#editor_holder h1 {
   font-size: 24px;
   margin: 5px 0;
 }
 
-h2 {
+#editor_holder h2 {
   font-size: 20px;
   margin: 8px 0;
 }
 
-h3 {
+#editor_holder h3 {
   font-size: 14px;
   margin: 5px 0;
 }
 
-p {
+#editor_holder p {
   margin-bottom: 5px;
 }
 
-.well {
+#editor_holder .well {
   margin-bottom: 10px;
 }
 

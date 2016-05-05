@@ -1,116 +1,78 @@
-{% if app_config.dev == true %}
-{% set vendor_path = "/" %}
-{% else %}
-{% set vendor_path = "/vendor/pattern-builder/pattern-kit/" %}
-{% endif %}
+{% extends '_pattern-kit-app.twig' %}
 
-<!DOCTYPE html>
-<html>
-<head>
-  <title></title>
- <!-- Foundation CSS framework (Bootstrap and jQueryUI also supported) -->
-    <link rel="stylesheet" id="theme_stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
-    <!-- Font Awesome icons (Bootstrap, Foundation, and jQueryUI also supported) -->
-    <link rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css'>
-    <link rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.css'>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" type="text/css" href="{{vendor_path}}web/css/json-editor.css">
-    <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
-    <script type="text/javascript" src="{{vendor_path}}web/js/json-editor.js"></script>
-    <script type="text/javascript" src="{{vendor_path}}web/js/lzstring.js"></script>
-    <script type="text/javascript" src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
-    <script src="//cdn.jsdelivr.net/sceditor/1.4.3/jquery.sceditor.bbcode.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.0/ace.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.0/mode-html.js"></script>
-    <script src="//cdn.jsdelivr.net/sceditor/1.4.3/jquery.sceditor.xhtml.min.js"></script>
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/sceditor/1.4.3/themes/default.min.css">
 
-</head>
-<body>
 
-  {% include 'navigation.twig' %}
+{% block navigation %}
+  {% include 'navigation.twig' with nav only %}
+{% endblock %}
 
-  <div class="left">
-    <div id="schema_holder"><div class="page-header">
-      <h1>{{raw_schema.title}} <small>{{raw_schema.category}}</small></h1>
-      <p>{{raw_schema.description}}</p>
+
+{% block left %}
+  {% include 'iframe-holder.twig' %}
+{% endblock %}
+
+
+{% block right %}
+
+  {% set json_data %}
+    <div id="json_holder">
+      <h2>Data</h2>
+      <div class="valid"></div>
+      <pre></pre>
     </div>
-    </div>
+  {% endset %}
 
-    <iframe id="display_holder"></iframe>
+  {% set twig_template %}
+    <pre><code>{{template_markup}}</code></pre>
+  {% endset %}
 
-    <hr>
+  {% set docs %}
+    {% include 'docs.twig' with {
+      "meta": docs_yaml,
+      "content": docs_content,
+      "data": docs_json
+     } only %}
+  {% endset %}
+
+  {% set tabs_data = {
+      'tabs': [
+        {
+          'title': 'Docs',
+          'content': docs,
+          'active': true
+        },
+        {
+          'title': 'Schema Editor',
+          'content': '<div id="editor_holder"></div>',
+          'active': false
+        },
+        {
+          'title': 'JSON Data',
+          'content': json_data,
+          'active': false
+        },
+        {
+          'title': 'Twig Template',
+          'content': twig_template,
+          'active': false
+        }
+      ]
+    }
+  %}
+
+ {% include 'editor-tabs.twig' with tabs_data %}
+
+  <div class="direct_link_holder well">
+    <a id="direct_link" class="btn btn-primary " href="">Create link to this data</a><br>
   </div>
+</div>
+{% endblock %}
 
-  <div class="right">
-
-    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-      <div class="panel panel-default">
-        <div class="panel-heading" role="tab" id="headingOne">
-          <h4 class="panel-title">
-            <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-              Schema Editor
-            </a>
-          </h4>
-        </div>
-        <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-          <div class="panel-body">
-            <div id='editor_holder'></div>
-          </div>
-        </div>
-      </div>
-      <div class="panel panel-default">
-        <div class="panel-heading" role="tab" id="headingTwo">
-          <h4 class="panel-title">
-            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-              JSON Data
-            </a>
-          </h4>
-        </div>
-        <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-          <div class="panel-body">
-          <div id="json_holder">
-            <h2>Data</h2>
-            <div class="valid"></div>
-            <pre></pre>
-          </div>
-          </div>
-        </div>
-      </div>
-      <div class="panel panel-default">
-        <div class="panel-heading" role="tab" id="headingThree">
-          <h4 class="panel-title">
-            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-              Twig Template
-            </a>
-          </h4>
-        </div>
-        <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-          <div class="panel-body">
-          <div id="markup_holder">
-            <pre><code>{{template_markup}}</code></pre>
-          </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="direct_link_holder well">
-      <a id="direct_link" class="btn btn-primary " href="">Create link to this data</a><br>
-    </div>
-
-  </div>
-
-      <script type="text/javascript">
-        var data = {};
-        data.schema = {{schema|raw}};
-        data.starting = {{starting|raw}};
-      </script>
-
-      <script type="text/javascript" src="{{vendor_path}}web/js/schema_editor.js"></script>
-      <script src="//localhost:1336/livereload.js"></script>
-
-
-</body>
-</html>
+{% block footer %}
+<script type="text/javascript">
+  var data = {};
+  data.schema = {{schema|raw}};
+  data.starting = {{starting|raw}};
+</script>
+{% endblock %}

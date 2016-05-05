@@ -10,6 +10,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use PatternKit\RoutesLoader;
 use Carbon\Carbon;
+use Mni\FrontYAML\Parser;
 
 
 
@@ -19,7 +20,7 @@ define("ROOT_PATH", __DIR__ . "/..");
 
 
 $app = new Application();
-$app->register(new YamlConfigServiceProvider("./.pb-config.yml"));
+$app->register(new YamlConfigServiceProvider("./.pk-config.yml"));
 
 
 //handling CORS preflight request
@@ -64,22 +65,22 @@ $app->register(new MonologServiceProvider(), array(
  // $routesLoader->bindRoutesToControllers();
 
 
-$template_paths = array();
+$twig_template_paths = array();
 
-array_push($template_paths, ROOT_PATH . '/resources/templates');
+array_push($twig_template_paths, ROOT_PATH . '/resources/templates');
 
 if (is_string($app['config']['paths']['templates'])) {
-    array_push($template_paths, realpath('./' . $app['config']['paths']['templates']) );
+    array_push($twig_template_paths, realpath('./' . $app['config']['paths']['templates']) );
 }
 elseif (is_array($app['config']['paths']['templates'])) {
     foreach ($app['config']['paths']['templates'] as $value) {
-        array_push($template_paths, realpath('./' . $value));
+        array_push($twig_template_paths, realpath('./' . $value));
     }
 }
 
 
 $app->register(new Silex\Provider\TwigServiceProvider(), array(
-    'twig.path' => $template_paths,
+    'twig.path' => $twig_template_paths,
     'twig.options' => array(
         'strict_variables' => false
         ),
@@ -89,6 +90,7 @@ $app->register(new Silex\Provider\TwigServiceProvider(), array(
 
 $app['twig'] = $app->share($app->extend('twig', function($twig, $app) {
     $twig->addGlobal('pi', 3.14);
+    //@TODO add pk-config to global
     return $twig;
 }));
 
@@ -96,17 +98,19 @@ $app['twig'] = $app->share($app->extend('twig', function($twig, $app) {
 function get_asset_path($name, $type) {
     global $app;
 
-    if (in_array($type, array("templates", "data", "schemas"))) {
+    if (in_array($type, array("templates", "data", "schemas", "docs", "sg"))) {
         $return = NULL;
         $paths = $app['config']['paths'][$type];
 
-        foreach ($paths as $path) {
-            $extension = $app['config']['extensions'][$type];
-            $dir =  './' . $path;
-            $file_path = "{$dir}/{$name}{$extension}";
-            if (is_dir($dir) && is_readable($file_path)) {
-                $return = $file_path;
-                break;
+        if ($paths) {
+            foreach ($paths as $path) {
+                $extension = $app['config']['extensions'][$type];
+                $dir =  './' . $path;
+                $file_path = "{$dir}/{$name}{$extension}";
+                if (is_dir($dir) && is_readable($file_path)) {
+                    $return = $file_path;
+                    break;
+                }
             }
         }
 
@@ -117,32 +121,77 @@ function get_asset_path($name, $type) {
     }
 }
 
+function getDocNav($pattern) {
+    global $app;
+    $nav = array();
+    $parser = new Parser();
+
+    foreach ($app['config']['paths']['sg'] as $path) {
+        $files = glob('./' . $path .'/*' . $app['config']['extensions']['sg']);
+        foreach ($files as $value) {
+            $value_parts = str_split(basename($value), strpos(basename($value), "."));
+            $nav_item = array();
+            $sg_file = file_get_contents($value);
+            $sg_data = $parser->parse($sg_file);
+            $data['sg_yaml'] = $sg_data->getYAML();
+            $nav_item['title'] = $data['sg_yaml']['title'];
+            $nav_item['path'] = '/sg/' . $value_parts[0];
+            if ($value_parts[0] == $pattern) {
+                $nav_item['active'] = true;
+            }
+            if ($value_parts[0] == 'index') {
+                $nav_item['path'] = '/sg';
+                array_unshift($nav, $nav_item);
+            }
+            else {
+                $nav[] =  $nav_item;
+            }
+        }
+    }
+    return $nav;
+}
+
 function getNav($pattern) {
   global $app;
-  $schemas = array();
+  $categories = $app['config']['categories'];
+  $schema_paths = array();
   $nav = array();
+  $nav['title'] = $app['config']['title'];
 
   foreach ($app['config']['paths']['schemas'] as $path) {
     $files = scandir("./" . $path);
-    $schemas[] = array(
+    $schema_paths[] = array(
         'location' => $path,
         'files' => $files
       );
   }
 
-  foreach ($schemas as $path) {
+  if ($categories) {
+      foreach ($categories as $category) {
+        $value = strtolower(str_replace(' ', '_', $category));
+        $nav['categories'][$value] = array();
+        $nav['categories'][$value]['title'] = $category;
+        $nav['categories'][$value]['path'] = '/' . $value;
+      }
+  }
+
+
+  foreach ($schema_paths as $path) {
     foreach ($path['files'] as $file) {
       if (strpos($file, 'json') !== false) {
         $nav_item = array();
-        $schema_name = substr($file, 0, -5);
         $contents = json_decode(file_get_contents('./' . $path['location'] . "/" . $file), true);
-        $nav_item['category'] = isset($contents['category']) ? $contents['category'] : "";
-        $nav_item['title'] = isset($contents['title']) ? $contents['title'] : $schema_name;
-        $nav_item['path'] = $schema_name;
-        if ($schema_name == $pattern) {
+        $contents['name'] = substr($file, 0, -5);
+        $category = isset($contents['category']) ? $contents['category'] : false;
+        $nav_item['title'] = isset($contents['title']) ? $contents['title'] : $contents['name'];
+        $nav_item['path'] = '/schema/'. $contents['name'];
+        if ($contents['name'] == $pattern) {
             $nav_item['active'] = true;
         }
-        $nav[] = $nav_item;
+        if ($category) {
+            $nav['categories'][$category]['items'][] = $nav_item;
+        }
+
       }
     }
   }
@@ -198,6 +247,47 @@ $app->get('tests/{name}/{data_array}', function ($name, $data_array) use ($app) 
 
 
 
+// $app->get('/{category}', function ($category) use ($app) {
+
+//     if (in_array($category, $app['config']['categories']) ) {
+//         foreach ($app['config']['paths']['schemas'] as $path) {
+//           $files = scandir("./" . $path);
+//           foreach ($files as $file) {
+//               $contents = json_decode(file_get_contents('./' . $path . "/" . $file), true);
+
+//           }
+//         }
+//     }
+
+//     return $app['twig']->render("display-schema.twig", $data);
+// }
+
+
+
+$app->get('sg/{pattern}', function ($pattern) use ($app) {
+
+
+    $sg_path = get_asset_path($pattern, 'sg');
+
+    $sg_file = file_get_contents('file://' . realpath($sg_path));
+
+    $parser = new Parser();
+
+    $sg_data = $parser->parse($sg_file);
+
+    if (isset($app['config'])) {
+        $data["app_config"] = $app['config'];
+    }
+
+
+    $data['secondary_nav'] = getDocNav($pattern);
+    $data['nav']= getNav($pattern);
+    $data['sg_yaml'] = $sg_data->getYAML();
+    $data['sg_content'] = $sg_data->getContent();
+
+    return $app['twig']->render("display-sg.twig", $data);
+})->value('pattern', "index");
+
 
 $app->get('schema/{pattern}', function ($pattern) use ($app) {
 
@@ -205,6 +295,7 @@ $app->get('schema/{pattern}', function ($pattern) use ($app) {
     $path = get_asset_path($pattern, 'schemas');
     $seed_path = get_asset_path($pattern, 'data');
     $template_path = get_asset_path($pattern, 'templates');
+    $docs_path = get_asset_path($pattern, 'docs');
     $data = array();
 
 
@@ -213,6 +304,9 @@ $app->get('schema/{pattern}', function ($pattern) use ($app) {
 
     // Navigation
     $data['nav']= getNav($pattern);
+    if (array_key_exists('sg', $app["config"]["paths"])) {
+        $data['nav']['sg_active'] = true;
+    }
     // end navigation
 
     if ($seed_path) {
@@ -235,7 +329,18 @@ $app->get('schema/{pattern}', function ($pattern) use ($app) {
         $data["app_config"] = $app['config'];
     }
 
+
+    $docs_file = file_get_contents('file://' . realpath($docs_path));
+
+    $parser = new Parser();
+
+    $docs_data = $parser->parse($docs_file);
+
+    $data['docs_yaml'] = $docs_data->getYAML();
+    $data['docs_content'] = $docs_data->getContent();
+
     $data['schema'] = json_encode($schema);
+    $data['docs_json'] = (array) $seed_data;
     $data['starting'] = json_encode($seed_data);
     $data['raw_schema'] = (array) json_decode(file_get_contents($path), true);
     if ($template_path) {
