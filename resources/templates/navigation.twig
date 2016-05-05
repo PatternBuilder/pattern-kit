@@ -17,9 +17,9 @@
               {{category.title ?: key}}s <span class="caret"></span>
             </a>
               <ul class="dropdown-menu">
-                {% if category.path %}
+                {# {% if category.path %}
                   <li><a href="{{category.path}}">All {{category.title}}s</a></li>
-                {% endif %}
+                {% endif %} #}
               {% for item in category.items %}
                 <li {% if item.active %}class="active"{% endif %}><a href="{{item.path}}">{{item.title}}</a></li>
               {% endfor %}
