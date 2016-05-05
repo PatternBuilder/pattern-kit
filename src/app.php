@@ -20,6 +20,7 @@ define("ROOT_PATH", __DIR__ . "/..");
 
 $app = new Application();
 $app->register(new YamlConfigServiceProvider("./.pk-config.yml"));
+$app->register(new Silex\Provider\UrlGeneratorServiceProvider());
 
 
 //handling CORS preflight request
@@ -152,7 +153,7 @@ function getNav($pattern) {
         $contents['name'] = substr($file, 0, -5);
         $category = isset($contents['category']) ? $contents['category'] : false;
         $nav_item['title'] = isset($contents['title']) ? $contents['title'] : $contents['name'];
-        $nav_item['path'] = '/schema/'. $contents['name'];
+        $nav_item['path'] = $contents['name'];
         if ($contents['name'] == $pattern) {
             $nav_item['active'] = true;
         }
@@ -183,12 +184,12 @@ function getDocNav($pattern) {
             $sg_data = $parser->parse($sg_file);
             $data['sg_yaml'] = $sg_data->getYAML();
             $nav_item['title'] = $data['sg_yaml']['title'];
-            $nav_item['path'] = '/sg/' . $value_parts[0];
+            $nav_item['path'] = $value_parts[0];
             if ($value_parts[0] == $pattern) {
                 $nav_item['active'] = true;
             }
             if ($value_parts[0] == 'index') {
-                $nav_item['path'] = '/sg';
+                $nav_item['path'] = NULL;
                 array_unshift($nav, $nav_item);
             }
             else {

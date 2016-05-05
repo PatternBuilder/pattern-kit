@@ -21,7 +21,9 @@
                   <li><a href="{{category.path}}">All {{category.title}}s</a></li>
                 {% endif %} #}
               {% for item in category.items %}
-                <li {% if item.active %}class="active"{% endif %}><a href="{{item.path}}">{{item.title}}</a></li>
+                <li {{ item.active ? 'class="active"' }}>
+                  <a href=" {{ path('schema', {pattern : item.path}) }} ">{{item.title}}</a>
+                </li>
               {% endfor %}
               </ul>
           </li>

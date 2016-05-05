@@ -36,7 +36,7 @@ class StyleGuideControllerProvider implements ControllerProviderInterface
             $data['sg_content'] = $sg_data->getContent();
 
             return $app['twig']->render("display-sg.twig", $data);
-        })->value('pattern', "index");
+        })->value('pattern', "index")->bind('styleguide-home');
 
         $controllers->get('/{pattern}', function ($pattern) use ($app) {
 
@@ -60,7 +60,7 @@ class StyleGuideControllerProvider implements ControllerProviderInterface
             $data['sg_content'] = $sg_data->getContent();
 
             return $app['twig']->render("display-sg.twig", $data);
-        });
+        })->bind('styleguide');
 
 
         return $controllers;

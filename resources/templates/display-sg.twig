@@ -1,8 +1,6 @@
 {% extends '_pattern-kit-app.twig' %}
 
 
-
-
 {% block navigation %}
   {% include 'navigation.twig' with nav only %}
 {% endblock %}
@@ -13,7 +11,6 @@
 
 {% block left %}
 <h1>{{sg_yaml.title}}</h1>
-
 
 {{sg_content|raw}}
 {% endblock %}

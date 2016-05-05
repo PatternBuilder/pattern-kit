@@ -74,7 +74,7 @@ class SchemaControllerProvider implements ControllerProviderInterface
 
             return $app['twig']->render("display-schema.twig", $data);
 
-        });
+        })->bind('schema');
 
         return $controllers;
     }
