@@ -32,18 +32,25 @@
 {% block navigation %}
 {% endblock %}
 
-{% if block('left') %}
-    <div class="left">
-        {% block left %}{% endblock %}
-    </div>
-{% endif %}
+<div class="content">
+    {% if block('secondary_nav') %}
+        <nav class="secondary-nav">
+            {% block secondary_nav %}{% endblock %}
+        </nav>
+    {% endif %}
 
-{% if block('right') %}
-    <div class="right">
-        {% block right %}{% endblock %}
-    </div>
-{% endif %}
+    {% if block('left') %}
+        <div class="left">
+            {% block left %}{% endblock %}
+        </div>
+    {% endif %}
 
+    {% if block('right') %}
+        <div class="right">
+            {% block right %}{% endblock %}
+        </div>
+    {% endif %}
+</div>
 {% block footer %}{% endblock %}
 
 

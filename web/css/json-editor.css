@@ -109,7 +109,27 @@ body { -webkit-animation: androidBugfix infinite 1s; }
     overflow: scroll;
   }
 }
+
+.content {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.secondary-nav {
+  width: 250px;
+  margin-right: 10px;
+  float: left;
+}
+.left {
+  flex-grow: 1;
+  flex-basis: 900px;
+}
+.secondary-nav ~ .left {
+  flex-basis: 300px;
+}
 .right {
+  flex-grow: 1;
+  flex-basis: 900px;
   background: white;
   padding-top: 10px;
 }

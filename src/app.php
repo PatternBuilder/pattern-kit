@@ -97,7 +97,7 @@ $app['twig'] = $app->share($app->extend('twig', function($twig, $app) {
 function get_asset_path($name, $type) {
     global $app;
 
-    if (in_array($type, array("templates", "data", "schemas", "docs"))) {
+    if (in_array($type, array("templates", "data", "schemas", "docs", "sg"))) {
         $return = NULL;
         $paths = $app['config']['paths'][$type];
 
@@ -118,6 +118,36 @@ function get_asset_path($name, $type) {
     else {
         throw new Exception($type . ' is not equal to template, data or schema');
     }
+}
+
+function getDocNav($pattern) {
+    global $app;
+    $nav = array();
+    $parser = new Parser();
+
+    foreach ($app['config']['paths']['sg'] as $path) {
+        $files = glob('./' . $path .'/*' . $app['config']['extensions']['sg']);
+        foreach ($files as $value) {
+            $value_parts = str_split(basename($value), strpos(basename($value), "."));
+            $nav_item = array();
+            $sg_file = file_get_contents($value);
+            $sg_data = $parser->parse($sg_file);
+            $data['sg_yaml'] = $sg_data->getYAML();
+            $nav_item['title'] = $data['sg_yaml']['title'];
+            $nav_item['path'] = '/sg/' . $value_parts[0];
+            if ($value_parts[0] == $pattern) {
+                $nav_item['active'] = true;
+            }
+            if ($value_parts[0] == 'index') {
+                $nav_item['path'] = '/sg';
+                array_unshift($nav, $nav_item);
+            }
+            else {
+                $nav[] =  $nav_item;
+            }
+        }
+    }
+    return $nav;
 }
 
 function getNav($pattern) {
@@ -230,6 +260,32 @@ $app->get('tests/{name}/{data_array}', function ($name, $data_array) use ($app) 
 
 //     return $app['twig']->render("display-schema.twig", $data);
 // }
+
+
+
+$app->get('sg/{pattern}', function ($pattern) use ($app) {
+
+
+    $sg_path = get_asset_path($pattern, 'sg');
+
+    $sg_file = file_get_contents('file://' . realpath($sg_path));
+
+    $parser = new Parser();
+
+    $sg_data = $parser->parse($sg_file);
+
+    if (isset($app['config'])) {
+        $data["app_config"] = $app['config'];
+    }
+
+
+    $data['secondary_nav'] = getDocNav($pattern);
+    $data['nav']= getNav($pattern);
+    $data['sg_yaml'] = $sg_data->getYAML();
+    $data['sg_content'] = $sg_data->getContent();
+
+    return $app['twig']->render("display-sg.twig", $data);
+})->value('pattern', "index");
 
 
 $app->get('schema/{pattern}', function ($pattern) use ($app) {

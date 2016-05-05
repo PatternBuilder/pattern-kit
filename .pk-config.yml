@@ -9,11 +9,14 @@ paths:
     - /resources/fixtures
   docs:
     - /resources/fixtures
+  sg:
+    - /resources/fixtures
 extensions:
   data: .docs.json
   schemas: .json
   templates: .twig
   docs: .docs.md
+  sg: .sg.md
 categories:
     - Pattern
     - Sub Pattern
