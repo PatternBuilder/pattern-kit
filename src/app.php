@@ -303,6 +303,9 @@ $app->get('schema/{pattern}', function ($pattern) use ($app) {
 
     // Navigation
     $data['nav']= getNav($pattern);
+    if (array_key_exists('sg', $app["config"]["paths"])) {
+        $data['nav']['sg_active'] = true;
+    }
     // end navigation
 
     if ($seed_path) {

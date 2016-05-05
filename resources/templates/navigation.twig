@@ -27,6 +27,7 @@
           </li>
         {% endfor %}
       </ul>
+      {% if sg_active %}
        <ul class="nav navbar-nav navbar-right">
         <li><a href="/sg">Style Guide Docs</a></li>
         {# <li class="dropdown">
@@ -40,6 +41,7 @@
           </ul>
         </li> #}
       </ul>
+    {% endif %}
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
