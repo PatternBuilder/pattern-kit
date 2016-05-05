@@ -65,22 +65,22 @@ $app->register(new MonologServiceProvider(), array(
  // $routesLoader->bindRoutesToControllers();
 
 
-$template_paths = array();
+$twig_template_paths = array();
 
-array_push($template_paths, ROOT_PATH . '/resources/templates');
+array_push($twig_template_paths, ROOT_PATH . '/resources/templates');
 
 if (is_string($app['config']['paths']['templates'])) {
-    array_push($template_paths, realpath('./' . $app['config']['paths']['templates']) );
+    array_push($twig_template_paths, realpath('./' . $app['config']['paths']['templates']) );
 }
 elseif (is_array($app['config']['paths']['templates'])) {
     foreach ($app['config']['paths']['templates'] as $value) {
-        array_push($template_paths, realpath('./' . $value));
+        array_push($twig_template_paths, realpath('./' . $value));
     }
 }
 
 
 $app->register(new Silex\Provider\TwigServiceProvider(), array(
-    'twig.path' => $template_paths,
+    'twig.path' => $twig_template_paths,
     'twig.options' => array(
         'strict_variables' => false
         ),
@@ -90,6 +90,7 @@ $app->register(new Silex\Provider\TwigServiceProvider(), array(
 
 $app['twig'] = $app->share($app->extend('twig', function($twig, $app) {
     $twig->addGlobal('pi', 3.14);
+    //@TODO add pk-config to global
     return $twig;
 }));
 
