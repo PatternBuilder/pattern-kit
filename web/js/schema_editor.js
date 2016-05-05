@@ -134,14 +134,14 @@ if (data.starting.name) {
   editor.on('change',function() {
     var json = editor.getValue();
     $.ajax({
-      url: "/validate",
+      url: "/api/validate",
       method: 'POST',
       contentType: 'application/json',
       data: JSON.stringify(json,null,2)
     }).success(function(response) {
       $('.valid').html(response);
       $.ajax({
-        url: "/render/page",
+        url: "/api/render/page",
         method: 'POST',
         contentType: 'application/json',
         data: JSON.stringify(json,null,2)
