@@ -28,9 +28,9 @@ $app['http_cache']->run();
 ```
 
 
-## Add .pk-config.yml next to composer.json
+## Add .pk-config.yml next to index.php
 
-- Create arrays of paths to your data, schema, template, docs and styleguide files
+- Create arrays of paths to your data, schema, template, docs and styleguide files (relative to config)
 - Set the file extensions for each file type
 - List categories in order you'd like them to appear in navigation
 - Create arrays of assets for css, js and footer js (including live reload if necessary)
