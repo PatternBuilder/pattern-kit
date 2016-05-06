@@ -1,4 +1,4 @@
-## Add pattern kit to composer.json
+## Create composer.json at pattern library root and require pattern kit
 
 ```
 "require": {
@@ -12,11 +12,7 @@
 ]
 ```
 
-## Add index.php
-
-- File must be at/above your css/js/img assets
-- Update paths to point to vendor folder
-
+## Add index.php at pattern library root
 ```
 <?php
 
@@ -28,7 +24,7 @@ $app['http_cache']->run();
 ```
 
 
-## Add .pk-config.yml next to index.php
+## Add .pk-config.yml at pattern library root
 
 - Create arrays of paths to your data, schema, template, docs and styleguide files (relative to config)
 - Set the file extensions for each file type
