@@ -1,3 +1,11 @@
+# Pattern Kit
+
+Pattern Kit is an application that lets you preview your library of templates and manipulate their content by interacting with a form built from the schemas. It is both a development tool and a public facing pattern library.
+
+# Installation
+
+Note, by following these instructions you do _not_ need to clone this git repository.
+
 ## Create composer.json at pattern library root and require pattern kit
 
 ```
@@ -23,7 +31,6 @@ $app['http_cache']->run();
 
 ```
 
-
 ## Add .pk-config.yml at pattern library root
 
 - Create arrays of paths to your data, schema, template, docs and styleguide files (relative to config)
@@ -35,17 +42,17 @@ $app['http_cache']->run();
 
 title: Project Title
 
-paths:
+paths:  # relative to your pattern library root
   data:
-    - /path/to/sample/data
+    - path/to/sample/data
   schemas:
-    - /path/to/schemas
+    - path/to/schemas
   templates:
-    - /path/to/templates
+    - path/to/templates
   docs:
-    - /path/to/schemas-docs
+    - path/to/schemas-docs
   sg:
-    - /path/to/stylelguide/docs
+    - path/to/stylelguide/docs
 extensions:
   data: .docs.json
   schemas: .json
@@ -70,6 +77,15 @@ assets:
     - path/to/otherfooter_js
     - //localhost:1336/livereload.js
 ```
+
+In your terminal, 
+
+```
+$ cd [pattern library root]
+$ composer install
+```
+
+# Use Pattern Kit
 
 Point MAMP or local PHP server at your index.php file
 
