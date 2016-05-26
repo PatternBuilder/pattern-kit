@@ -18,7 +18,7 @@
         "nesbot/Carbon": "~1.6",
         "erusev/parsedown": "^1.6",
         "mnapoli/front-yaml": "^1.5",
-        "symfony/twig-bridge": "^3.0"
+        "symfony/twig-bridge": "^2.8"
     },
     "autoload": {
         "psr-0": {
