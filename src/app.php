@@ -17,8 +17,6 @@ date_default_timezone_set('America/Los_Angeles');
 
 define("ROOT_PATH", __DIR__ . "/..");
 
-echo ROOT_PATH;
-
 
 $app = new Application();
 $app->register(new YamlConfigServiceProvider("./.pk-config.yml"));
