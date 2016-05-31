@@ -2,7 +2,7 @@
 
 use Silex\Application;
 use Silex\Provider\HttpCacheServiceProvider;
-use Silex\Provider\MonologServiceProvider;
+// use Silex\Provider\MonologServiceProvider;
 use Silex\Provider\ServiceControllerServiceProvider;
 use DerAlex\Silex\YamlConfigServiceProvider;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -16,6 +16,8 @@ use Mni\FrontYAML\Parser;
 date_default_timezone_set('America/Los_Angeles');
 
 define("ROOT_PATH", __DIR__ . "/..");
+
+echo ROOT_PATH;
 
 
 $app = new Application();
@@ -53,10 +55,10 @@ $app->register(new ServiceControllerServiceProvider());
 
 $app->register(new HttpCacheServiceProvider(), array("http_cache.cache_dir" => ROOT_PATH . "/storage/cache",));
 
-$app->register(new MonologServiceProvider(), array(
-    "monolog.logfile" => ROOT_PATH . "/storage/logs/" . Carbon::now('America/Los_Angeles')->format("Y-m-d") . ".log",
-    "monolog.name" => "application"
-));
+// $app->register(new MonologServiceProvider(), array(
+//     "monolog.logfile" => ROOT_PATH . "/storage/logs/" . Carbon::now('America/Los_Angeles')->format("Y-m-d") . ".log",
+//     "monolog.name" => "application"
+// ));
 
 $app['debug'] = true;
 
