@@ -112,7 +112,6 @@ if(window.location.href.match('[?&]data=([^&]+)')) {
     catch(e) {
         console.log('invalid starting data');
     }
-    handleHeights();
 }
 if (data.starting.name) {
   JSONEditor.defaults.options.startval = data.starting;
