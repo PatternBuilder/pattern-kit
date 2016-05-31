@@ -14,7 +14,7 @@ class TestsControllerProvider implements ControllerProviderInterface
 
         $controllers->get('/{name}/{data_array}', function ($name, $data_array) use ($app) {
 
-            $data_path = get_asset_path($name, "data");
+            $data_path = get_asset_path($name, "test_data");
 
             if (file_exists($data_path)) {
                 $file_data = json_decode(file_get_contents($data_path), true);

@@ -3,6 +3,8 @@ title: WebRH Schema Editor
 paths:
   data:
     - /resources/fixtures
+  test_data:
+    - /resources/fixtures
   schemas:
     - /resources/fixtures
   templates:
@@ -13,6 +15,7 @@ paths:
     - /resources/fixtures
 extensions:
   data: .docs.json
+  test_data: .test.json
   schemas: .json
   templates: .twig
   docs: .docs.md
