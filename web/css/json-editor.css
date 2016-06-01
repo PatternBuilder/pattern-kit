@@ -120,6 +120,7 @@ body { -webkit-animation: androidBugfix infinite 1s; }
 }
 .secondary-nav ~ .left {
   float: left;
+  width: calc(100vw - 250px);
 }
 .right {
   background: white;
