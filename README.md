@@ -2,6 +2,8 @@
 
 Pattern Kit is an application that lets you preview your library of templates and manipulate their content by interacting with a form built from the schemas. It is both a development tool and a public facing pattern library.
 
+For a demo check out [Pattern Kit Demo](http://patternkit.info/sg/). 
+
 # Installation
 
 Note, by following these instructions you do _not_ need to clone this git repository.
