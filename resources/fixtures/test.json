@@ -26,6 +26,9 @@
       "title": "Attribution Title",
       "description": "What is their job title?",
       "type": "string"
+    },
+    "image": {
+      "$ref": "image.json"
     }
   },
   "required": ["name", "quotation", "attribution_name"],

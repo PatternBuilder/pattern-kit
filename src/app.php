@@ -8,6 +8,7 @@ use DerAlex\Silex\YamlConfigServiceProvider;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Yaml\Yaml;
 use Carbon\Carbon;
 use Mni\FrontYAML\Parser;
 
@@ -89,6 +90,21 @@ $app->register(new Silex\Provider\TwigServiceProvider(), array(
 
 // Custom Functions
 
+
+function yaml_replace(&$data) {
+    foreach ($data as &$value) {
+        if (is_array($value) ) {
+            yaml_replace($value);
+        }
+        elseif (is_string($value) && $value[0] == '@') {
+            $yaml_replace_data = Yaml::parse(file_get_contents('file://' . realpath(get_asset_path(substr($value, 1), 'data'))));
+
+            $value = yaml_replace($yaml_replace_data);
+        }
+    }
+    return $data;
+}
+
 //// Get path to matching asset
 function get_asset_path($name, $type) {
     global $app;
@@ -102,11 +118,17 @@ function get_asset_path($name, $type) {
         if ($paths) {
             foreach ($paths as $path) {
                 $extension = $app['config']['extensions'][$type];
+                $yaml_extension = str_replace('.json', '.yaml', $extension);
                 $dir =  './' . $path;
                 $file_path = "{$dir}/{$name}{$extension}";
+                $yaml_file_path = "{$dir}/{$name}{$yaml_extension}";
                 if (is_dir($dir) && is_readable($file_path)) {
                     $return = $file_path;
                     break;
+                }
+                else if (is_dir($dir) && is_readable($yaml_file_path)) {
+                  $return = $yaml_file_path;
+                  break;
                 }
             }
         }

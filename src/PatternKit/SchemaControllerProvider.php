@@ -4,6 +4,8 @@ namespace PatternKit;
 
 use Silex\Application;
 use Silex\ControllerProviderInterface;
+use Symfony\Component\Yaml\Yaml;
+
 
 class SchemaControllerProvider implements ControllerProviderInterface
 {
@@ -33,8 +35,28 @@ class SchemaControllerProvider implements ControllerProviderInterface
             // end navigation
 
             if ($seed_path) {
-                $seed_file = $retriever->retrieve('file://' . realpath($seed_path));
-                if (!empty($seed_file)) {
+                $seed_file = file_get_contents('file://' . realpath($seed_path));
+                if (pathinfo($seed_path)['extension'] == 'yaml') {
+
+                    function yaml_replace(&$data) {
+                        foreach ($data as &$value) {
+                            if (is_array($value) ) {
+                                yaml_replace($value);
+                            }
+                            elseif (is_string($value) && $value[0] == '@') {
+                                $yaml_replace_data = Yaml::parse(file_get_contents('file://' . realpath(get_asset_path(substr($value, 1), 'data'))));
+
+                                $value = yaml_replace($yaml_replace_data);
+                            }
+                        }
+                        return $data;
+                    }
+                    $seed_data = Yaml::parse($seed_file);
+                    yaml_replace($seed_data);
+                    print_r($seed_data);
+
+                }
+                elseif (!empty($seed_file)) {
                   $seed_data = $seed_file;
                 }
                 else {
