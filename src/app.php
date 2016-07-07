@@ -91,15 +91,21 @@ $app->register(new Silex\Provider\TwigServiceProvider(), array(
 // Custom Functions
 
 
-function yaml_replace(&$data) {
+function data_replace(&$data) {
     foreach ($data as &$value) {
         if (is_array($value) ) {
-            yaml_replace($value);
+            data_replace($value);
         }
         elseif (is_string($value) && $value[0] == '@') {
-            $yaml_replace_data = Yaml::parse(file_get_contents('file://' . realpath(get_asset_path(substr($value, 1), 'data'))));
+            $file_path = 'file://' . realpath(get_asset_path(substr($value, 1), 'data'));
+            if (pathinfo($file_path)['extension'] == 'yaml') {
+                $data_replace_data = Yaml::parse(file_get_contents($file_path));
+            }
+            else {
+                $data_replace_data = file_get_contents($file_path);
+            }
 
-            $value = yaml_replace($yaml_replace_data);
+            $value = data_replace($data_replace_data);
         }
     }
     return $data;
