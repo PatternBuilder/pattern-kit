@@ -19,7 +19,7 @@
         "erusev/parsedown": "^1.6",
         "mnapoli/front-yaml": "^1.5",
         "symfony/twig-bridge": "^2.3",
-        "symfony/yaml": "v2.6.13"
+        "symfony/yaml": "=2.6.13"
     },
     "autoload": {
         "psr-0": {
