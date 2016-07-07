@@ -29,6 +29,20 @@
     },
     "image": {
       "$ref": "image.json"
+    },
+    "foo": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "bar": {
+            "type": "string"
+          },
+          "baz": {
+            "type": "string"
+          }
+        }
+      }
     }
   },
   "required": ["name", "quotation", "attribution_name"],

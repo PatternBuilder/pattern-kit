@@ -3,3 +3,7 @@ quotation: We think of Red Hat as one of just a handful of superior engineering 
 attribution_name: John Defeo
 attribution_title: President of Infrastructure, CIGNA
 image: @image
+foo:
+  - @foo
+  - @foo2
+

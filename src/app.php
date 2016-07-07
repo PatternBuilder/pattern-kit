@@ -99,13 +99,13 @@ function data_replace(&$data) {
         elseif (is_string($value) && $value[0] == '@') {
             $file_path = 'file://' . realpath(get_asset_path(substr($value, 1), 'data'));
             if (pathinfo($file_path)['extension'] == 'yaml') {
-                $data_replace_data = Yaml::parse(file_get_contents($file_path));
+                $data_replace_with = Yaml::parse(file_get_contents($file_path));
             }
             else {
-                $data_replace_data = file_get_contents($file_path);
+                $data_replace_with = json_decode(file_get_contents($file_path), true);
             }
 
-            $value = data_replace($data_replace_data);
+            $value = data_replace($data_replace_with);
         }
     }
     return $data;
