@@ -92,21 +92,23 @@ $app->register(new Silex\Provider\TwigServiceProvider(), array(
 
 
 function data_replace(&$data) {
-    foreach ($data as &$value) {
-        if (is_array($value) ) {
-            data_replace($value);
-        }
-        elseif (is_string($value) && $value[0] == '@') {
-            $file_path = 'file://' . realpath(get_asset_path(substr($value, 1), 'data'));
-            if (($pathinfo = pathinfo($file_path)) && isset($pathinfo[‘extension’]) && $pathinfo['extension'] == 'yaml') {
-                $data_replace_with = Yaml::parse(file_get_contents($file_path));
-            }
-            else {
-                $data_replace_with = json_decode(file_get_contents($file_path), true);
-            }
+    if (is_array($data)) {
+      foreach ($data as &$value) {
+          if (is_array($value) ) {
+              data_replace($value);
+          }
+          elseif (is_string($value) && $value[0] == '@') {
+              $file_path = 'file://' . realpath(get_asset_path(substr($value, 1), 'data'));
+              if (($pathinfo = pathinfo($file_path)) && isset($pathinfo[‘extension’]) && $pathinfo['extension'] == 'yaml') {
+                  $data_replace_with = Yaml::parse(file_get_contents($file_path));
+              }
+              else {
+                  $data_replace_with = json_decode(file_get_contents($file_path), true);
+              }
 
-            $value = data_replace($data_replace_with);
-        }
+              $value = data_replace($data_replace_with);
+          }
+      }
     }
     return $data;
 }
