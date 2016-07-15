@@ -35,8 +35,9 @@ class SchemaControllerProvider implements ControllerProviderInterface
             // end navigation
 
             if ($seed_path) {
+
                 $seed_file = file_get_contents('file://' . realpath($seed_path));
-                if (($pathinfo = pathinfo($seed_path)) && isset($pathinfo[‘extension’]) && $pathinfo['extension'] == 'yaml') {
+                if (($pathinfo = pathinfo($seed_path)) && isset($pathinfo['extension']) && $pathinfo['extension'] == 'yaml') {
 
                     $seed_data = Yaml::parse($seed_file);
 
