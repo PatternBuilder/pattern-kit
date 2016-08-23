@@ -251,3 +251,8 @@ body { -webkit-animation: androidBugfix infinite 1s; }
 .well .table-bordered>tbody>tr~tr {
   border-top: 1px #dedede solid;
 }
+
+a[href="#top"] {
+    margin-top: -50px;
+    float: right;
+}
