@@ -120,7 +120,12 @@ body { -webkit-animation: androidBugfix infinite 1s; }
 }
 .secondary-nav ~ .left {
   float: left;
-  width: calc(100vw - 250px);
+  width: calc(100vw - 300px);
+  max-width: 800px;
+  margin-left: 20px;
+}
+.secondary-nav ~ .left *:nth-child(1) {
+  margin-top: 0;
 }
 .right {
   background: white;
