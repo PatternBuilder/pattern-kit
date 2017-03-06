@@ -1,10 +1,10 @@
 
 <ul class="nav nav-pills nav-stacked">
-   {% for item in secondary_nav %}
-    <li class="dropdown">
-      <a href="{{ item.path ? path('styleguide', {pattern: item.path}): path('styleguide-home') }}"  role="button" aria-haspopup="true" aria-expanded="false">
-        {{item.title}}
-      </a>
+    {% for item in nav_by_order  | sortbyfield( 'order' ) %}
+    <li>
+        <a href="{{ item.path ? path( 'styleguide', { pattern: item.path } ): path( 'styleguide-home' ) }}" role="button" aria-expanded="false">
+        {{ item.title }}
+        </a>
     </li>
   {% endfor %}
 </ul>

@@ -19,7 +19,8 @@
         "erusev/parsedown": "^1.6",
         "mnapoli/front-yaml": "^1.5",
         "symfony/twig-bridge": "^2.3",
-        "symfony/yaml": "=2.6.13"
+        "symfony/yaml": "=2.6.13",
+        "snilius/twig-sort-by-field": "^0.1.5"
     },
     "autoload": {
         "psr-0": {
