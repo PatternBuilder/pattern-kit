@@ -29,25 +29,54 @@
         } only %}
      {% endset %}
 
-    {% set tabs_data = {
-        'tabs': [{
-            'title': 'Docs',
-            'content': docs,
-            'active': true
-        },{
-            'title': 'Schema Editor',
-            'content': '<div id="editor_holder"></div>',
-            'active': false
-        },{
-            'title': 'JSON Data',
-            'content': json_data,
-            'active': false
-        },{
-            'title': 'Twig Template',
-            'content': twig_template,
-            'active': false
-        }]
-    } %}
+     {% set tabs_data = {} %}
+     {% if raw_schema.category == "atom" %}
+        {% if template_markup %}
+            {% set twig = {
+                'title': 'Twig template',
+                'content': twig_template,
+                'active': false
+            } %}
+        {% endif %}
+        {% if json_data %}
+            {% set json = {
+                'title': 'JSON data',
+                'content': json_data,
+                'active': false
+            } %}
+        {% endif %}
+        {% set tabs_data = {
+            'tabs': [{
+                'title': 'Docs',
+                'content': docs,
+                'active': true
+            }, {
+                'title': 'Schema editor',
+                'content': '<div id="editor_holder"></div>',
+                'active': false
+            }] | merge([ twig ]) | merge([ json_data ])
+        } %}
+     {% else %}
+        {% set tabs_data = {
+            'tabs': [{
+                'title': 'Docs',
+                'content': docs,
+                'active': true
+            },{
+                'title': 'Schema editor',
+                'content': '<div id="editor_holder"></div>',
+                'active': false
+            },{
+                'title': 'JSON data',
+                'content': json_data,
+                'active': false
+            },{
+                'title': 'Twig template',
+                'content': twig_template,
+                'active': false
+            }]
+        } %}
+    {% endif %}
 
     {% include 'editor-tabs.twig' with tabs_data only %}
 

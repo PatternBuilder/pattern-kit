@@ -36,8 +36,24 @@
     pointer-events: none;
     position: relative;
 }
+/* Styles for the navbar */
+.navbar-inverse .navbar-nav > li > a {
+    color: #fff;
+    font-weight: 400;
+    font-size: 16px;
+}
+.navbar-inverse .navbar-header .navbar-brand:hover {
+    cursor: default;
+    color: #999;
+}
 
 /* Styles for the pattern preview tool */
+#schema_holder .page-header {
+    padding-left: 60px;
+}
+#schema_holder + .alert {
+	margin: 20px 60px;
+}
 #display_holder {
   width: 100%;
   border: 0;
