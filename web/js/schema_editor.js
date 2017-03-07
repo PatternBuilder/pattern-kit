@@ -138,6 +138,11 @@ if (data.starting.name) {
       contentType: 'application/json',
       data: JSON.stringify(json,null,2)
     }).success(function(response) {
+        if ( response.trim() === "The supplied JSON validates against the schema." ) {
+          $('.valid').removeClass('alert-danger').addClass('alert-success');
+      } else if ( response.includes( "The supplied JSON validates against the schema." ) ) {
+          $('.valid').removeClass('alert-danger').addClass('alert-warning');
+      }
       $('.valid').html(response);
       $.ajax({
         url: "/api/render/page",
