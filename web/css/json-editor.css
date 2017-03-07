@@ -1,3 +1,4 @@
+/* Define Overpass font */
 @font-face {
     font-family: Overpass;
     src: url("/resources/fixtures/fonts/overpass_regular-web.eot");
@@ -31,12 +32,16 @@
     font-style: normal;
 }
 
-
 .resize-overlay {
     pointer-events: none;
     position: relative;
 }
 
+/* Styles for the pattern preview tool */
+#display_holder {
+  width: 100%;
+  border: 0;
+}
 .sg-snippet-preview {
   position: relative;
   margin: 20px auto;
@@ -52,6 +57,7 @@
     -moz-transition: all .4s;
     transition: all .4s;
 }
+
 .sg-snippet-resize-handle:before {
     background: url('../img/icon-drag.svg') no-repeat;
     position: absolute;
@@ -61,14 +67,17 @@
     margin-top: -8px;
     width: 11px
 }
+
 .sg-snippet-resize-handle.pos-right {
     border-right: 1px solid #ccc;
     left: -40px;
     cursor: e-resize
 }
+
 .sg-snippet-resize-handle.pos-right:before {
     left: 10px
 }
+
 .sg-snippet-resize-handle.pos-left {
     border-left: 1px solid #ccc;
     cursor: w-resize;
@@ -84,33 +93,29 @@
     visibility: visible
 }
 
-@-webkit-keyframes androidBugfix {
-    from { padding: 0; } to { padding: 0; }
-}
-body {
-    -webkit-animation: androidBugfix infinite 1s;
-}
 
+@-webkit-keyframes androidBugfix { from { padding: 0; } to { padding: 0; } }
+body { -webkit-animation: androidBugfix infinite 1s; }
+/* Layout styles for extra large browsers, side-by-side preview + data */
 @media (min-width:1800px) {
   body, html {
     height: 100%;
   }
   .left {
+    width: 50%;
+    float: left;
     height: 100%;
     overflow: scroll;
   }
   .right {
+    padding: 0 1%;
     height: 100%;
+    left: 50%;
     overflow: scroll;
   }
 }
 
-.content {
-  margin-bottom: 10px;
-}
-.secondary-nav ~ .left ~ *:nth-child(1) {
-  margin-top: 0;
-}
+/* Styles specific to the schema content */
 .right {
   background: white;
   padding-top: 10px;
@@ -124,58 +129,35 @@ body {
     margin-bottom: 30px;
     padding: 0 80px;
 }
-
-@media (min-width: 1200px) {
+@media (min-width: 1800px) {
     .right > .container-fluid {
         margin-top: 50px;
     }
     .right .nav-tabs {
-        padding-left: 0;
+        padding-left: 10px;
     }
 }
 
-#display_holder {
-  width: 100%;
-  border: 0;
-}
+/* Styles specific to the interactive schema preview */
 #editor_holder {
-  /*height: 0;
-  overflow: hidden;*/
-  max-width: 1400px;
-  margin: 0 auto;
-  font-size: 12px;
+  font-size: 14px;
 }
 
-#editor_holder .btn {
+#editor_holder .btn,
+#editor_holder .form-control {
   font-size: 12px;
-  padding: 3px 6px;
 }
 
 #editor_holder .form-control {
-  font-size: 12px;
-  padding: 3px 6px;
-  height: 26px;
   background-color: #fff !important;
 }
 
 #editor_holder .list-group-item {
-  padding: 6px 6px;
+  //padding: 6px 6px;
 }
 
 #editor_holder .panel-title {
-    float: left;
-}
-
-.navbar-default {
-  background-color: #252527;
-}
-
-.navbar-default .navbar-nav>li>a, .navbar-default .navbar-nav>li>a:focus {
-  color: white;
-}
-
-.navbar-default .navbar-nav>li>a:hover, .navbar-default .navbar-nav .open .dropdown-menu>li>a:hover {
-  color: #aaa !important;
+    //float: left;
 }
 
 .page-header {
@@ -310,6 +292,10 @@ body {
 .navbar + .container-fluid {
     margin-right: 15px;
     margin-left: 15px;
+}
+/* Styles specific to styleguide */
+.secondary-nav + .left > *:first-child {
+  margin-top: 0;
 }
 code {
     white-space: normal;
