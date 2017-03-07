@@ -1,5 +1,8 @@
 {% extends '_pattern-kit-app.twig' %}
 
+
+
+
 {% block navigation %}
     {% include 'navigation.twig' with nav only %}
 {% endblock %}
@@ -78,7 +81,7 @@
         } %}
     {% endif %}
 
-    {% include 'editor-tabs.twig' with tabs_data only %}
+    {% include 'editor-tabs.twig' with tabs_data %}
 
     <div class="direct_link_holder well">
         <a id="direct_link" class="btn btn-primary " href="">Create link to this data</a><br>
@@ -86,9 +89,9 @@
 {% endblock %}
 
 {% block footer %}
-    <script type="text/javascript">
-        var data = {};
-        data.schema = {{ schema|raw }};
-        data.starting = {{ starting|raw }};
-    </script>
+<script type="text/javascript">
+    var data = {};
+    data.schema = {{ schema|raw }};
+    data.starting = {{ starting|raw }};
+</script>
 {% endblock %}
