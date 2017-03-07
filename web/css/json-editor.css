@@ -52,7 +52,6 @@
     -moz-transition: all .4s;
     transition: all .4s;
 }
-
 .sg-snippet-resize-handle:before {
     background: url('../img/icon-drag.svg') no-repeat;
     position: absolute;
@@ -62,17 +61,14 @@
     margin-top: -8px;
     width: 11px
 }
-
 .sg-snippet-resize-handle.pos-right {
     border-right: 1px solid #ccc;
     left: -40px;
     cursor: e-resize
 }
-
 .sg-snippet-resize-handle.pos-right:before {
     left: 10px
 }
-
 .sg-snippet-resize-handle.pos-left {
     border-left: 1px solid #ccc;
     cursor: w-resize;
@@ -88,41 +84,29 @@
     visibility: visible
 }
 
+@-webkit-keyframes androidBugfix {
+    from { padding: 0; } to { padding: 0; }
+}
+body {
+    -webkit-animation: androidBugfix infinite 1s;
+}
 
-
-@-webkit-keyframes androidBugfix {from { padding: 0; } to { padding: 0; }}
-body { -webkit-animation: androidBugfix infinite 1s; }
 @media (min-width:1800px) {
   body, html {
     height: 100%;
   }
   .left {
-    width: 50%;
-    float: left;
     height: 100%;
     overflow: scroll;
   }
   .right {
-    padding: 0 1%;
     height: 100%;
-    left: 50%;
     overflow: scroll;
   }
 }
 
 .content {
   margin-bottom: 10px;
-}
-
-.secondary-nav {
-  width: 250px;
-  float: left;
-}
-.secondary-nav ~ .left {
-  float: left;
-  width: calc(100vw - 300px);
-  max-width: 800px;
-  margin-left: 20px;
 }
 .secondary-nav ~ .left ~ *:nth-child(1) {
   margin-top: 0;
@@ -136,13 +120,23 @@ body { -webkit-animation: androidBugfix infinite 1s; }
   margin-right: 10px;
   margin-bottom: 10px;
 }
+.right .nav-tabs {
+    margin-bottom: 30px;
+    padding: 0 80px;
+}
+
+@media (min-width: 1200px) {
+    .right > .container-fluid {
+        margin-top: 50px;
+    }
+    .right .nav-tabs {
+        padding-left: 0;
+    }
+}
+
 #display_holder {
   width: 100%;
   border: 0;
-}
-.nav-tabs {
-    margin-bottom: 30px;
-    padding: 0 80px;
 }
 #editor_holder {
   /*height: 0;
@@ -301,8 +295,6 @@ body { -webkit-animation: androidBugfix infinite 1s; }
   z-index: 10;
   background: rgba(255,255,255,.5);
 }
-
-
 .well .table-bordered  {
   border: 0px;
 }
@@ -315,7 +307,13 @@ body { -webkit-animation: androidBugfix infinite 1s; }
 .well .table-bordered>tbody>tr~tr {
   border-top: 1px #dedede solid;
 }
-
+.navbar + .container-fluid {
+    margin-right: 15px;
+    margin-left: 15px;
+}
+code {
+    white-space: normal;
+}
 a[href="#top"] {
     margin-top: -50px;
     float: right;

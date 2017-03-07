@@ -1,9 +1,11 @@
 {
     "name": "pattern-builder/pattern-kit",
-    "authors": [{
-        "name": "Micah Godbolt",
-        "email": "micahgodbolt@gmail.com"
-    }],
+    "authors": [
+        {
+          "name": "Micah Godbolt",
+          "email": "micahgodbolt@gmail.com"
+        }
+    ],
     "license": "MIT",
     "require": {
         "php": ">=5.3.3",
