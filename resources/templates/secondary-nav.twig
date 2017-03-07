@@ -2,8 +2,7 @@
 <ul class="nav nav-pills nav-stacked">
     {# This logic renders the secondary nav items in the order specified #}
     {# Otherwise they are randomly ordered in the list #}
-    {% set secondary_nav_ordered = [] %}
-    {% set secondary_nav_random = [] %}
+    {% set secondary_nav_ordered, secondary_nav_random = [], [] %}
     {% for i in 0..secondary_nav|length %}
         {% for item in secondary_nav %}
             {% if loop.index == 1 and i == 0 %}
@@ -20,6 +19,7 @@
             {% endif %}
         {% endfor %}
     {% endfor %}
+    {# Add the nav items without specified order to the end of the list #}
     {% set secondary_nav_ordered = secondary_nav_ordered|merge(secondary_nav_random) %}
 
     {% for item in secondary_nav_ordered %}
@@ -28,5 +28,5 @@
         {{ item.title }}
         </a>
     </li>
-  {% endfor %}
+    {% endfor %}
 </ul>

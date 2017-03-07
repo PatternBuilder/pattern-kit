@@ -1,21 +1,18 @@
 {% extends '_pattern-kit-app.twig' %}
 
-
 {% block navigation %}
-	{% include 'navigation.twig' with nav only %}
+    {% include 'navigation.twig' with nav only %}
 {% endblock %}
 
 {% block secondary_nav %}
-	{% include 'secondary-nav.twig' %}
+    {% include 'secondary-nav.twig' %}
 {% endblock %}
 
 {% block left %}
-	<h1>{{sg_yaml.title}}</h1>
+    <h1>{{ sg_yaml.title }}</h1>
 
-	{{sg_content|raw}}
+    {{ sg_content|raw }}
 {% endblock %}
 
-
 {% block footer %}
-
 {% endblock %}

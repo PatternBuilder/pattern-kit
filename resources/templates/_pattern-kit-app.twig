@@ -19,7 +19,7 @@
 	    <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 	    <script type="text/javascript" src="{{vendor_path}}web/js/json-editor.js"></script>
 	    <script type="text/javascript" src="{{vendor_path}}web/js/lzstring.js"></script>
-	    <script src="https://cdn.jsdelivr.net/interact.js/1.2.6/interact.min.js"></script>
+	    <script src="https://cdn.jsdelivr.net/interact.js/1.2.8/interact.min.js"></script>
 	    <script type="text/javascript" src="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
 	    <script src="https://cdn.jsdelivr.net/sceditor/1.4.3/jquery.sceditor.bbcode.min.js"></script>
 	    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.0/ace.js"></script>
@@ -29,12 +29,12 @@
 
 	</head>
 	<body>
-		
+
 		{% block navigation %}
 		{% endblock %}
 
-		<div class="content">
-			
+		<div class="content container-fluid">
+
 		    {% if block('secondary_nav') %}
 		        <nav class="secondary-nav">
 		            {% block secondary_nav %}{% endblock %}
@@ -52,11 +52,10 @@
 		            {% block right %}{% endblock %}
 		        </div>
 		    {% endif %}
-			
-		</div>
-		
-		{% block footer %}{% endblock %}
 
+		</div>
+
+        {% block footer %}{% endblock %}
 		<script type="text/javascript" src="{{vendor_path}}web/js/schema_editor.js"></script>
 	</body>
 </html>
