@@ -222,12 +222,10 @@ body { -webkit-animation: androidBugfix infinite 1s; }
 #editor_holder [data-schematype="array"] > .well {
     padding: 0;
     border: 0;
-    border-radius: 0;
 }
 #editor_holder [data-schematype="array"] > .well > div > .well {
     margin: 0;
     padding-bottom: 10px !important;
-    border-radius: 0;
     border: 0;
     border-bottom: 10px solid #fff;
 }
@@ -254,9 +252,19 @@ body { -webkit-animation: androidBugfix infinite 1s; }
 #editor_holder [data-schematype="array"] label {
     font-weight: 600;
 }
-#editor_holder [data-schematype="array"] [data-schematype="object"] > h3 span {
-    display: inline-block !important;
+#editor_holder [data-schematype="array"] > .well > div > [data-schematype="object"] {
+    border-bottom: 2px solid #fff;
+}
+#editor_holder [data-schematype="array"]  > .well > div > [data-schematype="object"] > h3 {
     font-size: 14px;
+    padding-left: 10px;
+    padding-top: 5px;
+}
+#editor_holder [data-schematype="array"]  > .well > div > [data-schematype="object"] > h3 span {
+    display: inline-block !important;
+}
+#editor_holder [data-schematype="array"]  > .well > div > [data-schematype="object"] > .well {
+    margin-bottom: 0;
 }
 
 #json_holder {
