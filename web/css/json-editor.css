@@ -31,6 +31,9 @@
     font-weight: 400;
     font-style: normal;
 }
+body {
+    font-size: 16px;
+}
 
 .resize-overlay {
     pointer-events: none;
@@ -170,8 +173,8 @@ code {
 
 #editor_holder .well > .form-control {
   background-color: #fff !important;
-  font-size: 1.1em;
-  color: #44a3ac; /* aqua */
+    font-size: 1.2em;
+    color: #017EA3; /* aqua */
   font-weight: bold !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -213,6 +216,7 @@ code {
 .help-block {
     color: #3e3e3e;
 }
+
 .json-editor-btn-collapse {
     background: transparent;
     border: 0;
@@ -222,12 +226,15 @@ code {
 .json-editor-btn-collapse:hover {
     background: transparent;
 }
+#editor_holder [data-schematype="array"]:hover > h3 .btn-group .json-editor-btn-collapse i ,
+#editor_holder [data-schematype="object"]:hover > h3 .btn-group .json-editor-btn-collapse i ,
 .json-editor-btn-collapse:hover i:before {
-    color: #276edc;
+    color: #017EA3; /* #276edc;*/
 }
 .json-editor-btn-collapse i {
-    font-size: 2em;
+    font-size: 1.7em;
 }
+
 
 #editor_holder .well {
   margin-bottom: 10px;
@@ -257,7 +264,7 @@ code {
   padding-bottom: 10px !important;
   border: 3px solid #FFF;
   border-radius: 0;
-  background-color: #e1eae2;  /* sage */
+  background-color: rgba(205, 233, 219, 0.3);  /* sage */
 }
 #editor_holder [data-schematype="array"] > .well > div > .well:last-child {
     padding-bottom: 0 !important;
@@ -277,7 +284,7 @@ code {
 }
 #editor_holder [data-schematype="object"]:hover > h3 > span,
 #editor_holder [data-schematype="object"] .well .well .well:hover h3 span {
-    color: #276edc; /* cerulean */
+    color: #017EA3; /* aqua */
 }
 #editor_holder [data-schematype="array"] > h3 span {
     font-weight: 800;
@@ -347,6 +354,9 @@ code {
 .well .table-bordered>tbody>tr~tr {
   border-top: 1px #dedede solid;
 }
+.navbar {
+    margin-bottom: 0;
+}
 .navbar + .container-fluid {
     margin-right: 15px;
     margin-left: 15px;
@@ -354,6 +364,13 @@ code {
 /* Styles specific to styleguide */
 .secondary-nav + .left > *:first-child {
   margin-top: 0;
+}
+.secondary-nav  .nav>li {
+    margin: 0;
+}
+.secondary-nav  .nav>li>a {
+    border-bottom: 1px solid #ddd;
+    padding: 7px 3px;
 }
 code {
     white-space: normal;
