@@ -155,6 +155,10 @@ body { -webkit-animation: androidBugfix infinite 1s; }
 }
 
 /* Styles specific to the interactive schema preview */
+code {
+    color: #000000;
+    background-color: #fbeff3;
+}
 #editor_holder {
   font-size: 14px;
 }
@@ -167,17 +171,19 @@ body { -webkit-animation: androidBugfix infinite 1s; }
 #editor_holder .well > .form-control {
   background-color: #fff !important;
   font-size: 1.1em;
-  color: #002e75;
+  color: #44a3ac; /* aqua */
   font-weight: bold !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 
 #editor_holder .list-group-item {
-  /*padding: 6px 6px;*/
+  padding: 6px 6px;
 }
 
 #editor_holder .panel-title {
-    /*float: left;*/
+    float: left;
 }
 
 .page-header {
@@ -250,7 +256,6 @@ body { -webkit-animation: androidBugfix infinite 1s; }
   margin: 0 0 15px;
   padding-bottom: 10px !important;
   border: 3px solid #FFF;
-  border-bottom: 10px solid #fff;
   border-radius: 0;
   background-color: #e1eae2;  /* sage */
 }
@@ -270,6 +275,7 @@ body { -webkit-animation: androidBugfix infinite 1s; }
     font-weight: 800;
     color: #212121;
 }
+#editor_holder [data-schematype="object"]:hover > h3 > span,
 #editor_holder [data-schematype="object"] .well .well .well:hover h3 span {
     color: #276edc; /* cerulean */
 }
