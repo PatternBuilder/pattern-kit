@@ -214,6 +214,7 @@ function getDocNav($pattern) {
             $sg_data = $parser->parse($sg_file);
             $data['sg_yaml'] = $sg_data->getYAML();
             $nav_item['title'] = $data['sg_yaml']['title'];
+            $nav_item['order'] = $data['sg_yaml']['order'];
             $nav_item['path'] = $value_parts[0];
             if ($value_parts[0] == $pattern) {
                 $nav_item['active'] = true;
