@@ -95,8 +95,7 @@ var editor_update = function(markup, json) {
         handleHeights();
     });
 
-}
-
+};
 
 var updateDirectLink = function() {
     var url = window.location.href.replace(/\?.*/,'');
