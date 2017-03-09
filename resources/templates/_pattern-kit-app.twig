@@ -41,7 +41,7 @@
 	    {% endif %}
 
 	    {% if block( 'left' ) %}
-	        <div class="left {{ if block( 'secondary_nav' ) ? col-xs-12 col-sm-9 }}">
+	        <div class="left {% if block( 'secondary_nav' ) %} col-xs-12 col-sm-9 {% endif %}">
                 {% block left %}{% endblock %}
 	        </div>
 	    {% endif %}
