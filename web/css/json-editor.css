@@ -33,7 +33,21 @@
 }
 body {
     font-size: 16px;
+    font-family: "Overpass", Overpass, Helvetica, helvetica, arial, sans-serif;
+    font-weight: 100;
 }
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: "Overpass", Overpass, Helvetica, helvetica, arial, sans-serif;
+  color: #017EA3;
+  font-weight: 600;
+}
+a {
+  color: #017EA3;
+}
+a:hover, a:focus {
+  color: #0eb3e4;
+}
+
 
 .resize-overlay {
     pointer-events: none;
@@ -134,6 +148,14 @@ body { -webkit-animation: androidBugfix infinite 1s; }
   }
 }
 
+/* Styles specific to the documentation */
+.docs-wrapper {
+  font-size: 1.1em;
+  max-width: 800px;
+}
+.docs-wrapper a {
+  text-decoration: underline;
+}
 /* Styles specific to the schema content */
 .right {
   background: white;
@@ -160,7 +182,7 @@ body { -webkit-animation: androidBugfix infinite 1s; }
 /* Styles specific to the interactive schema preview */
 code {
     color: #000000;
-    background-color: #fbeff3;
+    background-color: #f3e3e8;
 }
 #editor_holder {
   font-size: 14px;
@@ -360,6 +382,7 @@ code {
 .navbar + .container-fluid {
     margin-right: 15px;
     margin-left: 15px;
+    margin-top: 15px;
 }
 /* Styles specific to styleguide */
 .secondary-nav + .left > *:first-child {
@@ -378,4 +401,9 @@ code {
 a[href="#top"] {
     margin-top: -50px;
     float: right;
+}
+hr {
+    border-top: 1px solid #bbb;
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
