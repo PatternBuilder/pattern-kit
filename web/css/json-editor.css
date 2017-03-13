@@ -392,6 +392,14 @@ code {
 .docs-wrapper a {
   text-decoration: underline;
 }
+.docs-wrapper li {
+    margin-top: 3px;
+    margin-bottom: 8px;
+}
+.docs-wrapper li li {
+    margin-top: 3px;
+    margin-bottom: 1px;
+}
 .secondary-nav {
     max-width: 300px;
 }
