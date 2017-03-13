@@ -36,9 +36,16 @@ body {
     font-family: "Overpass", Overpass, Helvetica, helvetica, arial, sans-serif;
     font-weight: 100;
 }
+
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   font-family: "Overpass", Overpass, Helvetica, helvetica, arial, sans-serif;
   color: #017EA3;
+  font-weight: 400;
+}
+h1, .h1 {
+  color: #02546d;
+}
+h1, .h1, h2, .h2 {
   font-weight: 600;
 }
 a {
