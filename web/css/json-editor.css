@@ -148,14 +148,6 @@ body { -webkit-animation: androidBugfix infinite 1s; }
   }
 }
 
-/* Styles specific to the documentation */
-.docs-wrapper {
-  font-size: 1.1em;
-  max-width: 800px;
-}
-.docs-wrapper a {
-  text-decoration: underline;
-}
 /* Styles specific to the schema content */
 .right {
   background: white;
@@ -384,14 +376,25 @@ code {
     margin-left: 15px;
     margin-top: 15px;
 }
-/* Styles specific to styleguide */
+
+/* Styles specific to styleguide / documentation */
+.docs-wrapper {
+  font-size: 1.1em;
+  max-width: 800px;
+}
+.docs-wrapper a {
+  text-decoration: underline;
+}
+.secondary-nav {
+    max-width: 300px;
+}
 .secondary-nav + .left > *:first-child {
   margin-top: 0;
 }
-.secondary-nav  .nav>li {
+.secondary-nav .nav>li {
     margin: 0;
 }
-.secondary-nav  .nav>li>a {
+.secondary-nav .nav>li>a {
     border-bottom: 1px solid #ddd;
     padding: 7px 3px;
 }
