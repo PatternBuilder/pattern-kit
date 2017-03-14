@@ -33,7 +33,28 @@
 }
 body {
     font-size: 16px;
+    font-family: "Overpass", Overpass, Helvetica, helvetica, arial, sans-serif;
+    font-weight: 100;
 }
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: "Overpass", Overpass, Helvetica, helvetica, arial, sans-serif;
+  color: #017EA3;
+  font-weight: 400;
+}
+h1, .h1 {
+  color: #02546d;
+}
+h1, .h1, h2, .h2 {
+  font-weight: 600;
+}
+a {
+  color: #017EA3;
+}
+a:hover, a:focus {
+  color: #0eb3e4;
+}
+
 
 .resize-overlay {
     pointer-events: none;
@@ -160,7 +181,7 @@ body { -webkit-animation: androidBugfix infinite 1s; }
 /* Styles specific to the interactive schema preview */
 code {
     color: #000000;
-    background-color: #fbeff3;
+    background-color: #f3e3e8;
 }
 #editor_holder {
   font-size: 14px;
@@ -360,15 +381,38 @@ code {
 .navbar + .container-fluid {
     margin-right: 15px;
     margin-left: 15px;
+    margin-top: 15px;
 }
-/* Styles specific to styleguide */
+
+/* Styles specific to styleguide / documentation */
+.docs-wrapper {
+  font-size: 1.1em;
+  max-width: 800px;
+}
+.right, .left {
+  overflow: auto;
+}
+.docs-wrapper a {
+  text-decoration: underline;
+}
+.docs-wrapper li {
+    margin-top: 3px;
+    margin-bottom: 8px;
+}
+.docs-wrapper li li {
+    margin-top: 3px;
+    margin-bottom: 1px;
+}
+.secondary-nav {
+    max-width: 300px;
+}
 .secondary-nav + .left > *:first-child {
   margin-top: 0;
 }
-.secondary-nav  .nav>li {
+.secondary-nav .nav>li {
     margin: 0;
 }
-.secondary-nav  .nav>li>a {
+.secondary-nav .nav>li>a {
     border-bottom: 1px solid #ddd;
     padding: 7px 3px;
 }
@@ -378,4 +422,9 @@ code {
 a[href="#top"] {
     margin-top: -50px;
     float: right;
+}
+hr {
+    border-top: 1px solid #bbb;
+    margin-top: 30px;
+    margin-bottom: 30px;
 }

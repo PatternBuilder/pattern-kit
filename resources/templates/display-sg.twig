@@ -10,9 +10,11 @@
 {% endblock %}
 
 {% block left %}
-<h1>{{sg_yaml.title}}</h1>
+    <div class="docs-wrapper">
+        <h1>{{sg_yaml.title}}</h1>
 
-{{sg_content|raw}}
+        {{sg_content|raw}}
+    </div>
 {% endblock %}
 
 

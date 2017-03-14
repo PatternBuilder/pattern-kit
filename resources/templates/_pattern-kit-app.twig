@@ -33,26 +33,26 @@
 {% endblock %}
 
 <div class="container-fluid">
-	<div class="row">
-	    {% if block( 'secondary_nav' ) %}
-	        <nav class="secondary-nav col-xs-12 col-sm-2">
-	            {% block secondary_nav %}{% endblock %}
-	        </nav>
-	    {% endif %}
+    <div class="row">
+        {% if block( 'secondary_nav' ) %}
+            <nav class="secondary-nav col-xs-12 col-sm-3">
+                {% block secondary_nav %}{% endblock %}
+            </nav>
+        {% endif %}
 
-	    {% if block( 'left' ) %}
-	        <div class="left {% if block( 'secondary_nav' ) %} col-xs-12 col-sm-9 {% endif %}">
+        {% if block( 'left' ) %}
+            <div class="left {% if block( 'secondary_nav' ) %} col-xs-12 col-sm-9 {% endif %}">
                 {% block left %}{% endblock %}
-	        </div>
-	    {% endif %}
+            </div>
+        {% endif %}
 
-	    {% if block( 'right' ) %}
-	        <div class="right">
-	            {% block right %}{% endblock %}
-	        </div>
-	    {% endif %}
+        {% if block( 'right' ) %}
+            <div class="right">
+                {% block right %}{% endblock %}
+            </div>
+        {% endif %}
 
-	</div>
+    </div>
 </div>
 
 {% block footer %}{% endblock %}
