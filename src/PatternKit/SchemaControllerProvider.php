@@ -8,6 +8,7 @@ namespace PatternKit;
 use Silex\Application;
 use Silex\ControllerProviderInterface;
 use Symfony\Component\Yaml\Yaml;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Class SchemaControllerProvider
@@ -88,7 +89,7 @@ class SchemaControllerProvider implements ControllerProviderInterface {
 
     })->bind('schema');
 
-    $controllers->get('/editor/{pattern}', function ($pattern) use ($app) {
+    $controllers->match('/editor/{pattern}', function (Request $request, $pattern) use ($app) {
 
       $retriever     = new \JsonSchema\Uri\UriRetriever;
       $path          = get_asset_path($pattern, 'schemas');
@@ -106,6 +107,7 @@ class SchemaControllerProvider implements ControllerProviderInterface {
       }
       // end navigation
 
+      // Get the default values for the various config elements.
       if ($seed_path) {
         $seed_file = file_get_contents('file://' . realpath($seed_path));
         if (($pathinfo = pathinfo($seed_path)) && isset($pathinfo['extension']) && $pathinfo['extension'] == 'yaml') {
@@ -121,6 +123,11 @@ class SchemaControllerProvider implements ControllerProviderInterface {
       }
       else {
         $seed_data = array();
+      }
+
+      $raw_json = $request->getContent();
+      if (!empty($raw_json)) {
+        $seed_data = $raw_json;
       }
 
       $refResolver            = new \JsonSchema\RefResolver($retriever);
@@ -149,7 +156,10 @@ class SchemaControllerProvider implements ControllerProviderInterface {
 
       return $app['twig']->render("display-just-schema-editor.twig", $data);
 
-    })->bind('schema-editor');
+    })
+      // Supporting GET/POST for easier debugging.
+      ->method('GET|POST')
+      ->bind('schema-editor');
 
     return $controllers;
   }
