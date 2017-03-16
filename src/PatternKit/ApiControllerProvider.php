@@ -91,6 +91,8 @@ class ApiControllerProvider implements ControllerProviderInterface {
         else {
           return $app['twig']->render($contents["name"] . '.twig', $contents);
         }
+      }
+    });
 
     // JSON validation endpoint.
     $controllers->post('/validate', function (Request $request) use ($app) {
