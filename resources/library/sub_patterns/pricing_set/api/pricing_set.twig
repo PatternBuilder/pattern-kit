@@ -1,0 +1,39 @@
+{% embed 'group.twig' with {
+    "global": _context,
+    "config": {
+        "vertical_layout": "min-stacked"
+    },
+    "body": {
+        "theme": config.theme|default("light"),
+        "layout": "min-stacked"
+    }
+} only %}
+
+    {% block body %}
+        {% include 'price.twig' with {
+            "align": global.config.align,
+            "teaser": global.price_data.teaser,
+            "sku": global.price_data.sku,
+            "amount":  global.price_data.amount,
+            "currency": global.price_data.currency|default("USD")
+        } only %}
+    {% endblock %}
+
+    {% block footer %}
+        {% if global.cta %}
+            {% include 'cta.twig' with {
+                "config": {
+                    "align": global.config.align,
+                    "type": global.cta.config.type|default("primary"),
+                    "semantic": global.cta.config.semantic|default("Submit button")
+                },
+                "link": {
+                    "href": global.cta.link.href,
+                    "title": global.cta.link.title,
+                    "text": global.cta.text|default("Buy it")
+                }
+            } only %}
+        {% endif %}
+    {% endblock %}
+
+{% endembed %}

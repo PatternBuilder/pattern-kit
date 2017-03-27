@@ -1,0 +1,11 @@
+name: social_icon
+config:
+    content_align: center
+    icon_size: large
+    show_handle: true
+    handle_position: below
+social:
+    platform: Twitter
+    account: "&#64;RedHatJobs"
+    href: "//www.twitter.com/RedHatJobs"
+    title: Follow us on Twitter

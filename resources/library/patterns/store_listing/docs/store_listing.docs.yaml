@@ -1,0 +1,17 @@
+name: store_listing
+config: 
+    background_color: gray
+body: 
+    layout: gallery3
+    sub_patterns: 
+        - @store_product_box
+        - @store_product_box
+        - @store_product_box
+        - @store_product_box
+        - @store_product_box
+        - @store_product_box
+        - @store_product_box
+        - @store_product_box
+footer: 
+    sub_patterns:
+        - @footnote

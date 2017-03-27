@@ -1,0 +1,22 @@
+name: hero
+group_height: content
+background: 
+    color: gray
+    isFixed: false
+    image_large: 
+        src: //www.redhat.com/profiles/rh/themes/redhatdotcom/img/header/header-hub-about-2000x1898.jpg
+    image_small:
+        src: //www.redhat.com/profiles/rh/themes/redhatdotcom/img/home/home-jul2015part2-2000x950.jpg
+navigation: "<div style='margin: 0 auto; background-image: url(/fixtures/images/utility.png); height: 39px; max-width: 1170px;'></div><div style='max-width: 1170px; margin: 0 auto; background-image: url(/fixtures/images/nav.png); height: 88px; margin-bottom: 25px'></div>"
+body:
+    - name: hero_header
+      theme: dark
+      title: Featured success stories
+      headline: Cigna builds a private cloud
+      summary: Migrating your company's operating system may seem like an overwhelming task but Red Hat<sup>&reg;</sup> Technical Account Management (TAM) is at your disposal throughout the entire migration process to assist your team.
+      cta:
+          type: primary
+          link:
+              href: #
+              title:
+              text: Read more

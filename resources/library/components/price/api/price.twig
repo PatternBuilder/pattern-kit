@@ -1,0 +1,18 @@
+{% if amount %}
+    {% set unit = "US$" %}
+    {% if currency == "EUR" %}
+        {% set unit = "EU€" %}
+    {% endif %}
+
+    <div class="rh-price"{% if align %} data-rh-align="{{ align }}"{% endif %}>
+        {% if teaser %}
+            <p class="rh-price-teaser">{% include "no_html.twig" with { "string": teaser } only %}</p>
+        {% endif %}
+
+        <h4 class="rh-price-main">{% include 'formatted_price.twig' with { unit: unit, price: amount } only %}</h4>
+
+        {% if sku %}
+            <p class="rh-price-sku">SKU: {% include "no_html.twig" with { "string": sku } only %}</p>
+        {% endif %}
+    </div>
+{% endif %}

@@ -1,0 +1,64 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Menu columns",
+    "category": "sub_pattern",
+    "type": "object",
+    "properties": {
+        "name": {
+            "type": "string",
+            "enum": ["menu_column"],
+            "options": {
+                "hidden": true
+            }
+        },
+        "config": {
+            "title": "Configuration",
+            "type": "object",
+            "format": "grid",
+            "options": {
+                "hidden": true
+            },
+            "properties": {
+                "theme": {
+                    "title": "Theme",
+                    "description": "Light themes are for light backgrounds, dark themes for dark backgrounds.",
+                    "type": "string",
+                    "enum": ["light", "dark"],
+                    "default": "dark",
+                    "options": {
+                        "hidden": true
+                    }
+                },
+                "vertical_spacing": {
+                    "title": "Band vertical layout",
+                    "description": "Vertical space between header, body and footer",
+                    "type": "string",
+                    "enum": ["min-stacked", "stacked", "tall-stacked"],
+                    "default": "min-stacked",
+                    "options": {
+                        "hidden": true
+                    }
+                }
+            }
+        },
+        "column": {
+            "title": "Column",
+            "type": "object",
+            "properties": {
+                "menu": {
+                    "title": "Menu item",
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                        "oneOf": [{
+                            "$ref": "menu_list.json"
+                        }]
+                    }
+                }
+            },
+            "required": ["menu"]
+        }
+    },
+    "required": ["name", "column"],
+    "additionalProperties": false
+}

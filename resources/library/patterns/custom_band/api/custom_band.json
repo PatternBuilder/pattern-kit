@@ -1,0 +1,255 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Custom Band",
+    "description": "",
+    "category": "pattern",
+    "required": [ "background", "body", "name" ],
+    "additionalProperties": false,
+    "type": "object",
+    "format": "grid",
+    "properties": {
+        "name": {
+            "type": "string",
+            "enum": [ "custom_band" ],
+            "options": {
+                "hidden": true
+            }
+        },
+        "meta": {
+            "type": "object",
+            "properties": {
+                "class": {
+                    "options": {
+                        "hidden": true
+                    },
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "id": {
+                    "type": "string",
+                    "options": {
+                        "hidden": true
+                    }
+                },
+                "uniqueId": {
+                    "type": "string",
+                    "options": {
+                        "hidden": true
+                    }
+                }
+            }
+        },
+        "config": {
+            "title": "Configuration",
+            "type": "object",
+            "properties": {
+                "theme": {
+                    "title": "Theme",
+                    "description": "Select dark theme when using a dark background",
+                    "type": "string",
+                    "enum": [ "light", "dark" ],
+                    "default": "light"
+                }
+            }
+        },
+        "background": {
+            "title": "Background Options",
+            "type": "object",
+            "format": "grid",
+            "required": [ "color" ],
+            "properties": {
+                "image_large": {
+                    "title": "Large Screen Background Image",
+                    "entity": "image",
+                    "type": "object",
+                    "properties": {
+                        "src": {
+                            "type": "string",
+                            "format": "url"
+                        }
+                    }
+                },
+                "image_small": {
+                    "title": "Small Screen Background Image",
+                    "entity": "image",
+                    "type": "object",
+                    "properties": {
+                        "src": {
+                            "type": "string",
+                            "format": "url"
+                        }
+                    }
+                },
+                "isFixed": {
+                    "title": "Fixed background option",
+                    "description": "Fixed Background makes images stay in place when user scrolls",
+                    "type": "boolean"
+                },
+                "color": {
+                    "title": "Background color",
+                    "description": "Background color if no images load",
+                    "type": "string",
+                    "enum": [ "white", "gray", "black", "rich-black", "red", "transparent" ],
+                    "default": "white"
+                }
+            }
+        },
+        "header": {
+            "title": "Band header",
+            "type": "object",
+            "properties": {
+                "seo_emphasis": {
+                    "title": "SEO emphasis",
+                    "description": "Emphasize element with keywords or relevant content. 'Standard' is the system default",
+                    "type": "string",
+                    "enum": [ "standard", "title", "headline" ],
+                    "default": "standard"
+                },
+                "theme": {
+                    "title": "Band header theme",
+                    "description": "Select dark theme when using a dark background",
+                    "type": "string",
+                    "enum": [ "light", "dark" ],
+                    "default": "light",
+                    "options": {
+                        "hidden": true
+                    }
+                },
+                "title": {
+                    "title": "Band title",
+                    "type": "string",
+                    "options": {
+                        "preview": true
+                    }
+                },
+                "headline": {
+                    "title": "Band headline",
+                    "type": "string",
+                    "options": {
+                        "preview": true
+                    }
+                },
+                "summary": {
+                    "title": "Band subtitle",
+                    "description": "Allowed tags: &lt;a&gt;&lt;br&gt;",
+                    "type": "string",
+                    "format": "html"
+                }
+            }
+        },
+        "body": {
+            "type": "object",
+            "title": "Body",
+            "required": [ "sub_patterns" ],
+            "properties": {
+                "layout": {
+                    "title": "Layout",
+                    "description": "Select a layout if you are not using a sidebar pattern. Each band is 12 columns so '6 6' means 2 equal columns, '4 4 4' is 3 equal columns. Stacked means no layout, but provides vertical spacing",
+                    "type": "string",
+                    "enum": [
+                        "6 6", "8 4", "4 8", "9 3", "3 9", "4 4 4", "3 3 3 3", "gallery2", "gallery3", "stacked"
+                    ],
+                    "default": "8 4"
+                },
+                "theme": {
+                    "title": "Band body theme",
+                    "description": "Select dark theme when using a dark background",
+                    "type": "string",
+                    "enum": [ "light", "dark" ],
+                    "default": "light",
+                    "options": {
+                        "hidden": true
+                    }
+                },
+                "sub_patterns": {
+                    "type": "array",
+                    "title": "Body patterns",
+                    "items": {
+                        "oneOf": [{
+                            "$ref": "raw_html.json"
+                        },{
+                            "$ref": "standard_text.json"
+                        },{
+                            "$ref": "quote_box.json"
+                        },{
+                            "$ref": "video_box.json"
+                        },{
+                            "$ref": "image_box.json"
+                        },{
+                            "$ref": "icon_panel_box.json"
+                        }]
+                    }
+                }
+            }
+        },
+        "aside": {
+            "type": "object",
+            "title": "Optional Sidebar",
+            "options": {
+                "collapsed": true
+            },
+            "theme": {
+                "title": "Band aside theme",
+                "description": "Select dark theme when using a dark background",
+                "type": "string",
+                "enum": [ "light", "dark" ],
+                "default": "light",
+                "options": {
+                    "hidden": true
+                }
+            },
+            "properties": {
+                "sub_patterns": {
+                    "maxItems": "3",
+                    "type": "array",
+                    "title": "Sidebar patterns",
+                    "items": {
+                        "oneOf": [{
+                            "$ref": "raw_html.json"
+                        },{
+                            "$ref": "standard_text.json"
+                        },{
+                            "$ref": "quote_box.json"
+                        },{
+                            "$ref": "video_box.json"
+                        },{
+                            "$ref": "image_box.json"
+                        },{
+                            "$ref": "icon_panel_box.json"
+                        }]
+                    }
+                }
+            }
+        },
+        "cta": {
+            "title": "Optional call-to-action button",
+            "type": "object",
+            "options": {
+                "collapsed": true
+            },
+            "theme": {
+                "title": "Band footer theme",
+                "description": "Select dark theme when using a dark background",
+                "type": "string",
+                "enum": [ "light", "dark" ],
+                "default": "light",
+                "options": {
+                    "hidden": true
+                }
+            },
+            "properties": {
+                "type": {
+                    "title": "CTA type",
+                    "type": "string",
+                    "enum": [ "primary", "secondary" ],
+                    "default": "primary"
+                },
+                "link": {
+                    "$ref": "link.json"
+                }
+            }
+        }
+    }
+}

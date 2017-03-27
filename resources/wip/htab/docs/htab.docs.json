@@ -1,0 +1,366 @@
+{
+    "name": "band_group",
+    "background": {
+        "image_large": {
+            "src": "http://www.redhat.com/profiles/rh/themes/redhatdotcom/img/bkgd/bkgd-dkc-tabs-sky-2000x340.jpg"
+        }
+    },
+    "body": {
+        "content": [
+            {
+                "name": "band",
+                "background": {
+                    "color": "transparent"
+                },
+                "config": {
+                    "vertical_spacing": "tall-stacked",
+                    "collapse": "full_bottom"
+                },
+                "header": {
+                    "theme": "dark",
+                    "content": [
+                        {
+                            "name": "band_header",
+                            "title": "Red Hat Products",
+                            "headline": "Secure, supported technologies for next-generation IT"
+                        }
+                    ]
+                },
+                "body": {
+                    "content": [
+                        {
+                            "name": "htab_nav",
+                            "config": {
+                                "tab_id": "abc",
+                                "active_tab": 1
+                            },
+                            "tabs": [
+                                {
+                                    "title": "",
+                                    "text": "Datasheets"
+                                },
+                                {
+                                    "title": "",
+                                    "text": "Whitepapers"
+                                },
+                                {
+                                    "title": "",
+                                    "text": "Videos"
+                                },
+                                {
+                                    "title": "",
+                                    "text": "Case Studies"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "footer": {
+        "content": [
+            {
+                "name": "band_switcher",
+                "config": {
+                    "tab_id": "abc",
+                    "active_band": 1
+                },
+                "body": {
+                    "content": [
+                        {
+                            "name": "band",
+                            "background": {
+                                "color": "gray"
+                            },
+                            "header": {
+                                "content": [
+                                    {
+                                        "name": "band_header",
+                                        "title": "Featured Events",
+                                        "headline": ""
+                                    }
+                                ]
+                            },
+                            "body": {
+                                "layout": "6 6 flex",
+                                "content": [
+                                    {
+                                        "name": "card",
+                                        "config": {
+                                            "theme": "light"
+                                        },
+                                        "body": {
+                                            "content": [
+                                                {
+                                                    "name": "featured_item",
+                                                    "title": "Open Source Day Celebration",
+                                                    "date": "July 11, 2015",
+                                                    "type": "Rollerskating party",
+                                                    "logo": {
+                                                        "src": "http://www.redhat.com/cms/public/styles/large/s3private/IndustryEvent_Small.png"
+                                                    },
+                                                    "summary": "In lobortis, justo euismod consequat dignissim, lorem dolor mollis ligula, a congue diam nisi eu tortor. Phasellus efficitur turpis eget massa pulvinar pellentesque. Vestibulum at dui ac diam auctor commodo placerat vitae tellus.",
+                                                    "primary_link": {
+                                                        "href": "http://www.redhat.com/cms/public/styles/large/s3private/IndustryEvent_Small.png?itok=5-t24rBb",
+                                                        "title": "",
+                                                        "text": "Register now"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "name": "card",
+                                        "config": {
+                                            "theme": "light"
+                                        },
+                                        "body": {
+                                            "content": [
+                                                {
+                                                    "name": "featured_item",
+                                                    "title": "Red Hat Sponsored Event",
+                                                    "date": "August 27, 2015",
+                                                    "type": "Summit",
+                                                    "logo": {
+                                                        "src": "http://www.redhat.com/cms/public/styles/large/s3private/RH%20Tech%20Event%20ANZ%20image%20raw.jpg"
+                                                    },
+                                                    "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas semper lacus sed dolor imperdiet, quis finibus est gravida. Maecenas fermentum, ante ut interdum interdum, sapien lectus feugiat est, condimentum feugiat arcu odio eu sem. Morbi iaculis pretium luctus. Nunc finibus sollicitudin arcu sed sodales. Nullam ut gravida erat. Duis ultrices rutrum urna. Nullam eget metus lacus. In aliquet arcu non faucibus rhoncus. ",
+                                                    "primary_link": {
+                                                        "href": "www.redhat.com",
+                                                        "title": "",
+                                                        "text": "Learn More"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "name": "band",
+                            "background": {
+                                "color": "gray"
+                            },
+                            "body": {
+                                "layout": "8 4",
+                                "content": [
+                                    {
+                                        "name": "group",
+                                        "body": {
+                                            "layout": "stacked",
+                                            "content": [
+                                                {
+                                                    "name": "band_header",
+                                                    "title": "Featured Success Stories",
+                                                    "headline": "Cigna builds a private cloud"
+                                                },
+                                                {
+                                                    "name": "generic",
+                                                    "content": "<p>Cigna needed to improve its IT provisioning processes to keep up with the innovations of its developers. The company created an entrepreneurial team to experiment with building an Infrastructure-as-a-Service (IaaS) self-service provisioning capability. Deploying Red Hat solutions and Red Hat-supported open source projects, Cigna's initial proof of concept was so successful that it immediately spread throughout the IT organization. Today, Cigna's development and infrastructure teams are seamlessly aligned and able to speed business applications to customers while carving out costs from the provisioning process to boost Cigna's bottom line.</p>"
+                                                },
+                                                {
+                                                    "name": "cta",
+                                                    "config": {
+                                                        "type": "primary"
+                                                    },
+                                                    "link": {
+                                                        "title": "Read the Story",
+                                                        "href": "www.redhat.com",
+                                                        "text": "Read the Story"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "name": "card",
+                                        "config": {
+                                            "theme": "dark"
+                                        },
+                                        "background": {
+                                            "color": "black"
+                                        },
+                                        "body": {
+                                            "content": [
+                                                {
+                                                    "name": "image_embed",
+                                                    "config": {
+                                                        "align": "bleed"
+                                                    },
+                                                    "image": {
+                                                        "src": "http://www.redhat.com/cms/public/logo-cigna-400x200.png"
+                                                    },
+                                                    "link": {
+                                                        "href": "www.redhat.com",
+                                                        "title": "Cigna"
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        "footer": {
+                                            "content": [
+                                                {
+                                                    "name": "quote",
+                                                    "quotation": "We think of Red Hat as one of just a handful of superior engineering and support organizations in the United States.",
+                                                    "attribution_name": "John DeFeo",
+                                                    "attribution_title": "Vice president of Infrastructure, Cigna"
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "name": "band",
+                            "background": {
+                                "color": "gray"
+                            },
+                            "header": {
+                                "content": [
+                                    {
+                                        "name": "band_header",
+                                        "title": "Featured Events",
+                                        "headline": ""
+                                    }
+                                ]
+                            },
+                            "body": {
+                                "layout": "6 6 flex",
+                                "content": [
+                                    {
+                                        "name": "card",
+                                        "config": {
+                                            "theme": "light"
+                                        },
+                                        "body": {
+                                            "content": [
+                                                {
+                                                    "name": "featured_item",
+                                                    "title": "Open Source Day Celebration",
+                                                    "date": "July 11, 2015",
+                                                    "type": "Rollerskating party",
+                                                    "logo": {
+                                                        "src": "http://www.redhat.com/cms/public/styles/large/s3private/IndustryEvent_Small.png"
+                                                    },
+                                                    "summary": "In lobortis, justo euismod consequat dignissim, lorem dolor mollis ligula, a congue diam nisi eu tortor. Phasellus efficitur turpis eget massa pulvinar pellentesque. Vestibulum at dui ac diam auctor commodo placerat vitae tellus.",
+                                                    "primary_link": {
+                                                        "href": "http://www.redhat.com/cms/public/styles/large/s3private/IndustryEvent_Small.png?itok=5-t24rBb",
+                                                        "title": "",
+                                                        "text": "Register now"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "name": "card",
+                                        "config": {
+                                            "theme": "light"
+                                        },
+                                        "body": {
+                                            "content": [
+                                                {
+                                                    "name": "featured_item",
+                                                    "title": "Red Hat Sponsored Event",
+                                                    "date": "August 27, 2015",
+                                                    "type": "Summit",
+                                                    "logo": {
+                                                        "src": "http://www.redhat.com/cms/public/styles/large/s3private/RH%20Tech%20Event%20ANZ%20image%20raw.jpg"
+                                                    },
+                                                    "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas semper lacus sed dolor imperdiet, quis finibus est gravida. Maecenas fermentum, ante ut interdum interdum, sapien lectus feugiat est, condimentum feugiat arcu odio eu sem. Morbi iaculis pretium luctus. Nunc finibus sollicitudin arcu sed sodales. Nullam ut gravida erat. Duis ultrices rutrum urna. Nullam eget metus lacus. In aliquet arcu non faucibus rhoncus. ",
+                                                    "primary_link": {
+                                                        "href": "www.redhat.com",
+                                                        "title": "",
+                                                        "text": "Learn More"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "name": "band",
+                            "background": {
+                                "color": "gray"
+                            },
+                            "body": {
+                                "layout": "8 4",
+                                "content": [
+                                    {
+                                        "name": "group",
+                                        "body": {
+                                            "layout": "stacked",
+                                            "content": [
+                                                {
+                                                    "name": "band_header",
+                                                    "title": "Featured Success Stories",
+                                                    "headline": "Cigna builds a private cloud"
+                                                },
+                                                {
+                                                    "name": "generic",
+                                                    "content": "<p>Cigna needed to improve its IT provisioning processes to keep up with the innovations of its developers. The company created an entrepreneurial team to experiment with building an Infrastructure-as-a-Service (IaaS) self-service provisioning capability. Deploying Red Hat solutions and Red Hat-supported open source projects, Cigna's initial proof of concept was so successful that it immediately spread throughout the IT organization. Today, Cigna's development and infrastructure teams are seamlessly aligned and able to speed business applications to customers while carving out costs from the provisioning process to boost Cigna's bottom line.</p>"
+                                                },
+                                                {
+                                                    "name": "cta",
+                                                    "config": {
+                                                        "type": "primary"
+                                                    },
+                                                    "link": {
+                                                        "title": "Read the Story",
+                                                        "href": "www.redhat.com",
+                                                        "text": "Read the Story"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "name": "card",
+                                        "config": {
+                                            "theme": "dark"
+                                        },
+                                        "background": {
+                                            "color": "black"
+                                        },
+                                        "body": {
+                                            "content": [
+                                                {
+                                                    "name": "image_embed",
+                                                    "config": {
+                                                        "align": "bleed"
+                                                    },
+                                                    "image": {
+                                                        "src": "http://www.redhat.com/cms/public/logo-cigna-400x200.png"
+                                                    },
+                                                    "link": {
+                                                        "href": "www.redhat.com",
+                                                        "title": "Cigna"
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        "footer": {
+                                            "content": [
+                                                {
+                                                    "name": "quote",
+                                                    "quotation": "We think of Red Hat as one of just a handful of superior engineering and support organizations in the United States.",
+                                                    "attribution_name": "John DeFeo",
+                                                    "attribution_title": "Vice president of Infrastructure, Cigna"
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}

@@ -1,0 +1,82 @@
+@mixin accessibility-focus($color: link) {
+    outline-offset: 1px;
+    outline-style: dotted;
+    outline-width: 1px;
+    outline-color: color($color);
+}
+@mixin underline($color: color(gray3)) {
+    border-bottom: 1px solid $color;
+}
+
+// Build an input field
+@mixin custom-input($type, $color: color(rich-black), $size: 18px, $rounded: 50%) {
+    $valid-types: radio, checkbox;
+    @if index($valid-types, $type) > 0 {
+        $border: if(strip-unit($size) < 16, 1px, round($size / 10));
+        $ratio: if(strip-unit($size) > 15, $size - $border * 4, $size);
+        $margin: if(strip-unit($size) > 15, $border * 2, 0);
+        input[type="#{$type}"] {
+            visibility: hidden;
+            appearance: none;
+            &::-ms-check {
+                display: none
+            }
+            + label {
+                position: absolute;
+                top: 0;
+                left: 0;
+                padding-left: $size + 5;
+                font-family: $base-font-family;
+                font-weight: 600;
+                font-size: $size;
+                color: color(rich-black);
+                &:before,
+                &:after {
+                    position: absolute;
+                    content: "";
+                    left: 0;
+                    top: 4px;
+                    border-radius: $rounded;
+                }
+                &:before {
+                    width: $size;
+                    height: $size;
+                    border: $border solid $color;
+                }
+                &:after {
+                    content: " ";
+                    background: transparent;
+                    @if $type == radio {
+                        width: $ratio;
+                        height: $ratio;
+                        margin-top: $margin;
+                        margin-left: $margin;
+                    } @else {
+
+                    }
+                }
+            }
+            &:checked + label:after {
+                @if $type == checkbox {
+                    content: "\2713";
+                    font-size: $size - ($size / 5);
+                    color: $color;
+                    margin-top: 0;
+                    margin-left: $size - ($size / 5 * 4);
+                } @else {
+                    background-color: $color;
+                }
+            }
+            &:disabled + label {
+                color: color(gray1);
+                &:before,
+                &:after {
+                    border-color: color(gray1);
+                }
+                &:after {
+                    content: "";
+                }
+            }
+        }
+    }
+}

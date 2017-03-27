@@ -1,0 +1,112 @@
+[
+    {
+        "title": "Base Test",
+        "data": {
+            "config": {
+                "slick_config": {
+                    "speed": 0
+                },
+                "theme": "light"
+            },
+            "background": {
+                "color": "white"
+            },
+            "body": {
+                "content": [
+                    {
+                        "config": {
+                            "theme": "dark"
+                        },
+                        "background": {
+                            "color": "rich-black"
+                        },
+                        "body": {
+                            "content": [
+                                {
+                                    "headline": "Headline",
+                                    "text": "Text",
+                                    "cta": {
+                                        "href": "#",
+                                        "title": "",
+                                        "text": "This is my CTA",
+                                        "target": "_self"
+                                    },
+                                    "name": "promo"
+                                }
+                            ]
+                        },
+                        "name": "carousel_slide"
+                    },
+                    {
+                        "config": {
+                            "theme": "light"
+                        },
+                        "background": {
+                            "color": "gray"
+                        },
+                        "body": {
+                            "content": [
+                                {
+                                    "headline": "Other Headline",
+                                    "text": "Other Text",
+                                    "cta": {
+                                        "href": "#",
+                                        "title": "",
+                                        "text": "Click me too!",
+                                        "target": "_self"
+                                    },
+                                    "name": "promo"
+                                }
+                            ]
+                        },
+                        "name": "carousel_slide"
+                    }
+                ]
+            },
+            "name": "carousel"
+        }
+    },
+    {
+        "title": "Base Test",
+        "data": {
+            "config": {
+                "slick_config": {
+                    "speed": 0
+                },
+                "theme": "light"
+            },
+            "background": {
+                "color": "white"
+            },
+            "body": {
+                "content": [
+                    {
+                        "config": {
+                            "theme": "light"
+                        },
+                        "background": {
+                            "color": "gray"
+                        },
+                        "body": {
+                            "content": [
+                                {
+                                    "headline": "Other Headline",
+                                    "text": "Other Text",
+                                    "cta": {
+                                        "href": "#",
+                                        "title": "",
+                                        "text": "Click me too!",
+                                        "target": "_self"
+                                    },
+                                    "name": "promo"
+                                }
+                            ]
+                        },
+                        "name": "carousel_slide"
+                    }
+                ]
+            },
+            "name": "carousel"
+        }
+    }
+]

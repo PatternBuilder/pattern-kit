@@ -1,0 +1,90 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Logo Wall",
+    "category": "pattern",
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+        "name": {
+            "type": "string",
+            "enum": [ "logo_wall" ],
+            "options": {
+                "hidden": true
+            }
+        },
+        "meta": {
+            "type": "object",
+            "properties": {
+                "class": {
+                    "options": {
+                        "hidden": true
+                    },
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "id": {
+                    "type": "string",
+                    "options": {
+                        "hidden": true
+                    }
+                },
+                "uniqueId": {
+                    "type": "string",
+                    "options": {
+                        "hidden": true
+                    }
+                }
+            }
+        },
+        "title": {
+            "title": "Band Title",
+            "type": "string",
+            "options": {
+                "preview": true
+            }
+        },
+        "logos": {
+            "title": "Logos",
+            "type": "array",
+            "minItems": 1,
+            "format": "tabs",
+            "items": {
+                "title": "Logo",
+                "type": "object",
+                "properties": {
+                    "image": {
+                        "title": "Image",
+                        "format": "grid",
+                        "$ref": "image.json"
+                    },
+                    "link": {
+                        "title": "Link",
+                        "format": "grid",
+                        "entity": "link",
+                        "type": "object",
+                        "properties": {
+                            "href": {
+                                "title": "Link URL",
+                                "type": "string",
+                                "format": "url"
+                            },
+                            "title": {
+                                "title": "Link Title",
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "link": {
+            "title": "Optional Call to Action",
+            "options": {
+                "collapsed": "true"
+            },
+            "$ref": "link.json"
+        }
+    }
+}

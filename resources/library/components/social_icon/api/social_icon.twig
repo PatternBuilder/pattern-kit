@@ -1,0 +1,28 @@
+{% if social.platform == "Facebook" %}
+    {% set icon = "web-icon-facebook" %}
+{% elseif social.platform == "Twitter" %}
+    {% set icon = "web-icon-twitter" %}
+{% elseif social.platform == "Google+" %}
+    {% set icon = "web-icon-gplus" %}
+{% elseif social.platform == "YouTube" %}
+    {% set icon = "web-icon-youtube2" %}
+{% elseif social.platform == "LinkedIn" %}
+    {% set icon = "web-icon-linkedin" %}
+{% elseif social.platform == "Reddit" %}
+    {% set icon = "web-icon-reddit" %}
+{% endif %}
+
+{% if icon %}
+    <div class="rh-social-icon--component"
+        {% if config.content_align %} data-rh-align="{{ config.content_align }}" {% endif %}
+        {% if config.handle_position %} data-rh-position="{{ config.handle_position }}" {% endif %}
+        data-eq-pts="social-icon-small:0, social-icon-medium:200"
+        {% if config.icon_size %} data-rh-icon-size="{{ config.icon_size }}" {% endif %}
+        {% if misc_data %} {{ misc_data }}{% endif %}>
+
+        <a class="rh-social-icon-link" href="{{ social.href }}"{% if social.title %} title="{% include "no_html.twig" with { "string": social.title } only %}"{% endif %}></a>
+        <span class="{{ icon }} rh-social-icon-logo" role="icon"></span>
+        {% if config.show_handle == "Yes" and social.account %}<span class="rh-social-icon-handle">{% include "no_html.twig" with { "string": social.account } only %}</span>{% endif %}
+
+    </div>
+{% endif %}

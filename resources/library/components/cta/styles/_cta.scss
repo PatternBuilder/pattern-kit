@@ -1,0 +1,19 @@
+.#{$repo}-cta {
+    &--component {
+        @extend %text-align-enabled;
+    }
+    &-link {
+        @include data(cta-type, primary) {
+            @extend %cta-primary;
+        }
+        @include data(cta-type, ghost) {
+            @extend %cta-ghost-button;
+        }
+        @include data(cta-type, secondary) {
+            @extend %cta-secondary-link;
+        }
+        @include data(cta-type, disabled) {
+            @extend %cta-primary-disabled;
+        }
+    }
+}

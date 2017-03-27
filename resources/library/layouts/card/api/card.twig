@@ -1,0 +1,32 @@
+<div class="rh-card--layout"
+     data-rh-theme="{{ config.theme }}{% if background %} {{ background.color }}{% endif %}"
+     data-rh-layout="{{ config.vertical_spacing|default("stacked") }}"
+        {% if config.eqpts -%} data-eq-pts="{{ config.eqpts }}"{% else %}data-eq-pts="small-card: 0, medium-card: 220"{% endif -%}
+        {% if config.justify -%} data-rh-justify="{{ config.justify }}" {%- endif -%}
+        {% if background.image_large %} data-rh-bq="{{ background.image_large.src }}, {{ background.image_large.src }}" {% endif %}
+        {% if config.alt_theme %} data-rh-theme-{{ config.alt_theme.trigger }}="{{ config.alt_theme.theme }}{% if config.alt_theme.background %} {{ config.alt_theme.background }}{% endif %}"{% endif %}
+        {% if misc_data %} {{ misc_data }}{% endif %}
+>
+    {% if header.content or block('header') is not empty -%}
+        <header class="rh-card-header" data-rh-layout="{{ header.layout|default("stacked") }}">
+            {% for item in header.content %}
+                {% include item.template ?: item.name ~ '.twig' with item only %}
+            {% else %} {% block header %}{% endblock %}
+            {% endfor %}
+        </header>
+    {% endif -%}
+    <div class="rh-card-content" data-rh-layout="{{ header.layout|default("stacked") }}">
+        {% for item in body.content %}
+            {% include item.template ?: item.name ~ '.twig' with item only %}
+        {% else %} {% block body %}{% endblock %}
+        {% endfor %}
+    </div>
+    {% if footer.content or block('footer') is not empty -%}
+        <footer class="rh-card-footer" data-rh-layout="{{ header.layout|default("stacked") }}">
+            {% for item in footer.content %}
+                {% include item.template ?: item.name ~ '.twig' with item only %}
+            {% else %} {% block footer %}{% endblock %}
+            {% endfor %}
+        </footer>
+    {% endif -%}
+</div>

@@ -1,0 +1,58 @@
+[
+    {
+        "name": "base",
+        "data": {
+            "name": "carousel_slide",
+            "config": {
+                "theme": "dark"
+            },
+            "background": {
+                "color": "white",
+                "image_large": "/fixtures/images/red.png",
+                "image_small": "/fixtures/images/blue.png"
+            },
+            "body": {
+                "content": [
+                    {
+                        "headline": "This is a headline",
+                        "text": "This is my text",
+                        "cta": {
+                            "href": "#",
+                            "title": "Cat!",
+                            "text": "Click Me",
+                            "target": "_self"
+                        },
+                        "name": "promo"
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "name": "light theme, no images",
+        "data": {
+            "name": "carousel_slide",
+            "config": {
+                "theme": "light"
+            },
+            "background": {
+                "color": "gray"
+            },
+            "body": {
+                "content": [
+                    {
+                        "headline": "This is a headline",
+                        "text": "This is my text",
+                        "cta": {
+                            "href": "#",
+                            "title": "Cat!",
+                            "text": "Click Me",
+                            "target": "_self"
+                        },
+                        "name": "promo"
+                    }
+                ]
+            }
+        }
+    }
+]

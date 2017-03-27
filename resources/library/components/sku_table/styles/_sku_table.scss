@@ -1,0 +1,142 @@
+$col: 4;
+$price-col: 140px;
+
+.#{$repo}-store-table {
+    &--component {
+        width: 100%;
+        border: solid color(gray2) 1px;
+        border-collapse: separate;
+    }
+    &-header-row,
+    &-body-row,
+    &-footer-row {
+        @include bp-styles(hide) {
+            display: none;
+        }
+        > * {
+            @extend %row-double;
+            @extend %text-align-enabled;
+            @include breakpoint (max-width $breakpoint-xs-max) {
+                padding-right: $box-padding / 3;
+                padding-left: $box-padding / 3;
+            }
+        }
+    }
+    &-header {
+        &-headline {
+            @extend %default-level5;
+        }
+        &-label {
+            @extend %row-single;
+        }
+        &-row:last-child > *:last-child {
+            min-width: $price-col;
+        }
+    }
+    &-body {
+        > * {
+            @include alt-rows;
+        }
+        &-row {
+            // Mobile-only styles
+            @include breakpoint (max-width $breakpoint-xs-max) {
+                clear: both;
+                float: left;
+                width: 100%;
+            }
+            > * {
+                border: 0;
+                // Mobile-only styles
+                @include breakpoint (max-width $breakpoint-xs-max) {
+                    display: inline-block;
+                    vertical-align: top;
+                    width: calc(#{99% / ($col - 1)} - #{$col * 2}px);
+                    float: left;
+                    &:before {
+                        font-weight: bold;
+                        display: block;
+                    }
+                }
+            }
+        }
+    }
+    &-footer {
+        &-row {
+            @include breakpoint (max-width $breakpoint-xs-max) {
+                padding-top: $box-padding;
+                padding-bottom: $box-padding;
+            }
+        }
+    }
+    &-description {
+        @include breakpoint (max-width $breakpoint-xs-max) {
+            clear: both;
+            width: 100%;
+            padding-bottom: 5px;
+        }
+        &-data {
+            @extend %store-strong-paragraph;
+            display: inline-block;
+            margin-bottom: 0;
+            @include breakpoint (max-width $breakpoint-xs-max) {
+                font-size: 1em;
+            }
+        }
+    }
+    &-quantity,
+    &-price {
+        text-align: center;
+        @include breakpoint (max-width $breakpoint-xs-max) {
+            width: calc(49% - (#{$price-col} / 2));
+            text-align: left;
+            padding-top: 5px;
+        }
+    }
+    &-linetotal {
+        min-width: $price-col;
+        @include breakpoint (max-width $breakpoint-xs-max) {
+            @include clearfix;
+            width: $price-col;
+            padding-top: 5px;
+        }
+    }
+    &-subtotal {
+        display: table-cell;
+        &-label,
+        &-data {
+            @extend %default-level5;
+        }
+    }
+    &-quantity-label,
+    &-price-label,
+    &-linetotal-label {
+        @extend %store-strong-paragraph;
+        display: block;
+        width: 100%;
+        margin-bottom: .2em;
+        @include bp-styles(hide) {
+            display: none;
+        }
+        @include breakpoint ($breakpoint-sm-min) {
+            font-weight: bold;
+            color: color(rich-black);
+        }
+    }
+    &-quantity-data,
+    &-linetotal-data {
+        @extend %store-paragraph;
+        @include breakpoint ($breakpoint-sm-min) {
+            font-weight: bold;
+            color: color(rich-black);
+        }
+    }
+    &-price-data {
+        @extend %store-paragraph;
+        display: inline-block;
+    }
+    &-sku-data {
+        @include clearfix;
+        @extend %store-paragraph;
+        display: block;
+    }
+}

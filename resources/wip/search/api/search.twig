@@ -1,0 +1,64 @@
+<div class="rh-search--component">
+    <form class="rh-search-form">
+        <div class="rh-search-input-container">
+            <input class="rh-search-text-input" placeholder="Enter your search term" type="text" maxlength="128"
+                   tabindex="1">
+            <input class="rh-search-submit" type="submit" value="Search" tabindex="2">
+
+        </div>
+
+        <div class="rh-search-filter-container">
+
+            <div class="rh-search-filter-options">
+                <!-- Visible Options -->
+                <div class="rh-search-visible-container">
+                    <div class="rh-search-select">
+                        <select data-rh-chosen="multi" data-placeholder="Country" multiple tabindex="3">
+                            {% for country in countries %}
+                                <option value="{{ country.value }}">{{ country.text }}</option>
+                            {%- endfor %}
+                        </select>
+                    </div>
+                    <div class="rh-search-select">
+                        <select data-rh-chosen="multi" data-placeholder="State/Province" multiple tabindex="3">
+                            {% for state in states %}
+                                <option value="{{ state.value }}">{{ state.text }}</option>
+                            {%- endfor %}
+                        </select>
+                    </div>
+                    <div class="rh-search-select">
+                        <select data-rh-chosen="multi" data-placeholder="City" multiple tabindex="3">
+                            {% for city in cities %}
+                                <option value="{{ city.value }}">{{ city.text }}</option>
+                            {%- endfor %}
+                        </select>
+                    </div>
+                </div>
+                <!-- overflow content -->
+                <div data-rh-toggle-target='search-overflow' data-rh-state="inactive"
+                     class="rh-search-overflow-container">
+                    <div class="rh-search-select">
+                        <select data-rh-chosen="multi" data-placeholder="Choose something" multiple tabindex="5">
+                            {% for option in overflow1 %}
+                                <option value="{{ option.value }}">{{ option.text }}</option>
+                            {%- endfor %}
+                        </select>
+                    </div>
+                    <div class="rh-search-select">
+                        <select data-rh-chosen="multi" data-placeholder="Choose something else" multiple tabindex="5">
+                            {% for option in overflow1 %}
+                                <option value="{{ option.value }}">{{ option.text }}</option>
+                            {%- endfor %}
+                        </select>
+                    </div>
+                </div>
+
+            </div>
+            <div class="rh-search-controls">
+                <a href="#" data-rh-toggle='search-overflow' class="rh-search-show-more" tabindex="4">More</a>
+                <a href="#" data-rh-chosen-reset=".rh-search--component" class="rh-search-clear-all"
+                   tabindex="4">Reset</a>
+            </div>
+        </div>
+    </form>
+</div>

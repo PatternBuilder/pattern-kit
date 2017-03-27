@@ -1,0 +1,27 @@
+[
+    {
+        "label": "Header with title",
+        "data": {
+            "name": "card_header",
+            "title": "Server",
+            "summary": "Whether rolling out new applications, virtualizing environments, or creating a secure hybrid cloud, Red Hat Enterprise Linux heps IT leaders scale their business and say yes to what's most important."
+        }
+    },
+    {
+        "label": "Header with headline",
+        "data": {
+            "name": "card_header",
+            "headline": "Services and support",
+            "summary": "Whether rolling out new applications, virtualizing environments, or creating a secure hybrid cloud, Red Hat Enterprise Linux heps IT leaders scale their business and say yes to what's most important."
+        }
+    },
+    {
+        "label": "Header with title and headline",
+        "data": {
+            "name": "card_header",
+            "title": "About",
+            "headline": "Services and support",
+            "summary": "Whether rolling out new applications, virtualizing environments, or creating a secure hybrid cloud, Red Hat Enterprise Linux heps IT leaders scale their business and say yes to what's most important."
+        }
+    }
+]

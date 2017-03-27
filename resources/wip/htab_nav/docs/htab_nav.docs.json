@@ -1,0 +1,25 @@
+{
+    "config": {
+        "tab_id": "abc",
+        "active_tab": "2"
+    },
+    "tabs": [
+        {
+            "title": "",
+            "text": "Datasheets"
+        },
+        {
+            "title": "",
+            "text": "Whitepapers"
+        },
+        {
+            "title": "",
+            "text": "Videos"
+        },
+        {
+            "title": "",
+            "text": "Case Studies"
+        }
+    ],
+    "name": "htab_nav"
+}

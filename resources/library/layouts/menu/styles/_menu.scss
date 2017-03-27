@@ -1,0 +1,124 @@
+.#{$repo}-menu {
+    @extend %background-color-enabled;
+    @include data(menu, fixed) {
+        display: none;
+        background-color: color(black, .9);
+        box-shadow: color(black, .1) 0px 1px 8px, color(black, .2) 0px 1px 8px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+    }
+    &-mobile,
+    &-desktop {
+        @include bp-styles ( "hide" ) {
+            display: none;
+        }
+    }
+    &-skip-navigation {
+        @extend %skip-navigation;
+    }
+    &-mobile {
+        background-color: color(white);
+        &-bar {
+            @include flex(
+                $flow: column nowrap
+            );
+            &-top {
+                z-index: 99;
+                padding: 10px $mobile-edge;
+                @include flex(
+                    $flow: row nowrap,
+                    $justify: space-between
+                );
+                @include data(theme, dark) {
+                    background-color: color(rich-black);
+                }
+            }
+            &-bottom {
+                margin: 0;
+                position: relative;
+                @include data(theme, dark) {
+                    background-color: color(white);
+                }
+                @include flex();
+                /*@include layout(
+                    $layout: ($breakpoint-zero: 6 6)
+                );*/
+                > * {
+                    display: flex;
+                    flex: 1;
+                    height: 50px;
+                    &:not(:last-child) {
+                        width: calc(50% - 1px);
+                        border-right: 1px solid color(rich-black, .1);
+                    }
+                }
+            }
+        }
+        &-dropdown {
+            display: none;
+        }
+    }
+    &-desktop {
+        @extend %default--container;
+    }
+    &-container {
+        @include flex(
+            $flow: column nowrap
+        );
+        @include breakpoint($breakpoint-sm-min) {
+            @include container;
+            width: 750px;
+            padding: 0;
+        }
+    }
+    &-utility-tray {
+        position: relative;
+        padding: 9px $box-padding/2 12px;
+        @include data-context(menu, fixed) {
+            display: none;
+        }
+        @include breakpoint($breakpoint-zero $breakpoint-xs-max) {
+            @include flex(
+                $flow: column nowrap,
+                $justify: flex-start
+            );
+            margin-top: 54px;
+            background-color: color(black);
+        }
+        @include breakpoint($breakpoint-sm-min) {
+            background-color: color(white);
+            @include flex(
+                $flow: row nowrap,
+                $justify: space-between
+            );
+            padding-left: $box-padding;
+            padding-right: $box-padding;
+        }
+    }
+    &-main-nav {
+        padding: pem(36) $box-padding/2 pem(32);
+        @include breakpoint($breakpoint-lg-min) {
+            padding-left: $box-padding;
+            padding-right: $box-padding;
+        }
+        @include flex(
+            $flow: row nowrap,
+            $align: center
+        );
+    }
+    &-logo {
+        @extend %menu-logo-container;
+    }
+    &-plugins {
+        @include flex(
+            $flow: row-reverse nowrap
+        );
+        > * {
+            margin: 0 0 0 15px;
+            z-index: 20;
+        }
+    }
+}

@@ -1,0 +1,79 @@
+.rh-horizontal-tabs {
+    &--layout {
+    }
+    &-container {
+        @extend %eqjs-hide-fout;
+        // when container has background
+        &[data-rh-band-background] {
+            padding-top: pem($band-padding);
+            @include eq-context(small) {
+                padding-top: pem(15);
+                background-position: center top;
+            }
+        }
+    }
+
+    &-header {
+        @extend %default--container;
+        margin-bottom: pem(70);
+        @include eq-context(small) {
+            margin-bottom: pem(50);
+        }
+    }
+    &-title {
+        @extend %section-title;
+    }
+    &-headline {
+        @extend %section-headline;
+    }
+    &-summary {
+        @extend %section-summary;
+    }
+
+    &-toggle-bar {
+        @extend %tab-toggle-bar;
+        @include eq-context(medium, large) {
+            // hide toggle bar on medium/large context
+            display: none;
+        }
+    }
+    &-toggle-button {
+        @extend %tab-toggle-button;
+    }
+
+    &-nav {
+        @extend %default--container;
+        @include eq-context(small) {
+            // display none until turned on via JS @TODO make JS conditional with modernizr
+            display: none;
+            border-bottom: 1px solid color(gray3, $lighten: 20%);
+            background: color(white);
+        }
+        @include eq-context(medium) {
+            font-size: 75%;
+        }
+        @include eq-context(medium, large) {
+            display: flex;
+            align-items: stretch;
+        }
+    }
+    &-nav-link {
+        @include eq-context(small) {
+            @extend %tab-link-mobile-text;
+            @extend %tab-link-mobile-stacked-box;
+        }
+        @include eq-context(medium, large) {
+            @extend %tab-link-text;
+            @extend %tab-link-decoration;
+            @extend %tab-link-horizontal-box;
+        }
+    }
+    &-panes {
+        clear: both;
+    }
+    &-pane {
+        background: color(white);
+        @extend %fade-in-on-open;
+    }
+}
+

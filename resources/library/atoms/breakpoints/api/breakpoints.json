@@ -1,0 +1,12 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "category": "atom",
+    "title": "Breakpoints",
+    "type": "array",
+    "items": {
+        "anyOf": [{
+            "type": "string",
+            "enum": ["", "xxs", "xs", "sm", "md", "lg"]
+        }]
+    }
+}

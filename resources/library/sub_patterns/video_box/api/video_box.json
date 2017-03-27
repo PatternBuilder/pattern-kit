@@ -1,0 +1,99 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Video Box",
+    "category": "sub_pattern",
+    "type": "object",
+    "properties": {
+        "name": {
+            "type": "string",
+            "enum": [ "video_box" ],
+            "options": {
+                "hidden": true
+            }
+        },
+        "container": {
+            "title": "Video Container",
+            "required": [ "type", "theme" ],
+            "type": "object",
+            "properties": {
+                "type": {
+                    "title": "Container Title",
+                    "type": "string",
+                    "enum": [ "card", "group" ],
+                    "default": "card"
+                },
+                "theme": {
+                    "title": "Container Theme",
+                    "description": "Dark theme is for dark backgrounds",
+                    "type": "string",
+                    "enum": [ "light", "dark" ],
+                    "default": "dark"
+                },
+                "background": {
+                    "title": "Container Background",
+                    "description": "For Card Only",
+                    "type": "string",
+                    "enum": [ "rich-black", "white", "gray" ],
+                    "default": "rich-black"
+                }
+            }
+        },
+        "video": {
+            "title": "Video",
+            "type": "object",
+            "required": [ "src" ],
+            "properties": {
+                "src": {
+                    "title": "Video Source",
+                    "$ref": "video.json"
+                },
+                "title": {
+                    "title": "Video Title",
+                    "type": "string"
+                },
+                "link": {
+                    "title": "Optional Video Title Link",
+                    "entity": "link",
+                    "type": "object",
+                    "properties": {
+                        "href": {
+                            "title": "Link URL",
+                            "type": "string",
+                            "format": "url"
+                        },
+                        "title": {
+                            "title": "Title Attribute",
+                            "type": "string",
+                            "description": "Shown on mouseover."
+                        }
+                    }
+                },
+                "summary": {
+                    "title": "Video Summary",
+                    "type": "string",
+                    "format": "textarea"
+                }
+            }
+        },
+        "cta": {
+            "title": "Optional CTA Button",
+            "type": "object",
+            "options": {
+                "collapsed": true
+            },
+            "properties": {
+                "type": {
+                    "title": "CTA Type",
+                    "type": "string",
+                    "enum": [ "primary", "secondary" ],
+                    "default": "secondary"
+                },
+                "link": {
+                    "$ref": "link.json"
+                }
+            }
+        }
+    },
+    "required": [ "video", "container", "name" ],
+    "additionalProperties": false
+}

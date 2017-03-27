@@ -1,0 +1,63 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Price",
+    "description": "Display pricing and SKU data.",
+    "type": "object",
+    "category": "component",
+    "format": "grid",
+    "properties": {
+        "name": {
+            "type": "string",
+            "readonly": true,
+            "enum": ["price"],
+            "options": {
+                "hidden": true
+            }
+        },
+        "align": {
+            "title": "Alignment",
+            "type": "string",
+            "enum": ["left", "center", "right"],
+            "default": "left",
+            "options": {
+                "hidden": true
+            }
+        },
+        "teaser": {
+            "title": "Optional teaser",
+            "description": "Short bit of text that appears above the price as a lead-in. i.e., Starting at",
+            "type": "string",
+            "default": "Starting at",
+            "options": {
+                "grid_columns": 12
+            }
+        },
+        "sku": {
+            "title": "Optional SKU",
+            "description": "SKU data to be displayed with the price. i.e., RH0009.",
+            "type": "string",
+            "options": {
+                "grid_columns": 4
+            }
+        },
+        "amount": {
+            "title": "Price",
+            "description": "This is just the numeric value of the price; no currency, commas, or decimals in this field.",
+            "type": "number",
+            "options": {
+                "grid_columns": 4
+            }
+        },
+        "currency": {
+            "title": "Currency",
+            "type": "string",
+            "enum": ["USD", "EUR"],
+            "default": "USD",
+            "options": {
+                "grid_columns": 4
+            }
+        }
+    },
+    "required": ["name", "currency"],
+    "additionalProperties": false
+}

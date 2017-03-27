@@ -1,0 +1,49 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Raw HTML",
+    "category": "pattern",
+    "description": "This pattern provides a place to put raw, unstyled HTML",
+    "required": [ "name", "content" ],
+    "additionalProperties": false,
+    "type": "object",
+    "properties": {
+        "name": {
+            "type": "string",
+            "enum": [ "raw_html" ],
+            "options": {
+                "hidden": true
+            }
+        },
+        "meta": {
+            "type": "object",
+            "options": {
+                "hidden": true
+            },
+            "properties": {
+                "class": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "id": {
+                    "type": "string"
+                },
+                "uniqueId": {
+                    "type": "string"
+                }
+            }
+        },
+        "content": {
+            "title": "Content",
+            "description": "Add your raw markup here. Make sure any necessary CSS/JS is also added to this page.",
+            "$ref": "raw.json#/properties/content"
+        },
+        "isWrapped": {
+            "title": "Has wrapper div?",
+            "description": "By default the raw pattern is wrapped with a div that provides a unique ID. If you need to remove that wrapping div, turn this off.",
+            "type": "boolean",
+            "default": false
+        }
+    }
+}

@@ -1,0 +1,12 @@
+.#{$repo}-footnote {
+    &--component {
+        // content horizontal align values
+        @extend %text-align-enabled;
+    }
+    &-container {
+        @extend %footnote-container;
+    }
+    &-item {
+        @extend %footnote-item;
+    }
+}

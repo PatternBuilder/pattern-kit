@@ -1,0 +1,85 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Store Page",
+    "category": "pattern",
+    "status": "private",
+    "type": "object",
+    "format": "grid",
+    "additionalProperties": false,
+    "required": [ "name", "body" ],
+    "properties": {
+        "name": {
+            "type": "string",
+            "enum": [ "store_page" ],
+            "options": {
+                "hidden": true
+            }
+        },
+        "config": {
+            "type": "object",
+            "properties": {
+                "body_class": {
+                    "type": "string",
+                    "default": "editorial"
+                },
+                "additional_css": {
+                    "type": "array",
+                    "options": {
+                        "collapsed": true
+                    },
+                    "description": "Use full URL such as <code>https://www.redhat.com/files/webux/css/services/services.css</code> or local files like <code>http://localhost:9001/css/services/services.css</code>",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "additional_js": {
+                    "type": "array",
+                    "options": {
+                        "collapsed": true
+                    },
+                    "description": "Use full URL such as <code>https://www.redhat.com/files/webux/js/webux-default.js</code> or local files like <code>http://localhost:9001/js/webux-default.js</code>",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "header": {
+            "title": "Page Header",
+            "type": "array",
+            "options": {
+                "collapsed": true
+            },
+            "items": {
+                "oneOf": [
+                    {
+                        "$ref": "store_menu.json"
+                    }
+                ]
+            }
+        },
+        "body": {
+            "title": "Page Body",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "$ref": "store_header.json"
+                    },
+                    {
+                        "$ref": "store_listing.json"
+                    },
+                    {
+                        "$ref": "store_option_set_band.json"
+                    },
+                    {
+                        "$ref": "store_footer.json"
+                    },
+                    {
+                        "$ref": "footer_mini.json"
+                    }
+                ]
+            }
+        }
+    }
+}

@@ -1,0 +1,77 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Standard Text",
+    "category": "sub_pattern",
+    "type": "object",
+    "properties": {
+        "name": {
+            "type": "string",
+            "enum": [ "standard_text" ],
+            "options": {
+                "hidden": true
+            }
+        },
+        "container": {
+            "title": "Configuration",
+            "required": [ "type", "theme", "align" ],
+            "type": "object",
+            "properties": {
+                "type": {
+                    "title": "Type of Container",
+                    "description": "Cards have padding and a background, groups are just a container",
+                    "type": "string",
+                    "enum": [ "card", "group" ],
+                    "default": "group"
+                },
+                "theme": {
+                    "title": "Container Theme",
+                    "description": "Select dark theme when text is on a dark background",
+                    "type": "string",
+                    "enum": [ "light", "dark" ],
+                    "default": "light"
+                },
+                "background": {
+                    "title": "Background",
+                    "description": "For Card Only",
+                    "type": "string",
+                    "enum": [ "rich-black", "white", "gray", "red" ],
+                    "default": "gray"
+                },
+                "align": {
+                    "title": "Text Alignment",
+                    "type": "string",
+                    "enum": [ "left", "center", "right" ],
+                    "default": "left"
+                }
+            }
+        },
+        "title": {
+            "title": "Text Title",
+            "type": "string"
+        },
+        "content": {
+            "title": "Text Content",
+            "type": "string",
+            "format": "html"
+        },
+        "cta": {
+            "title": "Optional CTA Button",
+            "type": "object",
+            "options": {
+                "collapsed": true
+            },
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "enum": [ "primary", "secondary" ],
+                    "default": "secondary"
+                },
+                "link": {
+                    "$ref": "link.json"
+                }
+            }
+        }
+    },
+    "required": [ "content", "container", "name" ],
+    "additionalProperties": true
+}

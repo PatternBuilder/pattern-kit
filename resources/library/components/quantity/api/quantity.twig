@@ -1,0 +1,10 @@
+<div class="rh-quantity--component">
+    <input class="rh-quantity-input" type="number" inputmode="numeric" pattern="[0-9]*"
+        id="{{ set_id|default("quantity") }}" name="{{ set_id|default("quantity") }}"
+        min="{{ min|default(0)|number_format }}" max="{{ max|default(99)|number_format }}" size="{{ max|length|default(2)|number_format }}"
+        step="{{ step|default(1)|number_format }}"
+        {% if disabled %}disabled{% endif %}
+        {% if required %}required{% endif %}
+        {% if value %}value="{{ value|number_format }}"{% endif %}
+    >
+</div>

@@ -1,0 +1,75 @@
+[
+    {
+        "title": "Card with copy and cta",
+        "data": {
+            "name": "video_box",
+            "container": {
+                "type": "card",
+                "theme": "light",
+                "background": "gray"
+            },
+            "video": {
+                "src": {
+                    "video_src": "<iframe style=\"border: none \" srcdoc=\"<style>body{background: #c00}</style>\" ></iframe>"
+                },
+                "title": "My title",
+                "link": {
+                    "href": "http://www.redhat.com/en/resources/mufg-union-bank-serves-customers-faster-private-cloud-red-hat",
+                    "title": "Link Title"
+                },
+                "summary": "This is the video description"
+            },
+            "cta": {
+                "type": "primary",
+                "link": {
+                    "href": "http://www.redhat.com/en/resources/mufg-union-bank-serves-customers-faster-private-cloud-red-hat",
+                    "text": "click me"
+                }
+            }
+        }
+    },
+    {
+        "title": "Dark Card with copy",
+        "data": {
+            "name": "video_box",
+            "container": {
+                "type": "card",
+                "theme": "dark",
+                "background": "rich-black"
+            },
+            "video": {
+                "src": {
+                    "video_src": "<iframe style=\"border: none \" srcdoc=\"<style>body{background: #c00}</style>\" ></iframe>"
+                },
+                "title": "My title",
+                "link": {
+                    "href": "http://www.redhat.com/en/resources/mufg-union-bank-serves-customers-faster-private-cloud-red-hat",
+                    "title": "Link Title"
+                },
+                "summary": "This is the video description"
+            }
+        }
+    },
+    {
+        "title": "Group with cta",
+        "data": {
+            "name": "video_box",
+            "container": {
+                "type": "group",
+                "theme": "light"
+            },
+            "video": {
+                "src": {
+                    "video_src": "<iframe style=\"border: none \" srcdoc=\"<style>body{background: #c00}</style>\" ></iframe>"
+                }
+            },
+            "cta": {
+                "type": "primary",
+                "link": {
+                    "href": "http://www.redhat.com/en/resources/mufg-union-bank-serves-customers-faster-private-cloud-red-hat",
+                    "text": "click me"
+                }
+            }
+        }
+    }
+]

@@ -1,0 +1,54 @@
+[
+    {
+        "label": "Product card for store standard",
+        "data": {
+            "name": "store_product_box",
+            "themes": {
+                "product_line": "Linux platforms"
+            },
+            "header": {
+                "title": "Server",
+                "summary": "<p>Whether rolling out new applications, virtualizing environments, or creating a secure hybrid cloud, Red Hat Enterprise Linux heps IT leaders scale their business and say yes to what's most important.</p>"
+            },
+            "body": {
+                "config": {
+                    "align": "center"
+                },
+                "price_data": {
+                    "teaser": "Starting at",
+                    "amount": "2499"
+                },
+                "cta": {
+                    "link": {
+                        "href": "#"
+                    }
+                }
+            }
+        }
+    },
+    {
+        "label": "Product card for store with cta footer",
+        "data": {
+            "name": "store_product_box",
+            "themes": {
+                "product_line": "Storage"
+            },
+            "background": {
+                "image": "Yes"
+            },
+            "header": {
+                "title": "Lorem ipsum",
+                "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sit amet condimentum dolor. Quisque tortor nisi, tincidunt vitae odio id, dictum pharetra risus. Suspendisse lacinia, sapien ac ultrices eleifend, erat eros iaculis nunc, in condimentum felis nisl sit amet nisl. Maecenas et nibh faucibus, euismod ante quis, imperdiet lectus."
+            },
+            "body": {
+                "cta": {
+                    "type": "secondary",
+                    "link": {
+                        "href": "#",
+                        "text": "Learn more"
+                    }
+                }
+            }
+        }
+    }
+]

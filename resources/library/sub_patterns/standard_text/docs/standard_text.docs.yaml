@@ -1,0 +1,12 @@
+name: standard_text
+container:
+    align: left
+    card_option: Gray card
+title: Delivering value for customers
+content: "<p>We strive for an excellent support experience with a Red Hat subscription, and the top priority of the Partner Support program is to help you create the best experience for our mutual customers.</p>"
+cta:
+    type: primary
+    link:
+        href: "#"
+        title: Abc
+        text: A button

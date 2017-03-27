@@ -1,0 +1,13 @@
+<div class="rh-styled-select--component" data-eq-pts="small: 0, large: 600">
+    <div class="rh-styled-select-label-container">
+        <p class="rh-styled-select-label">{{ label }}</p>
+    </div>
+    <div class="rh-styled-select-container">
+        <select class="rh-styled-select-select" data-rh-chosen="single">
+            {%- for option in options %}
+                <option class="rh-styled-select-option"
+                        value="{{ option.value }}"{% if option.selected %} selected {% endif %}>{{ option.text }}</option>
+            {% endfor %}
+        </select>
+    </div>
+</div>

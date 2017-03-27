@@ -1,0 +1,111 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Pricing set",
+    "description": "Displays a teaser, price with units, and a buy button.",
+    "type": "object",
+    "category": "sub_pattern",
+    "format": "grid",
+    "properties": {
+        "name": {
+            "type": "string",
+            "readonly": true,
+            "enum": ["pricing_set"],
+            "options": {
+                "hidden": true
+            }
+        },
+        "config": {
+            "title": "Configuration",
+            "type": "object",
+            "format": "grid",
+            "properties": {
+                "align": {
+                    "title": "Alignment",
+                    "type": "string",
+                    "enum": ["left", "center", "right"],
+                    "default": "left",
+                    "options": {
+                        "grid_columns": 6
+                    }
+                },
+                "theme": {
+                    "title": "Theme",
+                    "type": "string",
+                    "enum": ["light", "dark"],
+                    "default": "light",
+                    "options": {
+                        "hidden": true,
+                        "grid_columns": 6
+                    }
+                }
+            },
+            "required": ["align", "theme"]
+        },
+        "price_data": {
+            "title": "Purchasing details",
+            "type": "object",
+            "format": "grid",
+            "properties": {
+                "teaser": {
+                    "$ref": "price.json#/properties/teaser"
+                },
+                "sku": {
+                    "$ref": "price.json#/properties/sku",
+                    "options": {
+                        "grid_columns":  4
+                    }
+                },
+                "amount": {
+                    "$ref": "price.json#/properties/amount",
+                    "options": {
+                        "grid_columns":  4
+                    }
+                },
+                "currency": {
+                    "$ref": "price.json#/properties/currency",
+                    "options": {
+                        "grid_columns":  4
+                    }
+                }
+            }
+        },
+        "cta": {
+            "title": "Purchase button",
+            "type": "object",
+            "format": "grid",
+            "properties": {
+                "config": {
+                    "title": "Configuration",
+                    "type": "object",
+                    "format": "grid",
+                    "properties": {
+                        "type": {
+                            "title": "Type of call-to-action",
+                            "type": "string",
+                            "enum": [ "primary", "secondary", "disabled", "ghost" ],
+                            "default": "primary",
+                            "options": {
+                                "grid_columns": 6
+                            }
+                        },
+                        "align": {
+                            "title": "Alignment",
+                            "type": "string",
+                            "enum": [ "left", "center", "right" ],
+                            "default": "left",
+                            "options": {
+                                "grid_columns": 6
+                            }
+                        }
+                    },
+                    "required": [ "type" ]
+                },
+                "link": {
+                    "title": "Link details",
+                    "$ref": "link.json"
+                }
+            }
+        }
+    },
+    "required": ["name", "config", "price_data"]
+}

@@ -1,0 +1,21 @@
+<div class="rh-link-tile--component"
+        {% if config.content_align %} data-rh-align="{{ config.content_align }}" {% endif %}
+     data-eq-pts="link-tile-small:0, link-tile-medium:200"
+        {% if config.tile_height %} data-rh-tileHeight="{{ config.tile_height }}" {% endif %}
+        {% if misc_data %} {{ misc_data }}{% endif %}
+>
+
+    <a class="rh-link-tile-link" href="{{ link.href }}"{% if link.title %} title="{% include "no_html.twig" with { "string": link.title } only %}"{% endif %}></a>
+    {% if icon %} <span class="{{ icon }} rh-link-tile-icon" role="icon"></span>{% endif %}
+    {% if title or headline %}
+        <header class="rh-link-tile-header">
+            {% if title %} <h3 class="rh-link-tile-title">{% include "no_html.twig" with { "string": title } only %} </h3>{% endif %}
+            {% if headline %} <h4 class="rh-link-tile-headline">{% include "no_html.twig" with { "string": headline } only %} </h4>{% endif %}
+        </header>
+    {% endif %}
+    {% if summary %}
+        <div class="rh-link-tile-content">
+            <p class="rh-link-tile-summary">{% include "no_html.twig" with { "string": summary } only %} </p>
+        </div>
+    {% endif %}
+</div>

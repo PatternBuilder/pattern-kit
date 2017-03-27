@@ -1,0 +1,33 @@
+<div class="rh-training-method--component">
+    {% if video_src -%}
+        <section class="rh-training-method-media-container">
+            <header class="rh-training-method-header">
+                <h1 class="rh-training-method-title"> {{ title }} </h1>
+            </header>
+            <div class="rh-training-method-iframe-container">
+                {% autoescape false %} {{ video_src }} {% endautoescape %}
+            </div>
+        </section>
+    {%- endif -%}
+    <div class="rh-training-method-select-container">
+        <label class="rh-training-method-label">{{ type_label }}</label>
+        <select class="rh-training-method-select" data-rh-chosen="single">
+            {%- for option in options %}
+                <option class="rh-training-method-option"
+                        value="{{ option.value }}"{% if option.selected %} selected {% endif %}>{{ option.text }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="rh-training-method-detail-container">
+        <dl class="rh-training-method-detail-items">
+            <dt class="rh-training-method-detail-term">{{ duration_label }}</dt>
+            <dd class="rh-training-method-detail-text">{{ duration_value }}</dd>
+            <dt class="rh-training-method-detail-term">{{ cost_label }}</dt>
+            <dd class="rh-training-method-detail-text">{{ cost_value }}</dd>
+        </dl>
+    </div>
+    <div class="rh-training-method-cta-container">
+        <a class="rh-training-method-cta" data-rh-state="primary"
+           href="{{ link.url }}{% if link.title %} title="{{ link.url }}"{% endif %}>{{ link.text }}</a>
+    </div>
+</div>

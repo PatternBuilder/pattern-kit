@@ -1,0 +1,27 @@
+{% embed 'group.twig' with {
+"global": _context,
+"body": {
+"theme": container.theme
+}
+} only %}
+
+    {% block body %}
+        {% include 'icon_panel.twig' with {
+            "content": {
+                "title": global.content.title,
+                "summary": global.content.summary
+            },
+            "icon": {
+                "filename": global.icon.filename,
+                "size": global.icon.size,
+                "background": global.icon.background
+            },
+            "link": {
+                "href": global.cta.link.href,
+                "title": global.cta.link.title,
+                "text": global.cta.link.text
+            }
+        } only %}
+    {% endblock %}
+
+{% endembed %}

@@ -1,0 +1,30 @@
+[{
+    "label": "",
+    "data": {
+        "name": "store_menu",
+        "logo": {
+            "href": "//www.redhat.com",
+            "title": "Red Hat Store"
+        },
+        "utility_links": [{
+            "text": "Redhat.com",
+            "href": "#"
+        }, {
+            "text": "Sales",
+            "href": "#"
+        }, {
+            "text": "FAQ",
+            "href": "#"
+        }],
+        "nav_links": [{
+            "text": "Linux Platforms",
+            "href": "#"
+        }, {
+            "text": "JBoss Middleware",
+            "href": "#"
+        }, {
+            "text": "Training",
+            "href": "#"
+        }]
+    }
+}]

@@ -1,0 +1,7 @@
+<!-- Default Component -->
+<div class="rh-default--component"
+    {% if misc_data %} data-rh-misc="{{ misc_data }}"{% endif %}
+    {% if align %} data-rh-align="{{ align }}"{% endif %}
+>
+    {{ content|raw }}
+</div>

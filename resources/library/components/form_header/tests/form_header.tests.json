@@ -1,0 +1,22 @@
+[{
+    "label": "Form header component",
+    "data": {
+        "name": "form_header",
+        "headline": "Sockets",
+        "style": "Headline",
+        "summary": "<p>Choose the amount of sockets you need. If you need more than 6 sockets, please <a href='#'>contact sales here</a>.</p>",
+        "tooltip": {
+            "text": "<p>Varias mentitum appellat eu quo malis excepteur senserit.</p>",
+            "theme": "dark",
+            "type": "help"
+        }
+    }
+},{
+    "label": "Form header with title, no tooltip",
+    "data": {
+        "name": "form_header",
+        "headline": "Sockets",
+        "style": "Title",
+        "summary": "<p>Choose the amount of sockets you need.<br/>If you need more than 6 sockets, please <a href='#'>contact sales here</a><sup>&reg;</sup>.</p>"
+    }
+}]

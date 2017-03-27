@@ -1,0 +1,33 @@
+{% embed 'group.twig' with {
+    "global": _context,
+    "body": {
+        "layout": "flex-between",
+        "theme": config.theme
+    }
+} only %}
+
+    {% block body %}
+        {% for item in global.links %}
+            {% if item.href %}
+
+                {% include 'social_icon.twig' with {
+                    "config": {
+                        "content_align": "center",
+                        "icon_size": global.config.size,
+                        "show_handle": "No",
+                        "handle_position": "below"
+                    },
+                    "social": {
+                        "platform": item.platform,
+                        "account": item.account,
+                        "href": item.href,
+                        "title": item.title
+                    }
+                } only %}
+
+            {% endif %}
+        {% endfor %}
+    {% endblock %}
+
+{% endembed %}
+

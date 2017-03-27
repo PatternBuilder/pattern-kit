@@ -1,0 +1,15 @@
+{
+    "name": "link_tile",
+    "config": {
+        "content_align": "left",
+        "tile_height": "tall"
+    },
+    "icon": "rh-icon-atom ",
+    "title": "A link tile",
+    "headline": "A link tile headline",
+    "summary": "A short summary that leads to a larger story.",
+    "link": {
+        "href": "#",
+        "title": "Link Tile Title"
+    }
+}

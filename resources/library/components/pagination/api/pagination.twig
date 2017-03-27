@@ -1,0 +1,33 @@
+<div class="rh-pagination--component"
+     data-rh-align="{{ config.align }}"
+        {% if misc_data %} {{ misc_data }}{% endif %}
+>
+    <div class="rh-pagination-prev-next">
+        <div class="rh-pagination-btn-prev" data-rh-state="{{ buttons.prev.state }}">
+            {% if buttons.prev.state == "active" %}<a class="rh-pagination-btn-link"
+                                                      href="{{ buttons.prev.link.href }}">{% endif %}
+                {% include "no_html.twig" with { "string": buttons.prev.link.text } only %}
+                {% if buttons.prev.state == "active" %}</a> {% endif %}
+        </div>
+        <div class="rh-pagination-btn-next" data-rh-state="{{ buttons.next.state }}">
+            {% if buttons.next.state == "active" %}
+                <a class="rh-pagination-btn-link" href="{{ buttons.next.link.href }}">
+            {% endif %}
+            {% include "no_html.twig" with { "string": buttons.next.link.text } only %}
+            {% if buttons.next.state == "active" %}</a> {% endif %}
+        </div>
+    </div>
+    <ul class="rh-pagination-pager">
+        {% for page in pages %}
+            <li class="rh-pagination-pager-item" data-rh-state="{{ page.state }}">
+                {% if page.state == "active" %}
+                    <a class="rh-pagination-pager-item-link"
+                       href="{{ page.link.href }}"
+                        title="{% include "no_html.twig" with { "string": page.link.title } only %}">
+                {% endif %}
+                {% include "no_html.twig" with { "string": page.link.text } only %}
+                {% if page.state == "active" %}</a>{% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+</div>

@@ -1,0 +1,14 @@
+<div class="rh-htab-nav">
+
+    <ul class="rh-htab-nav-tabs" data-rh-tab-id="{{ config.tab_id }}">
+        {% for tab in tabs %}
+            <li class="rh-htab-nav-tab"
+                data-rh-active="{% if loop.index  == config.active_tab %}true{% else %}false{% endif %}">
+                <a class="rh-htab-nav-link" href="#tab.{{ config.tab_id|e('url') }}.{{ loop.index0 }}"
+                   title="{{ tab.title }}">{{ tab.text }}</a>
+            </li>
+        {% endfor %}
+
+    </ul>
+
+</div>

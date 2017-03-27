@@ -1,0 +1,119 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Band header",
+    "type": "object",
+    "format": "grid",
+    "category": "component",
+    "properties": {
+        "name": {
+            "type": "string",
+            "enum": [ "band_header" ],
+            "options": {
+                "hidden": true
+            }
+        },
+        "template": {
+            "type": "string",
+            "options": {
+                "hidden": true
+            }
+        },
+        "misc_data": {
+            "type": "string",
+            "options": {
+                "hidden": true
+            }
+        },
+        "config": {
+            "type": "object",
+            "options": {
+                "grid_columns": 12
+            },
+            "properties": {
+                "size": {
+                    "type": "string",
+                    "enum": ["hero", "band"],
+                    "default": "band",
+                    "options": {
+                        "hidden": true
+                    }
+                },
+                "align": {
+                    "title": "Text alignment",
+                    "type": "string",
+                    "enum": [ "left", "right", "center" ],
+                    "options": {
+                        "grid_columns": 4
+                    }
+                },
+                "seo": {
+                    "title": "SEO",
+                    "description": "These values allow you to specify heading tags used for headline and title for SEO purposes. Without SEO, headings default to page content settings.",
+                    "type": "object",
+                    "format": "grid",
+                    "options": {
+                        "grid_columns": 8
+                    },
+                    "properties": {
+                        "position": {
+                            "description": "Value determines if header is page header (primary) or content header (secondary)",
+                            "type": "string",
+                            "enum": [ "primary", "secondary" ],
+                            "options": {
+                                "grid_columns": 4
+                            }
+                        },
+                        "priority": {
+                            "description": "Determines which property to place as higher heading value.",
+                            "type": "string",
+                            "enum": [ "standard", "title", "headline" ],
+                            "default": "standard",
+                            "options": {
+                                "grid_columns": 4
+                            }
+                        }
+                    },
+                    "required": [ "position", "priority" ]
+                }
+            },
+            "required": [ "size", "align", "seo" ]
+        },
+        "title": {
+            "title": "Band title",
+            "type": "string",
+            "description": "Short, keyword heavy intro text",
+            "options": {
+                "grid_column": 4,
+                "preview": true
+            }
+        },
+        "headline": {
+            "title": "Band headline",
+            "description": "Longer descriptive text",
+            "type": "string",
+            "options": {
+                "grid_column": 4,
+                "preview": true
+            }
+        },
+        "hash_link": {
+            "title": "Hash link",
+            "type": "string",
+            "description": "Keyword that is appended to the end of the URL.",
+            "options": {
+                "grid_column": 4
+            }
+        },
+        "summary": {
+            "title": "Band subtitle",
+            "description": "Allowed tags: &lt;a&gt;&lt;br&gt;&lt;sup&gt;&lt;small&gt;",
+            "type": "string",
+            "format": "html",
+            "options": {
+                "grid_column": 12
+            }
+        }
+    },
+    "required": [ "name" ],
+    "additionalProperties": false
+}

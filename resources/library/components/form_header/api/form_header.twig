@@ -1,0 +1,24 @@
+<!-- Form header component -->
+{% if headline %}
+    <header class="rh-form-header--component">
+        <div class="rh-form-header-content"
+            {% if tooltip.text %}data-rh-tooltip-type="{{ tooltip.type|default("help") }}"{% endif %}
+            data-rh-toggle-open="click"
+        >
+            <h3 class="rh-form-header-{% if style == "Title" %}title{% else %}headline{% endif %}">{% include "no_html.twig" with { "string": headline } only %} </h3>
+        </div>
+        {% if tooltip.text %}
+            <div class="rh-form-header-tooltip" data-rh-toggle-target {% if tooltip.theme %}data-rh-theme="{{ tooltip.theme }}"{% endif %}>
+                <span class="rh-form-header-tooltip-arrow" data-rh-toggle-pointer></span>
+                <div class="rh-form-header-tooltip-content">
+                    {% include 'summary_field.twig' with { "summary": tooltip.text } only %}
+                </div>
+            </div>
+        {% endif %}
+        {% if summary %}
+            <div class="rh-form-header-summary">
+                {% include 'summary_field.twig' with { "summary": summary } only %}
+            </div>
+        {% endif %}
+    </header>
+{% endif %}

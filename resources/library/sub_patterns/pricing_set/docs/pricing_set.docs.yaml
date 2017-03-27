@@ -1,0 +1,10 @@
+name: pricing_set
+config: 
+    align: center
+price_data: 
+    teaser: Starting at
+    sku: RH0009
+    amount: 2499
+cta: 
+    link:
+        href: #

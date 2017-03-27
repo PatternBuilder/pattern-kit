@@ -1,0 +1,19 @@
+name: footer_mini
+legal:
+    - link:
+          text: Privacy statement
+          href: "#"
+          title: Privacy statement
+    - link:
+          text: Terms of use
+          href: "#"
+          title: Terms of use
+    - link:
+          text: All policies and guidelines
+          href: "#"
+          title: All policies and guidelines
+features:
+    - image:
+          src: "/fixtures/images/logo-summit.png"
+      link:
+          href: "#"

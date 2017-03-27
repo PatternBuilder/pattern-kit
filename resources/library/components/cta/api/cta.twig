@@ -1,0 +1,29 @@
+{% if link.text %}
+    {% set cta_component_props %}
+        {% if misc_data %} {{ misc_data }}{% endif %}
+        {% if config.align %} data-rh-align="{{ config.align }}"{% endif %}
+    {% endset %}
+
+    {% if "button" in config.semantic %}
+        {% set tag = "button" %}
+        {% set type = "button" %}
+        {% set cta_link_attributes %}
+            {% if tag == "button" %}type="{{ type }}"{% endif %}
+        {% endset %}
+        {% if "submit" in config.semantic %}
+            {% set type = "submit" %}
+        {% elseif "reset" in config.semantic %}
+            {% set type = "reset" %}
+        {% endif %}
+    {% else %}
+        {% set tag = "a" %}
+    {% endif %}
+
+    <div class="rh-cta--component" {{ cta_component_props }}>
+        <{{ tag }} class="rh-cta-link" {{ cta_link_attributes }} data-rh-cta-type="{{ config.type }}"
+            {% if link.href %}href="{{ link.href }}"{% endif %}
+            {% if link.title %}title="{% include "no_html.twig" with { "string": link.title } only %}"{% endif %}
+            {% if link.target %}target="{{ link.target }}"{% endif %}
+        >{% include "no_html.twig" with { "string": link.text } only %} </{{ tag }}>
+    </div>
+{% endif %}

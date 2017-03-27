@@ -1,0 +1,74 @@
+.rh-training-row {
+    &--component {
+        position: relative;
+        cursor: pointer;
+        .flexbox & {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .no-flexbox & {
+            @include clearfix;
+            display: inline-block; // ie8 fallback
+            width: 100%; // ie8 fallback
+        }
+    }
+    &-icons {
+        display: none;
+        flex-basis: 10px;
+        min-width: 50px;
+        @include breakpoint($breakpoint-sm-min) {
+            display: block;
+        }
+        .no-flexbox & { // ie9 fallback
+            @include span(1 of 12);
+            min-height: 1px; // ie9 if no icon
+        }
+    }
+    &-icon {
+        font-size: 1.5em;
+        display: block;
+        [data-rh-theme="dark"] & {
+            color: color(white);
+        }
+    }
+    &-details {
+        flex-basis: 400px;
+        flex-grow: 1;
+        padding-right: 10%;
+        .no-flexbox & { // ie9 fallback
+            @include span(8 of 12);
+        }
+    }
+    &-title {
+        margin-bottom: .3em;
+        @extend %default-level4;
+        [data-rh-featured="true"] & {
+            color: color(brand-primary);
+        }
+    }
+    &-designation {
+        @extend %content-level4;
+        margin-bottom: .7em;
+    }
+    &-summary {
+        @extend %description-paragraph;
+    }
+    &-contact {
+        display: flex;
+        flex-basis: 190px;
+        @include breakpoint($breakpoint-xs-max max-width) {
+            padding-top: 10px;
+        }
+        .no-flexbox & { // ie9 fallback
+            @include span(last 3 of 12);
+        }
+    }
+    &-action {
+        @extend %cta-secondary-link;
+        align-self: center;
+        cursor: pointer;
+    }
+    &--component:hover &-action { // indicates a row action on hover
+        color: color(link);
+    }
+}

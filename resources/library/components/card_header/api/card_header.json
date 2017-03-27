@@ -1,0 +1,55 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Card header",
+    "description": "",
+    "type": "object",
+    "category": "component",
+    "properties": {
+        "name": {
+            "type": "string",
+            "readonly": true,
+            "enum": [ "card_header" ],
+            "options": {
+                "hidden": true
+            }
+        },
+        "template": {
+            "type": "string",
+            "options": {
+                "hidden": true
+            }
+        },
+        "misc_data": {
+            "type": "string",
+            "options": {
+                "hidden": true
+            }
+        },
+        "title": {
+            "title": "Card title",
+            "description": "Brief title, recommend no more than 3 words; allowed tags: &lt;sup&gt;",
+            "type": "string",
+            "format": "html",
+            "options": {
+                "preview": true
+            }
+        },
+        "headline": {
+            "title": "Card headline",
+            "description": "Allowed tags: &lt;sup&gt;",
+            "type": "string",
+            "format": "html",
+            "options": {
+                "preview": true
+            }
+        },
+        "summary": {
+            "title": "Card summary",
+            "description": "Allowed tags: &lt;sup&gt;&lt;a&gt;&lt;b&gt;",
+            "type": "string",
+            "format": "html"
+        }
+    },
+    "required": [ "name" ],
+    "additionalProperties": false
+}

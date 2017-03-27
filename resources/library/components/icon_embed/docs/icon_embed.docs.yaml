@@ -1,0 +1,10 @@
+name: icon_embed
+icon:
+    filename: web-icon-facebook
+link:
+    href: "#"
+    title: This is the title
+    text: Red Hat JBoss Middleware
+config:
+    icon_size: small
+    text_align: center

@@ -1,0 +1,72 @@
+.#{$repo}-card {
+    &--layout {
+        @extend %has-container-background;
+        position: relative;
+        @include bp-styles( hide ) {
+            display: none;
+        }
+        .flexbox & {
+            flex-direction: column;
+            display: flex; // cards are flex to make sure they flexed items inside of them can be 100% height
+        }
+        padding: $box-padding;
+        @include eq(small-card) {
+            padding: $box-padding $box-padding/2;
+        }
+
+        // theme values
+        &[data-#{$repo}-theme~="black"], &[data-#{$repo}-theme="dark"] {
+            background-color: color(black);
+        }
+        &[data-#{$repo}-theme~="rich-black"] {
+            background-color: color(rich-black);
+        }
+        &[data-#{$repo}-theme~="white"], &[data-#{$repo}-theme="light"] {
+            background-color: color(white);
+        }
+        &[data-#{$repo}-theme~="gray"] {
+            background-color: color(gray2);
+        }
+        &[data-#{$repo}-theme~="red"] {
+            background-color: color(brand-primary);
+        }
+        @include product-theme($property: border-top-color, $level: same){
+            border-top-style: solid;
+            border-top-width: 8px;
+            background-size: contain;
+            background-position: right bottom;
+        }
+
+        @include data(misc, product-image) {
+            @each $name, $color in $product-line-colors {
+                @include data(theme, #{$name}) {
+                    background-image: url("../images/cardbg-#{$name}.png");
+                }
+            }
+        }
+
+        // align flex items along vertical-axis
+        @include data(justify, center) {
+            justify-content: center;
+        }
+        @include data(justify, top) {
+            justify-content: flex-start;
+        }
+    }
+    &--layout,
+    &-header,
+    &-content,
+    &-footer {
+        > * {
+            // explicit width needed for IE10 bug
+            width: 100%;
+        }
+    }
+    &-content {
+        @include data-context(justify, justify) {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+    }
+}

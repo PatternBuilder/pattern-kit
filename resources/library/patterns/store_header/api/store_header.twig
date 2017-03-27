@@ -1,0 +1,84 @@
+{% if config.background_color == "rich-black" %}
+    {% set theme_custom = "dark" %}
+{% else %}
+    {% set theme_custom = "light" %}
+{% endif %}
+
+{% if config.theme and config.theme != "default" %}
+    {% set theme_custom =  theme_custom ~ " " ~ config.theme|replace(' ','-')|lower %}
+{% endif %}
+
+{% if image.src %}
+    {% set body_layout = "2 10 variant" %}
+{% else %}
+    {% set body_layout = "9 3 flex" %}
+{% endif %}
+
+{% embed 'band.twig' with {
+    "global": _context,
+    "meta": meta,
+    "background": {
+        "color": config.background_color
+    },
+    "config": {
+        "collapse": "bottom"
+    },
+    "body": {
+        "theme": "light",
+        "layout": body_layout
+    }
+} only %}
+
+    {% block body %}
+        {%- if global.image.src %}
+            {% include 'image_embed.twig' with {
+                "config": {
+                    "align": "left"
+                },
+                "background": {
+                    "color": config.background_color
+                },
+                "image": {
+                    "src": global.image.src,
+                    "alt": global.image.alt
+                }
+            } only %}
+        {% endif -%}
+        {% set content = [] %}
+        {%- if global.headline %}
+            {% set content = content|merge([{
+                "name": "band_header",
+                "config": {
+                    "size": "hero",
+                    "align": "left",
+                    "seo": {
+                        "position": "primary",
+                        "priority": "headline"
+                    }
+                },
+                "headline": global.headline,
+            }]) %}
+        {% endif %}
+        {%- if global.summary %}
+            {% set content = content|merge([{
+                "name": "generic",
+                "align": "left",
+                "content": global.summary
+            }]) %}
+        {% endif %}
+        {%- if content %}
+            {% include "group.twig" with {
+                "name": "group",
+                "background": {
+                    "color": "white"
+                },
+                "body": {
+                    "theme": global.theme_custom,
+                    "layout": "min-stacked",
+                    "content": content
+                }
+            } only %}
+        {% endif -%}
+    {% endblock %}
+
+{% endembed %}

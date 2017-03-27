@@ -1,0 +1,46 @@
+.#{$repo}-customer-success {
+    &--component {
+        @include breakpoint($breakpoint-sm-min) {
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+    }
+
+    &-logo {
+        margin-bottom: 1em;
+        display: block;
+        width: pem(72);
+        height: auto;
+    }
+
+    &-img-container {
+        margin-bottom: pem($vertical-gutter);
+        .#{$repo}-card--layout & {
+            // if inside of a card then the img container bleeds to edge of card
+            @extend %bleeding-container;
+        }
+    }
+
+    &-img {
+        align-self: center;
+        @extend %responsive-media;
+    }
+
+    &-content {
+        margin-bottom: pem($vertical-gutter);
+        flex-grow: 1;
+    }
+
+    &-title {
+        @extend %default-level3;
+    }
+
+    &-summary {
+        @extend %default-paragraph;
+    }
+
+    &-cta {
+        @extend %cta-primary;
+    }
+}

@@ -1,0 +1,147 @@
+%select-container {
+    display: inline-block;
+    position: relative;
+    @include get-web-icon(caret-down) {
+        position: absolute;
+        right: 2px;
+        bottom: 7px;
+        color: white;
+    }
+    select {
+        font-size: pem(14);
+        border: none;
+        font-family: $base-font-family;
+        background: color(brand-primary);
+        color: white;
+        border-radius: 0;
+        padding: 8px 8px 8px 12px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+    }
+}
+
+%text-input {
+    font-family: $base-font-family;
+    border: 1px solid color(gray1);
+    padding: 5px 10px;
+    font-size: 1em;
+    &:focus {
+        outline: none;
+    }
+}
+
+%number-input {
+    font-family: $base-font-family;
+    font-size: 1em;
+    line-height: 1.55;
+    height: 2em;
+    font-weight: 600;
+    color: color(black);
+    border: 1px solid color(gray1);
+    padding: .3em;
+    max-width: pem(50);
+    &::-webkit-inner-spin-button,
+    &::-webkit-outer-spin-button {
+        opacity: 1;
+    }
+    [data-rh-theme~="dark"] & {
+        color: color(white);
+    }
+}
+
+%tooltip-icon {
+    font-size: .5em;
+    font-weight: 400;
+    border-radius: 50%;
+    width: 1.5em;
+    height: 1.5em;
+    line-height: 1.5em;
+    display: inline-block;
+    padding-left: .4em;
+    margin-left: .5em;
+    cursor: pointer;
+}
+
+%tooltip-indicator-enabled {
+    position: relative;
+    &:after {
+        @include data(tooltip-type) {
+            @extend %tooltip-icon;
+            position: absolute;
+            top: 0;
+            line-height: 15px;
+        }
+        @include data(tooltip-type, help) {
+            content: "?";
+            background-color: color(black);
+            color: color(white);
+        }
+        @include data(tooltip-type, error) {
+            content: "!";
+            background-color: color(brand-primary);
+            color: color(white);
+        }
+        @include data(tooltip-type, warning) {
+            content: "!";
+            background-color: color(gray1);
+            color: color(rich-black);
+        }
+        @include data(tooltip-type, info) {
+            content: "\2139";
+            background-color: color(link);
+            color: color(white);
+        }
+    }
+}
+
+%tooltip-title {
+    font-family: $base-font-family;
+    color: color(brand-primary);
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 1.1em;
+    line-height: 1.38;
+    margin: 0;
+    display: inline-block;
+    max-width: calc(100% - 25px);
+}
+%tooltip-headline {
+    font-family: $base-font-family;
+    font-size: pem(22);
+    font-weight: 800;
+    text-transform: none;
+    color: color(black);
+    line-height: 1.18;
+    margin: 0;
+    display: inline-block;
+    max-width: calc(100% - 25px);
+    @include data-context(theme, dark) {
+        color: color(white);
+    }
+}
+%tooltip-text {
+    font-family: $base-font-family;
+    font-size: .8em;
+    font-weight: 100;
+    line-height: 1.44;
+    color: color(copy);
+    margin: 0 0 1em;
+    &:last-child {
+        margin-bottom: 0;
+    }
+    a {
+        @extend %default-link;
+    }
+    @include data-context(theme, dark) {
+        color: color(white);
+    }
+}
+
+%custom-radio-container {
+    @include custom-input($type: radio);
+}
+
+%custom-checkbox-container {
+    @include custom-input($type: checkbox, $rounded: 0);
+    // @TODO alternative checkbox option: @include custom-input($type: radio, $rounded: 0);
+}

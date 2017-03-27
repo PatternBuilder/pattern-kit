@@ -1,0 +1,39 @@
+name: menu
+config:
+    theme: dark
+logo:
+    image:
+        name: Shadowman
+        alt: Red Hat's company logo; Shadowman
+    link:
+        href: //www.redhat.com
+        title: Red Hat
+plugins:
+    search: true
+    store: false
+utility_links:
+    - link:
+          text: Redhat.com
+          href: "#"
+          title: Descriptive text
+    - link:
+          text: Sales
+          href: "#"
+          title: Descriptive text
+    - link:
+          text: FAQ
+          href: "#"
+          title: Descriptive text
+nav_links:
+    - link:
+          text: Linux Platforms
+          href: "#"
+          title: Descriptive text
+    - link:
+          text: JBoss Middleware
+          href: "#"
+          title: Descriptive text
+    - link:
+          text: Training
+          href: "#"
+          title: Descriptive text

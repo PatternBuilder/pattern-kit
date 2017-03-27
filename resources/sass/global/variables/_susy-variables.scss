@@ -1,0 +1,17 @@
+$susy: (
+        flow: ltr,
+        math: fluid,
+        output: float,
+        gutter-position: after,
+        container: auto,
+        container-position: center,
+        columns: 12,
+        gutters: .43,
+        column-width: false,
+        last-flow: to,
+        debug: (
+                image: hide,
+                color: rgba(#66f, .25),
+                output: background,
+        ),
+);

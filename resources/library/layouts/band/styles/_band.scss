@@ -1,0 +1,27 @@
+.#{$repo}-band {
+    @extend %default--band;
+    @extend %has-container-background;
+    @include clearfix;
+    $background-colors: (
+        "white": color(white),
+        "gray": color(gray2),
+        "black": color(black),
+        "red": color(brand-primary),
+        "rich-black": color(rich-black),
+        "transparent": transparent
+    );
+    @each $name, $color in $background-colors {
+        @include data(band-background, $name) {
+            background-color: $color;
+        }
+    }
+    &-container {
+        @extend %default--container;
+    }
+    &-main {
+        @extend %layout-stacked;
+    }
+    &-aside {
+        @extend %layout-stacked;
+    }
+}

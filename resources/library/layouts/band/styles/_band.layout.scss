@@ -1,0 +1,267 @@
+$layouts: 3, 4, 6, 8, 9, 9 3, 3 9, 8 4, 4 8, 6 6, 4 4 4, 3 3 3 3;
+$sub-layouts: 2 2, 3 3, 4 4, 3 3 3;
+$gallery: 2, 3, 4, 5, 6;
+
+@include data-layout("~", stacked) {
+    .flexbox & {
+        display: flex;
+        flex-direction: column;
+    }
+
+    > * {
+        margin: 0 0 $vertical-gutter;
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+@include data-layout("~", tall-stacked) {
+    @extend [data-#{$repo}-layout~="stacked"];
+    > * {
+        margin-bottom: $vertical-gutter * 2;
+    }
+}
+
+@include data-layout("~", min-stacked) {
+    @extend [data-#{$repo}-layout~="stacked"];
+    > *  {
+        margin-bottom: $vertical-gutter / 2;
+    }
+}
+
+@include data-layout("*", flex) {
+    @include breakpoint($breakpoint-sm-min) {
+        .flexbox & {
+            display: flex;
+        }
+    }
+}
+
+// TODO Working to deprecate these over time but need to update patterns/layouts first
+%layout-stacked {
+    @extend [data-#{$repo}-layout~="stacked"];
+}
+
+%layout-min-stacked {
+    @extend [data-#{$repo}-layout~="min-stacked"];
+}
+
+// Gallery Layouts with Flexbox
+@each $columns in $gallery {
+    $width: 12 / $columns;
+    $min2colSize: if($columns > 4, 0, $breakpoint-xs-min);
+    @include data-layout("~", gallery#{$columns}) {
+        @include clearfix;
+        margin-top: -$vertical-gutter;
+        @include breakpoint($breakpoint-xs-min) {
+            .flexbox & {
+                display: flex;
+                flex-wrap: wrap;
+            }
+        }
+
+        > * {
+            float: left;
+            width: 100%;
+            margin: $vertical-gutter 0 0;
+            // 2 up layout
+            @include breakpoint($min2colSize $breakpoint-xs-max) {
+                @include span(6 of 12);
+                &:nth-child(2n) {
+                    margin-right: 0;
+                }
+
+                &:nth-child(2n + 3) {
+                    clear: left;
+                }
+            }
+            // full layout
+            @include breakpoint($breakpoint-sm-min) {
+                @include span($width of 12);
+                &:nth-child(#{$columns}n) {
+                    margin-right: 0;
+                }
+
+                &:nth-child(#{$columns}n + #{$columns + 1}) {
+                    clear: left;
+                }
+            }
+        }
+    }
+}
+// Primary Layouts
+@each $layout in $layouts {
+    $length: length($layout);
+    $sum: 12;
+    $prefix: if($length == 1, "only", "");
+    @include data-layout("^", #{$prefix}#{$layout}) {
+        @include clearfix;
+
+        > * {
+            @include breakpoint($breakpoint-xs-max max-width) {
+                margin-bottom: $vertical-gutter;
+                clear: both;
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+        }
+        // clear every nth + (n+1)
+        > *:nth-child(#{$length}n + #{$length + 1}) {
+            clear: both;
+        }
+        @for $i from 1 through $length {
+            > *:nth-child(#{$length}n + #{$i}) {
+                @include bp-span(if($i==$length, 'last', '') nth($layout, $i) of $sum, $breakpoint-sm-min);
+            }
+        }
+    }
+}
+// Sub-layouts break at a smaller breakpoint then layouts
+@each $sub-layout in $sub-layouts {
+    // Equal to number of columns set in grid system
+    $gridColumns: susy-get(columns);
+    // get length of layout property - $columnCount of data-#{$repo}-layout="3 3 3" is 3
+    $columnCount: length($sub-layout);
+    // Sum is total columns in sub layout - $sum of data-#{$repo}-layout="3 3 3" is 9
+    $sum: 0;
+    @each $columnCount in $sub-layout {
+        $sum: $sum + $columnCount;
+    }
+
+    @include data-layout("", #{$sub-layout} of #{$sum}) {
+        @include clearfix;
+        @include breakpoint($breakpoint-sm-min) {
+            .flexbox & {
+                display: flex;
+            }
+        }
+
+        > * {
+            @include breakpoint($breakpoint-xxs-max max-width) {
+                margin-bottom: $vertical-gutter;
+                clear: both;
+            }
+        }
+        @for $i from 1 through $columnCount {
+            > *:nth-child(#{$i}) {
+                // equal parts of 12 column layout
+                @include bp-span(if($i==$columnCount, 'last', '') ($gridColumns / $columnCount) of $gridColumns, $breakpoint-xs-min);
+                // specified parts of context equal to sum of all numbers (3 3 3 goes inside a 9 column )
+                @include bp-span(if($i==$columnCount, 'last', '') nth($sub-layout, $i) of $sum, $breakpoint-sm-min);
+                @if ($i==$columnCount) {
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+}
+
+@include data-layout("", 2 10 variant) {
+    $list: (
+        $breakpoint-xs-min: 3 9,
+        $breakpoint-lg-min: 2 10
+    );
+    @include layout(
+        $layout: $list,
+        $break: false,
+        $flex-align: flex-start,
+        $flex-justify: flex-start
+    );
+}
+@include data-layout("", flex-footer-variant) {
+    @include flex(
+        $flow: column wrap,
+        $align: flex-start,
+        $justify: center
+    );
+    margin-top: - $vertical-gutter / 2;
+    @include breakpoint($breakpoint-xs-min $breakpoint-md-max) {
+        @include flex(
+            $flow: row wrap,
+            $align: flex-start,
+            $justify: space-between
+        );
+    }
+    @include breakpoint($breakpoint-md-min) {
+        @include flex(
+            $flow: row nowrap,
+            $align: center,
+            $justify: space-between
+        );
+    }
+
+    > * {
+        margin-top: $vertical-gutter / 2;
+
+        &:first-child,
+        &:last-child {
+            flex-grow: 0;
+        }
+
+        &:not(:first-child):not(:last-child) {
+            flex-grow: 1;
+        }
+
+        &:not(:last-child) {
+            margin-right: $vertical-gutter;
+        }
+        @include breakpoint($breakpoint-xs-min $breakpoint-xs-max) {
+            &:nth-child(1) {
+                order: 1;
+            }
+
+            &:nth-child(2) {
+                flex-basis: 100%;
+                order: 3;
+            }
+
+            &:nth-child(3) {
+                order: 2;
+            }
+        }
+    }
+}
+
+@include data-layout("", flex-center) {
+    @include flex(
+        $flow: column wrap,
+        $align: flex-start,
+        $justify: center
+    );
+    margin-top: -$vertical-gutter / 2;
+
+    > * {
+        margin-top: $vertical-gutter / 2;
+
+        &:not(:last-child) {
+            margin-right: $vertical-gutter * 2;
+        }
+    }
+    @include breakpoint($breakpoint-md-min) {
+        @include flex(
+            $flow: row wrap,
+            $align: center,
+            $justify: center
+        );
+    }
+}
+
+@include data-layout("", flex-between) {
+    @include flex(
+        $flow: row wrap,
+        $align: flex-start,
+        $justify: space-between
+    );
+    margin-top: -$vertical-gutter / 2;
+
+    > * {
+        margin-top: $vertical-gutter / 2;
+
+        &:not(:last-child) {
+            margin-right: $vertical-gutter / 2;
+        }
+    }
+}

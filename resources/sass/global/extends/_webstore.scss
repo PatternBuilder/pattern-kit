@@ -1,0 +1,21 @@
+%store-base-paragraph {
+    font-family: $base-font-family;
+    font-size: pem(16);
+    line-height: 1.44;
+    margin: 0 0 1em;
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+%store-paragraph {
+    @extend %store-base-paragraph;
+    font-weight: normal;
+    color: color(copy);
+}
+
+%store-strong-paragraph {
+    @extend %store-base-paragraph;
+    font-weight: bold;
+    color: color(rich-black);
+}

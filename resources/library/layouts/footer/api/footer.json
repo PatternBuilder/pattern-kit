@@ -1,0 +1,87 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Footer",
+    "category": "layout",
+    "type": "object",
+    "format": "grid",
+    "properties": {
+        "name": {
+            "type": "string",
+            "enum": ["footer"],
+            "options": {
+                "hidden": true
+            }
+        },
+        "config": {
+            "title": "Configuration",
+            "type": "object",
+            "format": "grid",
+            "properties": {
+                "collapse": {
+                    "title": "Collapse band padding",
+                    "type": "string",
+                    "enum": ["full_top", "full_bottom", "full", "top", "bottom", "both"],
+                    "default": "full"
+                },
+                "background_color": {
+                    "type": "string",
+                    "enum": ["white", "gray", "black", "rich-black", "red", "transparent"],
+                    "default": "rich-black"
+                }
+            }
+        },
+        "main": {
+            "title": "Footer main",
+            "type": "object",
+            "format": "grid",
+            "properties": {
+                "layout": {
+                    "type": "string"
+                },
+                "theme": {
+                    "title": "Theme",
+                    "type": "string",
+                    "enum": ["light", "dark"],
+                    "default": "dark"
+                },
+                "content": {
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                        "oneOf": [{
+                            "$ref": "menu_column.json"
+                        }, {
+                            "$ref": "image_embed.json"
+                        }, {
+                            "$ref": "standard_text.json"
+                        }, {
+                            "$ref": "raw_html.json"
+                        }]
+                    }
+                }
+            }
+        },
+        "aside": {
+            "title": "Aside",
+            "type": "object",
+            "format": "grid",
+            "properties": {
+                "content": {
+                    "title": "Aside patterns",
+                    "type": "array",
+                    "maxItems": 1,
+                    "items": {
+                        "title": "Aside Item",
+                        "oneOf": [{
+                            "$ref": "raw_html.json"
+                        }, {
+                            "$ref": "standard_text.json"
+                        }, {
+                            "$ref": "menu_column.json"
+                        }]
+                    }
+                }
+            }
+        }
+    }
+}

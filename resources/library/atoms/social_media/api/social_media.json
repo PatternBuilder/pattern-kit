@@ -1,0 +1,45 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "category": "atom",
+    "entity": "social_media",
+    "title": "Social media",
+    "type": "object",
+    "format": "grid",
+    "properties": {
+        "platform": {
+            "title": "Which social media platform?",
+            "type": "string",
+            "enum": [ "Facebook", "Twitter", "Google+", "YouTube", "LinkedIn", "Reddit" ],
+            "options": {
+                "grid_columns": 4
+            }
+        },
+        "account": {
+            "title": "Handle/account name",
+            "description": "The handle or name of this account; i.e., @RedHatJobs.",
+            "type": "string",
+            "options": {
+                "grid_columns": 4
+            }
+        },
+        "title": {
+            "title": "Title attribute",
+            "description": "Shown on mouseover; suggested: Follow us on Facebook!",
+            "type": "string",
+            "options": {
+                "grid_columns": 4
+            }
+        },
+        "href": {
+            "title": "Link URL",
+            "entity": "link",
+            "description": "Link to social media account.",
+            "type": "string",
+            "format": "url",
+            "options": {
+                "grid_columns": 6
+            }
+        }
+    },
+    "required": [ "platform", "href" ]
+}

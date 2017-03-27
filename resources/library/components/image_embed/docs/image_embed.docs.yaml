@@ -1,0 +1,14 @@
+name: image_embed
+config:
+    align: bleed
+    hover_effect: color-bw
+image:
+    src: "/fixtures/images/mountain.jpg"
+    alt: Image alt text
+caption: View the infographic
+link:
+    href: "//www.redhat.com"
+    title: abc
+background:
+    color: black
+    type: image_border

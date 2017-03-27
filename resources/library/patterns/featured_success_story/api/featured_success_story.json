@@ -1,0 +1,183 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Featured success story",
+    "category": "pattern",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [ "background_color", "layout", "content" ],
+    "properties": {
+        "name": {
+            "type": "string",
+            "enum": [ "featured_success_story" ],
+            "options": {
+                "hidden": true
+            }
+        },
+        "meta": {
+            "type": "object",
+            "properties": {
+                "class": {
+                    "options": {
+                        "hidden": true
+                    },
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "id": {
+                    "type": "string",
+                    "options": {
+                        "hidden": true
+                    }
+                },
+                "uniqueId": {
+                    "type": "string",
+                    "options": {
+                        "hidden": true
+                    }
+                }
+            }
+        },
+        "background_color": {
+            "title": "Band Background Color",
+            "type": "string",
+            "enum": [ "white", "gray" ],
+            "default": "gray"
+        },
+        "layout": {
+            "title": "Band Layout",
+            "description": "Number of columns given to each section of the band",
+            "type": "string",
+            "enum": [ "8 4", "6 6" ],
+            "default": "8 4"
+        },
+        "content": {
+            "required": [ "title", "headline", "summary", "cta" ],
+            "type": "object",
+            "properties": {
+                "title": {
+                    "title": "Band Title",
+                    "type": "string",
+                    "options": {
+                        "preview": true
+                    }
+                },
+                "headline": {
+                    "title": "Band Headline",
+                    "type": "string",
+                    "options": {
+                        "preview": true
+                    }
+                },
+                "summary": {
+                    "title": "Band Subtitle",
+                    "description": "Full HTML required",
+                    "type": "string",
+                    "format": "html"
+                },
+                "cta": {
+                    "type": "object",
+                    "required": [ "type", "link" ],
+                    "title": "Call To Action Link",
+                    "properties": {
+                        "type": {
+                            "title": "Type of CTA",
+                            "type": "string",
+                            "enum": [ "primary", "secondary" ],
+                            "default": "primary"
+                        },
+                        "link": {
+                            "$ref": "link.json"
+                        }
+                    }
+                }
+            }
+        },
+        "sidebar": {
+            "type": "object",
+            "required": [ "theme", "background_color", "image", "quote" ],
+            "properties": {
+                "theme": {
+                    "title": "Sidebar Theme",
+                    "description": "Dark theme is for light text on dark backgrounds",
+                    "type": "string",
+                    "enum": [ "light", "dark" ],
+                    "default": "dark"
+                },
+                "background_color": {
+                    "title": "Background Color",
+                    "type": "string",
+                    "enum": [ "black", "rich-black", "white", "gray" ],
+                    "default": "rich-black"
+                },
+                "image": {
+                    "title": "Sidebar Image",
+                    "type": "object",
+                    "required": [ "image_alignment", "source", "image_link" ],
+                    "properties": {
+                        "image_alignment": {
+                            "title": "Image Size",
+                            "description": "Bleed option fills card with image, full leaves padding around the image",
+                            "type": "string",
+                            "enum": [ "bleed", "full" ],
+                            "default": "bleed"
+                        },
+                        "source": {
+                            "title": "Company Logo or Image",
+                            "entity": "image",
+                            "type": "object",
+                            "properties": {
+                                "src": {
+                                    "type": "string",
+                                    "format": "url"
+                                },
+                                "alt": {
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "image_link": {
+                            "title": "Sidebar Link",
+                            "required": [ "title", "href" ],
+                            "type": "object",
+                            "entity": "link",
+                            "properties": {
+                                "href": {
+                                    "title": "Link URL",
+                                    "type": "string",
+                                    "format": "url"
+                                },
+                                "title": {
+                                    "title": "Title Attribute",
+                                    "type": "string",
+                                    "description": "Optional. Shown on mouseover."
+                                }
+                            }
+                        }
+                    }
+                },
+                "quote": {
+                    "type": "object",
+                    "required": [ "text", "attribution_name" ],
+                    "properties": {
+                        "text": {
+                            "title": "Quote Text",
+                            "description": "Text only, no quotes or markup",
+                            "format": "textarea",
+                            "type": "string"
+                        },
+                        "attribution_name": {
+                            "title": "Quote Author",
+                            "type": "string"
+                        },
+                        "attribution_title": {
+                            "title": "Author's Position or Title",
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,8 @@
+<div class="rh-quote--component" data-eq-pts="large: 400" {% if misc_data %} {{ misc_data }}{% endif %}>
+    <blockquote class="rh-quote-container">
+        <p class="rh-quote-quotation">{% include "no_html.twig" with { "string": quotation } only %}</p>
+        <footer class="rh-quote-reference">
+            <span class="rh-quote-attribution">{% include "no_html.twig" with { "string": attribution_name } only %}</span>{% if attribution_title %}, {% include "no_html.twig" with { "string": attribution_title } only %}{% endif %}
+        </footer>
+    </blockquote>
+</div>

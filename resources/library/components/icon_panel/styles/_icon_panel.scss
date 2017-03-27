@@ -1,0 +1,97 @@
+.#{$repo}-icon-panel {
+    &--component {
+        // content horizontal align values
+        @extend %text-align-enabled;
+        display: flex;
+        flex-direction: column;
+        // Element Queries
+        @include eq(medium-icon-panel) {
+            flex-direction: row;
+            @include data(align, center) {
+                flex-direction: column;
+            }
+            @include data(align, right) {
+                flex-direction: row-reverse;
+            }
+        }
+    }
+
+    // SVG Container
+    &-svg {
+        // Floated Layout
+        @include eq-context(medium-icon-panel) {
+            flex-shrink: 0;
+        }
+
+        // Embeded SVG
+        svg {
+            width: pem(80);
+            padding: 5px;
+            @include data-context(align, left) {
+                margin-right: pem(20);
+            }
+            @include data-context(align, center) {
+                margin-bottom: $vertical-gutter / 2;
+            }
+            @include data-context(align, right) {
+                margin-left: pem(20);
+            }
+            @include eq-context(small-icon-panel) {
+                margin-bottom: $vertical-gutter / 2;
+            }
+            height: pem(80);
+            fill: color(copy);
+
+            // Themes
+            @include data-context(theme, dark) {
+                fill: color(white);
+            }
+
+            // Sizes
+            @include data-context(icon-size, small) {
+                width: pem(60);
+                height: pem(60);
+            }
+            @include data-context(icon-size, large) {
+                width: pem(100);
+                height: pem(100);
+            }
+
+            // Backgrounds
+            @include data-context(icon-background) {
+                border-radius: 100%;
+            }
+            @include data-context(icon-background, red) {
+                background: color(brand-primary);
+                fill: color(white);
+            }
+            @include data-context(icon-background, gray) {
+                background: color(gray1);
+                fill: color(black);
+            }
+        }
+    }
+    &-content {
+        @include flex(
+            $flow: column nowrap
+        );
+    }
+    &-title {
+        @extend %content-level1;
+    }
+    &-summary {
+        @extend %default-paragraph;
+        @include eq-context(small-icon-panel) {
+            flex-grow: 1;
+        }
+        @include data-context(align, center) {
+            flex-grow: 1;
+        }
+        a {
+            @extend %default-link;
+        }
+    }
+    &-cta-link {
+        @extend %cta-secondary-link;
+    }
+}

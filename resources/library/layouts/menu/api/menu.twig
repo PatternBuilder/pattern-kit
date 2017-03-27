@@ -1,0 +1,126 @@
+{% if logo %}
+    {% set logo %}
+        {% if logo.image.name == "Store" %}
+            {% set misc_data = "redhat-logo-store" %}
+        {% else %}
+            {% set misc_data = "redhat-logo-nav" %}
+        {% endif %}
+        {% include 'image_embed.twig' with {
+            "name": "image_embed",
+            "misc_data": "data-rh-misc=" ~ misc_data,
+            "config": {
+                "hover_effect": "color-bw",
+                "align": "left"
+            },
+            "image": {
+                "src": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
+                "alt": logo.image.alt
+            },
+            "link": {
+                "href": logo.link.href,
+                "title": logo.link.title
+            }
+        } only %}
+    {% endset %}
+{% endif %}
+
+<section class="rh-menu" data-rh-menu="initial" {% if config.background_color %}data-rh-background="{{ config.background_color }}"{% endif %}>
+    <a class="rh-menu-skip-navigation" href="#main-content" title="Skip to content" data-rh-skip-nav>Skip to content</a>
+    <div class="rh-menu-mobile" data-rh-hide="sm md lg">
+        <div class="rh-menu-mobile-bar">
+            <div class="rh-menu-mobile-bar-top"  data-rh-theme="dark"  data-rh-menu-context="top-mobile">
+                {{ logo }}
+
+                {% include 'nav_links.twig' with {
+                    "style": "Utility",
+                    "links": [{
+                        "icon": "web-icon-mobile-menu"
+                    }]
+                } only %}
+            </div>
+
+            <nav class="rh-menu-mobile-dropdown" data-rh-theme="dark"
+                data-rh-toggle-target="xxs xs sm md lg" data-rh-menu-context="dropdown-mobile"
+                id="mainMenu">
+                {% if nav_links is iterable %}
+                    {% include 'nav_links.twig' with {
+                        "style": "Menu",
+                        "links": nav_links
+                    } only %}
+                {% endif %}
+                {% if utility_links is iterable %}
+                    {% include 'nav_links.twig' with {
+                        "style": "Utility",
+                        "links": utility_links
+                    } only %}
+                {% endif %}
+            </nav>
+
+            {% if plugins.search or plugins.store %}
+                <div class="rh-menu-mobile-bar-bottom" data-rh-theme="light"  data-rh-menu-context="bottom-mobile">
+                    {% if plugins.search %}
+                        {% include 'nav_links.twig' with {
+                            "style": "Utility",
+                            "links": [{
+                                "icon": "web-icon-search",
+                                "link": {
+                                    "href": "#",
+                                    "text": "Search"
+                                }
+                            }]
+                        } only %}
+                    {% elseif plugins.store %}
+                        <usernavbar></usernavbar>
+                    {% endif %}
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="rh-menu-desktop" data-rh-hide="xxs xs">
+        <nav class="rh-menu-utility-tray">
+            {% if utility_links is iterable %}
+                {% include 'nav_links.twig' with {
+                    "style": "Utility",
+                    "links": utility_links
+                } only %}
+            {% endif %}
+
+            {% if plugins.search or plugins.store %}
+                <div class="rh-menu-plugins">
+                    {% if plugins.search %}
+                        {% include 'nav_links.twig' with {
+                            "style": "Utility",
+                            "links": [{
+                                "icon": "web-icon-search",
+                                "link": {
+                                    "href": "#",
+                                    "text": "Search"
+                                }
+                            }]
+                        } only %}
+                    {% endif %}
+                    {% if plugins.store %}
+                        <usernavbar></usernavbar>
+                    {% endif %}
+                </div>
+            {% endif %}
+        </nav>
+
+        <nav class="rh-menu-main-nav" data-rh-theme="{{ config.theme|default(dark) }}">
+            <div class="rh-menu-logo">{{ logo }}</div>
+            {% if nav_links is iterable %}
+                {% include 'nav_links.twig' with {
+                    "style": "Menu",
+                    "links": nav_links
+                } only %}
+                {% include 'nav_links.twig' with {
+                    "style": "Utility",
+                    "links": [{
+                        "icon": "web-icon-upload"
+                    }]
+                } only %}
+            {% endif %}
+        </nav>
+    </div>
+</section>

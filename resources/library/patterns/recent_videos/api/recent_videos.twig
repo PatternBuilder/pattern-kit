@@ -1,0 +1,58 @@
+{% set video_array = [] %}
+
+{% for item in videos %}
+    {% set video_array = video_array|merge([{
+        "name": "card",
+        "config": {
+            "theme": "dark"
+        },
+        "body": {
+            "content": [{
+                "name": "video_embed",
+                "video": {
+                    "video_src": item.video.video_src
+                },
+                "title": {
+                    "href": item.link.href,
+                    "title": item.link.title,
+                    "text": item.link.text,
+                    "target": item.link.target
+                },
+                "summary": item.summary
+            }]
+        }
+    }]) %}
+{% endfor %}
+
+{% include 'band.twig' with {
+    "name": "band",
+    "meta": meta,
+    "header": {
+        "content": [{
+            "name": "band_header",
+            "config": {
+                "size": "band"
+            },
+            "title": title,
+            "headline": headline
+        }]
+    },
+    "body": {
+        "layout": "4 4 4 flex",
+        "content": video_array
+    },
+    "footer": {
+        "content": [{
+            "name": "cta",
+            "config": {
+                "type": "primary"
+            },
+            "link": {
+                "href": link.href,
+                "title": link.title,
+                "text": link.text,
+                "target": link.target
+            }
+        }]
+    }
+} only %}

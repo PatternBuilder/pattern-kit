@@ -1,0 +1,26 @@
+.rh-footer {
+    @extend %default--band;
+    @extend %has-container-background;
+    @include clearfix;
+    @include data(band-background, rich-black) {
+        background-color: color(rich-black);
+    }
+    @include data(band-background, black) {
+        background-color: color(black);
+    }
+    &-container {
+        @extend %default--container;
+    }
+    &-content {
+        @extend %footer-content;
+    }
+    &-main {
+        @extend %footer-main;
+    }
+    &-aside {
+        display: flex;
+        > * {
+            flex: 1;
+        }
+    }
+}

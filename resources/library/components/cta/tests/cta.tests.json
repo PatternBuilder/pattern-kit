@@ -1,0 +1,29 @@
+[
+    {
+        "label": "Primary cta",
+        "data": {
+            "name": "cta",
+            "config": {
+                "type": "primary",
+                "semantic": "submit button"
+            },
+            "link": {
+                "href": "#",
+                "text": "this is my test"
+            }
+        }
+    },
+    {
+        "label": "Secondary cta",
+        "data": {
+            "name": "cta",
+            "config": {
+                "type": "secondary"
+            },
+            "link": {
+                "href": "#",
+                "text": "this is my test"
+            }
+        }
+    }
+]

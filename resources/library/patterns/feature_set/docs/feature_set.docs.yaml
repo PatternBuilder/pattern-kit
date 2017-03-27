@@ -1,0 +1,35 @@
+name: feature_set
+config:
+    pattern_style: fset1
+    theme: light
+background:
+    color: gray
+header:
+    seo_emphasis: standard
+    title: Certification toolkit
+    headline: The information you need. All in 1 place.
+    summary: It shouldn't be a chore to learn about—and register for—the certification you want. We provide a number of ways to help you.
+features:
+    - icon: rh-icon-bar-graph
+      title: Increase profits
+      summary: Maximize your team's productivity with on-demand training without the need to leave the datacenter.
+      cta:
+          link:
+              href: #
+              title: Click me
+              text: Click me
+    - icon: rh-icon-increase-productivity
+      title: Increase productivity
+      summary: Maximize your team's productivity with on-demand training without the need to leave the datacenter.
+    - icon: rh-icon-instructor
+      title: Knowledgable instructors
+      summary: Maximize your team's productivity with on-demand training without the need to leave the datacenter.
+    - icon: rh-icon-puzzle-piece
+      title: Solve complex issues
+      summary: "Maximize your team's productivity with on-demand training without the need to leave the datacenter. <a href='#'>Link thing</a>"
+cta:
+    type: primary
+    link:
+        href: //www.redhat.com
+        title: Alt title
+        text: Learn more

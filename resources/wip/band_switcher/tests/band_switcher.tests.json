@@ -1,0 +1,33 @@
+{
+    "name": "band_switcher",
+    "config": {
+        "tab_id": "abc",
+        "active_band": 1
+    },
+    "body": {
+        "content": [
+            {
+                "name": "band",
+                "body": {
+                    "content": [
+                        {
+                            "name": "raw",
+                            "content": "<div style='height:300px;background:gray;font-size:72px'>1</div>"
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "band",
+                "body": {
+                    "content": [
+                        {
+                            "name": "raw",
+                            "content": "<div style='height:300px;background:#f00;font-size:72px'>2</div>"
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}

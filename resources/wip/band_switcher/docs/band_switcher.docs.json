@@ -1,0 +1,164 @@
+{
+    "name": "band_switcher",
+    "config": {
+        "tab_id": "abc",
+        "active_band": 2
+    },
+    "body": {
+        "content": [
+            {
+                "name": "band",
+                "background": {
+                    "color": "gray"
+                },
+                "body": {
+                    "layout": "8 4",
+                    "content": [
+                        {
+                            "name": "group",
+                            "body": {
+                                "layout": "stacked",
+                                "content": [
+                                    {
+                                        "name": "band_header",
+                                        "title": "Featured Success Stories",
+                                        "headline": "Cigna builds a private cloud"
+                                    },
+                                    {
+                                        "name": "generic",
+                                        "align": "left",
+                                        "content": "<p>Cigna needed to improve its IT provisioning processes to keep up with the innovations of its developers. The company created an entrepreneurial team to experiment with building an Infrastructure-as-a-Service (IaaS) self-service provisioning capability. Deploying Red Hat solutions and Red Hat-supported open source projects, Cigna's initial proof of concept was so successful that it immediately spread throughout the IT organization. Today, Cigna's development and infrastructure teams are seamlessly aligned and able to speed business applications to customers while carving out costs from the provisioning process to boost Cigna's bottom line.</p>"
+                                    },
+                                    {
+                                        "name": "cta",
+                                        "config": {
+                                            "type": "primary"
+                                        },
+                                        "link": {
+                                            "href": "www.redhat.com",
+                                            "title": "Cigna Success Story",
+                                            "text": "Read the story"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "name": "card",
+                            "config": {
+                                "theme": "dark",
+                                "justify": "center"
+                            },
+                            "background": {
+                                "color": "black"
+                            },
+                            "body": {
+                                "content": [
+                                    {
+                                        "name": "image_embed",
+                                        "image": {
+                                            "src": "http://www.redhat.com/cms/public/logo-cigna-400x200.png"
+                                        },
+                                        "align": "bleed",
+                                        "link": {
+                                            "href": "www.redhat.com",
+                                            "title": "Cigna Logo"
+                                        }
+                                    }
+                                ]
+                            },
+                            "footer": {
+                                "content": [
+                                    {
+                                        "name": "quote",
+                                        "quotation": "We think of Red Hat as one of just a handful of superior engineering and support organizations in the United States.",
+                                        "attribution_name": "John DeFoe",
+                                        "attribution_title": "Vice president of Infrastructure, Cigna"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "band",
+                "background": {
+                    "color": "gray"
+                },
+                "body": {
+                    "layout": "8 4",
+                    "content": [
+                        {
+                            "name": "group",
+                            "config": {
+                                "theme": "light"
+                            },
+                            "body": {
+                                "layout": "stacked",
+                                "content": [
+                                    {
+                                        "name": "band_header",
+                                        "title": "Featured Success Stories",
+                                        "headline": "Union Bank builds a private cloud"
+                                    },
+                                    {
+                                        "name": "generic",
+                                        "align": "left",
+                                        "content": "<p>Union Bank had only 45 days to upgrade its IT infrastructure so it could deliver new applications faster. Using Red Hat products and services, the company migrated its e-commerce infrastructure to a new private cloud environment, then configured and deployed apps into it. Now Union Bank can deploy new apps in hours instead of 8-12 weeks, letting engineers focus on value-added activities. The solution also helps simplify IT operations, increase the quality and consistency of app delivery, and reduce risk.</p>"
+                                    },
+                                    {
+                                        "name": "cta",
+                                        "config": {
+                                            "type": "primary"
+                                        },
+                                        "link": {
+                                            "href": "www.redhat.com",
+                                            "title": "Union Bank Success Story",
+                                            "text": "Read the story"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "name": "card",
+                            "config": {
+                                "theme": "dark",
+                                "justify": "center"
+                            },
+                            "background": {
+                                "color": "black"
+                            },
+                            "body": {
+                                "content": [
+                                    {
+                                        "name": "image_embed",
+                                        "image": {
+                                            "src": "https://www.redhat.com/cms/public/Union-Bank.jpg"
+                                        },
+                                        "align": "bleed",
+                                        "link": {
+                                            "href": "www.redhat.com",
+                                            "title": "Cigna Logo"
+                                        }
+                                    }
+                                ]
+                            },
+                            "footer": {
+                                "content": [
+                                    {
+                                        "name": "quote",
+                                        "quotation": "We think of Red Hat as one of just a handful of superior engineering and support organizations in the United States.",
+                                        "attribution_name": "John DeFoe",
+                                        "attribution_title": "Vice president of Infrastructure, Cigna"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}

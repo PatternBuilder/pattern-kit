@@ -1,0 +1,32 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "category": "atom",
+    "entity": "tooltip",
+    "type": "object",
+    "format": "grid",
+    "properties": {
+        "theme": {
+            "title": "Tooltip theme",
+            "description": "Theme applied to the background and text of the tooltip",
+            "type": "string",
+            "enum": [ "dark", "light" ],
+            "default": "dark"
+        },
+        "type": {
+            "title": "Type of tooltip; determines icon used next to text.",
+            "type": "string",
+            "enum": [ "help", "error", "warning", "info" ],
+            "default": "help"
+        },
+        "text": {
+            "title": "Tooltip text",
+            "description": "Copy that appears inside the tooltip. Allowed tags: &lt;a&gt;&lt;br&gt;",
+            "type": "string",
+            "format": "html",
+            "options": {
+                "grid_columns": 12
+            }
+        }
+    },
+    "required": [ "type", "theme" ]
+}

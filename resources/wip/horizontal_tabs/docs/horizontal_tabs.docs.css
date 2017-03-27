@@ -1,0 +1,29 @@
+/*doc
+
+
+
+Horizontal tabs provide a space to hold one to several panes of full width bands, and toggle between them via tabs.
+
+Titles are optional, and a background can be applied by adding `data-rh-band-background` to the `rh-horizontal-tabs-container`. `data-rh-theme="dark"` is supported as well to make title text legible on dark backgrounds.
+[Horizontal Tabs Patterns](patterns_-_tabs.html)
+
+## Element Query Points [Element Queries js](https://github.com/Snugug/eq.js/)
+* __small:__ a mobile version where tabs collapse into a dropdown.
+* __medium:__ this query is where the tabs expand to sit side by side. Tab sized is reduced by 80%
+* __large:__ tab size is full 101%
+
+
+```full_example
+{% include 'horizontal-tabs-data.html' -%}
+{% include 'horizontal-tabs.html' with defaultData -%}
+```
+
+
+
+
+```full_toggle
+{% include 'horizontal-tabs-data.html' -%}
+{% include 'horizontal-tabs.html' with relatedProducts -%}
+
+```
+*/

@@ -1,0 +1,139 @@
+[{
+    "label": "",
+    "data": {
+        "name": "footer",
+        "config": {
+            "collapse": "full",
+            "background_color": "rich-black"
+        },
+        "main": {
+            "theme": "dark",
+            "content": [{
+                "name": "menu_column",
+                "config": {
+                    "theme": "dark",
+                    "vertical_spacing": "stacked"
+                },
+                "column": {
+                    "menu": [{
+                        "name": "menu_list",
+                        "title": "Quick links",
+                        "links": [{
+                            "text": "Contact sales",
+                            "href": "#"
+                        }, {
+                            "text": "How to buy",
+                            "href": "#"
+                        }, {
+                            "text": "FAQ",
+                            "href": "#"
+                        }, {
+                            "text": "Subscriptions",
+                            "href": "#"
+                        }]
+                    }]
+                }
+            }, {
+                "name": "menu_column",
+                "config": {
+                    "theme": "dark",
+                    "vertical_spacing": "min-stacked"
+                },
+                "column": {
+                    "menu": [{
+                        "name": "menu_list",
+                        "title": "Linux platforms",
+                        "links": [{
+                            "text": "Server",
+                            "href": "#"
+                        }, {
+                            "text": "Virtual datacenter",
+                            "href": "#"
+                        }, {
+                            "text": "IBM Power",
+                            "href": "#"
+                        }, {
+                            "text": "Desktop",
+                            "href": "#"
+                        }, {
+                            "text": "Workstation",
+                            "href": "#"
+                        }, {
+                            "text": "IBM System Z",
+                            "href": "#"
+                        }, {
+                            "text": "Developer suite",
+                            "href": "#"
+                        }, {
+                            "text": "Developer support",
+                            "href": "#"
+                        }]
+                    }]
+                }
+            }, {
+                "name": "menu_column",
+                "config": {
+                    "theme": "dark",
+                    "vertical_spacing": "min-stacked"
+                },
+                "column": {
+                    "menu": [{
+                        "name": "menu_list",
+                        "title": "JBoss Middleware",
+                        "links": [{
+                            "text": "Developer studio",
+                            "href": "#"
+                        }, {
+                            "text": "Application platform",
+                            "href": "#"
+                        }]
+                    }, {
+                        "name": "menu_list",
+                        "title": "Training",
+                        "links": [{
+                            "text": "Training unit voucher (10)",
+                            "href": "#"
+                        }, {
+                            "text": "Lorem ipsum dolor sit",
+                            "href": "#"
+                        }]
+                    }]
+                }
+            }, {
+                "name": "menu_column",
+                "config": {
+                    "theme": "dark",
+                    "vertical_spacing": "min-stacked"
+                },
+                "column": {
+                    "menu": [{
+                        "name": "menu_list",
+                        "title": "Management",
+                        "links": [{
+                            "text": "Satellite",
+                            "href": "#"
+                        }, {
+                            "text": "Lorem ipsum dolor sit",
+                            "href": "#"
+                        }]
+                    }]
+                }
+            }]
+        },
+        "aside": {
+            "background_color": "red",
+            "theme": "dark",
+            "content": [{
+                "name": "standard_text",
+                "container": {
+                    "type": "card",
+                    "background": "red",
+                    "theme": "dark",
+                    "align": "left"
+                },
+                "title": "Raw HTML section",
+                "content": "<p><strong>Test</strong> raw <sup>html</sup></p>"
+            }]
+        }
+    }
+}]

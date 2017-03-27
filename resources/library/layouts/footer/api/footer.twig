@@ -1,0 +1,32 @@
+{% set footer_props %}
+    {% if config.collapse %} data-rh-band-collapse="{{ config.collapse }}"{% endif %}
+    {% if config.background_color %} data-rh-band-background="{{ config.background_color }}"{% endif %}
+{% endset %}
+
+{% set footer_main %}
+    {% if main.layout %} data-rh-layout="{{ main.layout }}"{% endif %}
+    {% if main.theme %} data-rh-theme="{{ main.theme }}"{% endif %}
+{% endset %}
+
+<div class="rh-footer" {{ footer_props }}>
+    <div class="rh-footer-container">
+        <div class="rh-footer-content">
+            <section class="rh-footer-main" {{ footer_main }}>
+                {% if main.content is iterable or block('main') is not empty %}
+                        {% for item in main.content %}
+                            {% include item.template ?: item.name ~ '.twig' with item only %}
+                        {% else %} {% block body %}{% endblock %}
+                        {% endfor %}
+                {% endif %}
+            </section>
+            {% if aside.content is iterable or block('aside') is not empty %}
+                <aside class="rh-footer-aside" >
+                        {% for item in aside.content %}
+                            {% include item.template ?: item.name ~ '.twig' with item only %}
+                        {% else %} {% block aside %}{% endblock %}
+                        {% endfor %}
+                </aside>
+            {% endif %}
+        </div>
+    </div>
+</div>

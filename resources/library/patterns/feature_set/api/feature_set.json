@@ -1,0 +1,155 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Feature Set",
+    "description": "",
+    "category": "pattern",
+    "additionalProperties": false,
+    "type": "object",
+    "format": "grid",
+    "properties": {
+        "name": {
+            "type": "string",
+            "enum": ["feature_set"],
+            "options": {
+                "hidden": true
+            }
+        },
+        "meta": {
+            "type": "object",
+            "options": {
+                "hidden": true
+            },
+            "properties": {
+                "class": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "id": {
+                    "type": "string"
+                },
+                "uniqueId": {
+                    "type": "string"
+                }
+            }
+        },
+        "config": {
+            "title": "Config",
+            "type": "object",
+            "properties": {
+                "pattern_style": {
+                    "type": "string",
+                    "enum": ["fset1"],
+                    "options": {
+                        "hidden": true
+                    }
+                },
+                "theme": {
+                    "$ref": "config.json#/properties/pattern/properties/theme"
+                }
+            },
+            "required": ["theme"]
+        },
+        "background": {
+            "title": "Background options",
+            "type": "object",
+            "format": "grid",
+            "properties": {
+                "image_large": {
+                    "$ref": "config.json#/properties/pattern/properties/background/properties/image_large"
+                },
+                "image_small": {
+                    "$ref": "config.json#/properties/pattern/properties/background/properties/image_small"
+                },
+                "color": {
+                    "$ref": "config.json#/properties/pattern/properties/background/properties/color"
+                }
+            },
+            "required": ["color"]
+        },
+        "header": {
+            "title": "Band header",
+            "type": "object",
+            "properties": {
+                "seo_emphasis": {
+                    "$ref": "band_header.json#/properties/config/properties/seo/properties/priority",
+                    "title": "SEO emphasis",
+                    "description": "Emphasize element with keywords or relevant content. 'Standard' is the system default"
+                },
+                "title": {
+                    "$ref": "band_header.json#/properties/title",
+                    "options": {
+                        "grid_column": 6
+                    }
+                },
+                "headline": {
+                    "$ref": "band_header.json#/properties/headline",
+                    "options": {
+                        "grid_column": 6
+                    }
+                },
+                "summary": {
+                    "$ref": "band_header.json#/properties/summary"
+                }
+            }
+        },
+        "features": {
+            "type": "array",
+            "title": "Features",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "icon": {
+                        "title": "Icon file name",
+                        "type": "string",
+                        "description": "<a target='_blank' href='http://styleguides-itmarketing.itos.redhat.com/webux/styleguide/docs/styles_-_icons.html'>Choose your icon from The RH Icon List</a>"
+                    },
+                    "title": {
+                        "title": "Title",
+                        "type": "string"
+                    },
+                    "summary": {
+                        "title": "Summary",
+                        "type": "string",
+                        "format": "html",
+                        "description": "Allowed tags: &lt;a&gt;&lt;br&gt;&lt;sup&gt;&lt;small&gt;"
+                    },
+                    "cta": {
+                        "title": "Optional call-to-action button",
+                        "type": "object",
+                        "options": {
+                            "collapsed": true
+                        },
+                        "properties": {
+                            "link": {
+                                "title": "Call-to-action",
+                                "$ref": "link.json"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "cta": {
+            "title": "Optional call-to-action button",
+            "type": "object",
+            "options": {
+                "collapsed": true
+            },
+            "properties": {
+                "type": {
+                    "title": "CTA type",
+                    "type": "string",
+                    "enum": ["primary", "secondary"],
+                    "default": "primary"
+                },
+                "link": {
+                    "title": "Call-to-action",
+                    "$ref": "link.json"
+                }
+            }
+        }
+    },
+    "required": ["background", "features"]
+}

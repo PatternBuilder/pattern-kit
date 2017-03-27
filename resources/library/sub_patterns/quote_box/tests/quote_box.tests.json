@@ -1,0 +1,110 @@
+[
+    {
+        "config": {
+            "label": "Card"
+        },
+        "data": {
+            "name": "quote_box",
+            "container": {
+                "type": "card",
+                "theme": "light",
+                "background": "gray"
+            },
+            "logo": {
+                "image": {
+                    "src": "/fixtures/images/mountain.jpg",
+                    "alt": ""
+                },
+                "link": {
+                    "href": "http://www.redhat.com/en/resources/mufg-union-bank-serves-customers-faster-private-cloud-red-hat"
+                },
+                "background": {
+                    "color": "red",
+                    "type": "image_border"
+                }
+            },
+            "quote": {
+                "quotation": "The openness of the Red Hat solutions gave us integration options that not all other vendors offer. This integration served as a building block on which we could support multiple technologies in our complex IT landscape.",
+                "attribution_name": "Frank Venditti",
+                "attribution_title": "Chief infrastructure architect, Union Bank"
+            }
+        }
+    },
+    {
+        "config": {
+            "label": "Card with dark background"
+        },
+        "data": {
+            "name": "quote_box",
+            "container": {
+                "type": "card",
+                "theme": "dark",
+                "background": "black"
+            },
+            "logo": {
+                "image": {
+                    "src": "/fixtures/images/mountain.jpg",
+                    "alt": ""
+                },
+                "link": {
+                    "href": "http://www.redhat.com/en/resources/mufg-union-bank-serves-customers-faster-private-cloud-red-hat"
+                }
+            },
+            "quote": {
+                "quotation": "The openness of the Red Hat solutions gave us integration options that not all other vendors offer. This integration served as a building block on which we could support multiple technologies in our complex IT landscape.",
+                "attribution_name": "Frank Venditti",
+                "attribution_title": "Chief infrastructure architect, Union Bank"
+            }
+        }
+    },
+    {
+        "config": {
+        },
+        "data": {
+            "name": "quote_box",
+            "container": {
+                "type": "group",
+                "theme": "light"
+            },
+            "logo": {
+                "image": {
+                    "src": "/fixtures/images/mountain.jpg",
+                    "alt": ""
+                },
+                "link": {
+                    "href": "http://www.redhat.com/en/resources/mufg-union-bank-serves-customers-faster-private-cloud-red-hat"
+                }
+            },
+            "quote": {
+                "quotation": "The openness of the Red Hat solutions gave us integration options that not all other vendors offer. This integration served as a building block on which we could support multiple technologies in our complex IT landscape.",
+                "attribution_name": "Frank Venditti",
+                "attribution_title": "Chief infrastructure architect, Union Bank"
+            }
+        }
+    },
+    {
+        "config": {
+        },
+        "data": {
+            "name": "quote_box",
+            "container": {
+                "type": "group",
+                "theme": "dark"
+            },
+            "logo": {
+                "image": {
+                    "src": "/fixtures/images/mountain.jpg",
+                    "alt": ""
+                },
+                "link": {
+                    "href": "http://www.redhat.com/en/resources/mufg-union-bank-serves-customers-faster-private-cloud-red-hat"
+                }
+            },
+            "quote": {
+                "quotation": "The openness of the Red Hat solutions gave us integration options that not all other vendors offer. This integration served as a building block on which we could support multiple technologies in our complex IT landscape.",
+                "attribution_name": "Frank Venditti",
+                "attribution_title": "Chief infrastructure architect, Union Bank"
+            }
+        }
+    }
+]

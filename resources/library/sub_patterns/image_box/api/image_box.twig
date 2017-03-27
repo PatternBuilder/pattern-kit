@@ -1,0 +1,89 @@
+{% if image.align == 'bleed' and container.type == 'group' %}
+    {% set image_align = 'full' %}
+{% else %}
+    {% set image_align = image.align %}
+{% endif %}
+
+{% set body_content = [
+    {
+        "name": "image_embed",
+        "config": {
+            "align": image_align
+        },
+        "background": {
+            "color": image.background.color,
+            "type": image.background.type
+        },
+        "image": image.src,
+        "caption": image.caption,
+        "link": {
+            "href": image.link.href,
+            "title": image.link.title
+        }
+    }
+] %}
+
+{% if copy.title or copy.content %}
+    {% if copy.title %}
+        {% set copy_content = "<h3>" ~ copy.title ~ "</h3>" ~ copy.content %}
+    {% else %}
+        {% set copy_content = copy.content %}
+    {% endif %}
+
+    {% set copy_component = [
+        {
+            "name": "generic",
+            "align": container.align,
+            "content": copy_content
+        }
+    ] %}
+    {% set body_content = body_content|merge(copy_component) %}
+{% endif %}
+
+{% if container.type == 'card' %}
+    {% set vars = {
+        "name": "card",
+        "config": {
+            "theme": container.theme
+        },
+        "background": {
+            "color": container.background
+        },
+        "body": {
+            "content": body_content
+        }
+    } %}
+{% elseif container.type == 'group' %}
+    {% set vars = {
+        "name": "group",
+        "config": {
+            "vertical_layout": "stacked"
+        },
+        "body": {
+            "theme": container.theme,
+            "layout": "stacked",
+            "content": body_content
+        }
+    } %}
+{% endif %}
+
+{% if cta.link.href %}
+    {% set footer_content = {
+        "footer": {
+            "content": [
+                {
+                    "name": "cta",
+                    "config": {
+                        "type": cta.type,
+                        "align": container.align
+                    },
+                    "link": cta.link
+                }
+            ]
+        }
+    } %}
+    {% set vars = vars|merge(footer_content) %}
+{% endif %}
+
+{% include vars.name ~ ".twig" with vars only %}
+

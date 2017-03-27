@@ -1,0 +1,122 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Menu",
+    "description": "This generates the combined utility and main menu layout needed for site navigation.",
+    "type": "object",
+    "category": "layout",
+    "status": "private",
+    "format": "grid",
+    "properties": {
+        "name": {
+            "type": "string",
+            "readonly": true,
+            "enum": ["menu"],
+            "options": {
+                "hidden": true
+            }
+        },
+        "config": {
+            "title": "Configuration",
+            "type": "object",
+            "options": {
+                "grid_columns": 12
+            },
+            "properties": {
+                "theme": {
+                    "title": "Theme",
+                    "type": "string",
+                    "enum": ["light", "dark"],
+                    "default": "dark"
+                },
+                "background_color": {
+                    "title": "Background color",
+                    "type": "string",
+                    "enum": ["transparent", "rich-black"],
+                    "default": "transparent"
+                }
+            },
+            "required": ["theme","background_color"]
+        },
+        "logo": {
+            "title": "Logo",
+            "description": "Add a logo to the navigation menu with a link back to the home page.",
+            "type": "object",
+            "format": "grid",
+            "properties": {
+                "image": {
+                    "type": "object",
+                    "format": "grid",
+                    "options": {
+                        "grid_columns": 6
+                    },
+                    "properties": {
+                        "name": {
+                            "title": "Name of logo to display in menu.",
+                            "type": "string",
+                            "enum": [ "Shadowman", "Store" ],
+                            "default": "Shadowman"
+                        },
+                        "alt": {
+                            "$ref": "image.json#/properties/alt"
+                        }
+                    },
+                    "required": ["name"]
+                },
+                "link": {
+                    "title": "Link",
+                    "entity": "link",
+                    "type": "object",
+                    "format": "grid",
+                    "options": {
+                        "grid_columns": 6
+                    },
+                    "properties": {
+                        "href": {
+                            "$ref": "link.json#/properties/href",
+                            "options": {
+                                "grid_columns": 3
+                            }
+                        },
+                        "title": {
+                            "$ref": "link.json#/properties/title",
+                            "options": {
+                                "grid_columns": 3
+                            }
+                        }
+                    },
+                    "required": [ "href" ]
+                }
+            },
+            "required": ["image"]
+        },
+        "plugins": {
+            "title": "Optional utility tray plugins",
+            "description": "Check the tray options you want included in the navigation.",
+            "type": "object",
+            "format": "grid",
+            "properties": {
+                "search": {
+                    "title": "Search",
+                    "type": "boolean",
+                    "default": false
+                },
+                "store": {
+                    "title": "Store",
+                    "type": "boolean",
+                    "default": false
+                }
+            },
+            "required": ["search", "store"]
+        },
+        "utility_links": {
+            "title": "Utility links",
+            "$ref": "nav_links.json#/properties/links"
+        },
+        "nav_links": {
+            "title": "Navigational links",
+            "$ref": "nav_links.json#/properties/links"
+        }
+    },
+    "required": ["name", "config", "logo", "plugins", "utility_links","nav_links"],
+    "additionalProperties": false
+}

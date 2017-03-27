@@ -1,0 +1,70 @@
+.#{$repo}-link-tile {
+    &--component {
+        // content horizontal align values
+        @extend %text-align-enabled;
+        @include breakpoint($breakpoint-sm-min) {
+            @include data(tileHeight, tall) {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                min-height: 100px;
+            }
+        }
+    }
+    &-link {
+        text-decoration: none;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+    }
+    &-icon {
+        font-size: 3em;
+        display: block;
+        line-height: 1;
+        @include data-context(theme, dark) {
+            color: color(white);
+        }
+        @include data-context(theme, light) {
+            color: color(black);
+        }
+    }
+    &-header {
+        margin-bottom: .3em;
+        > *:last-child {
+            margin-bottom: 0;
+        }
+    }
+    &-title {
+        @extend %content-level2;
+        margin-bottom: .6em;
+        @include eq-context(link-tile-small) {
+            font-size: .9em;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            text-overflow: "…";
+        }
+
+    }
+    &-headline {
+        @extend %default-level4;
+        margin-bottom: 0.3em;
+        @include data-context(theme, dark) {
+            color: color(white);
+        }
+        @include data-context(theme, light) {
+            color: color(black);
+        }
+    }
+    &-summary {
+        @extend %description-paragraph;
+        // when black background, make text white
+        @include data-context(theme, rich-black) {
+            color: color(white);
+        }
+        @include eq-context(link-tile-small) {
+            font-size: pem(14);
+        }
+    }
+}

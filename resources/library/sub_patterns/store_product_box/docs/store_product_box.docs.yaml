@@ -1,0 +1,19 @@
+name: store_product_box
+themes:
+    product_line: Linux platforms
+    standard: light
+background:
+    color: white
+    image: No
+header:
+    title: Server
+    summary: <p>Whether rolling out new applications virtualizing environments or creating a secure hybrid cloud Red Hat Enterprise Linux helps IT leaders scale their business and say yes to what's most important.</p>
+body:
+    config:
+        align: center
+    price_data:
+        teaser: Starting at
+        amount: 2499
+    cta:
+        link:
+            href: #

@@ -1,0 +1,108 @@
+/*doc
+---
+title: Colors
+category: Global - Colors
+---
+|Variable Name | Hex Value | Swatch | Example
+|---------|-------|------|----|
+|brand-primary | #cc0000| <div style="background: #cc0000; height: 30px; width: 200px;"></div> | <div style="color: #cc0000"> Example </div> |
+|black | #252527| <div style="background: #252527; height: 30px"></div> | <div style="color: #252527"> Example </div> |
+|rich-black | #1a1a1a| <div style="background: #1a1a1a; height: 30px"></div> | <div style="color: #1a1a1a"> Example </div> |
+|copy | #646464| <div style="background: #646464; height: 30px"></div> | <div style="color: #646464"> Example </div> |
+|link | #08C0FC| <div style="background: #08C0FC; height: 30px"></div> | <div style="color: #08C0FC"> Example </div> |
+|gray1 | #d2d3d4| <div style="background: #d2d3d4; height: 30px"></div> | <div style="color: #d2d3d4"> Example </div> |
+|gray2 | #f0f0f0| <div style="background: #f0f0f0; height: 30px"></div> | <div style="color: #f0f0f0"> Example </div> |
+|gray3 | #8a8a8a| <div style="background: #8a8a8a; height: 30px"></div> | <div style="color: #8a8a8a"> Example </div> |
+|white | #ffffff| <div style="background: #ffffff; height: 30px"></div> | <div style="color: #ffffff"> Example </div> |
+
+
+*/
+
+/*doc
+---
+title: Breakpoints
+category: Global - Breakpoints
+---
+|Variable Name | Value
+|---------|-------|
+|$bp-xs | 480px |
+|$bp-sm | 768px |
+|$bp-md | 992px |
+|$bp-lg | 1200px |
+
+
+*/
+// Repository class prefix
+$repo: rh !default;
+
+// Base Font Size
+$base-font-px: 18;
+
+// Base Font Family
+$base-font-family: "Overpass", Overpass, Helvetica, helvetica, arial, sans-serif;
+
+// Colors
+$site-colors: (
+    white: #ffffff,
+    brand-primary: #C00,
+    black: #252527,
+    rich-black: #1a1a1a,
+    copy: #646464,
+    link: #08C0FC,
+    transparent: transparent,
+    gray1: #d2d3d5, // disabled button gray
+    gray2: #f0f0f0, // band background gray
+    gray3: #8a8a8a, // light gray for text on black
+);
+
+// Product line colors
+$product-line-colors: (
+    default: #252527,
+    linux-platforms: #4a90e2,
+    management: #46b8e5,
+    mobile: #3f9c35,
+    jboss-middleware: #479b2e,
+    virtualization: #0088ce,
+    cloud-computing: #0088ce,
+    storage: #ec7a08,
+    services-and-support: #007a87
+);
+
+$site-colors: map-merge($site-colors, $product-line-colors);
+
+$fixed-header-offset: 90px;
+
+// Spacing Variables
+$box-padding: 30px;
+$vertical-gutter: 30px;
+$band-padding: 60px;
+$mobile-edge: 9px;
+
+/*doc
+---
+title: Breakpoints
+category: Global - Breakpoints
+---
+|Variable Name | Value
+|---------|-------|
+|$breakpoint-xs-min | 480px |
+|$breakpoint-sm-min | 768px |
+|$breakpoint-md-min | 992px |
+|$breakpoint-lg-min | 1200px |
+|---------|-------|
+|$breakpoint-xxs-max | 479px |
+|$breakpoint-xs-max | 767px |
+|$breakpoint-sm-max | 991px |
+|$breakpoint-md-max | 1199px |
+*/
+
+$breakpoint-zero: 0;
+$breakpoint-xs-min: 480px;
+$breakpoint-sm-min: 768px;
+$breakpoint-md-min: 992px;
+$breakpoint-lg-min: 1200px;
+
+$breakpoint-xxs-max: $breakpoint-xs-min - 1;
+$breakpoint-xs-max: $breakpoint-sm-min - 1;
+$breakpoint-sm-max: $breakpoint-md-min - 1;
+$breakpoint-md-max: $breakpoint-lg-min - 1;

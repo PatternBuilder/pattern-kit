@@ -1,0 +1,46 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Navigation links",
+    "description": "",
+    "type": "object",
+    "category": "component",
+    "status": "private",
+    "format": "grid",
+    "properties": {
+        "name": {
+            "type": "string",
+            "readonly": true,
+            "enum": ["nav_links"],
+            "options": {
+                "hidden": true
+            }
+        },
+        "style": {
+            "title": "Link format",
+            "description": "Determines the styles applied to the link.",
+            "type": "string",
+            "enum": ["Utility", "Menu"],
+            "default": "Menu"
+        },
+        "links": {
+            "title": "Navigation links",
+            "description": "",
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "icon": {
+                        "title": "Icon",
+                        "type": "string",
+                        "enum": ["web-icon-search", "web-icon-user", "web-icon-mobile-menu", "web-icon-upload", "web-icon-cart"]
+                    },
+                    "link": {
+                        "$ref": "link.json"
+                    }
+                }
+            }
+        }
+    },
+    "required": ["name", "style"],
+    "additionalProperties": true
+}

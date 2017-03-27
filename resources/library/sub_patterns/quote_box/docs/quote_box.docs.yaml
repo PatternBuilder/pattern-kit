@@ -1,0 +1,17 @@
+name: quote_box
+container:
+    type: card
+    background: gray
+logo:
+    image:
+        src: "/fixtures/images/adobe_logo.png"
+    link:
+        href: "//www.redhat.com/en/resources/mufg-union-bank-serves-customers-faster-private-cloud-red-hat"
+        title: Adobe icon
+    align: bleed
+    background:
+        color: white
+quote:
+    quotation: The openness of the Red Hat solutions gave us integration options that not all other vendors offer. This integration served as a building block on which we could support multiple technologies in our complex IT landscape.
+    attribution_name: Frank Vendetti
+    attribution_title: Chief infrastructure architect Union Bank

@@ -1,0 +1,35 @@
+[{
+    "label": "Standard SKU table",
+    "data": {
+        "name": "sku_table",
+        "rows": [{
+            "sku": "RH0004",
+            "description": "Red Hat Enterprise Linux Server, Standard (Physical or Virtual Nodes)",
+            "quantity": "2",
+            "price": "4995",
+            "line_total": "9990"
+        },{
+            "sku": "RH0025",
+            "description": "High availiability add-on",
+            "quantity": "2",
+            "price": "4995",
+            "line_total": "9990"
+        }],
+        "subtotal": "28580",
+        "jquery_inject": false
+    }
+},{
+    "label": "jQuery inject SKU table",
+    "data": {
+        "name": "sku_table",
+        "jquery_inject": true,
+        "rows": [{
+            "sku": "{{:sku}}",
+            "description": "{{:description}}",
+            "quantity": "{{:quantity}}",
+            "price": "{{:price}}",
+            "line_total": "{{:lineTotal}}"
+        }],
+        "subtotal": "{{:subtotal}}"
+    }
+}]

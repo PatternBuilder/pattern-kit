@@ -1,0 +1,28 @@
+.rh-styled-select {
+    &--component {
+        @extend %eqjs-hide-fout;
+        @include eq(large) {
+            text-align: right;
+        }
+    }
+    &-label-container {
+        @include eq-context(large) {
+            display: inline-block;
+        }
+        margin-right: pem(10);
+    }
+    &-label {
+        @extend %default-paragraph;
+    }
+    &-container {
+        text-align: left;
+        @extend %select-container;
+    }
+    &-select {
+
+    }
+    &-option {
+
+    }
+}
+

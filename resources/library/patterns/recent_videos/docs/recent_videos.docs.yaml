@@ -1,0 +1,29 @@
+name: recent_videos
+title: This is my headline
+headline: Video band
+videos:
+    - video:
+          video_src: '<iframe width="1139" height="641" frameborder="0" allowfullscreen="" src="https://www.youtube.com/embed/9gYLKxJ9NbY"></iframe>'
+      link:
+          href: "//www.redhat.com"
+          title: Video title
+          text: Watch the video
+      summary: "JBoss solutions come in two different versions: developer community projects and enterprise products. Do you know which version to use when?"
+    - video:
+          video_src: '<iframe width="560" height="315" src="https://www.youtube.com/embed/VdnYReRDkI4" frameborder="0" allowfullscreen></iframe>'
+      link:
+          href: "//www.redhat.com"
+          title: Video title
+          text: Watch the video
+      summary: Why software-defined storage for the enterprise?
+    - video:
+          video_src: '<iframe width="560" height="315" src="https://www.youtube.com/embed/_-VXnMf6ct8" frameborder="0" allowfullscreen></iframe>'
+      link:
+          href: "//www.redhat.com"
+          title: Video title
+          text: Watch the video
+      summary: "e-NABLE: Open technology faster progress"
+link:
+    href: "//www.redhat.com/en/about/videos"
+    title:
+    text: Explore all videos

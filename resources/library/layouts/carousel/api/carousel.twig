@@ -1,0 +1,18 @@
+{% set carousel_props %}
+    data-rh-theme="{{ config.theme ?: 'light' }}"
+    data-rh-background="{{ background.color ?: 'transparent' }}"
+    {% if background.image_large.src|length %} data-rh-bq="{{ background.image_large.src }}, {{ background.image_small.src }}"{% endif %}
+{% endset %}
+
+<section class="rh-carousel" {{ carousel_props }}>
+    <div class="rh-carousel-navigation">
+        <button class="rh-carousel-prev">Prev</button>
+        <button class="rh-carousel-next">Next</button>
+    </div>
+    <div class="rh-carousel-body" data-slick='{{ config.slick_config|json_encode()|raw }}'>
+        {% for item in body.content %}
+            {% include item.template ?: item.name ~ '.twig' with item only %}
+        {% else %} {% block body %}{% endblock %}
+        {% endfor %}
+    </div>
+</section>

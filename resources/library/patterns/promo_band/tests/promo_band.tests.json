@@ -1,0 +1,22 @@
+{
+    "background": {
+        "image_large": {
+            "src": "/fixtures/images/red.png"
+        },
+        "image_small": {
+            "src": "/fixtures/images/blue.png"
+        },
+        "color": "rich-black"
+    },
+    "promo": {
+        "theme": "dark",
+        "headline": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam ad perspiciatis animi repudiandae sit dolore corporis.",
+        "cta": {
+            "href": "#",
+            "title": "Click Me!",
+            "text": "Learn More"
+        }
+    },
+    "name": "promo_band"
+}

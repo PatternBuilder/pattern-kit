@@ -1,0 +1,13 @@
+name: card
+config:
+    justify: top
+    theme: dark
+background:
+    color: black
+body:
+    content:
+        - @image_embed
+        - @quote
+footer:
+    content:
+        - @cta

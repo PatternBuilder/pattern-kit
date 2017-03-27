@@ -1,0 +1,53 @@
+{
+    "name": "group",
+    "meta": {
+        "class": [ "foo", "bar", "baz" ],
+        "id": "customID",
+        "uniqueId": "1234"
+    },
+    "config": {
+        "vertical_layout": "stacked"
+    },
+    "header": {
+        "theme": "dark",
+        "layout": "6 6",
+        "content": [
+            {
+                "name": "generic",
+                "content": "<p style=\"font-size:48px; height:400px; background: #f00\">Left Column</p>"
+            },
+            {
+                "name": "generic",
+                "content": "<p style=\"font-size:48px; height:400px; background: gray\">Right Column</p>"
+            }
+        ]
+    },
+    "body": {
+        "theme": "dark",
+        "layout": "6 6",
+        "content": [
+            {
+                "name": "generic",
+                "content": "<p style=\"font-size:48px; height:400px; background: #f00\">Left Column</p>"
+            },
+            {
+                "name": "generic",
+                "content": "<p style=\"font-size:48px; height:400px; background: gray\">Right Column</p>"
+            }
+        ]
+    },
+    "footer": {
+        "theme": "dark",
+        "layout": "6 6",
+        "content": [
+            {
+                "name": "generic",
+                "content": "<p style=\"font-size:48px; height:400px; background: #f00\">Left Column</p>"
+            },
+            {
+                "name": "generic",
+                "content": "<p style=\"font-size:48px; height:400px; background: gray\">Right Column</p>"
+            }
+        ]
+    }
+}

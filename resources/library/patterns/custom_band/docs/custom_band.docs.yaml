@@ -1,0 +1,23 @@
+name: custom_band
+config:
+    theme: light
+background:
+    isFixed: true
+    color: white
+header:
+    seo_emphasis: standard
+    title: Value of a subscription
+    headline: Delivering the benefits you value most
+    summary:
+body:
+    layout: "4 4 4"
+    sub_patterns:
+        - @quote_box
+        - @image_box
+        - @icon_panel_box
+cta:
+    type: primary
+    link:
+        href: "#"
+        title: Title
+        text: Get the whitepaper

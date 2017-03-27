@@ -1,0 +1,20 @@
+.rh-listing-table {
+    &-row {
+        border: 0 solid color(gray1);
+        border-width: 1px 1px 0 1px;
+        padding: $vertical-gutter;
+        &:last-child {
+            border-width: 1px;
+        }
+        // theme values
+        &[data-rh-theme="dark"] {
+            background: color(black);
+        }
+        &[data-rh-theme="light"] {
+            background: color(white);
+        }
+        &[data-rh-theme="light gray"] {
+            background: color(gray2);
+        }
+    }
+}

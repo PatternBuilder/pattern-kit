@@ -1,0 +1,117 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Store card listing",
+    "description": "Store header and gallery of store product cards with optional footnote.",
+    "type": "object",
+    "category": "pattern",
+    "format": "grid",
+    "properties": {
+        "name": {
+            "type": "string",
+            "enum": ["store_listing"],
+            "options": {
+                "hidden": true
+            }
+        },
+        "meta": {
+            "title": "Metadata",
+            "type": "object",
+            "options": {
+                "collapsed": true
+            },
+            "properties": {
+                "dtm": {
+                    "title": "Tracking labels",
+                    "description": "Used for analytics tracking to uniquely identify a section. Enter each tracking string separately.",
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "config": {
+            "title": "Band-level config",
+            "type": "object",
+            "format": "grid",
+            "options": {
+                "collapsed": true
+            },
+            "properties": {
+                "theme": {
+                    "title": "Theme",
+                    "description": "Select dark theme when using a dark background.",
+                    "type": "string",
+                    "enum": ["light", "dark"],
+                    "default": "light",
+                    "options": {
+                        "grid_columns": 6
+                    }
+                },
+                "background_color": {
+                    "title": "Background color",
+                    "description": "Band's background color.",
+                    "type": "string",
+                    "enum": ["white", "gray", "black", "rich-black", "red", "transparent"],
+                    "default": "gray",
+                    "options": {
+                        "grid_columns": 6
+                    }
+                }
+            },
+            "required": ["background_color", "theme"]
+        },
+        "body": {
+            "title": "Body",
+            "type": "object",
+            "format": "grid",
+            "properties": {
+                "layout": {
+                    "title": "Card layout",
+                    "description": "Select a layout for the items below. The number after gallery is the number of equal columns.",
+                    "type": "string",
+                    "enum": ["3 column", "4 column", "5 column"],
+                    "default": "3 column"
+                },
+                "sub_patterns": {
+                    "title": "Body patterns",
+                    "type": "array",
+                    "minItems": "1",
+                    "items": {
+                        "oneOf": [{
+                            "$ref": "store_product_box.json"
+                        },{
+                            "$ref": "raw_html.json"
+                        }]
+                    }
+                }
+            },
+            "required": ["layout", "sub_patterns"]
+        },
+        "footer": {
+            "title": "Optional footer",
+            "type": "object",
+            "options": {
+                "collapsed": true
+            },
+            "properties": {
+                "sub_patterns": {
+                    "title": "Footer patterns",
+                    "type": "array",
+                    "maxItems": "1",
+                    "items": {
+                        "oneOf": [{
+                            "$ref": "footnote.json"
+                        },{
+                            "$ref": "cta.json"
+                        },{
+                            "$ref": "raw_html.json"
+                        }]
+                    }
+                }
+            }
+        }
+    },
+    "required": ["name", "body"],
+    "additionalProperties": false
+}

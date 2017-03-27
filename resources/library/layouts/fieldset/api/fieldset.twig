@@ -1,0 +1,47 @@
+{% set fieldset_header %}
+    {% if header.layout %} data-rh-layout="{{ header.layout }}"{% endif %}
+    {% if header.theme %} data-rh-theme="{{ header.theme }}"{% endif %}
+{% endset %}
+
+{% set fieldset_body %}
+    {% if body.layout %} data-rh-layout="{{ body.layout }}"{% endif %}
+    {% if body.theme %} data-rh-theme="{{ body.theme }}"{% endif %}
+{% endset %}
+
+{% set fieldset_footer %}
+    {% if footer.layout %} data-rh-layout="{{ footer.layout }}"{% endif %}
+    {% if footer.theme %} data-rh-theme="{{ footer.theme }}"{% endif %}
+{% endset %}
+
+{% set fieldset_props %}
+    {% if misc_data %}{{ misc_data }}{%- endif %}
+    {% if config.vertical_layout %} data-rh-layout="{{ config.vertical_layout }}"{%- endif %}
+{% endset %}
+
+<fieldset class="rh-fieldset--layout" {{ fieldset_props }}>
+    {% if header.content or block('header') is not empty %}
+    <div class="rh-fieldset-header" {{ fieldset_header }}>
+        {% for item in header.content %}
+            {% include item.template ?: item.name ~ '.twig' with item only %}
+        {% else %} {% block header %}{% endblock %}
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <div class="rh-fieldset-body" {{ fieldset_body }}>
+        {% if body.legend %}<legend>{{ body.legend }}</legend>{% endif %}
+        {% for item in body.content %}
+            {% include item.template ?: item.name ~ '.twig' with item only %}
+        {% else %} {% block body %}{% endblock %}
+        {% endfor %}
+    </div>
+
+    {% if footer.content or block('footer') is not empty %}
+    <div class="rh-fieldset-footer" {{ fieldset_footer }}>
+        {% for item in footer.content %}
+            {% include item.template ?: item.name ~ '.twig' with item only %}
+        {% else %} {% block footer %}{% endblock %}
+        {% endfor %}
+    </div>
+    {% endif %}
+</fieldset>

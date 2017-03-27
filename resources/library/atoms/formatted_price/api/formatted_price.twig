@@ -1,0 +1,4 @@
+{% if not unit %}
+    {% set unit = "US$" %}
+{% endif %}
+{{ unit ~ price|number_format(0, '.', ',') }}

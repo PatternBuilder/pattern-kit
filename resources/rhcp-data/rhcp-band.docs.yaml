@@ -1,0 +1,17 @@
+name: rhcp-band
+background:
+    color: gray
+header:
+    theme: light
+    content:
+        - @band_header
+body:
+    theme: light
+    layout: 4 4 4
+    content:
+        - @quote
+        - @card
+        - @card
+footer:
+    content:
+        - @cta

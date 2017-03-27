@@ -1,0 +1,8 @@
+name: cta
+config:
+    type: primary
+    align: left
+    semantic: button
+link:
+    href: #
+    text: This is my test

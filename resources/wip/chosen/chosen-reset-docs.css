@@ -1,0 +1,17 @@
+/*doc
+---
+title: Chosen Reset
+category: JavaScript - Chosen
+name: 05-chosenreset
+---
+
+Chosen reset provides a method for attaching a click event to an element that resets the form elements in a specific parent selector, and then refreshes Chosen.
+
+
+
+```inline
+  <button data-rh-chosen-reset=".my-form">Reset</button> 
+  // This will resest the multi selects inside of `.my-form` and trigger and update in Chosen
+```
+
+*/

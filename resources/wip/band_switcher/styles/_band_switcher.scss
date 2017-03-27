@@ -1,0 +1,9 @@
+.rh-band-switcher {
+    &-tab {
+        height: 0;
+        overflow: hidden;
+        &[data-rh-active="true"] {
+            height: auto;
+        }
+    }
+}

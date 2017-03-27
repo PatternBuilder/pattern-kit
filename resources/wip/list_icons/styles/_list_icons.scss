@@ -1,0 +1,39 @@
+.rh-list-icons {
+    &--component {
+        @extend %eqjs-hide-fout;
+    }
+    &-header {
+        margin-bottom: pem($vertical-gutter);
+    }
+    &-title {
+        @extend %content-level3;
+    }
+    &-summary {
+        @extend %default-paragraph;
+        a {
+            @extend %default-link;
+        }
+    }
+    &-items {
+        @extend %default-reset;
+        margin-top: -1em;
+        @include eq-context(small, medium) {
+            font-size: 80%;
+        }
+    }
+    &-item {
+        margin-top: 1em;
+        text-align: center;
+        padding: 0 10px;
+    }
+    &-icon {
+        color: color(black);
+        text-decoration: none;
+        &:before {
+            font-size: 4em;
+        }
+    }
+    &-description {
+        @extend %description-paragraph;
+    }
+}

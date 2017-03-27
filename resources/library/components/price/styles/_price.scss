@@ -1,0 +1,36 @@
+.#{$repo}-price {
+    @extend %text-align-enabled;
+    &-teaser {
+        font-family: $base-font-family;
+        color: color(gray3);
+        font-size: .9em;
+        font-weight: 400;
+        line-height: 1.44;
+        margin: 0;
+        @include data-context(theme, dark) {
+            color: color(gray1);
+        }
+    }
+    &-sku {
+        font-family: $base-font-family;
+        color: color(gray3);
+        font-size: .7em;
+        font-weight: 100;
+        line-height: 1.44;
+        margin: 0;
+        @include data-context(theme, dark) {
+            color: color(gray1);
+        }
+    }
+    &-main {
+        font-family: $base-font-family;
+        color: color(black);
+        font-size: 1.4em;
+        font-weight: 800;
+        line-height: 1.18;
+        margin: 0;
+        @include data-context(theme, dark) {
+            color: color(white);
+        }
+    }
+}
