@@ -403,6 +403,11 @@ code {
     margin-top: 3px;
     margin-bottom: 1px;
 }
+.docs-wrapper th, td {
+    border: solid 1px #ccc;
+    padding: 5px;
+}
+
 .secondary-nav {
     max-width: 300px;
 }
