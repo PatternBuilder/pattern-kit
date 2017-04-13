@@ -8,7 +8,7 @@ namespace PatternKit;
 use Silex\Application;
 use Symfony\Component\Yaml\Yaml;
 use Silex\ControllerProviderInterface;
-//use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
