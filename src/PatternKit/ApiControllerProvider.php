@@ -12,7 +12,6 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-
 /**
  * Class ApiControllerProvider
  *
@@ -34,8 +33,6 @@ class ApiControllerProvider implements ControllerProviderInterface
         // Render callback.
         $controllers->post('/render/{target}',
           function (Request $request, $target) use ($app) {
-
-
               switch ($request->getMethod()) {
                   case 'POST':
                       // Read the POST data (if available).
@@ -142,11 +139,9 @@ class ApiControllerProvider implements ControllerProviderInterface
 
         // JSON validation endpoint.
         $controllers->post('/validate', function (Request $request) use ($app) {
-
             if (0 === strpos($request->headers->get('Content-Type'),
                 'application/json')
             ) {
-
                 function traverse($data, &$to_test, $i = 0, $path = "root")
                 {
                     foreach ($data as $array_name => &$value) {
@@ -234,9 +229,7 @@ class ApiControllerProvider implements ControllerProviderInterface
                 }
 
                 return $reply;
-
             }
-
         });
 
         // Pattern list callback.
@@ -252,4 +245,3 @@ class ApiControllerProvider implements ControllerProviderInterface
         return $controllers;
     }
 }
-
