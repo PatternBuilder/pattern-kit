@@ -7,10 +7,9 @@
 
 use Silex\Application;
 use Silex\Provider\HttpCacheServiceProvider;
-// use Silex\Provider\MonologServiceProvider;
 use Silex\Provider\ServiceControllerServiceProvider;
 use DerAlex\Silex\YamlConfigServiceProvider;
-//use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Yaml\Yaml;
@@ -44,33 +43,22 @@ $app->after(function (Request $request, Response $response) {
   $response->headers->set("Access-Control-Allow-Methods", "GET,POST,PUT,DELETE,OPTIONS");
 });
 
-// // Accepting JSON.
-// $app->before(function (Request $request) {
-//     if (0 === strpos($request->headers->get('Content-Type'), 'application/json')) {
-//         $data = json_decode($request->getContent(), true);
-//         $request->request->replace(is_array($data) ? $data : array());
-//     }
-// });
-
 $app->register(new ServiceControllerServiceProvider());
 
 $app->register(new HttpCacheServiceProvider(), array("http_cache.cache_dir" => ROOT_PATH . "/storage/cache",));
 
-// $app->register(new MonologServiceProvider(), array(
-//     "monolog.logfile" => ROOT_PATH . "/storage/logs/" . Carbon::now('America/Los_Angeles')->format("Y-m-d") . ".log",
-//     "monolog.name" => "application"
-// ));
-
 $app['debug'] = FALSE;
 
+/*
+ * Set Up Twig Template Paths.
+ */
 
-// Set Up Twig.
-
-// Twig Template Paths.
+// Initialize an empty array to collect the templates.
 $twig_template_paths = array();
 
 array_push($twig_template_paths, ROOT_PATH . '/resources/templates');
 
+// If there is a single template in config, it'll be a string, array otherwise.
 if (is_string($app['config']['paths']['templates'])) {
   array_push($twig_template_paths, realpath('./' . $app['config']['paths']['templates']));
 }
@@ -87,7 +75,6 @@ $app->register(new Silex\Provider\TwigServiceProvider(), array(
     'strict_variables' => FALSE,
   ),
 ));
-
 
 /*
  * Custom Functions
@@ -306,9 +293,9 @@ function listPatterns() {
         // Load the schema and decode for the list.
         $contents = json_decode(file_get_contents('./' . $path['location'] . "/" . $file), TRUE);
 
-        $contents['name']     = substr($file, 0, -5);
+        $contents['name']    = substr($file, 0, -5);
         $pattern['category'] = isset($contents['category']) ? $contents['category'] : FALSE;
-        $pattern['title']     = isset($contents['title']) ? $contents['title'] : $contents['name'];
+        $pattern['title']    = isset($contents['title']) ? $contents['title'] : $contents['name'];
 
         // Default to 1.0 for version of json for legacy support.
         $pattern['version'] = !empty($contents['version']) ? $contents['version'] : '1.0';
@@ -320,13 +307,11 @@ function listPatterns() {
   return $list;
 }
 
-
 // Mount Routes.
 $app->mount('/schema', new PatternKit\SchemaControllerProvider());
-$app->mount('/api', new PatternKit\ApiControllerProvider());
-$app->mount('/tests', new PatternKit\TestsControllerProvider());
-$app->mount('/sg', new PatternKit\StyleGuideControllerProvider());
-
+$app->mount('/api',    new PatternKit\ApiControllerProvider());
+$app->mount('/tests',  new PatternKit\TestsControllerProvider());
+$app->mount('/sg',     new PatternKit\StyleGuideControllerProvider());
 
 // Default route (landing page).
 $app->get('/', function () use ($app) {

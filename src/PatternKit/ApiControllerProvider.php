@@ -30,7 +30,7 @@ class ApiControllerProvider implements ControllerProviderInterface {
     $controllers = $app['controllers_factory'];
 
     // Render callback.
-    $controllers->match('/render/{target}', function (Request $request, $target) use ($app) {
+    $controllers->post('/render/{target}', function (Request $request, $target) use ($app) {
 
 
       switch ($request->getMethod()) {
