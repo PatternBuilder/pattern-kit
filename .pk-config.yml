@@ -21,11 +21,12 @@ extensions:
   docs: .docs.md
   sg: .sg.md
 categories:
-    - Pattern
-    - Sub Pattern
-    - Layout
-    - Component
-    - Atom
+    - Pages
+    - Patterns
+    - Subpatterns
+    - Layouts
+    - Components
+    - Atoms
 assets:
   css:
   js:
