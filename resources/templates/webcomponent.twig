@@ -1,0 +1,62 @@
+<link rel="import" href="https://polygit.org/polymer+2.0.0-rc.2/polymerelements+:2.0-preview/shadycss+webcomponents+1.0.0-rc.2/components/polymer/polymer-element.html">
+
+
+
+{% set moduleName = (name ~ '-pattern') %}
+{% set camelCased = moduleName |  title | replace({' ': '', '-': ''})  %}
+
+<dom-module id="{{ moduleName }}">
+    <template>
+
+        <style>
+        {% for css in app_config.assets.css %}
+        {% if css starts with '//' %}
+            @import "{{css}}";
+        {%  elseif css starts with 'http' %}
+            @import "{{css}}";
+        {% else %}
+            @import "{{ host }}{{css}}";
+        {% endif %}
+        {% endfor %}
+        </style>
+
+        {%  include template ?: name ~ '.twig' %}
+    </template>
+
+    <script>
+
+      class {{ camelCased }} extends Polymer.Element {
+        static get is() {
+          return "{{ moduleName }}";
+        }
+
+        // Defines the properties exposed on the element with data binding.
+        static get properties() {
+          return {
+            {% for propertyname in propertylist %}
+              {{ propertyname }}: { type: String }{% if not loop.last %},{% endif %}
+            {% endfor %}
+          }
+        }
+
+        // Called every time the element is inserted into the DOM
+        connectedCallback() {
+          super.connectedCallback();
+          // If an init function exists, call it.
+          if (window.patterns[{{ name }}]) {
+            window.patterns[{{ name }}].init();
+          }
+        }
+
+        // Called every time the element is removed from the DOM.
+        // disconnectedCallback() {}
+
+        // Called when an attribute was added, removed, or updated
+        // attributeChangedCallback(attrName, oldVal, newVal) {}
+
+        // Called if the element has been moved into a new document
+        // adoptedCallback() {}
+      }
+      customElements.define({{ camelCased }}.is, {{ camelCased }});
+    </script>
+</dom-module>

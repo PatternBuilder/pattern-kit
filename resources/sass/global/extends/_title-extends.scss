@@ -1,0 +1,343 @@
+// common styles for other headlines below
+%base-headline {
+    font-weight: 800;
+    font-family: $base-font-family;
+    text-transform: none;
+    color: color(black);
+    margin-top: 0;
+    line-height: 1.1;
+    @include data-context(theme, dark) {
+        // Typically used in a hero band or any band that needs a white headline
+        color: color(white);
+    }
+    @include product-theme($property: color);
+    a {
+        text-decoration: none;
+        color: inherit;
+        &:hover {
+            color: color(link);
+        }
+    }
+}
+
+%section-headline {
+    @extend %base-headline;
+    font-size: pem(32);
+    margin-bottom: pem(20, 32);
+    @include breakpoint($breakpoint-md-min) {
+        font-size: pem(36);
+        margin-bottom: pem(17, 39);
+    }
+    @include breakpoint($breakpoint-lg-min) {
+        font-size: pem(38);
+        margin-bottom: pem(17, 42);
+    }
+    @include eq-context(small)  {
+        // Typically used in a small eq context
+        font-size: pem(32);
+        margin-bottom: pem(20, 32);
+    }
+}
+
+%hero-headline {
+    @extend %base-headline;
+    font-size: pem(32);
+    margin-bottom: pem(20, 32);
+    @include breakpoint($breakpoint-md-min) {
+        font-size: pem(39);
+        margin-bottom: pem(17, 39);
+    }
+    @include breakpoint($breakpoint-lg-min) {
+        font-size: pem(42);
+        margin-bottom: pem(17, 42);
+    }
+    @include eq-context(small) {
+        font-size: pem(32);
+        margin-bottom: pem(20, 32);
+    }
+}
+
+// common styles for other headlines below
+%base-summary {
+    font-family: $base-font-family;
+    line-height: 1.38;
+    margin-top: 0;
+    color: color(copy);
+    @include data-context(theme, dark) {
+        color: color(white);
+        a {
+            color: color(white);
+            @include underline( color(white, .6) );
+        }
+    }
+}
+
+%section-summary {
+    @extend %base-summary;
+    font-size: pem(24);
+    font-weight: 100;
+}
+
+%hero-summary {
+    @extend %base-summary;
+    font-size: pem(24);
+    font-weight: 400;
+}
+
+%section-title {
+    font-size: pem(22);
+    margin-bottom: pem(20, 22);
+    text-transform: uppercase;
+    font-weight: 800;
+    font-family: $base-font-family;
+    color: color(brand-primary);
+    max-width: calc(100% - 25px);
+    margin-top: 0;
+    line-height: 1.4;
+    @include data-context(theme, dark) {
+        // Typically used in a hero band or any band that needs a white section title
+        color: color(white);
+    }
+}
+
+%hero-subheadline {
+    font-family: $base-font-family;
+    font-size: pem(28);
+    font-weight: 600;
+    line-height: 1.38;
+    margin-top: 0;
+    color: color(copy);
+    @include data-context(theme, dark) {
+        color: color(white);
+    }
+}
+
+%content-level1 {
+    font-family: $base-font-family;
+    font-size: pem(28);
+    font-weight: 400;
+    color: color(copy);
+    margin-top: 0;
+    margin-bottom: pem(11, 32);
+    line-height: 1.18;
+    @include data-context(theme, dark) {
+        color: color(white);
+    }
+    a {
+        text-decoration: none;
+        color: inherit;
+        &:hover {
+            color: color(link);
+        }
+    }
+}
+
+%content-level2 {
+    font-family: $base-font-family;
+    color: color(brand-primary);
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 1.1em;
+    line-height: 1.38;
+    margin: 0;
+}
+
+%content-level3 {
+    font-family: $base-font-family;
+    color: color(copy);
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 1em;
+    line-height: 1.38;
+    margin: 0;
+    @include data-context(theme, dark) {
+        color: color(white);
+    }
+}
+
+%content-level4 {
+    font-family: $base-font-family;
+    color: color(gray3);
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: .7em;
+    line-height: 1.38;
+    margin: 0;
+    @include data-context(theme, dark) {
+        color: color(white);
+    }
+}
+
+%default-level1 {
+    font-family: $base-font-family;
+    font-size: pem(38);
+    font-weight: 800;
+    color: color(black);
+    margin-top: 0;
+    margin-bottom: pem(20, 38);
+    line-height: 1.18;
+    @include data-context(theme, dark) {
+        color: color(white);
+    }
+    a {
+        text-decoration: none;
+        color: inherit;
+        &:hover {
+            color: color(link);
+        }
+    }
+}
+
+%default-level2 {
+    font-family: $base-font-family;
+    font-size: pem(32);
+    font-weight: 800;
+    color: color(black);
+    margin-top: 0;
+    margin-bottom: pem(20, 32);
+    line-height: 1.18;
+    @include data-context(theme, dark) {
+        color: color(white);
+    }
+    a {
+        text-decoration: none;
+        color: inherit;
+        &:hover {
+            color: color(link);
+        }
+    }
+}
+
+%default-level3 {
+    font-family: $base-font-family;
+    font-size: pem(22);
+    font-weight: 800;
+    text-transform: none;
+    color: color(black);
+    margin-top: 0;
+    margin-bottom: pem(10, 22);
+    line-height: 1.18;
+    @include data-context(theme, dark) {
+        color: color(white);
+    }
+    a {
+        text-decoration: none;
+        color: inherit;
+        &:hover {
+            color: color(link);
+        }
+    }
+}
+
+%default-level4 {
+    font-family: $base-font-family;
+    font-size: pem(20);
+    font-weight: 600;
+    text-transform: none;
+    color: color(black);
+    margin-top: 0;
+    line-height: 1.18;
+    @include data-context(theme, dark) {
+        color: color(white);
+    }
+    a {
+        text-decoration: none;
+        color: inherit;
+        &:hover {
+            color: color(link);
+        }
+    }
+
+}
+
+%default-level5 {
+    font-family: $base-font-family;
+    font-size: pem(18);
+    font-weight: 600;
+    text-transform: none;
+    color: color(black);
+    margin-top: 0;
+    margin-bottom: pem(11, 18);
+    line-height: 1.18;
+    @include data-context(theme, dark) {
+        color: color(white);
+    }
+    a {
+        text-decoration: none;
+        color: inherit;
+        &:hover {
+            color: color(link);
+        }
+    }
+
+}
+
+%default-level6 {
+    font-family: $base-font-family;
+    font-size: pem(16);
+    font-weight: 600;
+    text-transform: none;
+    color: color(black);
+    margin-top: 0;
+    line-height: 1.18;
+    @include data-context(theme, dark) {
+        color: color(white);
+    }
+    a {
+        text-decoration: none;
+        color: inherit;
+        &:hover {
+            color: color(link);
+        }
+    }
+
+}
+
+// Styles for the card headline and titles
+
+%card-title {
+    font-family: $base-font-family;
+    font-size: pem(22);
+    font-weight: 800;
+    text-transform: uppercase;
+    color: color(black);
+    margin-top: 0;
+    margin-bottom: pem(10, 22);
+    line-height: 1.18;
+    &:last-child {
+        margin-bottom: 0;
+    }
+    @include data-context(theme, dark) {
+        color: color(white);
+    }
+    a {
+        text-decoration: none;
+        color: inherit;
+        &:hover {
+            color: color(link);
+        }
+    }
+}
+
+%card-headline {
+    font-family: $base-font-family;
+    font-size: pem(28);
+    font-weight: 800;
+    color: color(black);
+    margin-top: 0;
+    margin-bottom: $box-padding/2;
+    line-height: 1.18;
+    &:last-child {
+        margin-bottom: 0;
+    }
+    @include data-context(theme, dark) {
+        color: color(white);
+    }
+    a {
+        text-decoration: none;
+        color: inherit;
+        &:hover {
+            color: color(link);
+        }
+    }
+}

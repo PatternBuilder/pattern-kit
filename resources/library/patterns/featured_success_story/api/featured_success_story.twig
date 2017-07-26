@@ -1,0 +1,68 @@
+{% include 'band.twig' with {
+    "name": "band",
+    "meta": meta,
+    "background": {
+        "color": background_color
+    },
+    "body": {
+        "layout": layout,
+        "content": [{
+            "name": "group",
+            "body": {
+                "layout": "stacked",
+                "content": [{
+                    "name": "band_header",
+                    "config": {
+                        "size": "band"
+                    },
+                    "title": content.title,
+                    "headline": content.headline
+                },{
+                    "name": "generic",
+                    "content": content.summary
+                },{
+                    "name": "cta",
+                    "config": {
+                        "type": content.cta.type
+                    },
+                    "link": {
+                        "href": content.cta.link.href,
+                        "title": content.cta.link.title,
+                        "text": content.cta.link.text
+                    }
+                }]
+            }
+        },{
+            "name": "card",
+            "config": {
+                "theme": sidebar.theme
+            },
+            "background": {
+                "color": sidebar.background_color
+            },
+            "body": {
+                "content": [{
+                    "name": "image_embed",
+                    "config": {
+                        "align": sidebar.image.image_alignment
+                    },
+                    "image": {
+                        "src": sidebar.image.source.src
+                    },
+                    "link": {
+                        "href": sidebar.image.image_link.href,
+                        "title": sidebar.image.image_link.title
+                    }
+                }]
+            },
+            "footer": {
+                "content": [{
+                    "name": "quote",
+                    "quotation": sidebar.quote.text,
+                    "attribution_name": sidebar.quote.attribution_name,
+                    "attribution_title": sidebar.quote.attribution_title
+                }]
+            }
+        }]
+    }
+} only %}

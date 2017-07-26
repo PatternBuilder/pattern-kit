@@ -1,0 +1,41 @@
+{
+    "name": "featured_event",
+    "background_color": "gray",
+    "title": "Featured Events",
+    "headline": "",
+    "meta": {
+        "uniqueId": "1234"
+    },
+    "events": [
+        {
+            "title": "Open Source Day Celebration",
+            "date": "July 11, 2015",
+            "category": "Rollerskating party",
+            "image": {
+                "src": "/fixtures/images/red.png",
+                "alt": ""
+            },
+            "summary": "In lobortis, justo euismod consequat dignissim, lorem dolor mollis ligula, a congue diam nisi eu tortor. Phasellus efficitur turpis eget massa pulvinar pellentesque. Vestibulum at dui ac diam auctor commodo placerat vitae tellus.",
+            "link": {
+                "href": "http://www.redhat.com",
+                "title": "",
+                "text": "Register now"
+            }
+        },
+        {
+            "title": "Red Hat Sponsored Event",
+            "date": "August 27, 2015",
+            "category": "Summit",
+            "image": {
+                "src": "/fixtures/images/blue.png",
+                "alt": ""
+            },
+            "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas semper lacus sed dolor imperdiet, quis finibus est gravida. Maecenas fermentum, ante ut interdum interdum, sapien lectus feugiat est, condimentum feugiat arcu odio eu sem. Morbi iaculis pretium luctus. Nunc finibus sollicitudin arcu sed sodales. Nullam ut gravida erat. Duis ultrices rutrum urna. Nullam eget metus lacus. In aliquet arcu non faucibus rhoncus.",
+            "link": {
+                "href": "http://www.redhat.com",
+                "title": "",
+                "text": "Learn More"
+            }
+        }
+    ]
+}

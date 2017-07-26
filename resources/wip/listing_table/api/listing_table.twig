@@ -1,0 +1,11 @@
+<div class="rh-listing-table--layout">
+    {% for row in rows %}
+        <div class="rh-listing-table-row"
+                {% if row.theme %} data-rh-theme="{{ row.theme }} {{ row.background }}"{% endif %}
+                {% if row.layout %} data-rh-layout="{{ row.layout }}"{% endif %}>
+            {% for item in row.body_content %}
+                {% include item.template with item only %}
+            {% endfor %}
+        </div>
+    {% endfor %}
+</div>

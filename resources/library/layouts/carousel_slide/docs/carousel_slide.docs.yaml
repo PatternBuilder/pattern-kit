@@ -1,0 +1,17 @@
+name: carousel_slide
+config: 
+    theme: dark
+background: 
+    color: white
+    custom_color: #c00
+    image_large: /fixtures/images/bg1.jpg
+    image_small: /fixtures/images/bg2.jpg
+body: 
+    content:
+        - name: promo
+          headline: This is a headline
+          text: This is my text
+          cta:
+              href: #
+              title: Cat!
+              text: Click me

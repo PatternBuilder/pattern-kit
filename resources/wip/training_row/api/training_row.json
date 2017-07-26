@@ -1,0 +1,63 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Training Row",
+    "description": "A training_row component is a method for displaying a three column data set. The first row can have an icon column (typically 1 or 2 icons), a detail column with a title and descriptive text, and a contact info column with a call-to-action.",
+    "type": "object",
+    "properties": {
+        "name": {
+            "type": "string",
+            "readonly": "true",
+            "default": "training_row",
+            "enum": [ "training_row" ]
+        },
+        "template": {
+            "type": "string",
+            "default": "training_row.twig"
+        },
+        "featured": {
+            "description": "Choose whether or not this training should be featured at the top of the list",
+            "type": "boolean",
+            "enum": [ "true", "false" ]
+        },
+        "icon": {
+            "description": "Icon for this type of training",
+            "type": "string"
+        },
+        "icon2": {
+            "description": "Second Icon for this type of training",
+            "type": "string"
+        },
+        "title": {
+            "description": "Title of training method",
+            "type": "string"
+        },
+        "designation": {
+            "description": "",
+            "type": "string"
+        },
+        "summary": {
+            "description": "Summary of this training method",
+            "type": "string"
+        },
+        "link": {
+            "description": "The action link",
+            "type": "object",
+            "properties": {
+                "title": {
+                    "type": "string"
+                },
+                "url": {
+                    "type": "string"
+                },
+                "text": {
+                    "type": "string"
+                }
+            },
+            "required": [ "url", "text" ]
+        }
+    },
+    "required": [ "title", "link" ],
+    "additionalProperties": false
+}
+
+

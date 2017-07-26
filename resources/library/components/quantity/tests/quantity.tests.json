@@ -1,0 +1,22 @@
+[{
+    "label": "Quantity component",
+    "data": {
+        "name": "quantity",
+        "required": true,
+        "disabled": false,
+        "min": 1,
+        "max": 99,
+        "step": 1,
+        "value": 1
+    }
+},{
+    "label": "Disabled quantity component",
+    "data": {
+        "name": "quantity",
+        "required": false,
+        "disabled": true,
+        "min": 0,
+        "max": 99,
+        "step": 1
+    }
+}]

@@ -1,0 +1,8 @@
+{
+    "name": "video_embed",
+    "video": {
+        "video_src": "<iframe style=\"border: none \" srcdoc=\"<style>body{background: #c00}</style>\" ></iframe>"
+    },
+    "title": "Red Hat Enterprise Linux 7: Redefining the Enterprise OS",
+    "summary": "Hear from Red Hat executives how Red Hat Enterprise Linux 7 raises the bar yet again and brings the next-generation of IT to customers. Nearly 50% of business managers say they will increase their investments in collaborative development.* Choice and collaboration are where technology is headed."
+}

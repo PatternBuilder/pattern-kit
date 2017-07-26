@@ -1,0 +1,175 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Product card",
+    "description": "Displays a card with a header and pricing set. Utilizes product line themes.",
+    "type": "object",
+    "format": "grid",
+    "category": "sub_pattern",
+    "properties": {
+        "name": {
+            "type": "string",
+            "enum": ["store_product_box"],
+            "options": {
+                "hidden": true
+            }
+        },
+        "themes": {
+            "title": "Card themes",
+            "type": "object",
+            "format": "grid",
+            "properties": {
+                "product_line": {
+                    "title": "Product line",
+                    "description": "Select a product line to impact the theme of this card. Note that several product lines use the same or similar brand color.",
+                    "type": "string",
+                    "enum": ["Linux platforms", "Management", "Mobile", "JBoss Middleware", "Virtualization", "Cloud computing", "Storage", "Services and support"],
+                    "options": {
+                        "grid_columns": 6
+                    }
+                },
+                "standard": {
+                    "title": "Card theme",
+                    "type": "string",
+                    "enum": ["light", "dark"],
+                    "default": "light",
+                    "options": {
+                        "grid_columns": 6
+                    }
+                }
+            },
+            "required": ["standard"]
+        },
+        "background": {
+            "title": "Background",
+            "type": "object",
+            "format": "grid",
+            "properties": {
+                "color": {
+                    "title": "Color",
+                    "description": "Background color for the card; must choose white if using a product-line image.",
+                    "type": "string",
+                    "enum": ["rich-black", "white", "gray"],
+                    "default": "white",
+                    "options": {
+                        "grid_columns": 6
+                    }
+                },
+                "image": {
+                    "title": "Image",
+                    "description": "Do you want to add the product line background image to the card?",
+                    "type": "string",
+                    "enum": ["Yes", "No"],
+                    "default": "No",
+                    "options": {
+                        "grid_columns": 6
+                    }
+                }
+            },
+            "required": ["color", "image"]
+        },
+        "header": {
+            "title": "Header",
+            "description": "Either manually enter the title and summary or you can use a node reference to import the data.",
+            "type": "object",
+            "properties": {
+                "title": {
+                    "$ref": "card_header.json#/properties/title",
+                    "title": "Card title"
+                },
+                "summary": {
+                    "title": "Card content",
+                    "type": "string",
+                    "format": "html"
+                }
+            }
+        },
+        "body": {
+            "title": "Pricing details",
+            "description": "Displays a teaser, price with units, and a buy button.",
+            "type": "object",
+            "format": "grid",
+            "properties": {
+                "config": {
+                    "title": "Configuration",
+                    "type": "object",
+                    "format": "grid",
+                    "properties": {
+                        "align": {
+                            "title": "Alignment",
+                            "type": "string",
+                            "enum": ["left", "center", "right"],
+                            "default": "left",
+                            "options": {
+                                "grid_columns": 6
+                            }
+                        },
+                        "theme": {
+                            "title": "Theme",
+                            "type": "string",
+                            "enum": ["light", "dark"],
+                            "default": "light",
+                            "options": {
+                                "hidden": true,
+                                "grid_columns": 6
+                            }
+                        }
+                    },
+                    "required": ["align", "theme"]
+                },
+                "price_data": {
+                    "title": "Purchasing details",
+                    "type": "object",
+                    "format": "grid",
+                    "properties": {
+                        "teaser": {
+                            "$ref": "price.json#/properties/teaser",
+                            "options": {
+                                "grid_columns":  6
+                            }
+                        },
+                        "sku": {
+                            "$ref": "price.json#/properties/sku",
+                            "options": {
+                                "hidden": true
+                            }
+                        },
+                        "amount": {
+                            "title": "Price token or price amount",
+                            "description": "A token will pull data in or you can overwrite it by entering a number into the field.<br/>The tags supported are [[webstore-sku-price:sku]], and [[webstore-lowest-price:nid]].<br/>Do not use currency symbols or commas if entering manually",
+                            "type": "string",
+                            "options": {
+                                "grid_columns":  6
+                            }
+                        },
+                        "currency": {
+                            "$ref": "price.json#/properties/currency",
+                            "options": {
+                                "hidden": true
+                            }
+                        }
+                    }
+                },
+                "cta": {
+                    "title": "Call-to-action link",
+                    "description": "A call-to-action component which links to a marketing goal or focus for the page/band.",
+                    "type": "object",
+                    "format": "grid",
+                    "properties": {
+                        "type": {
+                            "title": "Type of call-to-action",
+                            "type": "string",
+                            "enum": [ "primary", "secondary", "disabled", "ghost" ],
+                            "default": "primary"
+                        },
+                        "link": {
+                            "title": "Link details",
+                            "$ref": "link.json"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "required": ["name", "themes", "background", "header", "body"],
+    "additionalProperties": false
+}

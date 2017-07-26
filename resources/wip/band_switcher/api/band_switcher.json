@@ -1,0 +1,91 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Band Switcher",
+    "description": "A collection of bands that can be viewed one at a time",
+    "documentation": "A band switcher is a container for multiple bands that automatically hides all of them but the active band. The visible band can be changed by updating the page hash, which fires the rh.webux.switchTab function",
+    "category": "layout",
+    "type": "object",
+    "format": "grid",
+    "properties": {
+        "config": {
+            "required": [ "tab_id" ],
+            "type": "object",
+            "properties": {
+                "tab_id": {
+                    "title": "Tab ID",
+                    "propertyOrder": 0,
+                    "type": "string",
+                    "description": "Unique ID that matches ID of htab_nav or other switching UI",
+                    "default": "tabs",
+                    "pattern": "^([a-z_])+$"
+                },
+                "active_band": {
+                    "title": "Active Band",
+                    "type": "number",
+                    "description": "The visible band on page load. Should match htab_nav active band",
+                    "default": 0,
+                    "options": {
+                        "hidden": true
+                    }
+                }
+            }
+        },
+        "body": {
+            "type": "object",
+            "properties": {
+                "content": {
+                    "format": "tabs",
+                    "title": "Horizontal Tabs Body",
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                        "oneOf": [
+                            {
+                                "$ref": "featured_event.json"
+                            },
+                            {
+                                "$ref": "featured_success_story.json"
+                            },
+                            {
+                                "$ref": "logo_wall.json"
+                            },
+                            {
+                                "$ref": "raw_html.json"
+                            },
+                            {
+                                "$ref": "recent_videos.json"
+                            },
+                            {
+                                "$ref": "featured_event.json"
+                            },
+                            {
+                                "$ref": "band.json"
+                            }
+                        ]
+                    }
+                }
+            }
+        },
+        "name": {
+            "type": "string",
+            "enum": [ "band_switcher" ],
+            "options": {
+                "hidden": true
+            }
+        },
+        "template": {
+            "type": "string",
+            "options": {
+                "hidden": true
+            }
+        },
+        "misc_data": {
+            "type": "string",
+            "options": {
+                "hidden": true
+            }
+        }
+    },
+    "required": [ "name", "config" ],
+    "additionalProperties": false
+}

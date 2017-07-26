@@ -1,0 +1,113 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Quote Box",
+    "category": "sub_pattern",
+    "type": "object",
+    "properties": {
+        "name": {
+            "type": "string",
+            "enum": [ "quote_box" ],
+            "options": {
+                "hidden": true
+            }
+        },
+        "container": {
+            "required": [ "type" ],
+            "type": "object",
+            "properties": {
+                "type": {
+                    "title": "Container Type",
+                    "type": "string",
+                    "enum": [ "card", "group" ],
+                    "default": "group"
+                },
+                "theme": {
+                    "title": "Container Theme",
+                    "description": "Dark themes are used for dark backgrounds",
+                    "type": "string",
+                    "enum": [ "light", "dark" ],
+                    "default": "light"
+                },
+                "background": {
+                    "title": "Container Background",
+                    "description": "For Card Only",
+                    "type": "string",
+                    "enum": [ "rich-black", "white", "gray" ],
+                    "default": "gray"
+                }
+            }
+        },
+        "logo": {
+            "title": "Quote Logo",
+            "type": "object",
+            "properties": {
+                "image": {
+                    "$ref": "image.json"
+                },
+                "link": {
+                    "entity": "link",
+                    "type": "object",
+                    "properties": {
+                        "href": {
+                            "title": "Link URL",
+                            "type": "string",
+                            "format": "url"
+                        },
+                        "title": {
+                            "title": "Title Attribute",
+                            "type": "string",
+                            "description": "Shown on mouseover."
+                        }
+                    }
+                },
+                "align": {
+                    "title": "Logo Alignment",
+                    "type": "string",
+                    "enum": [ "bleed", "full", "left", "right", "center", "reduced" ],
+                    "default": "bleed"
+                },
+                "background": {
+                    "title": "Optional Background or Border",
+                    "type": "object",
+                    "options": {
+                        "collapsed": true
+                    },
+                    "properties": {
+                        "color": {
+                            "type": "string",
+                            "enum": [ "black", "rich-black", "white", "gray", "red" ]
+                        },
+                        "type": {
+                            "type": "string",
+                            "enum": [ "background", "image_border", "container_border" ]
+                        }
+                    }
+                }
+            }
+        },
+        "quote": {
+            "title": "Title",
+            "type": "object",
+            "properties": {
+                "quotation": {
+                    "title": "Quote Text",
+                    "description": "Just text, no quote marks or markup",
+                    "type": "string",
+                    "format": "textarea"
+                },
+                "attribution_name": {
+                    "title": "Attribution",
+                    "description": "Who said it?",
+                    "type": "string"
+                },
+                "attribution_title": {
+                    "title": "Attribution Title",
+                    "description": "What is their job title?",
+                    "type": "string"
+                }
+            }
+        }
+    },
+    "required": [ "quote", "container", "name" ],
+    "additionalProperties": false
+}

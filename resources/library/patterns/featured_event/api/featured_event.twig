@@ -1,0 +1,51 @@
+{% set event_array = [] %}
+
+{% for event in events %}
+    {% set event_array = event_array|merge([{
+        "name": "card",
+        "config": {
+            "theme": "light"
+        },
+        "body": {
+            "content": [{
+                "name": "featured_item",
+                "title": event.title,
+                "date": event.date,
+                "type": event.tpe,
+                "logo": {
+                    "src": event.image.src
+                },
+                "summary": event.summary,
+                "primary_link": {
+                    "href": event.link.href,
+                    "title": event.link.title,
+                    "text": event.link.text
+                }
+            }]
+        }
+    }]) %}
+{% endfor %}
+
+{% embed 'band.twig' with {
+    "name": "band",
+    "meta": meta,
+    "background": {
+        "color": background_color
+    },
+    "header": {
+        "content": [{
+            "name": "band_header",
+            "config": {
+                "size": "band"
+            },
+            "title": title,
+            "headline": headline
+        }]
+    },
+    "body": {
+        "layout": "6 6 flex",
+        "content": event_array
+    }
+} only %}
+
+{% endembed %}

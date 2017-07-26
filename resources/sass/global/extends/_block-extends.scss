@@ -1,0 +1,249 @@
+/*doc
+---
+title: default--band
+category: Extends - block
+---
+
+default--band adds basic top & bottom padding, as well as a default white background.
+
+*/
+%default--band {
+    padding-top: pem($band-padding);
+    padding-bottom: pem($band-padding);
+    background: white; // default color
+    @include data(band-collapse, full) {
+        padding: 0;
+    }
+    @include data(band-collapse, full_top) {
+        padding-top: 0;
+    }
+    @include data(band-collapse, full_bottom) {
+        padding-bottom: 0;
+    }
+    @include data(band-collapse, top) {
+        padding-top: pem($band-padding / 4);
+    }
+    @include data(band-collapse, bottom) {
+        padding-bottom: pem($band-padding / 4);
+    }
+    @include data(band-collapse, both) {
+        padding-top: pem($band-padding / 4);
+        padding-bottom: pem($band-padding / 4);
+    }
+    @include data(band-extend, bottom) {
+        padding-bottom: pem($band-padding * 2);
+    }
+}
+
+/*doc
+---
+title: default--container
+category: Extends - block
+---
+
+default--container mimics the container used by bootstrap. It sets a fixed width at each [breakpoints](global_-_variables.html#Breakpoints) and adds padding at mobile breakpoint.
+
+It also calls the susy container mixin.
+
+*/
+
+%default--container {
+    padding: 0 $mobile-edge;
+    @include breakpoint($breakpoint-sm-min) {
+        @include container;
+        width: 750px;
+        padding: 0;
+    }
+    @include breakpoint($breakpoint-md-min) {
+        width: 970px;
+    }
+    @include breakpoint($breakpoint-lg-min) {
+        width: 1170px;
+    }
+}
+
+/*doc
+---
+title: has-container-background
+category: Extends - block
+---
+
+has-container-background includes all of the background properties needed for our container backgrounds. It also provides the "data-rh-background-fixed" context which changes the background to be a fixed position.
+
+*/
+
+%has-container-background {
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    @include data(background-fixed) {
+        background-attachment: fixed;
+    }
+    @include data(background-align, right-center) {
+        background-position: right center;
+    }
+    @include data(background-align, left-center) {
+        background-position: left center;
+    }
+}
+
+/*doc
+---
+title: eqjs-hide-fout
+category: Extends - block
+---
+
+eqjs-hide-fout hides (visibility: hidden) the element until data-eq-state is applied, and the visibility is changed to visible.
+
+*/
+
+%eqjs-hide-fout {
+    visibility: hidden;
+    &[data-eq-state] {
+        visibility: visible;
+    }
+}
+
+%fade-in-on-open {
+    visibility: hidden;
+    height: 0;
+    opacity: 0;
+    overflow: hidden;
+    @include rh-transition(opacity 500ms);
+    @include data(state, open) {
+        visibility: visible;
+        height: auto;
+        opacity: 1;
+    }
+    @include data-context(state, open) {
+        visibility: visible;
+        height: auto;
+        opacity: 1;
+    }
+}
+
+%container-height-toggle {
+    transition: max-height 1s;
+    &,
+    &:before,
+    &:after {
+        max-height: 0;
+    }
+    &:before {
+        transition: opacity 10ms ease-in-out;
+    }
+    @include data(state, closed) {
+        max-height: 0;
+        &:before,
+        &:after {
+            max-height: 0;
+        }
+    }
+    @include data(state, open) {
+        height: auto;
+        max-height: 200px;
+        margin: 10px 0;
+        &:before,
+        &:after {
+            max-height: 1;
+        }
+    }
+}
+
+/*doc
+---
+title: text-align-enabled
+category: Extends - block
+---
+
+*/
+
+%text-align-enabled {
+    @include data(align, left) {
+        list-style-position: outside;
+        text-align: left;
+    }
+    @include data(align, right) {
+        text-align: right;
+        list-style-position: inside;
+    }
+    @include data(align, center) {
+        text-align: center;
+        list-style-position: inside;
+        // Removes padding from UL's in centered components
+        & > ul {
+            padding-left: 0;
+        }
+    }
+}
+
+%background-color-enabled {
+    $background-colors: (
+        gray: gray2,
+        white: white,
+        black: black,
+        rich-black: rich-black,
+        transparent: transparent,
+        red: brand-primary
+    );
+    @each $name, $color in $background-colors {
+        @include data(background, $name) {
+            background-color: color($color);
+        }
+    }
+}
+
+/*doc
+---
+title: bleeding--container
+category: Extends - block
+---
+
+*/
+%bleeding-container-top {
+    @include eq-context(medium-card) {
+        margin-top: -$box-padding;
+        margin-left: -$box-padding;
+        margin-right: -$box-padding;
+    }
+    @include eq-context(small-card) {
+        margin-top: -$box-padding;
+        margin-left: -$box-padding / 2;
+        margin-right: -$box-padding / 2;
+    }
+}
+
+%bleeding-container {
+    @include eq-context(medium-card) {
+        margin-left: -$box-padding;
+        margin-right: -$box-padding;
+    }
+    @include eq-context(small-card) {
+        margin-left: -$box-padding / 2;
+        margin-right: -$box-padding / 2;
+    }
+}
+
+%list-flush-no-styles {
+    list-style-type: none;
+    // Autoprefixer not working on list margin/padding
+    -webkit-margin-before: 0;
+    -moz-margin-before: 0;
+    -webkit-margin-after: 0;
+    -moz-margin-after: 0;
+    -webkit-padding-start: 0;
+    -moz-padding-start: 0;
+    padding-left: 0; // For IE
+}
+
+%footnote-container {
+    @extend %list-flush-no-styles;
+    margin: 0 0 1.2em;
+    line-height: 1.44;
+    @include data-context(list-symbol) {
+        padding-start: 10px;
+    }
+    &:last-child {
+        margin-bottom: 0;
+    }
+}

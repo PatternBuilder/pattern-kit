@@ -1,0 +1,22 @@
+{% embed 'carousel.twig' with {
+    "global": _context,
+    "config": {
+        "slick_config": config.slick_config,
+        "theme": config.theme
+    },
+    "background": {
+        "color": background.color,
+        "image_small": {
+            "src": background.image_small.src
+        },
+        "image_large": {
+            "src": background.image_large.src
+        }
+    }
+} only %}
+    {% block body %}
+      {% for slide in global.slides %}
+          {% include slide.template ?: slide.name ~ '.twig' with slide only %}
+      {% endfor %}
+    {% endblock %}
+{% endembed %}

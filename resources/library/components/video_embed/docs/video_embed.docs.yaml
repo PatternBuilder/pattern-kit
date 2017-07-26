@@ -1,0 +1,7 @@
+name: video_embed
+video:
+    video_src: '<iframe width="1139" height="641" frameborder="0" allowfullscreen="" src="https://www.youtube.com/embed/9gYLKxJ9NbY"\></iframe>'
+title:
+    text: Why software-defined storage for the enterprise?
+    href: "//www.redhat.com/en/about/videos/why-software-defined-storage-enterprise"
+summary: Software-defined storage like Red Hat Gluster Storage and Red Hat Ceph Storage are a cost-effective enterprise-grade alternative to monolithic storage appliances. Learn from experts at Red Hat about how software-defined storage offers flexibility scalability and reliability to support some of the most demanding workloads around big data cloud and virtualization.

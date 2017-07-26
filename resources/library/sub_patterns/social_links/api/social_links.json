@@ -1,0 +1,54 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Social link icons",
+    "description": "Displays a set of social icons as links.",
+    "type": "object",
+    "format": "grid",
+    "category": "sub_pattern",
+    "properties": {
+        "name": {
+            "type": "string",
+            "enum": [ "social_links" ],
+            "options": {
+                "hidden": true
+            }
+        },
+        "config": {
+            "title": "Configuration",
+            "type": "object",
+            "format": "grid",
+            "properties": {
+                "theme": {
+                    "title": "Text theme",
+                    "type": "string",
+                    "enum": [ "light", "dark" ],
+                    "default": "light",
+                    "options": {
+                        "grid_columns": 6
+                    }
+                },
+                "size": {
+                    "title": "Size of links",
+                    "type": "string",
+                    "enum": [ "small", "medium", "large" ],
+                    "default": "small",
+                    "options": {
+                        "grid_columns": 6
+                    }
+                }
+            },
+            "required": [ "theme", "size" ]
+        },
+        "links": {
+            "title": "Social links",
+            "type": "array",
+            "minItems": 1,
+            "items": {
+                "title": "Social",
+                "$ref": "social_media.json"
+            }
+        }
+    },
+    "required": [ "name", "config", "links" ],
+    "additionalProperties": false
+}

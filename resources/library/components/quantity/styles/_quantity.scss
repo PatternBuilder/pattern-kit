@@ -1,0 +1,7 @@
+.rh-quantity {
+    &--component {}
+
+    &-input {
+        @extend %number-input;
+    }
+}

@@ -1,0 +1,15 @@
+*,
+*:after,
+*:before {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+fieldset[class^="rh-"],
+th[class^="rh-"] {
+    border: none !important;
+}
+
+fieldset[class^="rh-"] {
+    padding: 0 !important;
+}

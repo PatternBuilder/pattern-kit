@@ -1,0 +1,16 @@
+name: page
+config:
+    body_class: editorial
+    additional_css:
+        - https://www.redhat.com/profiles/rh/themes/redhatdotcom/css/editorial.css
+        - https://www.redhat.com/profiles/rh/themes/redhatdotcom/css/style.css
+        - https://www.redhat.com/profiles/rh/themes/redhatdotcom/css/bootstrap.css
+header:
+    - @hero
+body:
+    - @standard_text_band
+    - @testimonial_band
+    #- @feature_set
+    #- @recent_videos
+    - @featured_success_story
+    - @cta_band

@@ -1,0 +1,47 @@
+{% if body.layout %}
+    {% set gallery_layout = "gallery" ~ body.layout | first %}
+{% endif %}
+
+{% embed 'band.twig' with {
+    "global": _context,
+    "name": "band",
+    "meta": {
+        "dtm": meta.dtm
+    },
+    "config": {
+        "collapse": "",
+        "vertical_spacing": "stacked"
+    },
+    "background": {
+        "color": config.background_color
+    },
+    "body": {
+        "layout": gallery_layout,
+        "theme": config.theme
+    },
+    "footer": {
+        "layout": "stacked",
+        "theme": config.theme
+    }
+} only %}
+
+    {# BODY #}
+    {% block body %}
+        {%- if global.body.sub_patterns %}
+            {% for sub_pattern in global.body.sub_patterns %}
+                {% include sub_pattern.name ~ '.twig' with sub_pattern only %}
+            {% endfor %}
+        {% endif %}
+    {% endblock %}
+
+    {# FOOTER #}
+    {% block footer %}
+        {%- if global.footer.sub_patterns %}
+            {% for sub_pattern in global.footer.sub_patterns %}
+                {% include sub_pattern.name ~ '.twig' with sub_pattern only %}
+            {% endfor %}
+        {% endif -%}
+    {% endblock %}
+
+
+{% endembed %}

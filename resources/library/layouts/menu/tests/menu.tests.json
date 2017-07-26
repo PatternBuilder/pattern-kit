@@ -1,0 +1,53 @@
+[{
+    "label": "",
+    "data": {
+        "name": "menu",
+        "config": {
+            "theme": "light"
+        },
+        "plugins": {
+            "search": true,
+            "store": false
+        },
+        "logo": {
+            "name": "Shadowman",
+            "alt": "Red Hat's company logo; Shadowman"
+        },
+        "link": {
+            "href": "//www.redhat.com",
+            "title": "Red Hat"
+        },
+        "utility_links": [{
+            "link": {
+                "text": "REDHAT.COM",
+                "href": "#"
+            }
+        }, {
+            "link": {
+                "text": "Sales",
+                "href": "#"
+            }
+        }, {
+            "link": {
+                "text": "FAQ",
+                "href": "#"
+            }
+        }],
+        "nav_links": [{
+            "link": {
+                "text": "Linux Platforms",
+                "href": "#"
+            }
+        }, {
+            "link": {
+                "text": "JBoss Middleware",
+                "href": "#"
+            }
+        }, {
+            "link": {
+                "text": "Training",
+                "href": "#"
+            }
+        }]
+    }
+}]

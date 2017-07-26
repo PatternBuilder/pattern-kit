@@ -1,0 +1,131 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Horizontal Tabs",
+    "description": "",
+    "category": "pattern",
+    "type": "object",
+    "format": "grid",
+    "required": [ "name" ],
+    "additionalProperties": false,
+    "properties": {
+        "name": {
+            "$ref": "band_group.json#/properties/name"
+        },
+        "background": {
+            "type": "object",
+            "properties": {
+                "image_large": {
+                    "$ref": "band_group.json#/properties/background/properties/image_large"
+                }
+            }
+        },
+        "body": {
+            "type": "object",
+            "properties": {
+                "content": {
+                    "type": "array",
+                    "minItems": 1,
+                    "items": [
+                        {
+                            "title": "Band",
+                            "type": "object",
+                            "required": [ "name" ],
+                            "properties": {
+                                "name": {
+                                    "$ref": "band.json#/properties/name"
+                                },
+                                "config": {
+                                    "type": "object",
+                                    "options": {
+                                        "hidden": "true"
+                                    },
+                                    "properties": {
+                                        "vertical_spacing": {
+                                            "type": "string",
+                                            "enum": [ "tall-stacked" ],
+                                            "options": {
+                                                "hidden": "true"
+                                            }
+                                        },
+                                        "collapse": {
+                                            "type": "string",
+                                            "enum": [ "full_bottom" ],
+                                            "options": {
+                                                "hidden": "true"
+                                            }
+                                        }
+                                    }
+                                },
+                                "background": {
+                                    "type": "object",
+                                    "options": {
+                                        "hidden": "true"
+                                    },
+                                    "properties": {
+                                        "color": {
+                                            "type": "string",
+                                            "enum": [ "transparent" ],
+                                            "options": {
+                                                "hidden": "true"
+                                            }
+                                        }
+                                    }
+                                },
+                                "header": {
+                                    "title": "Header",
+                                    "type": "object",
+                                    "properties": {
+                                        "theme": {
+                                            "$ref": "band.json#/properties/header/properties/theme"
+                                        },
+                                        "content": {
+                                            "type": "array",
+                                            "maxItems": "1",
+                                            "items": [
+                                                {
+                                                    "$ref": "band_header.json"
+                                                }
+                                            ]
+                                        }
+                                    }
+                                },
+                                "body": {
+                                    "title": "Tab Navigation",
+                                    "type": "object",
+                                    "properties": {
+                                        "content": {
+                                            "type": "array",
+                                            "minItems": "1",
+                                            "maxItems": "1",
+                                            "items": [
+                                                {
+                                                    "$ref": "htab_nav.json"
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        "footer": {
+            "title": "Tab Content",
+            "type": "object",
+            "properties": {
+                "content": {
+                    "type": "array",
+                    "minItems": 1,
+                    "maxItems": 1,
+                    "items": [
+                        {
+                            "$ref": "band_switcher.json"
+                        }
+                    ]
+                }
+            }
+        }
+    }
+}

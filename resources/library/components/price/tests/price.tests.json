@@ -1,0 +1,22 @@
+[
+    {
+        "label": "Default price format",
+        "data": {
+            "name": "price",
+            "teaser": "Starting at",
+            "sku": "RH0009",
+            "amount": 799
+        }
+    },
+    {
+        "label": "No teaser, no SKU, euros, with decimals",
+        "data": {
+            "name": "price",
+            "align": "right",
+            "teaser": "",
+            "sku": "",
+            "amount": 799.90,
+            "currency": "EUR"
+        }
+    }
+]

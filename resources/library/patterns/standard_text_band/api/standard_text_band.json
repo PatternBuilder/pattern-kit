@@ -1,0 +1,137 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Standard text band",
+    "description": "A quick, easy way to add a paragraph band to your page.",
+    "type": "object",
+    "category": "pattern",
+    "format": "grid",
+    "required": [ "config", "header", "body" ],
+    "additionalProperties": false,
+    "properties": {
+        "name": {
+            "type": "string",
+            "enum": [ "standard_text_band" ],
+            "options": {
+                "hidden": true
+            }
+        },
+        "config": {
+            "title": "Configuration options",
+            "description": "Set the background color and layout for this band here.",
+            "type": "object",
+            "format": "grid",
+            "required": [ "background", "layout" ],
+            "options": {
+                "collapsed": true
+            },
+            "properties": {
+                "background": {
+                    "title": "Background color",
+                    "description": "Background color for your band.",
+                    "type": "string",
+                    "enum": [ "white", "gray" ],
+                    "default": "white"
+                },
+                "layout": {
+                    "title": "Layout",
+                    "description": "Select a layout to determine the width of the page that your paragraph will span. Each band is 12 columns so '8 4' means your text will span two-thirds of the page. All text in this band is left-aligned.",
+                    "type": "string",
+                    "enum": [ "8 4", "9 3", "12" ],
+                    "default": "9 3"
+                }
+            }
+        },
+        "header": {
+            "title": "Band header",
+            "type": "object",
+            "properties": {
+                "seo_emphasis": {
+                    "title": "SEO emphasis",
+                    "description": "Emphasize element with keywords or relevant content.",
+                    "type": "string",
+                    "enum": [ "standard", "title", "headline" ],
+                    "default": "standard"
+                },
+                "title": {
+                    "title": "Band title",
+                    "type": "string",
+                    "options": {
+                        "preview": true
+                    }
+                },
+                "headline": {
+                    "title": "Band headline",
+                    "type": "string",
+                    "options": {
+                        "preview": true
+                    }
+                },
+                "summary": {
+                    "title": "Band summary",
+                    "type": "string"
+                },
+                "theme": {
+                    "title": "Band header theme",
+                    "description": "Select dark theme when using a dark background.",
+                    "type": "string",
+                    "enum": [ "light" ],
+                    "default": "light",
+                    "options": {
+                        "hidden": true
+                    }
+                }
+            },
+            "required": [ "seo_emphasis" ]
+        },
+        "body": {
+            "title": "Body",
+            "type": "object",
+            "format": "grid",
+            "properties": {
+                "content": {
+                    "title": "Text content",
+                    "type": "string",
+                    "format": "html"
+                },
+                "theme": {
+                    "title": "Band copy theme",
+                    "description": "Select dark theme when using a dark background.",
+                    "type": "string",
+                    "enum": [ "light" ],
+                    "default": "light",
+                    "options": {
+                        "hidden": true
+                    }
+                },
+                "layout": {
+                    "title": "Band copy layout",
+                    "description": "",
+                    "type": "string",
+                    "options": {
+                        "hidden": true
+                    }
+                }
+            },
+            "required": [ "content" ]
+        },
+        "cta": {
+            "title": "Optional Call-to-action",
+            "type": "object",
+            "required": [ "type" ],
+            "options": {
+                "collapsed": true
+            },
+            "properties": {
+                "type": {
+                    "title": "Call-to-action type",
+                    "type": "string",
+                    "enum": [ "primary", "secondary" ],
+                    "default": "primary"
+                },
+                "link": {
+                    "$ref": "link.json"
+                }
+            }
+        }
+    }
+}

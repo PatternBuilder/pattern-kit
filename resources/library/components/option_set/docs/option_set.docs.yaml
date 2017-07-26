@@ -1,0 +1,12 @@
+name: option_set
+input_type: Single select
+set_id:
+input_item:
+    - label: 2
+      selected: true
+      id: socket2
+    - label: 4
+      id: socket4
+    - label: 6
+      disabled: true
+      id: socket6

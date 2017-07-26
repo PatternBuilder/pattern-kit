@@ -1,0 +1,65 @@
+{% set new_bg_img = null %}
+{% set new_theme = null %}
+
+{% if themes.product_line %}
+    {% set new_theme = themes.product_line|replace(' ','-')|lower %}
+
+    {% if background.image == "Yes" %}
+        {% set misc_data = "product-image" %}
+    {% endif %}
+
+{% endif %}
+
+{% set header_content = [{
+    "name": "card_header",
+    "title": header.title
+},{
+    "name": "generic",
+    "content": header.summary
+}] %}
+
+{% set body_content = [{
+    "name": "price",
+    "align": body.config.align,
+    "teaser": body.price_data.teaser,
+    "sku": body.price_data.sku,
+    "amount":  body.price_data.amount,
+    "currency": body.price_data.currency
+}] %}
+
+{% set footer_content =  [{
+    "name": "cta",
+    "config": {
+        "align": body.config.align,
+        "type": body.cta.type|default("primary"),
+        "semantic": "link"
+    },
+    "link": {
+        "href": body.cta.link.href,
+        "title": body.cta.link.title,
+        "text": body.cta.link.text|default("Buy it")
+    }
+}] %}
+
+{% embed 'card.twig' with {
+    "global": _context,
+    "misc_data": misc_data,
+    "config": {
+        "theme":  themes.standard|default("white") ~ " " ~ new_theme,
+        "justify": "justify",
+        "vertical_spacing": "stacked"
+    },
+    "background": {
+        "color": background.color
+    },
+    "header": {
+        "layout": "min-stacked",
+        "content": header_content
+    },
+    "body": {
+        "content": body_content
+    },
+    "footer": {
+        "content": footer_content
+    }
+} only %}{% endembed %}

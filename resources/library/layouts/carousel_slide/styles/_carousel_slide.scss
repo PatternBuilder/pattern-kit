@@ -1,0 +1,33 @@
+.#{$repo}-carousel-slide {
+    & {
+        // can have image background
+        @extend %has-container-background;
+        // can also have various bg color
+        @extend %background-color-enabled;
+        display: flex;
+        flex-direction: column;
+        // Vertically centering card content
+        justify-content: center;
+    }
+    &-body {
+        // provides width equal to other bands
+        @extend %default--container;
+        padding-top: 1.1em;
+        padding-bottom: 1.3em;
+    }
+    // Add padding to the body if the slide is not an only child
+    &:not(:only-child) .rh-carousel-slide-body {
+        @include breakpoint(($breakpoint-xs-min - 1) max-width) {
+            padding-left: 3em;
+            padding-right: 3em;
+        }
+        @include breakpoint($breakpoint-xs-min) {
+            padding-left: 4.5em;
+            padding-right: 4.5em;
+        }
+        @include breakpoint($breakpoint-md-min) {
+            padding-left: 6.5em;
+            padding-right: 6.5em;
+        }
+    }
+}

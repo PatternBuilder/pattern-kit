@@ -1,0 +1,17 @@
+name: featured_item
+title: Secure foundations for today and tomorrow
+type: Webinar
+date: January 1 2015
+location: Virtual event
+logo:
+    src: "//www.redhat.com/cms/public/Cerner_Card_370x190.jpg"
+    alt: This is alt text
+summary: Every year we host many different live and virtual global events including conferences on-demand webinars the popular Red Hat Summit and more. Join us and network with smart industry professionals share ideas and learn from experts how Red Hat and open source technologies can benefit your business.
+primary_link:
+    href: "#"
+    title: Link title
+    text: Read more
+secondary_link:
+    href: "#"
+    title: Link title
+    text: See all past events

@@ -1,0 +1,55 @@
+.#{$repo}-featured-item {
+    &--component {
+        @extend %eqjs-hide-fout;
+    }
+
+    // Header
+    &-header-group {
+        margin-bottom: $vertical-gutter;
+    }
+    &-title {
+        @extend %section-headline;
+    }
+    &-date {
+        @extend %default-level4;
+        margin-bottom: 0;
+    }
+    &-type {
+        @extend %default-level4;
+        margin-bottom: 0;
+    }
+    &-location {
+        @extend %default-level4;
+        margin-bottom: 0;
+    }
+    // End Header
+
+    // Content
+    &-content {
+        margin-bottom: $vertical-gutter;
+    }
+    &-summary-container {
+        @include eq-context(small, medium) {
+            margin-bottom: $vertical-gutter;
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+    &-summary {
+        @extend %default-paragraph;
+    }
+    &-logo-container {
+
+    }
+
+    // End Content
+    &-cta {
+        @extend %cta-primary;
+    }
+    &-cta-secondary {
+        @extend %cta-secondary-link;
+        display: block;
+        margin-top: 1em;
+    }
+}

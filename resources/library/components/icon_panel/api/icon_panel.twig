@@ -1,0 +1,36 @@
+<div class="rh-icon-panel--component"
+     data-rh-icon-size="{{ icon.size ?: 'medium' }}"
+        {{ icon.background ? 'data-rh-icon-background=' ~ icon.background }}
+     data-eq-pts="small-icon-panel: 0, medium-icon-panel: 360"
+     data-rh-align="{{ align ?: 'left' }}"
+>
+    {% if icon.filename %}
+        <div class="rh-icon-panel-svg">
+            {% include icon.filename|trim ~ '.svg' ignore missing %}
+        </div>
+    {% endif %}
+
+    <div class="rh-icon-panel-content">
+
+        <h4 class="rh-icon-panel-title">
+            {% include "no_html.twig" with { "string": content.title } only %}
+        </h4>
+        <div class="rh-icon-panel-summary">
+            {% include 'summary_field.twig' with {
+                summary: content.summary
+            } only %}
+        </div>
+
+        {% if link.text %}
+            <div class="rh-icon-panel-cta">
+                <a class="rh-icon-panel-cta-link" href="{{ link.href }}"
+                        {% if link.title %} title="{% include "no_html.twig" with { "string": link.title } only %}" {% endif %}
+                >
+                    {% include "no_html.twig" with { "string": link.text } only %}
+                </a>
+            </div>
+        {% endif %}
+
+    </div>
+
+</div>

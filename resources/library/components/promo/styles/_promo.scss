@@ -1,0 +1,50 @@
+.#{$repo}-promo {
+    & {
+        align-items: center;
+        @include eq(small-promo) {
+            text-align: center;
+        }
+        @include eq(medium-promo) {
+            display: flex;
+        }
+    }
+
+    &-content {
+        flex-grow: 1;
+        @include eq-context(small-promo) {
+            margin-bottom: $box-padding;
+        }
+    }
+
+    &-headline {
+        font-family: $base-font-family;
+        font-size: pem(28);
+        @include eq-context(medium-promo) {
+            font-size: pem(34);
+        }
+        font-weight: 400;
+        color: color(copy);
+        margin-top: 0;
+        margin-bottom: pem(5, 32);
+        line-height: 1.18;
+        @include data-context(theme, dark) {
+            color: color(white);
+        }
+    }
+    &-text {
+        @extend %default-paragraph;
+    }
+
+    &-cta {
+        @include eq-context(medium-promo) {
+            text-align: center;
+            flex-shrink: 0;
+            max-width: 30%;
+            margin: 0 0 0 6%;
+        }
+    }
+    &-cta-link {
+        @extend %cta-narrow-ghost-button;
+    }
+
+}

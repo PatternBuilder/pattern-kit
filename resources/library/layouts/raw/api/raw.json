@@ -1,0 +1,64 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Raw",
+    "documentation": "The Raw layout is useful for outputing already styled markup. It is similar to the generic component, but has no associated styles and can be used anywhere a layout can be used. The template outputs the markup unescaped, so contents must be properly escaped before being outputed with this layout.",
+    "type": "object",
+    "format": "grid",
+    "required": [ "name", "content" ],
+    "additionalProperties": false,
+    "properties": {
+        "content": {
+            "type": "string",
+            "format": "html",
+            "options": {
+                "wysiwyg": false
+            }
+        },
+        "isWrapped": {
+            "type": "boolean",
+            "default": true
+        },
+        "meta": {
+            "type": "object",
+            "options": {
+                "hidden": true
+            },
+            "properties": {
+                "class": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "id": {
+                    "type": "string"
+                },
+                "uniqueId": {
+                    "type": "string",
+                    "options": {
+                        "hidden": true
+                    }
+                }
+            }
+        },
+        "name": {
+            "type": "string",
+            "enum": [ "raw" ],
+            "options": {
+                "hidden": true
+            }
+        },
+        "template": {
+            "type": "string",
+            "options": {
+                "hidden": true
+            }
+        },
+        "misc_data": {
+            "type": "string",
+            "options": {
+                "hidden": true
+            }
+        }
+    }
+}

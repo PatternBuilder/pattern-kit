@@ -1,0 +1,104 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Option set group",
+    "description": "",
+    "type": "object",
+    "category": "sub_pattern",
+    "properties": {
+        "name": {
+            "type": "string",
+            "enum": ["option_group"],
+            "options": {
+                "hidden": true
+            }
+        },
+        "header": {
+            "title": "Header",
+            "type": "object",
+            "properties": {
+                "headline": {
+                    "title": "Headline",
+                    "description": "Briefly describe the content.",
+                    "type": "string",
+                    "options": {
+                        "preview": true
+                    }
+                },
+                "summary": {
+                    "title": "Description",
+                    "description": "Brief description or summary.",
+                    "type": "string",
+                    "format": "html"
+                },
+                "tooltip_text": {
+                    "title": "Option-set tooltip",
+                    "description": "Help text or additional guidance. Allowed tags: &lt;p&gt; &lt;ul&gt; &lt;ol&gt; &lt;li&gt; &lt;a&gt; &lt;b&gt; &lt;sup&gt; &lt;i&gt; &lt;strong&gt; &lt;em&gt;",
+                    "type": "string",
+                    "format": "html"
+                }
+            }
+        },
+        "option_items": {
+            "title": "Option set",
+            "type": "object",
+            "properties": {
+                "input_type": {
+                    "$ref": "option_set.json#/properties/input_type"
+                },
+                "legend": {
+                    "title": "Legend",
+                    "description": "Only visible to screen-readers; the legend describes the choices below and often prefixes each item when read (so it is best kept short).",
+                    "type": "string",
+                    "options": {
+                        "grid_columns": 4
+                    }
+                },
+                "input_item": {
+                    "title": "Options",
+                    "type": "array",
+                    "minItems": 1,
+                    "options": {
+                        "grid_columns": 12
+                    },
+                    "items": {
+                        "title": "Option",
+                        "type": "object",
+                        "format": "grid",
+                        "properties": {
+                            "addon": {
+                                "title": "Add-on",
+                                "description": "Check the box if this is an add-on.",
+                                "type": "boolean",
+                                "default": false,
+                                "options": {
+                                    "grid_columns": 12
+                                }
+                            },
+                            "label": {
+                                "title": "Label",
+                                "description": "Very short, descriptive label for the option sets.",
+                                "type": "string",
+                                "options": {
+                                    "grid_columns": 6
+                                }
+                            },
+                            "id": {
+                                "title": "ID",
+                                "description": "Unique ID for this option. Make sure there are not duplicate IDs on your page.",
+                                "type": "string",
+                                "pattern": "^([a-z_0-9])+$",
+                                "options": {
+                                    "grid_columns": 6
+                                }
+                            }
+                        },
+                        "required": [ "label", "id" ]
+                    }
+                }
+            },
+            "required": [ "input_type", "input_item" ]
+        }
+    },
+    "required": ["name"],
+    "additionalProperties": true
+}

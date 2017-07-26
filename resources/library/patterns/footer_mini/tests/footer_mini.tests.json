@@ -1,0 +1,127 @@
+[
+    {
+        "label": "Universal footer with event links",
+        "data": {
+            "name": "footer_mini",
+            "legal": [
+                {
+                    "link": {
+                        "text": "Privacy statement",
+                        "href": "#",
+                        "title": ""
+                    }
+                },
+                {
+                    "link": {
+                        "text": "Terms of use",
+                        "href": "#",
+                        "title": ""
+                    }
+                },
+                {
+                    "link": {
+                        "text": "All policies and guidelines",
+                        "href": "#",
+                        "title": ""
+                    }
+                }
+            ],
+            "features": [
+                {
+                    "image": {
+                        "src": "/fixtures/images/logo-summit.png"
+                    },
+                    "link": {
+                        "href": "#"
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "label": "Universal footer without legal links",
+        "data": {
+            "name": "footer_mini",
+            "legal": [
+                {
+                    "link": {
+                        "text": "Privacy statement",
+                        "href": "",
+                        "title": ""
+                    }
+                },
+                {
+                    "link": {
+                        "text": "Terms of use",
+                        "href": "",
+                        "title": ""
+                    }
+                },
+                {
+                    "link": {
+                        "text": "All policies and guidelines",
+                        "href": "",
+                        "title": ""
+                    }
+                }
+            ],
+            "features": [
+                {
+                    "image": {
+                        "src": "/fixtures/images/logo-summit.png"
+                    },
+                    "link": {
+                        "href": "#"
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "label": "Universal footer without event links",
+        "data": {
+            "name": "footer_mini",
+            "legal": [
+                {
+                    "link": {
+                        "text": "Privacy statement",
+                        "href": "#",
+                        "title": ""
+                    }
+                },
+                {
+                    "link": {
+                        "text": "Terms of use",
+                        "href": "#",
+                        "title": ""
+                    }
+                },
+                {
+                    "link": {
+                        "text": "All policies and guidelines",
+                        "href": "#",
+                        "title": ""
+                    }
+                }
+            ],
+            "features": [
+                {
+                    "image": {
+                        "src": "/fixtures/images/logo-summit.png"
+                    },
+                    "link": {
+                        "href": ""
+                    }
+                },
+                {
+                    "image": {
+                        "src": "/fixtures/images/logo-summit.png"
+                    },
+                    "link": {
+                        "href": ""
+                    }
+                }
+            ]
+        }
+    }
+]

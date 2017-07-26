@@ -1,0 +1,13 @@
+<div class="rh-band-switcher"
+    {% if misc_data %} {{ misc_data }}{% endif %}>
+
+    <div class="rh-band-switcher-body" data-rh-tab-id="{{ config.tab_id|e('url') }}">
+        {% for content in body.content %}
+            <div class="rh-band-switcher-tab"
+                 data-rh-active="{% if loop.index  == config.active_band %}true{% else %}false{% endif %}">
+                {% include content.template ?: content.name ~ '.twig' with content only %}
+            </div>
+        {% endfor %}
+    </div>
+
+</div>

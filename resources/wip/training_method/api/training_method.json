@@ -1,0 +1,83 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Training Method",
+    "description": "The Training Method component can be displayed with an inline video using a YouTube iFrame. If no video is provided then the methods of training, duration, cost, and the enroll button is the only data displaying.",
+    "type": "object",
+    "properties": {
+        "name": {
+            "type": "string",
+            "readonly": "true",
+            "default": "training_method",
+            "enum": [ "training_method" ]
+        },
+        "template": {
+            "type": "string",
+            "default": "training_method.twig"
+        },
+        "title": {
+            "description": "Title of the training method",
+            "type": "string"
+        },
+        "video_src": {
+            "description": "URL of video",
+            "type": "string"
+        },
+        "type_label": {
+            "description": "Label for the select list of training method options",
+            "type": "string"
+        },
+        "options": {
+            "description": "Training options",
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "value": {
+                        "type": "string"
+                    },
+                    "selected": {
+                        "type": "boolean"
+                    },
+                    "text": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "duration_label": {
+            "description": "Label for the amount of time the training takes, i.e. 'Duration'",
+            "type": "string"
+        },
+        "duration_value": {
+            "description": "Duration of training",
+            "type": "string"
+        },
+        "cost_label": {
+            "description": "Label for the amount of money the training costs, i.e. 'Fee', 'Cost', etc.",
+            "type": "string"
+        },
+        "cost_value": {
+            "description": "The amount that the training costs. Include a unit.",
+            "type": "string"
+        },
+        "link": {
+            "type": "object",
+            "properties": {
+                "url": {
+                    "type": "string"
+                },
+                "text": {
+                    "type": "string"
+                },
+                "title": {
+                    "type": "string"
+                }
+            },
+            "required": [ "url", "title" ]
+        }
+    },
+    "required": [ "title" ],
+    "additionalProperties": false
+}
+
+

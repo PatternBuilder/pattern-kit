@@ -1,0 +1,13 @@
+{
+    "name": "icon_embed",
+    "icon": {
+        "filename": "web-icon-facebook"
+    },
+    "link": {
+        "text": "Red Hat JBoss"
+    },
+    "config": {
+        "icon_size": "small",
+        "text_align": "center"
+    }
+}

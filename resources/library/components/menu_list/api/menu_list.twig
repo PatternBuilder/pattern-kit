@@ -1,0 +1,21 @@
+{% if links %}
+    <div class="rh-menu-list--component"
+        {%- if config.hidden is iterable %}data-rh-hide="{% for bp in config.hidden %} {{ bp }} {% endfor %}"{%- endif %}>
+        {% if title %}
+            <div class="rh-menu-list-header" data-rh-toggle-open="click"
+                {%- if config.accordion is iterable %}data-rh-toggle-visuals="{% for bp in config.accordion %}{{ bp }} {% endfor %}"{%- endif %}>
+                <h3 class="rh-menu-list-header-title">{% include "no_html.twig" with { "string": title } only %}</h3>
+            </div>
+        {% endif %}
+        {% if links is iterable %}
+            <ul class="rh-menu-list-links"
+                {%- if config.accordion is iterable %}data-rh-toggle-target="{% for bp in config.accordion %}{{ bp }} {% endfor %}"{%- endif %}>
+              {% for link in links %}
+                <li class="rh-menu-list-items">
+                    <a class="rh-menu-list-items-link" href="{{link.href}}" title="{% include "no_html.twig" with { "string": link.title } only %}">{% include "no_html.twig" with { "string": link.text } only %}</a>
+                </li>
+              {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+{% endif %}

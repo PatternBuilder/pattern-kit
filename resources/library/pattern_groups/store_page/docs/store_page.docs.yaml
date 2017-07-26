@@ -1,0 +1,9 @@
+name: store_page
+config:
+    body_class: store
+header:
+    - @store_menu
+body:
+    - @store_header
+    - @store_option_set_band
+    - @store_footer

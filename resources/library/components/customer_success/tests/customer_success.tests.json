@@ -1,0 +1,15 @@
+{
+    "name": "customer_success",
+    "title": "Adobe attracts enterprise customers with cloud-based products",
+    "summary": "Adobe wanted to employ an open hybrid cloud model flexible enough to operate both on premise and in the cloud. The partnership with Red Hat and Amazon Web Services has given Adobe dozens of enterprise customers using its cloud-based products and services.",
+    "link": {
+        "href": "#",
+        "text": "Click Me"
+    },
+    "logo": {
+        "src": "http://www.redhat.com/cms/public/Adobe_Logo_RGB_225x158_0.png"
+    },
+    "image": {
+        "src": "http://www.redhat.com/cms/public/card_adobe_systems_mitch_nelson_370x190.jpg"
+    }
+}

@@ -1,0 +1,27 @@
+<div class="rh-video-embed--component"
+        {% if misc_data %} {{ misc_data }}{% endif %}
+>
+    <div class="rh-video-embed-media-container">
+        <div class="rh-video-embed-iframe-container">
+            {% autoescape false %} {{ video.video_src }} {% endautoescape %}
+        </div>
+    </div>
+    {% if title.text or summary %}
+        <section class="rh-video-embed-details">
+            <header class="rh-video-embed-header">
+                {% if title.text %}
+                    <h4 class="rh-video-embed-title">
+                        {% if title.href -%}<a
+                                class="rh-video-embed-title-link"{% if title.title -%} title="{{ title.title }}" {% endif %}
+                                href="{{ title.href }}">{%- endif -%}
+                            {% include "no_html.twig" with { "string": title.text } only %}
+                            {% if title.href -%}</a>{%- endif -%}
+                    </h4>
+                {%- endif -%}
+                {% if summary -%}
+                    <p class="rh-video-embed-summary">{% include "no_html.twig" with { "string": summary } only %}</p>
+                {%- endif %}
+            </header>
+        </section>
+    {% endif %}
+</div>

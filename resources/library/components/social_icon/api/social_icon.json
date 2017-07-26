@@ -1,0 +1,68 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Social icon link",
+    "description": "The social_icon displays a social media icon with optional account name and sizing options (as a clickable link).",
+    "category": "component",
+    "type": "object",
+    "format": "grid",
+    "properties": {
+        "name": {
+            "type": "string",
+            "enum": [ "social_icon" ],
+            "options": {
+                "hidden": true
+            }
+        },
+        "config": {
+            "title": "Configuration",
+            "type": "object",
+            "format": "grid",
+            "properties": {
+                "content_align": {
+                    "title": "Icon alignment",
+                    "type": "string",
+                    "enum": [ "left", "right", "center" ],
+                    "default": "left",
+                    "options": {
+                        "grid_columns": 3
+                    }
+                },
+                "icon_size": {
+                    "title": "Icon and font's size",
+                    "type": "string",
+                    "enum": [ "small", "medium", "large" ],
+                    "default": "small",
+                    "options": {
+                        "grid_columns": 3
+                    }
+                },
+                "show_handle": {
+                    "title": "Show handle/account name",
+                    "description": "Do you want the account name or handle to appear with the icon?",
+                    "type": "string",
+                    "enum": ["Yes","No"],
+                    "default": "Yes",
+                    "options": {
+                        "grid_columns": 3
+                    }
+                },
+                "handle_position": {
+                    "title": "Account name alignment",
+                    "description": "Do you want the account name/handle to align right of the icon or below it?",
+                    "type": "string",
+                    "enum": [ "below", "right" ],
+                    "default": "below",
+                    "options": {
+                        "grid_columns": 3
+                    }
+                }
+            },
+            "required": [ "icon_size", "show_handle" ]
+        },
+        "social": {
+            "$ref": "social_media.json"
+        }
+    },
+    "required": [ "config", "social" ],
+    "additionalProperties": false
+}

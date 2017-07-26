@@ -1,0 +1,209 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Group",
+    "description": "A basic component container",
+    "category": "layout",
+    "type": "object",
+    "format": "grid",
+    "required": ["name"],
+    "additionalProperties": false,
+    "properties": {
+        "name": {
+            "type": "string",
+            "enum": ["group"],
+            "options": {
+                "hidden": true
+            }
+        },
+        "template": {
+            "type": "string",
+            "options": {
+                "hidden": true
+            }
+        },
+        "misc_data": {
+            "type": "string",
+            "options": {
+                "hidden": true
+            }
+        },
+        "config": {
+            "type": "object",
+            "properties": {
+                "vertical_layout": {
+                    "type": "string",
+                    "enum": ["stacked", "tall-stacked"]
+                }
+            }
+        },
+        "header": {
+            "Title": "Group Header",
+            "format": "grid",
+            "type": "object",
+            "properties": {
+                "layout": {
+                    "type": "string"
+                },
+                "theme": {
+                    "type": "string",
+                    "enum": ["light", "dark"]
+                },
+                "content": {
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                        "oneOf": [{
+                            "$ref": "band_header.json"
+                        }, {
+                            "$ref": "form_header.json"
+                        }, {
+                            "$ref": "cta.json"
+                        }, {
+                            "$ref": "customer_success.json"
+                        }, {
+                            "$ref": "featured_item.json"
+                        }, {
+                            "$ref": "generic.json"
+                        }, {
+                            "$ref": "image_embed.json"
+                        }, {
+                            "$ref": "link_tile.json"
+                        }, {
+                            "$ref": "icon_panel.json"
+                        }, {
+                            "$ref": "icon_embed.json"
+                        }, {
+                            "$ref": "quote.json"
+                        }, {
+                            "$ref": "video_embed.json"
+                        }, {
+                            "$ref": "card.json"
+                        }, {
+                            "$ref": "raw.json"
+                        }]
+                    }
+                }
+            }
+        },
+        "body": {
+            "title": "Group body",
+            "format": "grid",
+            "type": "object",
+            "required": ["content"],
+            "properties": {
+                "layout": {
+                    "type": "string"
+                },
+                "theme": {
+                    "type": "string",
+                    "enum": ["light", "dark"]
+                },
+                "content": {
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                        "oneOf": [{
+                            "$ref": "band_header.json"
+                        },{
+                            "$ref": "cta.json"
+                        },{
+                            "$ref": "customer_success.json"
+                        },{
+                            "$ref": "featured_item.json"
+                        },{
+                            "$ref": "generic.json"
+                        },{
+                            "$ref": "image_embed.json"
+                        },{
+                            "$ref": "link_tile.json"
+                        },{
+                            "$ref": "icon_panel.json"
+                        },{
+                            "$ref": "icon_embed.json"
+                        },{
+                            "$ref": "pagination.json"
+                        },{
+                            "$ref": "quote.json"
+                        },{
+                            "$ref": "video_embed.json"
+                        },{
+                            "$ref": "card.json"
+                        },{
+                            "$ref": "quantity.json"
+                        },{
+                            "$ref": "option_group.json"
+                        },{
+                            "$ref": "quantity_group.json"
+                        },{
+                            "$ref": "raw.json"
+                        }]
+                    }
+                }
+            }
+        },
+        "footer": {
+            "Title": "Group footer",
+            "format": "grid",
+            "type": "object",
+            "properties": {
+                "layout": {
+                    "type": "string"
+                },
+                "theme": {
+                    "type": "string",
+                    "enum": ["light", "dark"]
+                },
+                "content": {
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                        "oneOf": [
+                            {
+                                "$ref": "band_header.json"
+                            },
+                            {
+                                "$ref": "cta.json"
+                            },
+                            {
+                                "$ref": "customer_success.json"
+                            },
+                            {
+                                "$ref": "featured_item.json"
+                            },
+                            {
+                                "$ref": "generic.json"
+                            },
+                            {
+                                "$ref": "image_embed.json"
+                            },
+                            {
+                                "$ref": "link_tile.json"
+                            },
+                            {
+                                "$ref": "icon_panel.json"
+                            },
+                            {
+                                "$ref": "icon_embed.json"
+                            },
+                            {
+                                "$ref": "pagination.json"
+                            },
+                            {
+                                "$ref": "quote.json"
+                            },
+                            {
+                                "$ref": "video_embed.json"
+                            },
+                            {
+                                "$ref": "card.json"
+                            },
+                            {
+                                "$ref": "raw.json"
+                            }
+                        ]
+                    }
+                }
+            }
+        }
+    }
+}

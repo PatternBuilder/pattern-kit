@@ -1,0 +1,113 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "CTA Band",
+    "description": "",
+    "category": "pattern",
+    "type": "object",
+    "format": "grid",
+    "required": [ "name" ],
+    "additionalProperties": false,
+    "properties": {
+        "name": {
+            "type": "string",
+            "enum": [ "cta_band" ],
+            "options": {
+                "hidden": true
+            }
+        },
+        "meta": {
+            "type": "object",
+            "properties": {
+                "class": {
+                    "options": {
+                        "hidden": true
+                    },
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "id": {
+                    "type": "string",
+                    "options": {
+                        "hidden": true
+                    }
+                },
+                "uniqueId": {
+                    "type": "string",
+                    "options": {
+                        "hidden": true
+                    }
+                }
+            }
+        },
+        "background": {
+            "title": "Background Options",
+            "type": "object",
+            "format": "grid",
+            "properties": {
+                "color": {
+                    "title": "Background Color",
+                    "type": "string",
+                    "enum": [ "white", "gray", "black", "rich-black", "transparent" ],
+                    "default": "black"
+                },
+                "image_large": {
+                    "title": "Large Screen Background Image",
+                    "entity": "image",
+                    "type": "object",
+                    "properties": {
+                        "src": {
+                            "type": "string",
+                            "format": "url"
+                        }
+                    }
+                },
+                "image_small": {
+                    "title": "Small Screen Background Image",
+                    "entity": "image",
+                    "type": "object",
+                    "properties": {
+                        "src": {
+                            "type": "string",
+                            "format": "url"
+                        }
+                    }
+                }
+            }
+        },
+        "content": {
+            "title": "CTA Band Content",
+            "type": "object",
+            "properties": {
+                "theme": {
+                    "title": "Band Header Theme",
+                    "description": "Select dark theme when using a dark background",
+                    "type": "string",
+                    "enum": [ "light", "dark" ],
+                    "default": "dark"
+                },
+                "headline": {
+                    "title": "Band Headline",
+                    "type": "string",
+                    "options": {
+                        "preview": true
+                    }
+                },
+                "summary": {
+                    "title": "Band Subtitle",
+                    "options": {
+                        "columns": 12
+                    },
+                    "description": "Allowed tags: &lt;a&gt;&lt;br&gt;",
+                    "type": "string",
+                    "format": "html"
+                }
+            }
+        },
+        "cta": {
+            "title": "Call to Action",
+            "$ref": "link.json"
+        }
+    }
+}

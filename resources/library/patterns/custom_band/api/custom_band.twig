@@ -1,0 +1,98 @@
+{# Custom logic for body layout #}
+{% if aside.sub_patterns %}
+    {% if body.sub_patterns|length == 1 %}
+        {% set body_layout = "" %}
+    {% elseif body.sub_patterns|length == 2 %}
+        {% set body_layout = "4 4 of 8" %}
+    {% elseif body.sub_patterns|length == 3 %}
+        {% set body_layout = "3 3 3 of 9" %}
+    {% endif %}
+{% elseif body.layout %}
+    {% set body_layout = body.layout ~ " flex" %}
+{% else %}
+    {% set body_layout = "" %}
+{% endif %}
+
+{# BAND #}
+{% embed 'band.twig' with {
+    "global": _context,
+    "meta": meta,
+    "background": {
+        "image_large": {
+            "src": background.image_large.src
+        },
+        "image_small": {
+            "src": background.image_small.src
+        },
+        "color": background.color,
+        "isFixed": background.isFixed
+    },
+    "header": {
+        "theme": config.theme ?: header.theme ?: ""
+    },
+    "body": {
+        "layout": body_layout,
+        "theme": config.theme ?: body.theme ?: ""
+    },
+    "aside": {
+        "theme": config.theme ?: aside.theme ?: ""
+    },
+    "footer": {
+        "theme": config.theme ?: cta.theme ?: ""
+    }
+} only %}
+
+    {# HEADER #}
+
+    {% block header %}
+        {%- if global.header.title or global.header.headline %}
+            {% include 'band_header.twig' with {
+                "config": {
+                    "size": "band",
+                    "seo": {
+                        "position": "secondary",
+                        "priority": global.header.seo_emphasis ?: "standard"
+                    }
+                },
+                "title": global.header.title,
+                "headline": global.header.headline,
+                "summary": global.header.summary
+            } only %}
+        {% endif -%}
+    {% endblock %}
+
+
+
+    {# BODY #}
+    {% block body %}
+        {% for sub_pattern in global.body.sub_patterns %}
+            {% include sub_pattern.name ~ '.twig' with sub_pattern only %}
+        {% endfor %}
+    {% endblock %}
+
+    {# ASIDE #}
+
+    {% block aside %}
+        {%- if global.aside.sub_patterns %}
+            {% for sub_pattern in global.aside.sub_patterns %}
+                {% include sub_pattern.name ~ '.twig' with sub_pattern only %}
+            {% endfor %}
+        {% endif -%}
+    {% endblock %}
+
+
+    {# FOOTER #}
+
+    {% block footer %}
+        {%- if global.cta.link.href %}
+            {% include "cta.twig" with {
+                "config": {
+                    "type": global.cta.type ?: "primary"
+                },
+                "link": global.cta.link
+            } only %}
+        {% endif -%}
+    {% endblock %}
+
+
+{% endembed %}

@@ -1,0 +1,52 @@
+{% if title %}
+    {% set body_content = "<h3>" ~ title ~ "</h3>" ~ content %}
+{% else %}
+    {% set body_content = content %}
+{% endif %}
+
+{% set vars = {
+    "name": container.type,
+    "config": {
+        "theme": container.theme,
+        "justify": container.type == "card" ? "justify": "",
+        "vertical_layout": container.type == "group" ? "stacked": "",
+    },
+    "background": {
+        "color": container.background
+    },
+    "body": {
+        "theme": container.theme,
+        "content": [
+            {
+                "name": "generic",
+                "align": container.align,
+                "content": body_content
+            }
+        ]
+    }
+} %}
+
+{% if cta.link.href %}
+    {% set footer_data = {
+        "footer": {
+            "content": [
+                {
+                    "name": "cta",
+                    "config": {
+                        "type": cta.type,
+                        "align": container.align
+                    },
+                    "link": {
+                        "text": cta.link.text,
+                        "href": cta.link.href,
+                        "title": cta.link.title
+                    }
+                }
+            ]
+        }
+    } %}
+
+    {% set vars = vars|merge(footer_data) %}
+{% endif %}
+
+{% include vars.name ~ ".twig" with vars only %}

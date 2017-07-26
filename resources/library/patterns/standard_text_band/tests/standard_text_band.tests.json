@@ -1,0 +1,99 @@
+[
+    {
+        "label": "Default values",
+        "data": {
+            "name": "standard_text_band",
+            "config": {
+                "background": "white",
+                "layout": "8 4"
+            },
+            "header": {
+                "title": "Simplify",
+                "headline": "Keeping life simple with 5 easy steps"
+            },
+            "body": {
+                "content": "<p>Ab voluptate despicationes. Fugiat nescius domesticarum. Nam quem expetendis officia. Quae pariatur nostrud ex noster e se tamen nostrud. Varias ingeniis o distinguantur, ubi aut veniam quamquam id o ipsum fugiat malis incurreret, nisi officia imitarentur ab incididunt ut fugiat, sint ut in quid mandaremus e possumus sunt officia, ubi sint nisi a nescius. Est velit quo sint, in quem ne tamen.</p>"
+            },
+            "cta": {
+                "type": "primary",
+                "link": {
+                    "href": "/url",
+                    "text": "Do it today"
+                }
+            }
+        }
+    },
+    {
+        "label": "Gray background, secondary link",
+        "data": {
+            "name": "standard_text_band",
+            "config": {
+                "background": "gray",
+                "layout": ""
+            },
+            "header": {
+                "title": "Simplify",
+                "headline": "Keeping life simple with 5 easy steps"
+            },
+            "body": {
+                "content": "<p>Ab voluptate despicationes. Fugiat nescius domesticarum. Nam quem expetendis officia. Quae pariatur nostrud ex noster e se tamen nostrud. Varias ingeniis o distinguantur, ubi aut veniam quamquam id o ipsum fugiat malis incurreret, nisi officia imitarentur ab incididunt ut fugiat, sint ut in quid mandaremus e possumus sunt officia, ubi sint nisi a nescius. Est velit quo sint, in quem ne tamen.</p>"
+            },
+            "cta": {
+                "type": "secondary",
+                "link": {
+                    "href": "/url",
+                    "text": "Do it today"
+                }
+            }
+        }
+    },
+    {
+        "label": "Full width layout",
+        "data": {
+            "name": "standard_text_band",
+            "config": {
+                "background": "white",
+                "layout": "12"
+            },
+            "header": {
+                "title": "Simplify",
+                "headline": "Keeping life simple with 5 easy steps",
+                "summary": "Short summary paragraph here is totally optional but not required."
+            },
+            "body": {
+                "content": "Ab voluptate despicationes. Fugiat nescius domesticarum. Nam quem expetendis officia. Quae pariatur nostrud ex noster e se tamen nostrud. Varias ingeniis o distinguantur, ubi aut veniam quamquam id o ipsum fugiat malis incurreret, nisi officia imitarentur ab incididunt ut fugiat, sint ut in quid mandaremus e possumus sunt officia, ubi sint nisi a nescius. Est velit quo sint, in quem ne tamen."
+            },
+            "cta": {
+                "type": "primary",
+                "link": {
+                    "href": "/url",
+                    "text": "Do it today"
+                }
+            }
+        }
+    },
+    {
+        "label": "9 3 layout, no body copy",
+        "data": {
+            "name": "standard_text_band",
+            "config": {
+                "background": "white",
+                "layout": "9 3"
+            },
+            "header": {
+                "headline": "Keeping life simple with 5 easy steps",
+                "summary": "Short summary paragraph here is totally optional but not required."
+            },
+            "body": {
+                "content": ""
+            },
+            "cta": {
+                "type": "primary",
+                "link": {
+                    "href": "/url",
+                    "text": "Do it today"
+                }
+            }
+        }
+    }
+]

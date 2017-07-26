@@ -1,0 +1,367 @@
+/*doc
+---
+title: layout()
+category: Global - Mixins
+---
+
+Build a custom layout by first defining a $list [map](https://www.viget.com/articles/sass-maps-are-awesome) of breakpoints and layouts based on a 12 column grid (unless overriden in the $base variable).
+
+Use a mobile-first approach, meaning begin with 0px screen width, define a layout for "mobile" and move upwards from there. Standard breakpoint variables are preferred, but custom breakpoints are allowed. This mixin takes the following additional arguments:
+
+- `$layout` - [list] The layout variable should use the $list map defined above it.
+- `$base` - [number] default number of grid columns is 12, but this can be customized for sublayouts
+- `$flex` - [boolean] default is true; gives the parent a flex-flow: row wrap higher than mobile screen sizes.
+- `$break` - [boolean] default is true; most layouts will have at least one breakpoint, but for patterns without, set this to false.
+- `$sub` - [boolean] default is false; most layouts stand by themselves and are not sublayouts, but for layouts that exist as direct children of other layouts (that use the layout mixin), set this to true.  For custom-rolled or pre-defined layouts (data-ux-layout instead of data-ux-special-layout), do not set this value to true; use the defaults.
+
+
+```scss
+[data-ux-layout-special="6 6, 2 8 2, 8 4"] {
+    $list: (
+        0px:  6 6,
+        $breakpoint-sm-min: 2 8 2,
+        $breakpoint-md-min: 8 4
+    );
+    @include layout(
+        $layout: $list
+    );
+}
+```
+
+```scss
+[data-ux-layout-special="3 3, 2 4"] {
+    $list: (
+        0px:  3 3,
+        $breakpoint-sm-min: 2 4
+    );
+    @include layout(
+        $layout: $list,
+        $base: 6
+    );
+}
+```
+*/
+
+@mixin layout(
+    $layout: ( 0: 12 ),
+    $base: 12,
+    $gutter: #{gutter()},
+    $sub: false,
+    $break: true,
+    $flex: true,
+    $flex-flow: row wrap,
+    $flex-align: null,
+    $flex-justify: space-between ) {
+    // If full-width layout, remove top-padding from layout
+    margin-top: if($sub == false, -$vertical-gutter, 0);
+    //margin-right: if($gutter == 0, 0, -$gutter);
+
+    $breakpoints: map-keys( $layout );
+    > * {
+        margin-top: $vertical-gutter;
+        // If the first breakpoint doesn't start with 0,
+        //  build default stacked grid
+        @if strip-unit(nth($breakpoints, 1)) != 0 {
+            .no-flexbox & {
+                @include span($base of $base);
+            }
+        }
+    }
+
+    // Iterate over layout list, get columns and breakpoints
+    $last-bp: 0;
+    $layout-count: 1;
+    @each $bp, $columns in $layout {
+        // Check the list is ordered from smallest breakpoint to largest; mobile-first
+        @if ( $last-bp > strip-unit($bp)) {
+            @error "Layout list should be ordered from smallest to largest breakpoint.";
+        }
+        //-- BUILD GRID
+        // Get number of child elements
+        $num-columns: length($columns);
+        $next-idx: $layout-count + 1;
+        $next-bp: if( length($breakpoints) > 1 and length($breakpoints) > $layout-count,
+            nth($breakpoints, $next-idx) - 1, null );
+        // Set layout for each column size
+        @for $i from 1 through $num-columns {
+            // Get column dimension from list
+            $col: nth($columns, $i);
+            // Set breakpoint limits
+            $bps: if($next-bp != null, $bp $next-bp, $bp);
+            // Add last string if last column in layout
+            $span-last: if($i == $num-columns, "last", "");
+            // Add break/nobreak setting
+            $span-break: if($break == false, "nobreak", "break");
+            // Set layout for nth-child element
+            > *:nth-child(#{$num-columns}n+#{$i}) {
+                // If column width is 0, add display: none to layout
+                @if $col == 0 {
+                    @include breakpoint( $bps ) {
+                        display: none;
+                    }
+                }
+                @else {
+                    @if $flex {
+                        @include breakpoint( $bps ) {
+                            width: span($col of $base $span-last $span-break);
+                            margin-right: if($num-columns == $i, 0, $gutter);
+                            .no-flexbox & {
+                                @include bp-span($col of $base $span-last $span-break, $bp);
+                            }
+                        }
+                    } @else {
+                        @include bp-span($col of $base $span-last $span-break, $bp);
+                    }
+                }
+            }
+            // If this is the last column at this breakpoint (to ensure this only prints once)
+            @if $num-columns == $i and $flex {
+                @include breakpoint( $bps ) {
+                    //-- FLEX: Apply display rules to parent
+                    // If layout is stacked, change to column flow
+                    $flow-new: if($col == $base, column nth($flex-flow, 2), $flex-flow);
+                    // Create flex layout on parent
+                    @include flex(
+                        $flow: $flow-new,
+                        $align: $flex-align,
+                        $justify: $flex-justify
+                    );
+                }
+            }
+        }
+        // Set last breakpoint var to current breakpoint before iterating
+        $last-bp: strip-unit($bp);
+        $layout-count: $layout-count + 1;
+    }
+}
+
+/*doc
+---
+title: flex()
+category: Global - Mixins
+---
+
+The flex() mixin is great for quickly applying Flexbox options in a more streamlined syntax.
+
+```inline
+@include flex(
+    $flow: row wrap,
+    $align: center,
+    $justify: space-between
+);
+```
+
+##Flexbox configuration helper
+
+#### flex mixin arguments and accepted values:
+1. `$flow` equates to the flex-flow property. [Accepted values](http://www.w3schools.com/cssref/css3_pr_flex-flow.asp).
+2. `$align` equates to the align-items property. [Accepted values](http://www.w3schools.com/cssref/css3_pr_align-items.asp).
+3. `$justify` equates to the justify-content property. [Accepted values](http://www.w3schools.com/cssref/css3_pr_justify-content.asp).
+
+#### Custom options:
+Custom option `$align: both` resolves to:
+
+```inline
+align-items: center;
+justify-content: center;
+```
+
+###Example #1
+Add only `display: flex` to an element or attribute.
+
+```scss
+[data-ux-layout="flex"] {
+  @include flex;
+}
+```
+
+####CSS output
+
+```inline
+[data-ux-layout="flex"] {
+  display: flex;
+}
+```
+***NOTE:*** When applying only `display: flex`, all the Flexbox defaults will be applied. More information [default settings](https://css-tricks.com/snippets/css/a-guide-to-flexbox/).
+
+###Example #2
+Align an element to be centered both horizontally and vertically.
+
+```scss
+@include flex(
+    $align: both
+);
+```
+
+####CSS output
+
+```inline
+display: flex;
+align-items: center;
+justify-content: center;
+```
+### Common Flexbox patterns
+There are some great patterns on this page for Flexbox layouts:
+
+* [Webkit Flexbox Patterns](http://webkit-flex.atomeye.com/)
+* [Flexbox For Interfaces All The Way: Tracks Case Study](https://www.smashingmagazine.com/2015/11/flexbox-interfaces-tracks-case-study/)
+
+
+### IE11 Flexbox workarounds
+There are still a few issues with Flexbox hanging around in IE so if you run into something odd, try this page for known issues and how to resolve them:
+
+* [Flexbox IE11 bugs](https://alastairc.ac/2014/08/flexbox-ie11-bugs/)
+* [Normalizing Cross-browser Flexbox Bugs](http://philipwalton.com/articles/normalizing-cross-browser-flexbox-bugs/)
+
+A brief summary below:
+
+* IE11 doesn’t allow unitless flex-basis values in the flex shorthand.
+* Vertical centering using min-height: IE requires an explicit height on flex-containers (not just min- or max-height).
+* Avoid unitless flex-basis, i.e., `flex: 1` would not work in IE11, but `flex: 1 0 0px` would.
+
+*/
+
+@mixin flex( $flow: null, $align: null, $justify: null ) {
+    // IE9 graceful fallbacks
+    .no-flexbox & {
+        display: inline-block;
+    }
+    display: flex;
+    @if type-of($flow) != null {
+        $flow: ($flow );
+
+        // Validate the direction value
+        $direction: nth($flow, 1);
+        $valid-direction: row row-reverse column column-reverse;
+        @if contains($valid-direction, $direction) {
+            flex-direction: $direction;
+        }
+
+        // IE9 graceful fallbacks
+        .no-flexbox & > * {
+            @if $direction == row-reverse {
+                float: right;
+            }
+            @else {
+                float: left;
+            }
+        }
+
+        @if length($flow) > 1 {
+            $wrap: nth($flow, 2);
+            $valid-wrap: wrap nowrap wrap-reverse;
+            @if contains($valid-wrap, $wrap) {
+                flex-wrap: $wrap;
+            }
+        }
+    }
+    @if type-of($align) != null {
+        @if $align == both {
+            align-items: center;
+            justify-content: center;
+        }
+        @else {
+            $valid-align: flex-start, flex-end, center, baseline, stretch;
+            @if contains($valid-align, $align) {
+                align-items: $align;
+            }
+        }
+        // IE9 graceful fallbacks
+        .no-flexbox & > * {
+            @if $align == center {
+                margin-right: auto;
+                margin-left: auto;
+            }
+        }
+    }
+    @if type-of($justify) != null {
+        $valid-justify: flex-start, flex-end, center, space-between, space-around;
+        @if contains($valid-justify, $justify) {
+            justify-content: $justify;
+        }
+    }
+}
+
+// Set styles at particular breakpoints with attributes
+@mixin bp-styles( $attr-name ){
+    @include data(#{$attr-name}, xxs) {
+        @include breakpoint ($breakpoint-zero $breakpoint-xxs-max) {
+            @content;
+        }
+    }
+    @include data(#{$attr-name}, xs) {
+        @include breakpoint ($breakpoint-xs-min $breakpoint-xs-max) {
+            @content;
+        }
+    }
+    @include data(#{$attr-name}, sm) {
+        @include breakpoint ($breakpoint-sm-min $breakpoint-sm-max) {
+            @content;
+        }
+    }
+    @include data(#{$attr-name}, md) {
+        @include breakpoint ($breakpoint-md-min $breakpoint-md-max) {
+            @content;
+        }
+    }
+    @include data(#{$attr-name}, lg) {
+        @include breakpoint ($breakpoint-lg-min) {
+            @content;
+        }
+    }
+}
+
+@mixin table-layout (
+    $col: 4,
+    $table-bp: $screen-xs-max
+    ) {
+    @include breakpoint (max-width $table-bp) {
+        clear: both;
+        float: left;
+        & > * {
+            display: inline-block;
+            vertical-align: top;
+            width: #{97% / ($col - 1)}; //fallback
+            width: calc(#{99% / ($col - 1)} - #{$col * 2}px);
+            float: left;
+            &:before {
+              font-weight: bold;
+              display: block;
+            }
+        }
+        & > *:first-child {
+            clear: both;
+            width: 100%;
+            border-bottom: 0;
+        }
+        & > *:last-child {
+            text-align: right;
+        }
+    }
+}
+
+@mixin alt-rows (
+    $even: color(white),
+    $odd: color(gray2)
+){
+    &:nth-child(odd) {
+        background-color: $odd;
+    }
+    &:nth-child(even) {
+        background-color: $even;
+    }
+}
+
+@mixin vertical-align($position: null, $offset: 0px) {
+    position: $position;
+    top: calc(50% + #{$offset});
+    transform: translateY(-50%);
+    display: inline-block;
+}
+
+@mixin horizontal-align($position: null, $offset: 0px) {
+    position: $position;
+    left: calc(50% + #{$offset});
+    transform: translateX(-50%);
+    display: inline-block;
+}

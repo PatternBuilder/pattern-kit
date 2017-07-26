@@ -1,0 +1,44 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Store footer navigation",
+    "description": "Large footer with navigation for Store",
+    "type": "object",
+    "category": "pattern",
+    "format": "grid",
+    "properties": {
+        "name": {
+            "type": "string",
+            "enum": ["store_footer"],
+            "options": {
+                "hidden": true
+            }
+        },
+        "columns": {
+            "title": "Column",
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 4,
+            "items": {
+                "oneOf": [{
+                    "$ref": "menu_column.json"
+                }]
+            }
+        },
+        "aside": {
+            "title": "Aside",
+            "type": "array",
+            "maxItems": 1,
+            "items": {
+                "oneOf": [{
+                    "$ref": "standard_text.json"
+                }, {
+                    "$ref": "menu_list.json"
+                }, {
+                    "$ref": "raw_html.json"
+                }]
+            }
+        }
+    },
+    "required": ["name", "columns"],
+    "additionalProperties": false
+}

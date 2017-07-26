@@ -1,0 +1,52 @@
+{% embed 'band.twig' with {
+    "global": _context,
+    "name": "band",
+    "meta": meta,
+    "background": {
+        "image_large": {
+            "src": background.image_large.src
+        },
+        "image_small": {
+            "src": background.image_small.src
+        },
+        "color": background.color
+    },
+    "header": {
+        "theme": content.theme
+    },
+    "body": {
+        "layout": "stacked"
+    }
+} only %}
+
+    {% block header %}
+        {% include 'band_header.twig' with {
+            "config": {
+                "size": "band",
+                "align": "center",
+                "seo": {
+                    "position": "secondary",
+                    "priority": "headline"
+                }
+            },
+            "headline": global.content.headline,
+            "summary": global.content.summary
+        } only %}
+    {% endblock %}
+
+    {% block body %}
+        {% include 'cta.twig' with {
+            "name": "cta",
+            "config": {
+                "type": "primary",
+                "align": "center"
+            },
+            "link": {
+                "text": global.cta.text,
+                "href": global.cta.href,
+                "title": global.cta.title
+            }
+        } only %}
+    {% endblock %}
+
+{% endembed %}

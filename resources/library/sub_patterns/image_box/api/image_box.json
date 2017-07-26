@@ -1,0 +1,145 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Image Box",
+    "category": "sub_pattern",
+    "type": "object",
+    "properties": {
+        "name": {
+            "type": "string",
+            "enum": [ "image_box" ],
+            "options": {
+                "hidden": true
+            }
+        },
+        "container": {
+            "required": [ "type", "align" ],
+            "type": "object",
+            "properties": {
+                "type": {
+                    "title": "Container Type",
+                    "type": "string",
+                    "enum": [ "card", "group" ],
+                    "default": "group"
+                },
+                "theme": {
+                    "title": "Container Theme",
+                    "description": "Dark theme is used for dark backgrounds",
+                    "type": "string",
+                    "enum": [ "light", "dark" ],
+                    "default": "light"
+                },
+                "background": {
+                    "title": "Container Background",
+                    "description": "For Card Only",
+                    "type": "string",
+                    "enum": [ "rich-black", "white", "gray" ],
+                    "default": "gray"
+                },
+                "align": {
+                    "title": "Text alignment",
+                    "type": "string",
+                    "enum": [ "left", "center", "right" ],
+                    "default": "left"
+                }
+            }
+        },
+        "image": {
+            "type": "object",
+            "required": [ "src", "align" ],
+            "properties": {
+                "align": {
+                    "title": "Image Alignment",
+                    "type": "string",
+                    "enum": [ "bleed", "full", "left", "right", "center", "reduced" ],
+                    "default": "bleed"
+                },
+                "src": {
+                    "title": "Image Source",
+                    "$ref": "image.json"
+                },
+                "caption": {
+                    "title": "Caption Text",
+                    "type": "string",
+                    "format": "textarea"
+                },
+                "background": {
+                    "title": "Optional Background or Border",
+                    "type": "object",
+                    "options": {
+                        "collapsed": true
+                    },
+                    "properties": {
+                        "color": {
+                            "title": "Image Background Color",
+                            "type": "string",
+                            "enum": [ "black", "rich-black", "white", "gray", "red" ]
+                        },
+                        "type": {
+                            "title": "Image Background Type",
+                            "type": "string",
+                            "enum": [ "background", "image_border", "container_border" ]
+                        }
+                    }
+                },
+                "link": {
+                    "entity": "link",
+                    "title": "Optional Link",
+                    "description": "Optional link wraps around both image and caption",
+                    "type": "object",
+                    "options": {
+                        "collapsed": true
+                    },
+                    "properties": {
+                        "href": {
+                            "title": "Link URL",
+                            "type": "string",
+                            "format": "url"
+                        },
+                        "title": {
+                            "title": "Title Attribute",
+                            "type": "string",
+                            "description": "Shown on mouseover."
+                        }
+                    }
+                }
+            }
+        },
+        "copy": {
+            "title": "Optional Copy",
+            "type": "object",
+            "options": {
+                "collapsed": true
+            },
+            "properties": {
+                "title": {
+                    "title": "Copy Title",
+                    "type": "string"
+                },
+                "content": {
+                    "title": "Copy Content",
+                    "type": "string",
+                    "format": "html"
+                }
+            }
+        },
+        "cta": {
+            "title": "Optional CTA Button",
+            "type": "object",
+            "options": {
+                "collapsed": true
+            },
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "enum": [ "primary", "secondary" ],
+                    "default": "secondary"
+                },
+                "link": {
+                    "$ref": "link.json"
+                }
+            }
+        }
+    },
+    "required": [ "image", "container", "name" ],
+    "additionalProperties": false
+}

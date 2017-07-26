@@ -1,0 +1,35 @@
+.#{$repo}-video-embed {
+    &--component {
+
+    }
+    &-media-container {
+        @extend %bleeding-container-top;
+        &:not(:last-child) {
+            margin-bottom: 1em;
+        }
+    }
+    &-iframe-container {
+        @extend %iframe-embed-container;
+    }
+    &-poster-link {
+        @include ie-image-link-fix();
+    }
+    &-poster-image {
+        @extend %responsive-media;
+    }
+    &-details {
+        @extend %layout-stacked;
+    }
+    &-header {
+
+    }
+    &-title {
+        @extend %default-level3;
+    }
+    &-summary-link {
+        @extend %default-link;
+    }
+    &-summary {
+        @extend %description-paragraph;
+    }
+}

@@ -1,0 +1,115 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Page",
+    "category": "pattern",
+    "status": "private",
+    "type": "object",
+    "format": "grid",
+    "additionalProperties": false,
+    "required": [ "name", "body" ],
+    "properties": {
+        "name": {
+            "type": "string",
+            "enum": [ "page" ],
+            "options": {
+                "hidden": true
+            }
+        },
+        "config": {
+            "type": "object",
+            "properties": {
+                "body_class": {
+                    "type": "string",
+                    "default": "editorial"
+                },
+                "additional_css": {
+                    "type": "array",
+                    "options": {
+                        "collapsed": true
+                    },
+                    "description": "Use full URL such as <code>https://www.redhat.com/files/webux/css/services/services.css</code> or local files like <code>http://localhost:9001/css/services/services.css</code>",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "additional_js": {
+                    "type": "array",
+                    "options": {
+                        "collapsed": true
+                    },
+                    "description": "Use full URL such as <code>https://www.redhat.com/files/webux/js/webux-default.js</code> or local files like <code>http://localhost:9001/js/webux-default.js</code>",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "header": {
+            "title": "Page Header",
+            "type": "array",
+            "options": {
+                "collapsed": true
+            },
+            "items": {
+                "oneOf": [
+                    {
+                        "$ref": "hero.json"
+                    }
+                ]
+            }
+        },
+        "body": {
+            "title": "Page Body",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "$ref": "cta_band.json"
+                    },
+                    {
+                        "$ref": "custom_band.json"
+                    },
+                    {
+                        "$ref": "feature_set.json"
+                    },
+                    {
+                        "$ref": "featured_event.json"
+                    },
+                    {
+                        "$ref": "featured_success_story.json"
+                    },
+                    {
+                        "$ref": "logo_wall.json"
+                    },
+                    {
+                        "$ref": "promo_band.json"
+                    },
+                    {
+                        "$ref": "promo_placement.json"
+                    },
+                    {
+                        "$ref": "raw_html.json"
+                    },
+                    {
+                        "$ref": "recent_videos.json"
+                    },
+                    {
+                        "$ref": "social_band.json"
+                    },
+                    {
+                        "$ref": "standard_text_band.json"
+                    },
+                    {
+                        "$ref": "testimonial_band.json"
+                    },
+                    {
+                        "$ref": "store_footer.json"
+                    },
+                    {
+                        "$ref": "footer_mini.json"
+                    }
+                ]
+            }
+        }
+    }
+}

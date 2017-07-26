@@ -1,0 +1,163 @@
+[{
+    "label": "base",
+    "data": {
+        "name": "custom_band",
+        "meta": {
+            "uniqueId": "1234"
+        },
+        "config": {
+            "theme": "dark"
+        },
+        "background": {
+            "image_large": {
+                "src": "/fixtures/images/red.png"
+            },
+            "image_small": {
+                "src": "/fixtures/images/blue.png"
+            },
+            "isFixed": true,
+            "color": "gray"
+        },
+        "header": {
+            "title": "I.T. without boundaries",
+            "headline": "Push the edge by strengthening the core",
+            "summary": "Gartner’s thorough assessment of Red Hat’s expanding portfolio. Spoiler: We did pretty well. Gartner points to the growing importance of Red Hat’s OpenStack contributions and expertise, cites the consistent quality of Red Hat support, and recommends that organizations short-list Red Hat for most open-source procurements."
+        },
+        "body": {
+            "layout": "3 3 3 of 9",
+            "sub_patterns": [{
+                "name": "raw_html",
+                "content": "<div><h3 style='border: 3px solid pink; background-color: blue; color: white; margin: 0; padding: 10px;'>I am custom markup</h3></div>"
+            },{
+                "name": "raw_html",
+                "content": "<div><h3 style='border: 3px solid pink; background-color: blue; color: white; margin: 0; padding: 10px;'>I am custom markup</h3></div>"
+            },{
+                "name": "raw_html",
+                "content": "<div><h3 style='border: 3px solid pink; background-color: blue; color: white; margin: 0; padding: 10px;'>I am custom markup</h3></div>"
+            }]
+        },
+        "aside": {
+            "sub_patterns": [{
+                "name": "raw_html",
+                "content": "<div><h3 style='border: 3px solid pink; background-color: blue; color: white; margin: 0; padding: 10px;'>I am custom markup</h3></div>"
+            }]
+        },
+        "cta": {
+            "type": "primary",
+            "link": {
+                "href": "http://localhost:5001/schema/custom_band",
+                "title": "Title",
+                "text": "Get the whitepaper"
+            }
+        }
+    }
+},{
+    "label": "no title",
+    "data": {
+        "name": "custom_band",
+        "config": {
+            "theme": "dark"
+        },
+        "background": {
+            "color": "black"
+        },
+        "header": {
+            "headline": "Push the edge by strengthening the core"
+        },
+        "body": {
+            "sub_patterns": [{
+                "name": "raw_html",
+                "content": "<div><h3 style='border: 3px solid pink; background-color: blue; color: white; margin: 0; padding: 10px;'>I am custom markup</h3></div>"
+            }]
+        }
+    }
+},{
+    "label": "no headline",
+    "data": {
+        "name": "custom_band",
+        "config": {
+            "theme": "dark"
+        },
+        "background": {
+            "color": "black"
+        },
+        "header": {
+            "title": "Push the edge by strengthening the core"
+        },
+        "body": {
+            "sub_patterns": [{
+                "name": "raw_html",
+                "content": "<div><h3 style='border: 3px solid pink; background-color: blue; color: white; margin: 0; padding: 10px;'>I am custom markup</h3></div>"
+            }]
+        }
+    }
+},{
+    "label": "multiple aside elements",
+    "data": {
+        "name": "custom_band",
+        "config": {
+            "theme": "light"
+        },
+        "background": {
+            "color": "white"
+        },
+        "header": {
+            "theme": "light",
+            "title": "Proin eget tortor risus",
+            "headline": "Quisque velit nisi"
+        },
+        "body": {
+            "sub_patterns": [{
+                "name": "standard_text",
+                "container": {
+                    "type": "group",
+                    "theme": "light",
+                    "align": "left"
+                },
+                "title": "",
+                "content": "<p>Proin eget tortor risus. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Pellentesque in ipsum id orci porta dapibus. Sed porttitor lectus nibh. Pellentesque in ipsum id orci porta dapibus. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Donec rutrum congue leo eget malesuada. Donec rutrum congue leo eget malesuada. Cras ultricies ligula sed magna dictum porta. Vivamus suscipit tortor eget felis porttitor volutpat.</p><p>Proin eget tortor risus. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Pellentesque in ipsum id orci porta dapibus. Sed porttitor lectus nibh. Pellentesque in ipsum id orci porta dapibus. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Donec rutrum congue leo eget malesuada. Donec rutrum congue leo eget malesuada. Cras ultricies ligula sed magna dictum porta. Vivamus suscipit tortor eget felis porttitor volutpat.</p>",
+                "cta": {
+                    "type": "primary",
+                    "link": {
+                        "text": "Call-to-action",
+                        "href": "#",
+                        "title": "Call-to-action"
+                    }
+                }
+            }]
+        },
+        "aside": {
+            "theme": "light",
+            "sub_patterns": [{
+                "name": "quote_box",
+                "container": {
+                    "type": "card",
+                    "background": "gray"
+                },
+                "quote": {
+                    "quotation": "Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Lacinia eget consectetur sed, convallis at tellus.",
+                    "attribution_name": "John Smith",
+                    "attribution_title": "Foo bar specialist"
+                }
+            },{
+                "name": "standard_text",
+                "container": {
+                    "type": "card",
+                    "theme": "light",
+                    "align": "left",
+                    "background": "gray"
+                },
+                "title": "Quisque velit nisi",
+                "content": "<p>Proin eget tortor risus. Quisque velit nisi, pretium ut lacinia in, elementum id enim.</p>",
+                "cta": {
+                    "type": "secondary",
+                    "link": {
+                        "text": "Do a thing",
+                        "href": "#",
+                        "title": "Do a thing"
+                    }
+                }
+            }]
+        }
+    }
+}]

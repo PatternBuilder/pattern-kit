@@ -1,0 +1,60 @@
+{
+    "name": "feature_set",
+    "config": {
+        "pattern_style": "fset1",
+        "theme": "light"
+    },
+    "background": {
+        "color": "gray",
+        "image_large": {
+            "src": ""
+        },
+        "image_small": {
+            "src": ""
+        },
+        "isFixed": true
+    },
+    "header": {
+        "seo_emphasis": "standard",
+        "title": "Certification toolkit",
+        "headline": "The information you need. All in 1 place.",
+        "summary": "It shouldn't be a chore to learn about—and register for—the certification you want. We provide a number of ways to help you."
+    },
+    "features": [
+        {
+            "title": "Increase profits",
+            "summary": "Maximize your team's productivity with on-demand training without the need to leave the datacenter.",
+            "icon": "rh-icon-bar-graph",
+            "cta": {
+                "link": {
+                    "href": "#",
+                    "title": "Click me",
+                    "text": "Click me"
+                }
+            }
+        },
+        {
+            "title": "Increase productivity",
+            "summary": "Maximize your team's productivity with on-demand training without the need to leave the datacenter.",
+            "icon": "rh-icon-increase-productivity"
+        },
+        {
+            "title": "Knowledgable instructors",
+            "summary": "Maximize your team's productivity with on-demand training without the need to leave the datacenter.",
+            "icon": "rh-icon-instructor"
+        },
+        {
+            "title": "Solve complex issues",
+            "summary": "Maximize your team's productivity with on-demand training without the need to leave the datacenter. <a href='#'>Link thing</a>",
+            "icon": "rh-icon-puzzle-piece"
+        }
+    ],
+    "cta": {
+        "type": "primary",
+        "link": {
+            "href": "#",
+            "title": "1",
+            "text": "Learn more"
+        }
+    }
+}

@@ -1,0 +1,36 @@
+name: carousel
+config: 
+    slick_config:  
+    theme: light
+background: 
+    color: white
+body: 
+    content:
+        - name: carousel_slide
+          config: 
+              theme: dark
+          background: 
+              color: rich-black
+          body: 
+              content: 
+                  - name: promo
+                    headline: Headline
+                    text: Text
+                    cta: 
+                        href: #
+                        title: 
+                            text: This is my CTA
+        - name: carousel_slide
+          config: 
+              theme: light
+          background: 
+              color: gray
+          body: 
+              content: 
+                  - name: promo
+                    headline: Other headline
+                    text: Other text
+                    cta:
+                        href: #
+                        title:
+                        text: Click me too!

@@ -1,0 +1,19 @@
+[
+    {
+        "label": "Social icon link",
+        "data": {
+            "name": "social_icon",
+            "config": {
+                "content_align": "center",
+                "icon_size": "small",
+                "show_handle": true
+            },
+            "social": {
+                "platform": "Facebook",
+                "account": "Red Hat",
+                "href": "http://www.facebook.com",
+                "title": "Red Hat's Facebook page"
+            }
+        }
+    }
+]

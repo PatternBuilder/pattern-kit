@@ -1,0 +1,160 @@
+{
+    "template": "testing.twig",
+    "data": {
+        "template": "styled_select.twig",
+        "label": "You are viewing information for:",
+        "options": [
+            {
+                "value": "",
+                "text": "Select Country",
+                "selected": true
+            },
+            {
+                "value": "argentina",
+                "text": "Argentina"
+            },
+            {
+                "value": "australia",
+                "text": "Australia"
+            },
+            {
+                "value": "austria",
+                "text": "Austria"
+            },
+            {
+                "value": "belgium",
+                "text": "Belgium"
+            },
+            {
+                "value": "bolivia",
+                "text": "Bolivia"
+            },
+            {
+                "value": "brazil",
+                "text": "Brazil"
+            },
+            {
+                "value": "canada",
+                "text": "Canada"
+            },
+            {
+                "value": "china",
+                "text": "China"
+            },
+            {
+                "value": "denmark",
+                "text": "Denmark"
+            },
+            {
+                "value": "ecuador",
+                "text": "Ecuador"
+            },
+            {
+                "value": "finland",
+                "text": "Finland"
+            },
+            {
+                "value": "france",
+                "text": "France"
+            },
+            {
+                "value": "germany",
+                "text": "Germany"
+            },
+            {
+                "value": "hong-kong",
+                "text": "Hong Kong"
+            },
+            {
+                "value": "india",
+                "text": "India"
+            },
+            {
+                "value": "ireland",
+                "text": "Ireland"
+            },
+            {
+                "value": "italy",
+                "text": "Italy"
+            },
+            {
+                "value": "japan",
+                "text": "Japan"
+            },
+            {
+                "value": "korea",
+                "text": "Korea"
+            },
+            {
+                "value": "mexico",
+                "text": "Mexico"
+            },
+            {
+                "value": "netherlands",
+                "text": "Netherlands"
+            },
+            {
+                "value": "norway",
+                "text": "Norway"
+            },
+            {
+                "value": "paraquay",
+                "text": "Paraguay"
+            },
+            {
+                "value": "peru",
+                "text": "Peru"
+            },
+            {
+                "value": "portugal",
+                "text": "Portugal"
+            },
+            {
+                "value": "singapore",
+                "text": "Singapore"
+            },
+            {
+                "value": "spain",
+                "text": "Spain"
+            },
+            {
+                "value": "sweden",
+                "text": "Sweden"
+            },
+            {
+                "value": "switzerland",
+                "text": "Switzerland"
+            },
+            {
+                "value": "taiwan",
+                "text": "Taiwan"
+            },
+            {
+                "value": "united-kingdom",
+                "text": "United Kingdom"
+            },
+            {
+                "value": "united-states",
+                "text": "United States"
+            },
+            {
+                "value": "venezuela",
+                "text": "Venezuela"
+            },
+            {
+                "value": "asia-pacific-other",
+                "text": "Asia Pacific – Other"
+            },
+            {
+                "value": "europe-middle-east-africa-other",
+                "text": "Europe-Middle East-Africa – Other"
+            },
+            {
+                "value": "latin-america-other",
+                "text": "Latin America – Other"
+            }
+        ]
+    }
+}
+
+

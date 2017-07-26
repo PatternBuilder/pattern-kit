@@ -1,0 +1,50 @@
+name: menu_column
+config:
+    theme: light
+    vertical_spacing: stacked
+column:
+    menu:
+        - name: menu_list
+          config:
+            hidden:
+                - xxs
+                - xs
+          header:
+            title: Quick links
+          links:
+            - href: #
+              text: Contact sales
+              title: Contact us
+            - href: #
+              text: How to buy
+              title: Learn how to buy our products
+            - href: #
+              text: FAQ
+              title: Frequently asked questions
+            - href: #
+              text: Subscriptions
+              title: Learn more about our subscription options
+        - name: menu_list
+          config:
+              hidden:
+                  - xxs
+                  - xs
+                  - sm
+                  - md
+              header:
+                  title: Quick links
+              links:
+                  - href: #
+                    text: Contact sales
+                    title: Contact us
+                  - href: #
+                    text: How to buy
+                    title: Learn how to buy our products
+                  - href: #
+                    text: FAQ
+                    title: Frequently asked questions
+                  - href: #
+                    text: Subscriptions
+                    title: Learn more about our subscription options
+        - @menu_list
+        - @menu_list

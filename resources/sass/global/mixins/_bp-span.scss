@@ -1,0 +1,26 @@
+/*doc
+---
+title: bp-span()
+category: Global - Mixins
+---
+
+Breakpoint Span is a small helper mixin that allows you to pass [Susy](http://susy.oddbird.net/) span parameter and [Breakpoint](http://breakpoint-sass.com/) data in the same mixin. There is no complex logic here, this just removes the need to wrap every span mixin in a breakpoint mixin.
+
+@mixin bp-span($span, $breakpoint)
+
+-    __$span:__ susy span parameters
+-    __$breakpoint:__ associated [breakpoint variable](global_-_variables.html#Breakpoints) or settings
+
+```inline
+.class-name {
+    @include bp-span(3 of 12, $breakpoint-sm-min);
+}
+```
+
+*/
+
+@mixin bp-span($grid, $breakpoint) {
+    @include breakpoint($breakpoint) {
+        @include span($grid);
+    }
+}

@@ -1,0 +1,35 @@
+{
+    "template": "listing_table.twig",
+    "rows": [
+        {
+            "theme": "light",
+            "background": "white",
+            "body_content": [
+                {
+                    "template": "generic.twig",
+                    "content": "<div>I'm a Component</div><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse.</p>"
+                }
+            ]
+        },
+        {
+            "theme": "dark",
+            "background": "black",
+            "body_content": [
+                {
+                    "template": "generic.twig",
+                    "content": "<div>I'm a Component</div><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse.</p>"
+                }
+            ]
+        },
+        {
+            "theme": "light",
+            "background": "gray",
+            "body_content": [
+                {
+                    "template": "generic.twig",
+                    "content": "<div>I'm a Component</div><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse.</p>"
+                }
+            ]
+        }
+    ]
+}

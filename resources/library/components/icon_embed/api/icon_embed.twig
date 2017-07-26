@@ -1,0 +1,17 @@
+<div class="rh-icon-embed">
+    {% if link.href %}
+    <a class="rh-icon-embed-link" href="{{ link.href }}" {% if link.title %} title="{% include "no_html.twig" with { "string": link.title } only %}" {% endif %}>
+        {% endif %}
+
+        <div class="rh-icon-embed-icon" {% if config.icon_size %}data-rh-size="{{ config.icon_size }}"{% endif %}>
+            {% include icon.filename|trim ~ '.svg' ignore missing %}
+        </div>
+
+        {% if link.text %}
+            <p class="rh-icon-embed-text" {% if config.text_align %}data-rh-align="{{ config.text_align }}"{% endif %}>
+                {% include "no_html.twig" with { "string": link.text } only %}
+            </p>
+        {% endif %}
+
+        {% if link.href %}</a>{% endif %}
+</div>

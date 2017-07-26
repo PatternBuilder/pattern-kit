@@ -1,0 +1,17 @@
+name: icon_panel_box
+container:
+    type: card
+    theme: light
+    align: center
+icon:
+    filename: "rh-icon-increase-productivity"
+    size: medium
+    background: red
+content:
+    title: Increase productivity
+    summary: "Maximize your team's productivity with on-demand training without the need to leave the datacenter."
+cta:
+    link:
+        href: "#"
+        title: Link title
+        text: This is my link text

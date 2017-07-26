@@ -1,0 +1,15 @@
+name: promo_band
+background: 
+    image_large: 
+        src: /fixtures/images/bg1.jpg
+    image_small: 
+        src: /fixtures/images/bg2.jpg
+    custom_color: #2A9AF3
+promo: 
+    theme: dark
+    headline: Lorem ipsum dolor sit amet consectetur adipisicing elit.
+    text: Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam ad perspiciatis animi repudiandae sit dolore corporis.
+    cta:
+        href: #
+        title: Click me!
+        text: Learn more

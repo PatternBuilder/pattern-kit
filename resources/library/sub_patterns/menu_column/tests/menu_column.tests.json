@@ -1,0 +1,173 @@
+[{
+    "config": {
+        "label": "Menu list"
+    },
+    "data": {
+        "name": "menu_column",
+        "config": {
+            "theme": "light",
+            "vertical_spacing": "stacked"
+        },
+        "column": {
+            "menu": [{
+                "name": "menu_list",
+                "config": {
+                    "hidden": ["xxs", "xs", "sm", "md"],
+                    "accordion": []
+                },
+                "title": "Quick links",
+                "links": [{
+                    "text": "Contact sales",
+                    "href": "",
+                    "title": "Contact us"
+                }, {
+                    "text": "How to buy",
+                    "href": "",
+                    "title": "Learn how to buy our products"
+                }, {
+                    "text": "FAQ",
+                    "href": "",
+                    "title": "Frequently asked questions"
+                }, {
+                    "text": "Subscriptions",
+                    "href": "",
+                    "title": "Learn more about our subscription options"
+                }]
+            }, {
+                "name": "menu_list",
+                "config": {
+                    "hidden": [],
+                    "accordion": []
+                },
+                "title": "Quick links",
+                "links": [{
+                    "text": "Contact sales",
+                    "href": "",
+                    "title": "Contact us"
+                }, {
+                    "text": "How to buy",
+                    "href": "",
+                    "title": "Learn how to buy our products"
+                }, {
+                    "text": "FAQ",
+                    "href": "",
+                    "title": "Frequently asked questions"
+                }, {
+                    "text": "Subscriptions",
+                    "href": "",
+                    "title": "Learn more about our subscription options"
+                }]
+            }, {
+                "name": "menu_list",
+                "config": {
+                    "hidden": [],
+                    "accordion": []
+                },
+                "title": "Quick links",
+                "links": [{
+                    "text": "Contact sales",
+                    "href": "",
+                    "title": "Contact us"
+                }, {
+                    "text": "How to buy",
+                    "href": "",
+                    "title": "Learn how to buy our products"
+                }, {
+                    "text": "FAQ",
+                    "href": "",
+                    "title": "Frequently asked questions"
+                }, {
+                    "text": "Subscriptions",
+                    "href": "",
+                    "title": "Learn more about our subscription options"
+                }]
+            }]
+        }
+    }
+}, {
+    "config": {
+        "label": "Menu list with all hidden"
+    },
+    "data": {
+        "name": "menu_column",
+        "config": {
+            "theme": "light",
+            "vertical_spacing": "stacked"
+        },
+        "column": {
+            "menu": [{
+                "name": "menu_list",
+                "config": {
+                    "hidden": ["xxs"],
+                    "accordion": ["xs", "sm"]
+                },
+                "title": "Quick links",
+                "links": [{
+                    "text": "Contact sales",
+                    "href": "",
+                    "title": "Contact us"
+                }, {
+                    "text": "How to buy",
+                    "href": "",
+                    "title": "Learn how to buy our products"
+                }, {
+                    "text": "FAQ",
+                    "href": "",
+                    "title": "Frequently asked questions"
+                }, {
+                    "text": "Subscriptions",
+                    "href": "",
+                    "title": "Learn more about our subscription options"
+                }]
+            }, {
+                "name": "menu_list",
+                "config": {
+                    "hidden": ["xxs"],
+                    "accordion": ["xs", "sm"]
+                },
+                "title": "Quick links",
+                "links": [{
+                    "text": "Contact sales",
+                    "href": "",
+                    "title": "Contact us"
+                }, {
+                    "text": "How to buy",
+                    "href": "",
+                    "title": "Learn how to buy our products"
+                }, {
+                    "text": "FAQ",
+                    "href": "",
+                    "title": "Frequently asked questions"
+                }, {
+                    "text": "Subscriptions",
+                    "href": "",
+                    "title": "Learn more about our subscription options"
+                }]
+            }, {
+                "name": "menu_list",
+                "config": {
+                    "hidden": ["xxs"],
+                    "accordion": ["xs", "sm"]
+                },
+                "title": "Quick links",
+                "links": [{
+                    "text": "Contact sales",
+                    "href": "",
+                    "title": "Contact us"
+                }, {
+                    "text": "How to buy",
+                    "href": "",
+                    "title": "Learn how to buy our products"
+                }, {
+                    "text": "FAQ",
+                    "href": "",
+                    "title": "Frequently asked questions"
+                }, {
+                    "text": "Subscriptions",
+                    "href": "",
+                    "title": "Learn more about our subscription options"
+                }]
+            }]
+        }
+    }
+}]

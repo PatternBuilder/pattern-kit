@@ -1,0 +1,46 @@
+{% embed 'band.twig' with {
+    "global": _context,
+    "meta": meta,
+    "background": {
+        "color": "transparent"
+    },
+    "config": {
+        "collapse": "top"
+    },
+    "body": {
+        "theme": theme
+    }
+} only %}
+
+    {% block body %}
+        {% include 'band_header.twig' with {
+            "config": {
+                "size": "hero",
+                "seo": {
+                    "position": "primary",
+                    "priority": global.seo_emphasis ?: "standard"
+                }
+            },
+            "title": global.title,
+            "headline": global.headline,
+            "summary": global.summary
+        } only %}
+    {% endblock %}
+
+    {% block footer %}
+        {%- if global.cta.link.href %}
+            {% include 'cta.twig' with {
+                "config": {
+                    "type": global.cta.type
+                },
+                "link": {
+                    "href": global.cta.link.href,
+                    "text": global.cta.link.text,
+                    "title": global.cta.link.title,
+                    "target": global.cta.link.target
+                }
+            } only %}
+        {% endif -%}
+    {% endblock %}
+
+{% endembed %}

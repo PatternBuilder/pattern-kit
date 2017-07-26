@@ -1,0 +1,60 @@
+.#{$repo}-pagination {
+    &--component {
+        // content horizontal align values
+        @extend %text-align-enabled;
+    }
+    //buttons
+    &-prev-next {
+        margin-bottom: 1em;
+    }
+    &-btn-prev {
+        margin-right: $vertical-gutter;
+        @include data(state, active) {
+            @extend %cta-primary;
+        }
+        @include data(state, inactive) {
+            @extend %cta-primary-disabled;
+        }
+        @include get-web-icon(caret-left) {
+            color: color(white);
+        }
+    }
+    &-btn-next {
+        @include data(state, active) {
+            @extend %cta-primary;
+        }
+        @include data(state, inactive) {
+            @extend %cta-primary-disabled;
+        }
+        @include get-web-icon(caret-right, $position: after) {
+            color: color(white);
+        }
+    }
+    &-btn-link {
+        text-decoration: none;
+        color: color(white);
+    }
+
+    //pager
+    &-pager {
+        @extend %default-reset;
+    }
+    &-pager-item {
+        @extend %strong-paragraph;
+        margin: 0 0.3em;
+        height: pem(25);
+        width: pem(25);
+        line-height: pem(25);
+        display: inline-block;
+        text-align: center;
+        @include data(state, inactive) {
+            background-color: color(rich-black);
+            color: color(white);
+        }
+    }
+    &-pager-item-link {
+        display: block;
+        color: inherit;
+        text-decoration: none;
+    }
+}

@@ -1,0 +1,149 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Testimonial band",
+    "description": "Use this pattern to add testimonial or quote band to your page.",
+    "category": "pattern",
+    "type": "object",
+    "format": "grid",
+    "required": [ "name", "background", "config", "quote" ],
+    "additionalProperties": false,
+    "properties": {
+        "name": {
+            "type": "string",
+            "enum": [ "testimonial_band" ],
+            "options": {
+                "hidden": true
+            }
+        },
+        "meta": {
+            "type": "object",
+            "properties": {
+                "class": {
+                    "options": {
+                        "hidden": true
+                    },
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "id": {
+                    "type": "string",
+                    "options": {
+                        "hidden": true
+                    }
+                },
+                "uniqueId": {
+                    "type": "string",
+                    "options": {
+                        "hidden": true
+                    }
+                }
+            }
+        },
+        "background": {
+            "title": "Background options",
+            "type": "object",
+            "format": "grid",
+            "required": [ "color" ],
+            "properties": {
+                "image_large": {
+                    "title": "Large-screen background image",
+                    "description": "Use this to set the tablet and desktop background image for your band.",
+                    "entity": "image",
+                    "type": "object",
+                    "properties": {
+                        "src": {
+                            "type": "string",
+                            "format": "url"
+                        }
+                    }
+                },
+                "image_small": {
+                    "title": "Small-screen background image",
+                    "description": "Don't forget to upload a mobile-friendly version of your background; max-width: 768px.",
+                    "entity": "image",
+                    "type": "object",
+                    "properties": {
+                        "src": {
+                            "type": "string",
+                            "format": "url"
+                        }
+                    }
+                },
+                "color": {
+                    "title": "Background color",
+                    "description": "Background color if no images are loaded or being used.",
+                    "type": "string",
+                    "enum": [ "white", "gray", "black", "rich-black", "red", "transparent" ],
+                    "default": "white"
+                }
+            }
+        },
+        "config": {
+            "title": "Configuration",
+            "type": "object",
+            "format": "grid",
+            "required": [ "theme", "layout" ],
+            "properties": {
+                "theme": {
+                    "title": "Testimonial Theme",
+                    "description": "Select dark theme when using a dark background.",
+                    "type": "string",
+                    "enum": [ "light", "dark" ],
+                    "default": "dark"
+                },
+                "layout": {
+                    "title": "Layout",
+                    "description": "Select the side on which you want the quote to appear.",
+                    "type": "string",
+                    "enum": [ "left", "right", "full" ],
+                    "default": "right"
+                }
+            }
+        },
+        "quote": {
+            "title": "Quote",
+            "type": "object",
+            "description": "Used for displaying testimonials.",
+            "required": [ "quotation", "attribution_name" ],
+            "properties": {
+                "quotation": {
+                    "title": "Quote text",
+                    "description": "What was said?",
+                    "type": "string",
+                    "format": "textarea"
+                },
+                "attribution_name": {
+                    "title": "Attribution",
+                    "description": "Who said it?",
+                    "type": "string"
+                },
+                "attribution_title": {
+                    "title": "Attribution title",
+                    "description": "What is their job title?",
+                    "type": "string"
+                }
+            }
+        },
+        "cta": {
+            "title": "Optional call to action",
+            "type": "object",
+            "required": [ "type" ],
+            "options": {
+                "collapsed": "true"
+            },
+            "properties": {
+                "type": {
+                    "title": "CTA type",
+                    "type": "string",
+                    "enum": [ "primary", "secondary" ],
+                    "default": "primary"
+                },
+                "link": {
+                    "$ref": "link.json"
+                }
+            }
+        }
+    }
+}

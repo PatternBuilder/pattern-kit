@@ -1,0 +1,16 @@
+name: video_box
+container:
+    card_option: Gray card
+video:
+    src:
+        video_src: <iframe width="1139" height="641" frameborder="0" allowfullscreen="" src="//www.youtube.com/embed/9gYLKxJ9NbY"\></iframe>
+    title: My title
+    link:
+        href: //www.redhat.com/en/resources/mufg-union-bank-serves-customers-faster-private-cloud-red-hat
+        title: Link title
+    summary: This is the video description
+cta:
+    type: primary
+    link:
+        href: //www.redhat.com/en/resources/mufg-union-bank-serves-customers-faster-private-cloud-red-hat
+        text: Click me

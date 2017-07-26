@@ -1,0 +1,29 @@
+{% include "search-data.html" -%}
+/*doc
+---
+title: Search
+category: Component - Search
+name: 03-search
+---
+
+The search component provides a method for showing a simple search form, and provides optional filters to be placed below.
+
+Filters are optional and can be broken into two groups:
+
+1.  visible-container filters (3) will always be displayed
+2.  overflow-container filters (3) will be displayed below upon click of "more" button
+
+More than 3 filters per row is not currently supported
+
+#### Interaction Notes
+"More" button opens the overflow-container via combination of `data-rh-toggle='search-overflow'` on the button and `data-rh-toggle-target='search-overflow'` on the overflow-container.
+
+"Reset" button has functionality attached via the `data-rh-chosen-reset=".rh-search--component"` attribute. The value of the data attribute denotes the selector scope of selects that get reset (in the case of multiple form elements on the page)
+
+```container_example
+{% include "search.html" with defaultData -%}
+```
+
+*/
+
+

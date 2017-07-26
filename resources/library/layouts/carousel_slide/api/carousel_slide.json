@@ -1,0 +1,85 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Carousel Slide",
+    "description": "",
+    "category": "layout",
+    "type": "object",
+    "format": "grid",
+    "properties": {
+        "config": {
+            "type": "object",
+            "properties": {
+                "theme": {
+                    "type": "string",
+                    "enum": [ "light", "dark" ]
+                }
+            }
+        },
+        "background": {
+            "title": "Background Options",
+            "type": "object",
+            "properties": {
+                "color": {
+                    "title": "Background Color",
+                    "type": "string",
+                    "enum": [ "white", "gray", "black", "rich-black", "red", "transparent" ]
+                },
+                "custom_color": {
+                    "title": "Custom Background Color",
+                    "type": "string",
+                    "description": "Even if you add 2 background images, please provide a <a href='https://mojo.redhat.com/docs/DOC-1083766' target='_blank'>standard promo hexidecimal value</a> as a fallback. Include the # sign."
+                },
+                "image_large": {
+                    "title": "Large Screen Background Image",
+                    "type": "string",
+                    "format": "url",
+                    "description": "Image must be at least 2,000px wide and 400px tall. Image must be a pattern; no photography."
+                },
+                "image_small": {
+                    "title": "Small Screen Background Image",
+                    "type": "string",
+                    "format": "url",
+                    "description": "Image must be at least 768px wide and 400px tall. Image must be a pattern; no photography."
+                }
+            }
+        },
+        "body": {
+            "title": "Body",
+            "type": "object",
+            "properties": {
+                "content": {
+                    "title": "Content",
+                    "type": "array",
+                    "minItems": 1,
+                    "maxItems": 1,
+                    "items": {
+                        "oneOf": [
+                            {
+                                "$ref": "promo.json"
+                            },
+                            {
+                                "$ref": "raw.json"
+                            }
+                        ]
+                    }
+                }
+            }
+        },
+        "name": {
+            "type": "string",
+            "readonly": true,
+            "enum": [ "carousel_slide" ],
+            "options": {
+                "hidden": true
+            }
+        },
+        "template": {
+            "type": "string",
+            "options": {
+                "hidden": true
+            }
+        }
+    },
+    "required": [ "body" ],
+    "additionalProperties": false
+}

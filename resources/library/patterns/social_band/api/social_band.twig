@@ -1,0 +1,57 @@
+{% embed 'band.twig' with {
+    "global": _context,
+    "background": {
+        "color": background.color ?: 'white'
+    },
+    "body": {
+        "layout": "gallery5"
+    },
+    "meta": meta,
+} only %}
+
+    {% block header %}
+        {% include 'band_header.twig' with {
+            "config": {
+                "size": "band"
+            },
+            'title': global.header.title,
+            'headline': global.header.headline
+        } only %}
+    {% endblock %}
+
+    {% block body %}
+        {% for icon in global.icons %}
+            {% include 'icon_embed.twig' with {
+                "config": {
+                    "text_align": "center",
+                    "icon_size": "small"
+                },
+                "icon": {
+                    "filename": icon.filename
+                },
+                "link": {
+                    "href": icon.link.href,
+                    "title": icon.link.title,
+                    "text": icon.link.text
+                }
+            } only %}
+        {% endfor %}
+    {% endblock %}
+
+    {% block footer %}
+        {%- if global.cta.link.href %}
+            {% include 'cta.twig' with {
+                "name": "cta",
+                "config": {
+                    "type": "primary"
+                },
+                "link": {
+                    "text": global.cta.link.text,
+                    "href": global.cta.link.href,
+                    "title": global.cta.link.title
+                }
+            } only %}
+        {% endif -%}
+    {% endblock %}
+
+{% endembed %}

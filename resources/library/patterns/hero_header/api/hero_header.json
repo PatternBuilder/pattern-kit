@@ -1,0 +1,95 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Hero Header",
+    "description": "",
+    "category": "pattern",
+    "status": "private",
+    "type": "object",
+    "properties": {
+        "name": {
+            "type": "string",
+            "enum": [ "hero_header" ],
+            "options": {
+                "hidden": true
+            }
+        },
+        "meta": {
+            "type": "object",
+            "properties": {
+                "class": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "options": {
+                        "hidden": true
+                    }
+                },
+                "id": {
+                    "type": "string",
+                    "options": {
+                        "hidden": true
+                    }
+                },
+                "uniqueId": {
+                    "type": "string",
+                    "options": {
+                        "hidden": true
+                    }
+                }
+            }
+        },
+        "seo_emphasis": {
+            "title": "SEO emphasis",
+            "description": "Emphasize element with keywords or relevant content. 'Standard' is the system default",
+            "type": "string",
+            "enum": [ "standard", "title", "headline" ],
+            "default": "standard"
+        },
+        "theme": {
+            "title": "Header theme",
+            "description": "Dark theme is for light text on dark backgrounds",
+            "type": "string",
+            "enum": [ "light", "dark" ],
+            "default": "light"
+        },
+        "title": {
+            "title": "Hero title",
+            "type": "string",
+            "options": {
+                "preview": true
+            }
+        },
+        "headline": {
+            "title": "Hero headline",
+            "type": "string",
+            "options": {
+                "preview": true
+            }
+        },
+        "summary": {
+            "title": "Hero subtitle",
+            "description": "Allowed tags: &lt;a&gt;&lt;br&gt;",
+            "type": "string",
+            "format": "html"
+        },
+        "cta": {
+            "title": "Optional call-to-action button",
+            "type": "object",
+            "format": "grid",
+            "properties": {
+                "type": {
+                    "title": "CTA type",
+                    "type": "string",
+                    "enum": [ "primary", "secondary" ],
+                    "default": "primary"
+                },
+                "link": {
+                    "$ref": "link.json"
+                }
+            }
+        }
+    },
+    "required": ["name", "seo_emphasis", "theme", "title", "headline" ],
+    "additionalProperties": false
+}

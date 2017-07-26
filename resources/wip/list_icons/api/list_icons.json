@@ -1,0 +1,46 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "List Icon",
+    "description": "List icons is a method for displaying several icons with or without descriptive text.",
+    "type": "object",
+    "properties": {
+        "name": {
+            "type": "string",
+            "readonly": "true",
+            "default": "list_icons",
+            "enum": [ "list_icons" ]
+        },
+        "template": {
+            "type": "string",
+            "default": "list_icons.twig"
+        },
+        "title": {
+            "description": "List title",
+            "type": "string"
+        },
+        "summary": {
+            "description": "List summary",
+            "type": "string"
+        },
+        "icons": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "class": {
+                        "type": "string"
+                    },
+                    "href": {
+                        "type": "string"
+                    },
+                    "text": {
+                        "type": "string"
+                    }
+                },
+                "required": [ "class", "text" ]
+            }
+        }
+    },
+    "required": [ "icons" ],
+    "additionalProperties": false
+}

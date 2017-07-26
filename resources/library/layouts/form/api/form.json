@@ -1,0 +1,165 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Form",
+    "description": "A container with form markup and functionality",
+    "type": "object",
+    "category": "layout",
+    "status": "private",
+    "format": "grid",
+    "properties": {
+        "name": {
+            "type": "string",
+            "readonly": true,
+            "enum": ["form"],
+            "options": {
+                "hidden": true
+            }
+        },
+        "misc_data": {
+            "type": "string",
+            "options": {
+                "hidden": true
+            }
+        },
+        "config": {
+            "title": "Configuration",
+            "type": "object",
+            "properties": {
+                "collapse": {
+                    "title": "Collapse band padding",
+                    "type": "string",
+                    "enum": ["full_top", "full_bottom", "full", "top", "bottom", "both"]
+                },
+                "vertical_layout": {
+                    "title": "Vertical layout",
+                    "description": "Defines padding between the header, body, and footer elements.",
+                    "type": "string",
+                    "enum": ["min-stacked", "stacked", "tall-stacked"]
+                }
+            }
+        },
+        "background": {
+            "title": "Background",
+            "type": "object",
+            "format": "grid",
+            "properties": {
+                "color": {
+                    "title": "Color",
+                    "type": "string",
+                    "enum": ["white", "gray", "black", "rich-black", "transparent"]
+                }
+            }
+        },
+        "header": {
+            "title": "Form header",
+            "type": "object",
+            "format": "grid",
+            "properties": {
+                "layout": {
+                    "title": "Layout",
+                    "type": "string"
+                },
+                "theme": {
+                    "title": "Theme",
+                    "type": "string",
+                    "enum": ["light", "dark"]
+                },
+                "content": {
+                    "type": "array",
+                    "maxItems": 1,
+                    "items": {
+                        "title": "Header item",
+                        "oneOf": [{
+                            "$ref": "band_header.json"
+                        },{
+                            "$ref": "store_header.json"
+                        }]
+                    }
+                }
+            }
+        },
+        "body": {
+            "title": "Form body",
+            "type": "object",
+            "format": "grid",
+            "properties": {
+                "layout": {
+                    "title": "Layout",
+                    "type": "string"
+                },
+                "theme": {
+                    "title": "Theme",
+                    "type": "string",
+                    "enum": ["light", "dark"]
+                },
+                "content": {
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                        "title": "Body item",
+                        "oneOf": [{
+                            "$ref": "option_group.json"
+                        }, {
+                            "$ref": "quantity_group.json"
+                        }, {
+                            "$ref": "raw.json"
+                        }, {
+                            "$ref": "generic.json"
+                        }]
+                    }
+                }
+            }
+        },
+        "submit": {
+            "title": "Submit",
+            "description": "",
+            "type": "object",
+            "format": "grid",
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "options": {
+                        "hidden": true
+                    }
+                },
+                "align": {
+                    "type": "string",
+                    "enum": ["left", "center", "right"],
+                    "default": "left"
+                },
+                "link": {
+                    "$ref": "link.json"
+                }
+            },
+            "required": ["align", "link"]
+        },
+        "footer": {
+            "title": "Footer",
+            "type": "object",
+            "format": "grid",
+            "properties": {
+                "layout": {
+                    "title": "Layout",
+                    "type": "string"
+                },
+                "theme": {
+                    "title": "Theme",
+                    "type": "string",
+                    "enum": ["light", "dark"]
+                },
+                "content": {
+                    "type": "array",
+                    "maxItems": 1,
+                    "items": {
+                        "title": "Footer item",
+                        "oneOf": [{
+                            "$ref": "footnote.json"
+                        }]
+                    }
+                }
+            }
+        }
+    },
+    "required": ["name", "config", "body", "submit"],
+    "additionalProperties": false
+}

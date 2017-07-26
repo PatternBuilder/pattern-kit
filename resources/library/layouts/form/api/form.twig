@@ -1,0 +1,62 @@
+{% set form_header %}
+    {% if header.layout %} data-rh-layout="{{ header.layout }}"{% endif %}
+    {% if header.theme %} data-rh-theme="{{ header.theme }}"{% endif %}
+{% endset %}
+
+{% set form_body %}
+    {% if body.layout %} data-rh-layout="{{ body.layout }}"{% endif %}
+    {% if body.theme %} data-rh-theme="{{ body.theme }}"{% endif %}
+{% endset %}
+
+{% set form_footer %}
+    {% if footer.layout %} data-rh-layout="{{ footer.layout }}"{% endif %}
+    {% if footer.theme %} data-rh-theme="{{ footer.theme }}"{% endif %}
+{% endset %}
+
+{% set form_props %}
+    {% if misc_data %}{{ misc_data }}{% endif %}
+    {% if background.color %} data-rh-band-background="{{ background.color }}" {% endif %}
+    {% if config.collapse %} data-rh-band-collapse="{{ config.collapse }}"{% endif %}
+{% endset %}
+
+{% set form_container %}
+    {% if config.vertical_layout %} data-rh-layout="{{ config.vertical_layout }}"{%- endif %}
+{% endset %}
+
+<section class="rh-form--layout" {{ form_props }}>
+    <div class="rh-form-container" {{ form_container }}>
+        {% if header.content or block('header') is not empty %}
+        <header class="rh-form-header" {{ form_header }}>
+            {% for item in header.content %}
+                {% include item.template ?: item.name ~ '.twig' with item only %}
+            {% else %} {% block header %}{% endblock %}
+            {% endfor %}
+        </header>
+        {% endif %}
+        <form class="rh-form-body" {{ form_body }}>
+            {% for item in body.content %}
+                {% include item.template ?: item.name ~ '.twig' with item only %}
+            {% else %} {% block body %}{% endblock %}
+            {% endfor %}
+            {% if submit %}
+                {% include "cta.twig" with {
+                    "misc_data": "data-rh-submit-button=\"" ~ submit.id ~ "\"",
+                    "config": {
+                        "type": "disabled",
+                        "align": submit.align,
+                        "semantic": "submit button"
+                    },
+                    "link": submit.link
+                } only %}
+            {% endif %}
+        </form>
+        {% if footer.content or block('footer') is not empty %}
+        <footer class="rh-form-footer" {{ form_footer }}>
+            {% for item in footer.content %}
+                {% include item.template ?: item.name ~ '.twig' with item only %}
+            {% else %} {% block footer %}{% endblock %}
+            {% endfor %}
+        </footer>
+        {% endif %}
+    </div>
+</section>

@@ -1,0 +1,39 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Quantity group",
+    "description": "Quantity element will be added automatically.",
+    "type": "object",
+    "category": "sub_pattern",
+    "properties": {
+        "name": {
+            "type": "string",
+            "enum": ["quantity_group"],
+            "options": {
+                "hidden": true
+            }
+        },
+        "headline": {
+            "title": "Headline",
+            "description": "Briefly describe the content.",
+            "type": "string",
+            "default": "Quantity",
+            "options": {
+                "preview": true
+            }
+        },
+        "summary": {
+            "title": "Description",
+            "description": "Brief description or summary.",
+            "type": "string",
+            "format": "html"
+        },
+        "tooltip_text": {
+            "title": "Option-set tooltip",
+            "description": "Help text or additional guidance.",
+            "type": "string",
+            "format": "html"
+        }
+    },
+    "required": ["name"],
+    "additionalProperties": true
+}

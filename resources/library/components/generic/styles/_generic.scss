@@ -1,0 +1,50 @@
+//@TODO update class name
+.#{$repo}-default--component {
+    p {
+        @extend %default-paragraph;
+    }
+    ul {
+        @extend %default-ul;
+    }
+    ol {
+        @extend %default-ol;
+    }
+    li {
+        @extend %default-li;
+    }
+    a {
+        @extend %default-link;
+    }
+    h1 {
+        @extend %default-level1;
+    }
+    h2 {
+        @extend %default-level2;
+    }
+    h3 {
+        @extend %default-level3;
+    }
+    h4 {
+        @extend %default-level4;
+    }
+    h5 {
+        @extend %default-level5;
+    }
+    h6 {
+        @extend %default-level6;
+    }
+    img, embed, object, video {
+        @extend %default-media;
+    }
+    dl {
+        @extend %default-dl;
+    }
+    dt {
+        @extend %default-dt;
+    }
+    dd {
+        @extend %default-dd;
+    }
+    // content horizontal align values
+    @extend %text-align-enabled;
+}

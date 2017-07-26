@@ -1,0 +1,36 @@
+{% set util = [] %}
+{% for item in utility_links %}
+    {% set util = util|merge([{
+        "link": item
+    }]) %}
+{% endfor %}
+{% set nav = [] %}
+{% for item in nav_links %}
+    {% set nav = nav|merge([{
+        "link": item
+    }]) %}
+{% endfor %}
+{% embed 'menu.twig' with {
+    "global": _context,
+    "config": {
+        "theme": "dark",
+        "background_color": "rich-black"
+    },
+    "logo": {
+        "image": {
+            "name": "Store",
+            "alt": "Red Hat Store's logo"
+        },
+        "link": {
+            "href": logo.link.href,
+            "title": logo.link.title
+        }
+    },
+    "plugins": {
+        "search": false,
+        "store": true
+    },
+    "utility_links": util,
+    "nav_links": nav
+} only %}
+{% endembed %}

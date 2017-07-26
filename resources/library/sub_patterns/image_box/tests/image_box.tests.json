@@ -1,0 +1,111 @@
+[{
+    "title": "Card with copy and cta",
+    "data": {
+        "name": "image_box",
+        "container": {
+            "type": "card",
+            "theme": "light",
+            "background": "gray"
+        },
+        "image": {
+            "align": "bleed",
+            "src": {
+                "src": "/fixtures/images/red_small.png",
+                "alt": ""
+            },
+            "caption": "This is a caption about the photo",
+            "background": {
+                "color": "black",
+                "type": "image_border"
+            }
+        },
+        "copy": {
+            "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+            "content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>"
+        },
+        "cta": {
+            "type": "primary",
+            "link": {
+                "href": "http://www.redhat.com/en/resources/mufg-union-bank-serves-customers-faster-private-cloud-red-hat",
+                "text": "Click me"
+            }
+        }
+    }
+},{
+    "title": "Card with only copy",
+    "data": {
+        "name": "image_box",
+        "container": {
+            "type": "card",
+            "theme": "dark",
+            "background": "rich-black"
+        },
+        "image": {
+            "align": "center",
+            "caption": "This is a caption about the photo",
+            "src": {
+                "src": "/fixtures/images/red_small.png",
+                "alt": ""
+            },
+            "link": {
+                "href": "http://www.redhat.com/en/resources/mufg-union-bank-serves-customers-faster-private-cloud-red-hat",
+                "title": "Hover me"
+            }
+        },
+        "copy": {
+            "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+            "content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>"
+        }
+    }
+},{
+    "title": "Test bleed in group",
+    "data": {
+        "name": "image_box",
+        "container": {
+            "type": "group",
+            "theme": "light",
+            "background": "gray"
+        },
+        "image": {
+            "align": "bleed",
+            "caption": "This is a caption",
+            "src": {
+                "src": "/fixtures/images/adobe_logo.png",
+                "alt": ""
+            },
+            "link": {
+                "href": "http://www.redhat.com/en/resources/mufg-union-bank-serves-customers-faster-private-cloud-red-hat",
+                "title": "Hover me"
+            }
+        }
+    }
+},{
+    "title": "Group with left-aligned image",
+    "data": {
+        "name": "image_box",
+        "caption": "This is a caption",
+        "container": {
+            "type": "group",
+            "theme": "light",
+            "background": "gray"
+        },
+        "image": {
+            "align": "left",
+            "src": {
+                "src": "/fixtures/images/red_small.png",
+                "alt": ""
+            }
+        },
+        "copy": {
+            "title": "My title",
+            "content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>"
+        },
+        "cta": {
+            "type": "primary",
+            "link": {
+                "href": "http://www.redhat.com/en/resources/mufg-union-bank-serves-customers-faster-private-cloud-red-hat",
+                "text": "Click me"
+            }
+        }
+    }
+}]

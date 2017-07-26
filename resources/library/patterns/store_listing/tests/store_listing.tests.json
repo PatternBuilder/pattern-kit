@@ -1,0 +1,381 @@
+[
+    {
+        "label": "Store listing for product lines",
+        "data": {
+            "name": "store_listing",
+            "config": {
+                "background_color": "gray"
+            },
+            "body": {
+                "layout": "3 columns",
+                "sub_patterns": [
+                    {
+                        "name": "store_product_box",
+                        "themes": {
+                            "product_line": "Linux platforms",
+                            "standard": "light"
+                        },
+                        "background": {
+                            "color": "white",
+                            "image": "No"
+                        },
+                        "header": {
+                            "title": "Server",
+                            "summary": "<p>Whether<sup>&reg;</sup> rolling out new applications, virtualizing environments, or <a href='#'>creating a secure hybrid cloud</a>, Red Hat Enterprise Linux helps IT leaders scale their business and say yes to what's important.</p>"
+                        },
+                        "body": {
+                            "config": {
+                                "align": "center"
+                            },
+                            "price_data": {
+                                "teaser": "Starting at",
+                                "amount": 799
+                            },
+                            "cta": {
+                                "link": {
+                                    "href": "#",
+                                    "title": ""
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "name": "store_product_box",
+                        "themes": {
+                            "product_line": "Linux platforms"
+                        },
+                        "header": {
+                            "title": "Virtual datacenters",
+                            "summary": "<p>Whether rolling out new applications, virtualizing environments, or creating a secure hybrid cloud, Red Hat Enterprise Linux helps IT leaders scale their business and say yes to what's important.</p>"
+                        },
+                        "body": {
+                            "config": {
+                                "align": "center"
+                            },
+                            "price_data": {
+                                "teaser": "Starting at",
+                                "amount": 2499
+                            },
+                            "cta": {
+                                "config": {
+                                    "type": "primary"
+                                },
+                                "link": {
+                                    "href": "#",
+                                    "title": ""
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "name": "store_product_box",
+                        "themes": {
+                            "product_line": "Linux platforms"
+                        },
+                        "header": {
+                            "title": "Desktop or Workstation",
+                            "summary": "<p>Whether rolling out new applications, virtualizing environments, or creating a secure hybrid cloud, Red Hat Enterprise Linux helps IT leaders scale their business and say yes to what's important.</p>"
+                        },
+                        "body": {
+                            "config": {
+                                "align": "center"
+                            },
+                            "price_data": {
+                                "teaser": "Starting at",
+                                "amount": 799
+                            },
+                            "cta": {
+                                "link": {
+                                    "href": "#",
+                                    "title": ""
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "name": "store_product_box",
+                        "themes": {
+                            "product_line": "Linux platforms"
+                        },
+                        "header": {
+                            "title": "IBM Z Systems<sup>*</sup>",
+                            "summary": "<p>Whether rolling out new applications, virtualizing environments, or creating a secure hybrid cloud, Red Hat Enterprise Linux helps IT leaders scale their business and say yes to what's important.</p>"
+                        },
+                        "body": {
+                            "config": {
+                                "align": "center"
+                            },
+                            "price_data": {
+                                "teaser": "Starting at",
+                                "amount": 799
+                            },
+                            "cta": {
+                                "config": {
+                                    "type": "primary"
+                                },
+                                "link": {
+                                    "href": "#",
+                                    "title": ""
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "name": "store_product_box",
+                        "themes": {
+                            "product_line": "Linux platforms"
+                        },
+                        "header": {
+                            "title": "Developer suite",
+                            "summary": "<p>Whether rolling out new applications, virtualizing environments, or creating a secure hybrid cloud, Red Hat Enterprise Linux helps IT leaders scale their business and say yes to what's important.</p>"
+                        },
+                        "body": {
+                            "config": {
+                                "align": "center"
+                            },
+                            "price_data": {
+                                "teaser": "Starting at",
+                                "amount": 799
+                            },
+                            "cta": {
+                                "config": {
+                                    "type": "primary"
+                                },
+                                "link": {
+                                    "href": "#",
+                                    "title": ""
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "name": "store_product_box",
+                        "themes": {
+                            "product_line": "Linux platforms"
+                        },
+                        "header": {
+                            "title": "Server",
+                            "summary": "<p>Whether rolling out new applications, virtualizing environments, or creating a secure hybrid cloud, Red Hat Enterprise Linux helps IT leaders scale their business and say yes to what's important.</p>"
+                        },
+                        "body": {
+                            "config": {
+                                "align": "center"
+                            },
+                            "price_data": {
+                                "teaser": "Starting at",
+                                "amount": 799
+                            },
+                            "cta": {
+                                "config": {
+                                    "type": "primary"
+                                },
+                                "link": {
+                                    "href": "#",
+                                    "title": ""
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "name": "store_product_box",
+                        "themes": {
+                            "product_line": "Linux platforms"
+                        },
+                        "header": {
+                            "title": "Developer support",
+                            "summary": "<p>Whether rolling out new applications, virtualizing environments, or creating a secure hybrid cloud, Red Hat Enterprise Linux helps IT leaders scale their business and say yes to what's important.</p>"
+                        },
+                        "body": {
+                            "config": {
+                                "align": "center"
+                            },
+                            "price_data": {
+                                "teaser": "Starting at",
+                                "amount": 799
+                            },
+                            "cta": {
+                                "config": {
+                                    "type": "primary"
+                                },
+                                "link": {
+                                    "href": "#",
+                                    "title": ""
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "name": "store_product_box",
+                        "themes": {
+                            "product_line": "Linux platforms"
+                        },
+                        "header": {
+                            "title": "Developer workstation",
+                            "summary": "<p>Whether rolling out new applications, virtualizing environments, or creating a secure hybrid cloud, Red Hat Enterprise Linux helps IT leaders scale their business and say yes to what's important.</p>"
+                        },
+                        "body": {
+                            "config": {
+                                "align": "center"
+                            },
+                            "price_data": {
+                                "teaser": "Starting at",
+                                "amount": 2499
+                            },
+                            "cta": {
+                                "config": {
+                                    "type": "primary"
+                                },
+                                "link": {
+                                    "href": "#",
+                                    "title": ""
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "footer": {
+                "sub_patterns": [{
+                    "name": "footnote",
+                    "align": "left",
+                    "indicator": "asterisk",
+                    "footnotes": [{
+                        "footnote": "This subscription is only available for a single socket-pair; it cannot be stacked or combined."
+                    }]
+                }]
+            }
+        }
+    },
+    {
+        "label": "Store listing for home page",
+        "data": {
+            "name": "store_listing",
+            "config": {
+                "background_color": "gray"
+            },
+            "body": {
+                "layout": "4 columns",
+                "sub_patterns": [
+                    {
+                        "name": "store_product_box",
+                        "themes": {
+                            "product_line": "Linux platforms"
+                        },
+                        "background": {
+                            "image": "Yes"
+                        },
+                        "header": {
+                            "title": "Linux platforms",
+                            "summary": "<p>Start with a stable, flexible foundation that adapts as your business changes.</p>"
+                        },
+                        "body": {
+                            "config": {
+                                "align": "left"
+                            },
+                            "cta": {
+                                "type": "secondary",
+                                "link": {
+                                    "href": "#",
+                                    "title": "",
+                                    "text": "Learn more"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "name": "store_product_box",
+                        "themes": {
+                            "product_line": "JBoss Middleware"
+                        },
+                        "background": {
+                            "image": "Yes"
+                        },
+                        "header": {
+                            "title": "JBoss Middleware",
+                            "summary": "<p>Accelerate, automate, and integrate your applications, systems, and processes.</p>"
+                        },
+                        "body": {
+                            "config": {
+                                "align": "left"
+                            },
+                            "cta": {
+                                "type": "secondary",
+                                "link": {
+                                    "href": "#",
+                                    "title": "",
+                                    "text": "Learn more"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "name": "store_product_box",
+                        "themes": {
+                            "product_line": "Management"
+                        },
+                        "background": {
+                            "image": "Yes"
+                        },
+                        "header": {
+                            "title": "Management",
+                            "summary": "<p>Create a new ops mindset in your organization by improving process, automation, and control.</p>"
+                        },
+                        "body": {
+                            "config": {
+                                "align": "left"
+                            },
+                            "cta": {
+                                "type": "secondary",
+                                "link": {
+                                    "href": "#",
+                                    "title": "",
+                                    "text": "Learn more"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "name": "store_product_box",
+                        "themes": {
+                            "product_line": "Services and support"
+                        },
+                        "background": {
+                            "image": "Yes"
+                        },
+                        "header": {
+                            "title": "Services and support",
+                            "summary": "<p>Get the support, training, and insights you and your saff need to get the most out of your technology.</p>"
+                        },
+                        "body": {
+                            "config": {
+                                "align": "left"
+                            },
+                            "cta": {
+                                "type": "secondary",
+                                "link": {
+                                    "href": "#",
+                                    "title": "",
+                                    "text": "Learn more"
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "footer": {
+                "sub_patterns": [
+                    {
+                        "name": "cta",
+                        "config": {
+                            "type": "ghost",
+                            "align": "center"
+                        },
+                        "link": {
+                            "href": "#",
+                            "text": "See all products"
+                        }
+                    }
+                ]
+            }
+        }
+}]

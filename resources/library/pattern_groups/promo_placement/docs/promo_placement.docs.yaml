@@ -1,0 +1,37 @@
+name: promo_placement
+config: 
+    theme: light
+    slick_config:  
+background: 
+    color: white
+slides: 
+    - name: promo_band
+      background: 
+          image_large: 
+              src: /fixtures/images/bg1.jpg
+          image_small: 
+              src: /fixtures/images/bg2.jpg
+          color: rich-black
+      promo: 
+          theme: dark
+          headline: Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          text: Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi consectetur sequi. Quod sint ullam inventore autem magni dolorem dolore a numquam incidunt similique explicabo eaque voluptate delectus quo odio aperiam.
+          cta: 
+              href: #
+              title: Click me!
+              text: Learn more
+    - name: promo_band
+      background: 
+          image_large:
+              src: /fixtures/images/bg2.jpg
+          image_small:
+              src: /fixtures/images/bg1.jpg
+          color: rich-black
+      promo:
+          theme: dark
+          headline: Lorem ipsum dolor
+          text: Lorem ipsum dolor sit amet
+          cta:
+              href: #
+              title: Click me!
+              text: Learn more

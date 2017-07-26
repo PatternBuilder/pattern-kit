@@ -1,0 +1,96 @@
+[{
+    "label": "Store form test data",
+    "data": {
+        "name": "form",
+        "config": {
+            "vertical_layout": "tall-stacked"
+        },
+        "background": {
+            "color": "white"
+        },
+        "header": {
+            "layout": "stacked",
+            "theme": "light",
+            "content": [{
+                "name": "band_header",
+                "headline": "Red Hat Enterprise Linux Server",
+                "summary": "<p>Migrating your company's operating system may seem like an overwhelming task, but Red Hat<sup>&reg;</sup> Technical Account Management (TAM) is at your disposal throughout the entire migration process to assist your team.</p>"
+            }]
+        },
+        "body": {
+            "layout": "stacked",
+            "theme": "light",
+            "content": [{
+                "name": "quantity_group",
+                "headline": "Quantity",
+                "summary": "<p>Sed porttitor lectus nibh. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Vivamus suscipit tortor eget felis porttitor volutpat.</p>",
+                "tooltip_text": "<p>Sed porttitor lectus nibh. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Vivamus suscipit tortor eget felis porttitor volutpat.</p>"
+            }, {
+                "name": "option_group",
+                "header": {
+                    "headline": "Sockets",
+                    "summary": "<p>Sed porttitor lectus nibh. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Vivamus suscipit tortor eget felis porttitor volutpat.</p>",
+                    "tooltip_text": "<p>Sed porttitor lectus nibh. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Vivamus suscipit tortor eget felis porttitor volutpat.</p>"
+                },
+                "option_items": {
+                    "input_type": "Single select",
+                    "legend": "Sockets",
+                    "input_item": [{
+                        "label": "2",
+                        "id": "socket2"
+                    }, {
+                        "label": "4",
+                        "id": "socket4"
+                    }, {
+                        "label": "6",
+                        "id": "socket6"
+                    }]
+                }
+            }, {
+                "name": "option_group",
+                "header": {
+                    "headline": "Add-ons",
+                    "summary": "<p>Sed porttitor lectus nibh. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Vivamus suscipit tortor eget felis porttitor volutpat.</p>",
+                    "tooltip_text": "<p>Sed porttitor lectus nibh. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Vivamus suscipit tortor eget felis porttitor volutpat.</p>"
+                },
+                "option_items": {
+                    "input_type": "Multi-select",
+                    "legend": "Add-ons",
+                    "input_item": [{
+                        "label": "Lorem item",
+                        "id": "item1"
+                    }, {
+                        "label": "Lorem item",
+                        "id": "item2"
+                    }, {
+                        "label": "Lorem item",
+                        "id": "item3"
+                    }]
+                }
+            }]
+        },
+        "submit": {
+            "id": "add-to-cart",
+            "align": "left",
+            "link": {
+                "text": "Add to cart",
+                "href": "#",
+                "title": "Add this to your cart for purchase"
+            }
+        },
+        "footer": {
+            "layout": "stacked",
+            "theme": "light",
+            "content": [{
+                "name": "footnote",
+                "align": "left",
+                "indicator": "numbered",
+                "footnotes": [{
+                    "footnote": "Red Hat client data and Fortune Global 500 list, 2014 Red Hat client data and Fortune Global 500 list, 2014 Red Hat client data and Fortune Global 500 list, 2014 Red Hat client data and Fortune Global 500 list, 2014"
+                }, {
+                    "footnote": "Red Hat client data and Fortune 500 list, 2014"
+                }]
+            }]
+        }
+    }
+}]

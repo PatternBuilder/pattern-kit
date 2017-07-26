@@ -1,0 +1,52 @@
+.#{$repo}-band-header {
+    &--component {
+        @extend %text-align-enabled;
+        > *:last-child {
+            margin-bottom: 0;
+        }
+    }
+    &-title {
+        @extend %section-title;
+    }
+    &-hash {
+        @extend %hash-link;
+    }
+    &-headline {
+        @extend %section-headline;
+    }
+    &-hero-headline {
+        @extend %hero-headline;
+    }
+    &-summary {
+        @extend %section-summary;
+        @include breakpoint($breakpoint-md-min) {
+            max-width: span(9 of 12);
+        }
+        a {
+            @extend %default-link;
+        }
+        @include data-context(align, center) {
+            margin-left: auto;
+            margin-right: auto;
+        }
+        @include data-context(align, right) {
+            margin-left: auto;
+        }
+    }
+    &-hero-summary {
+        @extend %hero-summary;
+        @include breakpoint($breakpoint-md-min) {
+            max-width: span(9 of 12);
+        }
+        a {
+            @extend %default-link;
+        }
+        @include data-context(align, center) {
+            margin-left: auto;
+            margin-right: auto;
+        }
+        @include data-context(align, right) {
+            margin-left: auto;
+        }
+    }
+}

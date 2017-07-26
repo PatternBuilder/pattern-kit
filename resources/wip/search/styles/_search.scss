@@ -1,0 +1,53 @@
+.rh-search {
+    &--component {
+    }
+    &-input-container {
+    }
+
+    &-text-input {
+        @extend %text-input;
+        @include breakpoint($breakpoint-xxs-max max-width) {
+            font-size: .9em;
+
+        }
+    }
+
+    &-submit {
+        @include breakpoint($breakpoint-xxs-max max-width) {
+            font-size: .7em;
+            padding: pem(9) pem(20);
+        }
+        @extend %cta-primary;
+    }
+
+    &-filter-container {
+    }
+    &-visible-container {
+    }
+
+    &-select select {
+        background: color(brand-primary);
+        color: color(white);
+    }
+
+    &-show-more {
+        @extend %cta-secondary-button;
+        @include get-web-icon(caret-right, $position: 'after') {
+            position: relative;
+            left: 8px;
+        }
+        &[data-rh-state="active"] {
+            @include get-web-icon(caret-down, $base: false, $position: 'after') {
+                left: 11px;
+            }
+        }
+    }
+
+    &-clear-all {
+        @extend %cta-secondary-button;
+    }
+
+    &-overflow-container {
+
+    }
+}

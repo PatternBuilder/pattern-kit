@@ -1,0 +1,38 @@
+[{
+    "title": "foo",
+    "data": {
+        "name": "image_embed",
+        "config": {
+            "align": "full"
+        },
+        "image": {
+            "src": "/fixtures/images/red_small.png"
+        },
+        "caption": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore minus voluptas laborum aspernatur cumque maxime, odio exercitationem debitis libero alias repellat asperiores natus veniam, beatae autem non accusantium quaerat. Fuga.",
+        "link": {
+            "href": "#",
+            "title": "image embed title"
+        }
+    }
+},{
+    "title": "foo",
+    "data": {
+        "name": "image_embed",
+        "config": {
+            "align": "full",
+            "hover_effect": "bw-color"
+        },
+        "background": {
+            "color": "gray",
+            "type": "image_border"
+        },
+        "image": {
+            "src": "/fixtures/images/red_small.png"
+        },
+        "caption": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore minus voluptas laborum aspernatur cumque maxime, odio exercitationem debitis libero alias repellat asperiores natus veniam, beatae autem non accusantium quaerat. Fuga.",
+        "link": {
+            "href": "#",
+            "title": "image embed title"
+        }
+    }
+}]

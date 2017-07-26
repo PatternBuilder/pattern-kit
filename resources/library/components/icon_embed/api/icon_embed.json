@@ -1,0 +1,47 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Icon embed",
+    "description": "",
+    "category": "component",
+    "type": "object",
+    "format": "grid",
+    "properties": {
+        "name": {
+            "type": "string",
+            "readonly": true,
+            "enum": [ "icon_embed" ],
+            "options": {
+                "hidden": true
+            }
+        },
+        "config": {
+            "title": "Configuration",
+            "type": "object",
+            "properties": {
+                "icon_size": {
+                    "title": "Icon size",
+                    "type": "string",
+                    "enum": [ "full", "large", "medium", "small" ]
+                },
+                "text_align": {
+                    "$ref": "config.json#/properties/component/properties/align"
+                }
+            }
+        },
+        "icon": {
+            "title": "Icon name",
+            "type": "object",
+            "properties": {
+                "filename": {
+                    "type": "string"
+                }
+            },
+            "required": [ "filename" ]
+        },
+        "link": {
+            "$ref": "link.json"
+        }
+    },
+    "required": [ "icon" ],
+    "additionalProperties": false
+}

@@ -1,0 +1,29 @@
+<div class="rh-image-embed--component"
+        {% if config.hover_effect %} data-rh-img-hover="{{ config.hover_effect }}"{% endif %}
+        {% if config.align %} data-rh-align="{{ config.align }}"{% endif %}
+        {% if misc_data %} {{ misc_data }}{% endif %}
+        {% if background.color %} data-rh-img-{{ background.type }}="{{ background.color }}"{% endif %}
+>
+
+    <div class="rh-image-embed-container">
+        {% if link.href %}
+        <a class="rh-image-embed-link" href="{{ link.href }}" {% if link.title %}title="{% include "no_html.twig" with { "string": link.title } only %}"{% endif %}>
+            {% endif %}
+            <img class="rh-image-embed-img" src="{{ image.src }}"{% if image.alt %} alt="{% include "no_html.twig" with { "string": image.alt } only %}"{% endif %}>
+            {% if link.href %}
+        </a>
+        {% endif %}
+    </div>
+    {% if caption %}
+        <p class="rh-image-embed-caption">
+            {% if link.href %}
+            <a class="rh-image-embed-caption-link" href="{{ link.href }}"
+               {% if link.title %}title="{{ link.title }}"{% endif %}>
+                {% endif %}
+                {% include "no_html.twig" with { "string": caption } only %}
+                {% if link.href %}
+            </a>
+            {% endif %}
+        </p>
+    {% endif %}
+</div>

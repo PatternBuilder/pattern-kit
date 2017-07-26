@@ -1,0 +1,56 @@
+.#{$repo}-carousel {
+    & {
+        position: relative;
+        @extend %has-container-background;
+        @extend %background-color-enabled;
+    }
+    &-navigation {
+        // nav needs to sit on top of content, so give it same band size width as carousel card and position it overtop the content
+        @extend %default--container;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        button {
+            position: absolute;
+            bottom: calc(50% - 22px);
+            z-index: 999;
+            font-size: 0;
+            color: transparent;
+            outline: none;
+            opacity: .5;
+            background: none;
+            border: none;
+            &:hover {
+                opacity: .9;
+            }
+            @include get-web-icon(chevron) {
+                font-size: 42px;
+                color: white;
+            }
+        ;
+        }
+    }
+    &-prev {
+        text-shadow: -1px -1px 3px rgba(color(copy), .5);
+        left: -5px;
+        @include breakpoint($breakpoint-xs-min) {
+            left: 0px;
+        }
+        @include breakpoint($breakpoint-md-min) {
+            left: 20px;
+        }
+        transform: rotate(.5turn);
+    }
+    &-next {
+        text-shadow: 1px 1px 3px rgba(color(copy), .5);
+        right: -5px;
+        @include breakpoint($breakpoint-xs-min) {
+            right: 0px;
+        }
+        @include breakpoint($breakpoint-md-min) {
+            right: 20px;
+        }
+    }
+}

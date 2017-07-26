@@ -1,0 +1,16 @@
+{
+    "template": "testing.twig",
+    "data": {
+        "template": "training_row.twig",
+        "featured": "true",
+        "icon": "rh-icon-kiosk",
+        "icon2": "rh-icon-kiosk",
+        "title": "Red Hat",
+        "designation": "Red Hat Academy",
+        "summary": "Raleigh, North Carolina",
+        "link": {
+            "title": "More Information",
+            "url": "#"
+        }
+    }
+}

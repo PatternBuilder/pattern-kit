@@ -1,0 +1,37 @@
+{% embed 'footer.twig' with {
+    "global": _context,
+    "name": "footer",
+    "config": {
+        "dynamic_height": true,
+        "collapse": "full",
+        "background_color": "rich-black"
+    },
+    "main": {
+        "layout": "gallery4",
+        "theme": "dark"
+    },
+    "aside": {
+        "background_color": "red",
+        "theme": "dark",
+        "content": [{
+            "name": "raw",
+            "isWrapped": false,
+            "content": {
+                "item": aside.content.item
+            }
+        }]
+    }
+} only %}
+    {% block main %}
+        {# Optionally add logo #}
+        {% if global.logo %}
+            {% include 'image_embed.twig' with global.logo.image only %}
+        {% endif %}
+
+        {# Navigational link columns #}
+        {% for column in global.menu.content.columns if global.menu.content.columns is iterable %}
+            {% include 'menu_column.twig' with column only %}
+        {% endfor %}
+
+    {% endblock %}
+{% endembed %}

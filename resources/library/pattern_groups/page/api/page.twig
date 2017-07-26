@@ -1,0 +1,27 @@
+<body class="{{ config.body_class }}">
+<link rel="stylesheet" type="text/css" href="https://www.redhat.com/profiles/rh/themes/redhatdotcom/css/chrome.css">
+
+<script>
+    var Drupal = Drupal || {
+                "settings": {},
+                "behaviors": {},
+                "locale": {}
+            };
+</script>
+
+{% for css in config.additional_css %}
+    <link rel="stylesheet" type="text/css" href="{{ css }}">
+{% endfor %}
+{% for js in config.additional_js %}
+    <script type="text/javascript" src="{{ js }}"></script>
+{% endfor %}
+
+
+{% for item in header %}
+    {% include item.name ~ '.twig' with item only %}
+{% endfor %}
+
+{% for item in body %}
+    {% include item.name ~ '.twig' ignore missing with item only %}
+{% endfor %}
+</body>

@@ -1,0 +1,75 @@
+[
+    {
+        "config": {
+            "label": "Card"
+        },
+        "data": {
+            "name": "standard_text",
+            "container": {
+                "type": "card",
+                "theme": "light",
+                "background": "gray"
+            },
+            "title": "Delivering value for customers",
+            "content": "<p>We strive for an excellent support experience with a Red Hat subscription, and the top priority of the Partner Support program is to help you create the best experience for our mutual customers.</p>",
+            "cta": {
+                "type": "primary",
+                "link": {
+                    "href": "#",
+                    "title": "abc",
+                    "text": "A Button",
+                    "target": "_self"
+                }
+            }
+        }
+    },
+    {
+        "config": {
+            "label": "Card"
+        },
+        "data": {
+            "name": "standard_text",
+            "container": {
+                "align": "center",
+                "type": "group",
+                "theme": "light"
+            },
+            "title": "Delivering value for customers",
+            "content": "<p>We strive for an excellent support experience with a Red Hat subscription, and the top priority of the Partner Support program is to help you create the best experience for our mutual customers.</p>",
+            "cta": {
+                "type": "secondary",
+                "link": {
+                    "href": "#",
+                    "title": "abc",
+                    "text": "A Button",
+                    "target": "_self"
+                }
+            }
+        }
+    },
+    {
+        "config": {
+            "label": "Card"
+        },
+        "data": {
+            "name": "standard_text",
+            "container": {
+                "align": "right",
+                "type": "card",
+                "theme": "dark",
+                "background": "black"
+            },
+            "title": "Delivering value for customers",
+            "content": "<p>We strive for an excellent support experience with a Red Hat subscription, and the top priority of the Partner Support program is to help you create the best experience for our mutual customers.</p>",
+            "cta": {
+                "type": "primary",
+                "link": {
+                    "href": "#",
+                    "title": "abc",
+                    "text": "A Button",
+                    "target": "_self"
+                }
+            }
+        }
+    }
+]
