@@ -1,0 +1,109 @@
+[{
+    "label": "Base",
+    "data": {
+        "name": "band_header",
+        "title": "Band Header Title",
+        "hash_link": "band_header_title",
+        "headline": "Band header headline",
+        "summary": "Secure your enterprise, deliver more with fewer resources, and use your big data to your advantage. <a href=\"#\">Click Here</a>"
+    }
+},{
+    "label": "primary-standard",
+    "data": {
+        "name": "band_header",
+        "config": {
+            "size": "band",
+            "seo": {
+                "position": "primary",
+                "priority": "standard"
+            }
+        },
+        "title": "Band Header Title",
+        "headline": "Band header headline"
+    }
+},{
+    "label": "primary-title",
+    "data": {
+        "name": "band_header",
+        "config": {
+            "size": "band",
+            "seo": {
+                "position": "primary",
+                "priority": "title"
+            }
+        },
+        "title": "Band Header Title",
+        "headline": "Band header headline"
+    }
+},{
+    "label": "primary-headline",
+    "data": {
+        "name": "band_header",
+        "config": {
+            "size": "band",
+            "seo": {
+                "position": "primary",
+                "priority": "headline"
+            }
+        },
+        "title": "Band Header Title",
+        "headline": "Band header headline"
+    }
+},{
+    "label": "secondary-standard",
+    "data": {
+        "name": "band_header",
+        "config": {
+            "size": "band",
+            "seo": {
+                "position": "secondary",
+                "priority": "standard"
+            }
+        },
+        "title": "Band Header Title",
+        "headline": "Band header headline"
+    }
+},{
+    "label": "secondary-title",
+    "data": {
+        "name": "band_header",
+        "config": {
+            "size": "band",
+            "seo": {
+                "position": "secondary",
+                "priority": "title"
+            }
+        },
+        "title": "Band Header Title",
+        "headline": "Band header headline"
+    }
+},{
+    "label": "secondary-headline",
+    "data": {
+        "name": "band_header",
+        "config": {
+            "size": "band",
+            "seo": {
+                "position": "secondary",
+                "priority": "headline"
+            }
+        },
+        "title": "Band Header Title",
+        "headline": "Band header headline"
+    }
+},{
+    "label": "hero-headline",
+    "data": {
+        "name": "band_header",
+        "config": {
+            "size": "hero",
+            "seo": {
+                "position": "primary",
+                "priority": "headline"
+            }
+        },
+        "title": "Band Header Title",
+        "headline": "Band header headline",
+        "summary": "<p>Sed porttitor lectus nibh. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi.</p>"
+    }
+}]

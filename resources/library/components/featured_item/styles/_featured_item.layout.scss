@@ -1,0 +1,34 @@
+.#{$repo}-featured-item {
+    &--component {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        width: 100%;
+    }
+    &-content {
+        flex-grow: 1;
+        @include eq-context(large) {
+            display: flex;
+        }
+    }
+    &-summary-container {
+        flex-basis: 10em;
+        flex-grow: 1;
+        @include eq-context(large) {
+            margin-right: 3%;
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+    }
+    &-logo-container {
+        width: 14em;
+        flex-grow: .2;
+    }
+    &-logo {
+        @extend %responsive-media;
+    }
+    &-cta-container {
+
+    }
+}

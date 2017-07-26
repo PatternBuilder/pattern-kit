@@ -1,0 +1,115 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Hero",
+    "id": "hero.json",
+    "category": "pattern",
+    "status": "private",
+    "type": "object",
+    "format": "grid",
+    "additionalProperties": false,
+    "required": [ "name", "group_height", "body" ],
+    "properties": {
+        "name": {
+            "type": "string",
+            "enum": [ "hero" ],
+            "options": {
+                "hidden": true
+            }
+        },
+        "meta": {
+            "type": "object",
+            "properties": {
+                "class": {
+                    "options": {
+                        "hidden": true
+                    },
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "id": {
+                    "type": "string",
+                    "options": {
+                        "hidden": true
+                    }
+                },
+                "uniqueId": {
+                    "type": "string",
+                    "options": {
+                        "hidden": true
+                    }
+                }
+            }
+        },
+        "navigation": {
+            "type": "string",
+            "format": "html",
+            "formatter": "navigation",
+            "options": {
+                "wysiwyg": false,
+                "hidden": true
+            }
+        },
+        "group_height": {
+            "title": "Hero height",
+            "description": "Full will stretch the hero image and copy to fill the browser window.",
+            "type": "string",
+            "enum": [ "content", "full" ],
+            "default": "content"
+        },
+        "background": {
+            "type": "object",
+            "properties": {
+                "color": {
+                    "title": "Background Color",
+                    "type": "string",
+                    "enum": [ "white", "gray", "black", "rich-black", "red", "transparent" ],
+                    "default": "transparent"
+                },
+                "isFixed": {
+                    "title": "Fixed Background",
+                    "description": "Checking this box will make the image stay in place while you scroll",
+                    "type": "boolean"
+                },
+                "image_large": {
+                    "title": "Desktop Background Image",
+                    "description": "If omitted, background color will be used at desktop breakpoint",
+                    "entity": "image",
+                    "type": "object",
+                    "properties": {
+                        "src": {
+                            "title": "Image URL",
+                            "type": "string",
+                            "format": "url"
+                        }
+                    }
+                },
+                "image_small": {
+                    "title": "Mobile Background Image",
+                    "description": "If omitted, background color will be used at mobile breakpoint",
+                    "entity": "image",
+                    "type": "object",
+                    "properties": {
+                        "src": {
+                            "title": "Image URL",
+                            "type": "string",
+                            "format": "url"
+                        }
+                    }
+                }
+            }
+        },
+        "body": {
+            "title": "Hero body",
+            "type": "array",
+            "items": {
+                "oneOf": [{
+                    "$ref": "hero_header.json"
+                }, {
+                    "$ref": "raw_html.json"
+                }]
+            }
+        }
+    }
+}

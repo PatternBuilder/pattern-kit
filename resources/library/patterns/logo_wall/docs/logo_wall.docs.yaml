@@ -1,0 +1,56 @@
+name: logo_wall
+title: Band title
+logos: 
+    - image: 
+          src: http://www.redhat.com/cms/public/Adobe_Logo_RGB_225x158_0.png
+      link: 
+          href: #
+          title: abc123
+    - image:
+          src: http://www.redhat.com/cms/public/Adobe_Logo_RGB_225x158_0.png
+      link: 
+          href: #
+          title: abc123
+    - image: 
+          src: http://www.redhat.com/cms/public/Adobe_Logo_RGB_225x158_0.png
+      link: 
+          href: #
+          title: abc123
+    - image: 
+          src: http://www.redhat.com/cms/public/Adobe_Logo_RGB_225x158_0.png
+      link: 
+          href: #
+          title: abc123
+    - image: 
+          src: http://www.redhat.com/cms/public/Adobe_Logo_RGB_225x158_0.png
+      link: 
+          href: #
+          title: abc123
+    - image:
+          src: http://www.redhat.com/cms/public/Adobe_Logo_RGB_225x158_0.png
+      link: 
+          href: #
+          title: abc123
+    - image:
+          src: http://www.redhat.com/cms/public/Adobe_Logo_RGB_225x158_0.png
+      link: 
+          href: #
+          title: abc123
+    - image:
+          src: http://www.redhat.com/cms/public/Adobe_Logo_RGB_225x158_0.png
+      link: 
+          href: #
+          title: abc123
+    - image:
+          src: http://www.redhat.com/cms/public/Adobe_Logo_RGB_225x158_0.png
+      link: 
+          href: #
+          title: abc123
+    - image:
+          src: http://www.redhat.com/cms/public/Adobe_Logo_RGB_225x158_0.png
+      link:
+          href: #
+          title: abc123
+link:
+    text: CTA text
+    href: #

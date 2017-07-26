@@ -1,0 +1,78 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Universal footer",
+    "description": "Universal footer with logo, legal links, and event or social links.",
+    "type": "object",
+    "category": "pattern",
+    "status": "private",
+    "format": "grid",
+    "properties": {
+        "name": {
+            "type": "string",
+            "enum": [ "footer_mini" ],
+            "options": {
+                "hidden": true
+            }
+        },
+        "legal": {
+            "title": "Legal links",
+            "type": "array",
+            "items": {
+                "title": "Legal",
+                "type": "object",
+                "format": "grid",
+                "properties": {
+                    "link": {
+                        "title": "Link",
+                        "$ref": "link.json"
+                    }
+                },
+                "required": [ "link" ]
+            }
+        },
+        "features": {
+            "title": "Featured events",
+            "type": "array",
+            "minItems": "1",
+            "maxItems": "3",
+            "format": "tabs",
+            "items": {
+                "title": "Event details",
+                "type": "object",
+                "format": "grid",
+                "properties": {
+                    "image": {
+                        "title": "Image",
+                        "$ref": "image_embed.json#/properties/image",
+                        "options": {
+                            "grid_columns": 6
+                        }
+                    },
+                    "link": {
+                        "title": "Link",
+                        "$ref": "image_embed.json#/properties/link",
+                        "format": "grid",
+                        "options": {
+                            "grid_columns": 6
+                        },
+                        "properties": {
+                            "title": {
+                                "options": {
+                                    "grid_columns": 3
+                                }
+                            },
+                            "href": {
+                                "options": {
+                                    "grid_columns": 3
+                                }
+                            }
+                        }
+                    }
+                },
+                "required": [ "image" ]
+            }
+        }
+    },
+    "required": [ "name", "legal", "features" ],
+    "additionalProperties": false
+}

@@ -1,0 +1,9 @@
+name: link_tile
+config:
+    content_align: left
+icon: rh-icon-organization
+link:
+    href: "//www.redhat.com"
+    title: Cloud icon
+title: Services and support
+summary: Get the support training and insights you and your staff need to get the most out of your technology.

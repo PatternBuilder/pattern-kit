@@ -1,0 +1,66 @@
+%footer-content {
+    @include layout(
+        $layout: (
+            $breakpoint-zero: 12,
+            $breakpoint-sm-min: 6 6,
+            $breakpoint-md-min: 8 4
+        ),
+        $flex: true,
+        $flex-align: stretch,
+        $sub: true
+    );
+    @include breakpoint(max-width $breakpoint-xs-max ) {
+        @include flex(
+            $flow: column nowrap
+        );
+        > *:first-child {
+            order: 2;
+            padding-top: 0;
+        }
+        > *:last-child {
+            order: 1;
+            width: calc(100% + #{$mobile-edge*2});
+            margin-left: -$mobile-edge;
+            margin-right: -$mobile-edge;
+            margin-top: 0px;
+        }
+    }
+    @include breakpoint(min-width $breakpoint-sm-min) {
+        > *:first-child {
+            padding-top: 0;
+        }
+        > * {
+            margin-top: 0px;
+        }
+    }
+}
+
+%footer-main {
+    @include layout(
+        $layout: (
+            0: 12,
+            $breakpoint-md-min: 3 3 3 3
+        ),
+        $sub: true,
+        $break: false,
+        $flex: true,
+        $flex-flow: row nowrap
+    );
+    padding: $vertical-gutter ($box-padding/2);
+    @include breakpoint( $breakpoint-md-min ) {
+        padding-right: 0;
+        padding-left: 0;
+        > * {
+            flex: 1;
+        }
+    }
+    > * {
+        margin-top: $vertical-gutter;
+    }
+    @include breakpoint( max-width $breakpoint-sm-max ) {
+        [data-rh-layout="stacked"] > *:not(:last-child) {
+            margin-bottom: $vertical-gutter;
+        }
+    }
+}
+

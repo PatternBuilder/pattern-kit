@@ -1,0 +1,118 @@
+{% embed 'band.twig' with {
+    "global": _context,
+    "name": "band",
+    "meta": meta,
+    "config": {
+        "collapse": "both",
+        "vertical_spacing": ""
+    },
+    "background": {
+        "color": "rich-black",
+        "isFixed": false
+    },
+    "footer": {
+        "layout": "flex-footer-variant",
+        "theme": "dark"
+    }
+} only %}
+
+    {# FOOTER #}
+    {% block footer %}
+        {# Logo, the src is a 1px transparent base64 image to prevent broken img border in browsers #}
+        {% include 'image_embed.twig' with {
+            "misc_data": "data-rh-embed-logo=redhat",
+            "config": {
+                "hover_effect": "color-bw",
+                "align": "left"
+            },
+            "image": {
+                "src": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
+                "alt": "Red Hat's company logo; Shadowman"
+            },
+            "link": {
+                "href": "//www.redhat.com",
+                "title": "Red Hat"
+            }
+        } only %}
+        {# end of Logo #}
+
+        {# Copyright #}
+        {% set content = [{
+                "name": "footnote",
+                "align": "center",
+                "indicator": "",
+                "footnotes": [{
+                    "footnote": "Copyright &copy; <span data-rh-year='now'>2016</span> Red Hat, Inc."
+                }]
+            }] %}
+        {# end of Copyright #}
+
+        {# Legal links #}
+        {% set link_string = "" %}
+        {% for item in global.legal %}
+            {% if item.link.href %}
+                {% if link_string and item.link.text %}{% set link_string = link_string ~ " &nbsp;&nbsp;|&nbsp;&nbsp; " %}{% endif %}
+                {% set link_string = link_string ~ " <a href='" ~ item.link.href ~ "' title='" ~ item.link.title ~ "'>" ~ item.link.text ~ "</a>" %}
+            {% endif %}
+        {% endfor %}
+
+        {% if link_string %}
+            {% set content = content|merge([{
+                "name": "footnote",
+                "align": "left",
+                "indicator": "",
+                "footnotes": [{
+                    "footnote": link_string
+                }]
+            }]) %}
+        {% endif %}
+        {# end of Legal links #}
+
+        {# Print copyright and legal links #}
+        {% include 'group.twig' with {
+            "global": _context,
+            "name": "group",
+            "body": {
+                "layout": "flex-center",
+                "theme": "dark",
+                "content": content
+            }
+        } only %}
+        {# end of print #}
+
+        {# Event or social links #}
+        {% set event_content = [] %}
+        {% for item in global.features %}
+            {% if item.image.src %}
+                {% set event_content = event_content|merge([{
+                    "name": "image_embed",
+                    "misc_data": "data-rh-max-height=footer",
+                    "config": {
+                        "hover_effect": ( item.link.href ? "color-bw" : "" ),
+                        "align": "center"
+                    },
+                    "image": {
+                        "src": item.image.src,
+                        "alt": item.image.alt
+                    },
+                    "link": {
+                        "href": item.link.href,
+                        "title": item.link.title
+                    }
+                }]) %}
+            {% endif %}
+        {% endfor %}
+
+        {% include 'group.twig' with {
+            "global": _context,
+            "body": {
+                "layout": "flex-between",
+                "theme": "dark",
+                "content": event_content
+            }
+        } only %}
+        {# end of imaged links #}
+
+    {% endblock %}
+
+{% endembed %}

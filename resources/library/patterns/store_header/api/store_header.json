@@ -1,0 +1,69 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Store header band",
+    "description": "",
+    "category": "pattern",
+    "status": "private",
+    "type": "object",
+    "format": "grid",
+    "additionalProperties": false,
+    "properties": {
+        "name": {
+            "type": "string",
+            "enum": [ "store_header" ],
+            "options": {
+                "hidden": true
+            }
+        },
+        "config": {
+            "title": "Configuration",
+            "type": "object",
+            "format": "grid",
+            "properties": {
+                "background_color": {
+                    "title": "Background color",
+                    "type": "string",
+                    "enum": ["rich-black", "white", "gray"],
+                    "default": "white",
+                    "options": {
+                        "grid_columns": 6
+                    }
+                },
+                "theme": {
+                    "title": "Product line or theme",
+                    "description": "Select a product line to impact the theme of this band. Note that some product lines may use the same brand color.",
+                    "type": "string",
+                    "enum": [ "Linux platforms", "Management", "Mobile", "JBoss Middleware", "Virtualization", "Cloud computing", "Storage", "default" ],
+                    "default": "default",
+                    "options": {
+                        "grid_columns": 6
+                    }
+                }
+            },
+            "required": [ "theme" ]
+        },
+        "image": {
+            "$ref": "image.json",
+            "options": {
+                "grid_columns": 6
+            }
+        },
+        "headline": {
+            "title": "Headline",
+            "type": "string",
+            "options": {
+                "preview": true,
+                "grid_columns": 12
+            }
+        },
+        "summary": {
+            "title": "Summary",
+            "type": "string",
+            "format": "html",
+            "options": {
+                "grid_columns": 12
+            }
+        }
+    },
+    "required": [ "name", "config", "headline" ]
+}

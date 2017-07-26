@@ -1,0 +1,62 @@
+{
+    "name": "pagination",
+    "config": {
+        "align": "center"
+    },
+    "buttons": {
+        "prev": {
+            "state": "inactive",
+            "link": {
+                "href": "#",
+                "text": "Previous"
+            }
+        },
+        "next": {
+            "state": "active",
+            "link": {
+                "href": "#",
+                "text": "Next"
+            }
+        }
+    },
+    "pages": [
+        {
+            "state": "inactive",
+            "link": {
+                "text": "1"
+            }
+        },
+        {
+            "state": "active",
+            "link": {
+                "text": "2",
+                "href": "#",
+                "title": "page 2"
+            }
+        },
+        {
+            "state": "active",
+            "link": {
+                "text": "3",
+                "href": "#",
+                "title": "page 3"
+            }
+        },
+        {
+            "state": "active",
+            "link": {
+                "text": "4",
+                "href": "#",
+                "title": "page 4"
+            }
+        },
+        {
+            "state": "active",
+            "link": {
+                "text": "5",
+                "href": "#",
+                "title": "page 5"
+            }
+        }
+    ]
+}

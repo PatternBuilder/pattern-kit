@@ -1,0 +1,36 @@
+{
+    "title": "Ways to Train",
+    "summary": "This is my summary paragraph with an <a href='#'>anchor tag</a>",
+    "icons": [
+        {
+            "class": "rh-icon-office-reception",
+            "text": "Classroom",
+            "url": "#"
+        },
+        {
+            "class": "rh-icon-network-personal",
+            "text": "Virtual classroom"
+        },
+        {
+            "class": "rh-icon-hosting-support",
+            "text": "Red Hat online learning"
+        },
+        {
+            "class": "rh-icon-office-building-smb",
+            "text": "On-site team training"
+        },
+        {
+            "class": "rh-icon-office-reception",
+            "text": "Classroom",
+            "url": "#"
+        },
+        {
+            "class": "rh-icon-network-personal",
+            "text": "Virtual classroom"
+        },
+        {
+            "class": "rh-icon-hosting-support",
+            "text": "Red Hat online learning"
+        }
+    ]
+}

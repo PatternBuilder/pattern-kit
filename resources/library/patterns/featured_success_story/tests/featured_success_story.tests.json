@@ -1,0 +1,40 @@
+{
+    "name": "featured_success_story",
+    "background_color": "gray",
+    "layout": "8 4",
+    "meta": {
+        "uniqueId": "1234"
+    },
+    "content": {
+        "title": "Featured Success Stories",
+        "headline": "Cigna builds a private cloud",
+        "summary": "<p>Cigna needed to improve its IT provisioning processes to keep up with the innovations of its developers. The company created an entrepreneurial team to experiment with building an Infrastructure-as-a-Service (IaaS) self-service provisioning capability. Deploying Red Hat solutions and Red Hat-supported open source projects, Cigna's initial proof of concept was so successful that it immediately spread throughout the IT organization. Today, Cigna's development and infrastructure teams are seamlessly aligned and able to speed business applications to customers while carving out costs from the provisioning process to boost Cigna's bottom line.</p>",
+        "cta": {
+            "type": "primary",
+            "link": {
+                "href": "www.redhat.com",
+                "title": "Read the Story",
+                "text": "Read the Story"
+            }
+        }
+    },
+    "sidebar": {
+        "theme": "dark",
+        "background_color": "rich-black",
+        "image": {
+            "image_alignment": "bleed",
+            "source": {
+                "src": "/fixtures/images/mountain.jpg"
+            },
+            "image_link": {
+                "href": "www.redhat.com",
+                "title": "Cigna"
+            }
+        },
+        "quote": {
+            "text": "We think of Red Hat as one of just a handful of superior engineering and support organizations in the United States.",
+            "attribution_name": "John DeFeo",
+            "attribution_title": "Vice president of Infrastructure, Cigna"
+        }
+    }
+}

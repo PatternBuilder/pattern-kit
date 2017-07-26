@@ -1,0 +1,21 @@
+{
+    "rowRedHat": {
+        "trainingRowFeatured": "true",
+        "contentAlign": "left",
+        "trainingRowIcon": "rh-icon-kiosk",
+        "trainingRowIcon2": "rh-icon-kiosk",
+        "trainingRowTitle": "Red Hat",
+        "trainingRowSummary": "Raleigh, North Carolina",
+        "linkLabel": "Explore Training"
+    },
+    "rowData": {
+        "trainingRowTheme": "white",
+        "trainingRowFeatured": "",
+        "contentAlign": "left",
+        "trainingRowIcon": "",
+        "trainingRowTitle": "Open Systems",
+        "trainingRowDesignation": "Red Hat Academy",
+        "trainingRowSummary": "Austin, Texas | Atlanta, Georgia",
+        "linkLabel": "More Information"
+    }
+}

@@ -1,0 +1,58 @@
+{% set body_content = [
+    {
+        "name": "video_embed",
+        "video": video.src,
+        "title": {
+            "href": video.link.href,
+            "title": video.link.title,
+            "text": video.title
+        },
+        "summary": video.summary,
+    }
+] %}
+
+{% if container.type == 'card' %}
+    {% set vars = {
+        "name": "card",
+        "config": {
+            "theme": container.theme
+        },
+        "background": {
+            "color": container.background
+        },
+        "body": {
+            "content": body_content
+        }
+    } %}
+{% elseif container.type == 'group' %}
+    {% set vars = {
+        "name": "group",
+        "config": {
+            "vertical_layout": "stacked"
+        },
+        "body": {
+            "theme": container.theme,
+            "layout": "stacked",
+            "content": body_content
+        }
+    } %}
+{% endif %}
+
+{% if cta.link.href %}
+    {% set footer_content = {
+        "footer": {
+            "content": [
+                {
+                    "name": "cta",
+                    "config": {
+                        "type": cta.type
+                    },
+                    "link": cta.link
+                }
+            ]
+        }
+    } %}
+    {% set vars = vars|merge(footer_content) %}
+{% endif %}
+
+{% include vars.name ~ ".twig" with vars only %}

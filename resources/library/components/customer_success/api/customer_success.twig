@@ -1,0 +1,23 @@
+<!-- Customer Success Component-->
+<div class="rh-customer-success--component"
+    {% if misc_data %} {{ misc_data }}{% endif %}>
+    <div class="rh-customer-success-logo-container">
+        <img class="rh-customer-success-logo" {% if logo.alt %} alt="{% include "no_html.twig" with { "string": logo.alt } only %}"{% endif %} src="{{ logo.src }}">
+    </div>
+    <div class="rh-customer-success-img-container">
+        <img class="rh-customer-success-img" {% if image.alt %} alt="{% include "no_html.twig" with { "string": image.alt } only %}"{% endif %} src="{{ image.src }}">
+    </div>
+    <article class="rh-customer-success-content">
+        <h2 class="rh-customer-success-title">{% include "no_html.twig" with { "string": title } only %} </h2>
+        <p class="rh-customer-success-summary">
+            {% include "no_html.twig" with { "string": summary } only %}
+        </p>
+    </article>
+    <div class="rh-customer-success-cta-container">
+        <a class="rh-customer-success-cta"
+                {% if link.title %} title="{% include "no_html.twig" with { "string": link.title } only %}" {% endif %}
+                {% if link.target %} target="{{ link.target }}" {% endif %}
+           href="{{ link.href }}">{% include "no_html.twig" with { "string": link.text } only %} </a>
+    </div>
+</div>
+<!-- End Customer Success -->

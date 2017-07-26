@@ -1,0 +1,37 @@
+{% embed 'fieldset.twig' with {
+    "global": _context,
+    "config": {
+        "vertical_layout": "min-stacked"
+    },
+    "header": {
+        "layout": "",
+        "theme": "light",
+        "content": [{
+            "name": "form_header",
+            "headline": headline,
+            "style": "Title",
+            "summary": summary,
+            "tooltip": {
+                "theme": "dark",
+                "type": "help",
+                "text": tooltip_text
+            }
+        }]
+    },
+    "body": {
+        "layout": "stacked",
+        "theme": "light",
+        "legend": headline,
+        "content": [{
+            "name": "quantity",
+            "set_id": "quantity",
+            "required": true,
+            "disabled": false,
+            "min": 1,
+            "max": 99,
+            "step": 1,
+            "value": 1
+        }]
+    }
+} only %}
+{% endembed %}

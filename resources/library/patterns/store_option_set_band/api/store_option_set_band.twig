@@ -1,0 +1,69 @@
+{% set header_content = "" %}
+{% if header.headline %}
+    {% set header_content = "<h2>" ~ header.headline ~ "</h2>" %}
+{% endif %}
+{% if header.summary %}
+    {% set header_content = header_content ~ header.summary %}
+{% endif %}
+
+{% embed 'form.twig' with {
+    "global": _context,
+    "name": "form",
+    "config": {
+        "collapse": "",
+        "vertical_layout": "stacked"
+    },
+    "background": {
+        "color": "white"
+    },
+    "header": {
+        "layout": "stacked",
+        "theme": "light",
+        "content": [{
+            "name": "generic",
+            "content": header_content
+        }]
+    },
+    "body": {
+        "layout": "tall-stacked",
+        "theme": "light",
+        "content": [{
+            "name": "group",
+            "body": {
+                "layout": "stacked",
+                "content": body.content
+            }
+        }, {
+            "name": "sku_table",
+            "jquery_inject": true,
+            "rows": [{
+                "sku": "{{:sku}}",
+                "description": "{{:description}}",
+                "quantity": "{{:quantity}}",
+                "price": "{{:price}}",
+                "line_total": "{{:lineTotal}}"
+            }],
+            "subtotal": "{{:subtotal}}"
+        }]
+    },
+    "submit": {
+        "id": "add-to-cart",
+        "align": "left",
+        "link": {
+            "text": "Add to cart",
+            "title": "Add this to your cart.",
+            "href": "#"
+        }
+    },
+    "footer": {
+        "layout": "stacked",
+        "theme": "light",
+        "content": [{
+            "name": "footnote",
+            "align": "left",
+            "indicator": "asterisk",
+            "footnotes": footer
+        }]
+    }
+} only %}
+{% endembed %}

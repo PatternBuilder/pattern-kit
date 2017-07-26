@@ -1,0 +1,11 @@
+.#{$repo}-card-header {
+    &-title {
+        @extend %card-title;
+    }
+    &-headline {
+        @extend %card-headline;
+    }
+    &-summary {
+        @extend %card-summary;
+    }
+}

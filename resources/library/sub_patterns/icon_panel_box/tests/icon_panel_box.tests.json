@@ -1,0 +1,23 @@
+[{
+    "label": "Icon panel box",
+    "data": {
+        "name": "icon_panel_box",
+        "container": {
+            "type": "group"
+        },
+        "content": {
+            "title": "Increase productivity",
+            "summary": "Maximize your team's productivity with on-demand training without the need to leave the datacenter."
+        },
+        "icon": {
+            "filename": "rh-icon-increase-productivity",
+            "size": "medium",
+            "background": "red"
+        },
+        "link": {
+            "href": "#",
+            "title": "Link title",
+            "text": "This is my link text"
+        }
+    }
+}]

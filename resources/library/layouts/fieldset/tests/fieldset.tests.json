@@ -1,0 +1,43 @@
+[{
+    "label": "",
+    "data": {
+        "name": "fieldset",
+        "config": {
+            "vertical_layout": "min-stacked"
+        },
+        "header": {
+            "layout": "",
+            "theme": "light",
+            "content": [{
+                "name": "form_header",
+                "headline": "Sockets",
+                "style": "Title",
+                "summary": "<p>Choose the amount of sockets you need. If you need more than 6 sockets, please <a href=\"#\">contact sales here</a>.</p>",
+                "tooltip": {
+                    "theme": "dark",
+                    "type": "help",
+                    "text": "<p>Varias mentitum appellat eu quo malis excepteur senserit. Nam nescius praetermissum. Cillum de iis ipsum iudicem o non duis non duis, sed multos.</p>"
+                }
+            }]
+        },
+        "body": {
+            "layout": "stacked",
+            "theme": "light",
+            "legend": "Sockets",
+            "content": [{
+                "name": "option_set",
+                "type": "Single select",
+                "input_item": [{
+                    "label": "2",
+                    "id": "socket2"
+                },{
+                    "label": "4",
+                    "id": "socket4"
+                },{
+                    "label": "6",
+                    "id": "socket6"
+                }]
+            }]
+        }
+    }
+}]

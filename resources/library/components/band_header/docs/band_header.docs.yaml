@@ -1,0 +1,8 @@
+name: band_header
+config:
+    size: band
+    align: left
+title: Infrastructure
+headline: Every architecture needs a secure reliable foundation
+hash_link: infrastructure
+summary: "Secure your enterprise deliver more with fewer resources and use your big data to your advantage. <a href='#'>Click here.</a>"

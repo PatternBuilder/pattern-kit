@@ -1,0 +1,72 @@
+<table class="rh-store-table--component" cellspacing="0">
+    <thead class="rh-store-table-header">
+        <tr class="rh-store-table-header-row" data-rh-hide="sm md lg">
+            <th class="rh-store-table-header-label" scope="col" colspan="5" data-rh-align="left">
+                <span class="rh-store-table-header-headline">Order summary</span>
+            </th>
+        </tr>
+        <tr class="rh-store-table-header-row" data-rh-hide="xxs xs">
+            <th class="rh-store-table-header-label" scope="col" data-rh-align="left">
+                <span class="rh-store-table-header-headline">Item</span>
+            </th>
+            <th class="rh-store-table-header-label" scope="col" data-rh-align="center">
+                <span class="rh-store-table-header-headline">Quantity</span>
+            </th>
+            <th class="rh-store-table-header-label" scope="col" data-rh-align="center">
+                <span class="rh-store-table-header-headline">Price</span>
+            </th>
+            <th class="rh-store-table-header-label" scope="col" data-rh-align="right">
+                <span class="rh-store-table-header-headline">Line total</span>
+            </th>
+        </tr>
+    </thead>
+    <tbody class="rh-store-table-body">
+    {% if jquery_inject %}
+    <script id="skuTemplate" type="text/x-jsrender">
+    {% endif %}
+    {% for row in rows if rows is iterable %}
+        <tr class="rh-store-table-body-row">
+            <td class="rh-store-table-description" scope="col" data-rh-align="left">
+                <span class="rh-store-table-description-data">{% include "no_html.twig" with { "string": row.description } only %}</span>
+                <span class="rh-store-table-sku-data">{% include "no_html.twig" with { "string": row.sku } only %}</span>
+            </td>
+            <td class="rh-store-table-quantity" scope="col">
+                <span class="rh-store-table-quantity-label" data-rh-hide="sm md lg">Quantity</span>
+                <span class="rh-store-table-quantity-data">{% include "no_html.twig" with { "string": row.quantity } only %}</span>
+            </td>
+            <td class="rh-store-table-price" scope="col">
+                <span class="rh-store-table-price-label" data-rh-hide="sm md lg">Price</span>
+                <span class="rh-store-table-price-data">
+                    {% if row.price matches '/^\\d+$/' %}
+                        {% include 'formatted_price.twig' with { price: row.price } only %}
+                    {% else %} {{ row.price|raw }}{% endif %}
+                </span>
+            </td>
+            <td class="rh-store-table-linetotal" scope="col" data-rh-align="right">
+                <span class="rh-store-table-linetotal-label" data-rh-hide="sm md lg">Line total</span>
+                <span class="rh-store-table-linetotal-data">
+                    {% if row.price matches '/^\\d+$/' %}
+                        {% include 'formatted_price.twig' with { price: row.line_total } only %}
+                    {% else %} {{ row.line_total|raw }}{% endif %}
+                </span>
+            </td>
+        </tr>
+    {% endfor %}
+    {% if jquery_inject %}
+    </script><script id="subtotalTemplate" type="text/x-jsrender">
+    {% endif %}
+        <tr class="rh-store-table-footer-row">
+            <td class="rh-store-table-subtotal" scope="col" colspan="5" data-rh-align="right">
+                <span class="rh-store-table-subtotal-label">Subtotal: </span>
+                <span class="rh-store-table-subtotal-data">
+                    {% if subtotal matches '/^\\d+$/' %}
+                        {% include 'formatted_price.twig' with { price: subtotal } only %}
+                    {% else %} {{ subtotal }}{% endif %}
+                </span>
+            </td>
+        <tr>
+        {% if jquery_inject %}
+        </script>
+        {% endif %}
+    </tbody>
+</table>

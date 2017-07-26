@@ -1,0 +1,16 @@
+<article class="rh-promo" data-eq-pts="small-promo: 0, medium-promo: 600">
+    <div class="rh-promo-content">
+        <h4 class="rh-promo-headline">
+            {% include "no_html.twig" with { "string": headline } only %}
+        </h4>
+
+        <p class="rh-promo-text">
+            {% include "no_html.twig" with { "string": text } only %}
+        </p>
+    </div>
+    <div class="rh-promo-cta">
+        <a class="rh-promo-cta-link" href="{{ cta.href }}" {% if cta.title %} title="{{ cta.title }}"{% endif %} >
+            {% include "no_html.twig" with { "string": cta.text } only %}
+        </a>
+    </div>
+</article>

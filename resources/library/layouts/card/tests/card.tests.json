@@ -1,0 +1,32 @@
+{
+    "name": "card",
+    "config": {
+        "theme": "dark"
+    },
+    "body": {
+        "content": [
+            {
+                "name": "generic",
+                "content": "<p>Component</p>"
+            },
+            {
+                "name": "generic",
+                "content": "<p>Multiple components can be stacked</p>"
+            }
+        ]
+    },
+    "footer": {
+        "content": [
+            {
+                "name": "cta",
+                "config": {
+                    "type": "primary"
+                },
+                "link": {
+                    "href": "#",
+                    "text": "CTA Button"
+                }
+            }
+        ]
+    }
+}

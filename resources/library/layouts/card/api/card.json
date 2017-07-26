@@ -1,0 +1,181 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Card",
+    "category": "layout",
+    "type": "object",
+    "format": "grid",
+    "required": [ "name" ],
+    "additionalProperties": false,
+    "properties": {
+        "name": {
+            "type": "string",
+            "enum": [ "card" ],
+            "options": {
+                "hidden": true
+            }
+        },
+        "template": {
+            "type": "string",
+            "options": {
+                "hidden": true
+            }
+        },
+        "misc_data": {
+            "type": "string",
+            "options": {
+                "hidden": true
+            }
+        },
+        "config": {
+            "title": "Configuration",
+            "format": "grid",
+            "type": "object",
+            "properties": {
+                "eqpts": {
+                    "$ref": "config.json#/properties/component/properties/eqpts"
+                },
+                "justify": {
+                    "$ref": "config.json#/properties/component/properties/justify"
+                },
+                "theme": {
+                    "$ref": "config.json#/properties/component/properties/theme"
+                },
+                "vertical_spacing": {
+                    "$ref": "config.json#/properties/layout/properties/vertical_spacing"
+                },
+                "alt_theme": {
+                    "title": "Alternate theme",
+                    "format": "grid",
+                    "type": "object",
+                    "options": {
+                        "collapsed": true
+                    },
+                    "properties": {
+                        "theme": {
+                            "$ref": "config.json#/properties/component/properties/theme"
+                        },
+                        "background": {
+                            "$ref": "config.json#/properties/component/properties/card_background"
+                        },
+                        "trigger": {
+                            "type": "string",
+                            "enum": [ "click", "hover" ]
+                        }
+                    },
+                    "required": [ "theme", "trigger" ]
+                }
+            }
+        },
+        "background": {
+            "title": "Background options",
+            "type": "object",
+            "properties": {
+                "color": {
+                    "$ref": "config.json#/properties/component/properties/card_background"
+                },
+                "image_large": {
+                    "$ref": "config.json#/properties/component/properties/card_image"
+                }
+            }
+        },
+        "header": {
+            "title": "Header",
+            "type": "object",
+            "properties": {
+                "layout": {
+                    "$ref": "config.json#/properties/layout/properties/vertical_spacing"
+                },
+                "content": {
+                    "type": "array",
+                    "maxItems": 1,
+                    "options": {
+                        "collapsed": true
+                    },
+                    "items": {
+                        "oneOf": [{
+                            "$ref": "card_header.json"
+                        },{
+                            "$ref": "band_header.json"
+                        },{
+                            "$ref": "generic.json"
+                        },{
+                            "$ref": "image_embed.json"
+                        },{
+                            "$ref": "raw.json"
+                        }]
+                    }
+                }
+            }
+        },
+        "body": {
+            "type": "object",
+            "properties": {
+                "layout": {
+                    "$ref": "config.json#/properties/layout/properties/vertical_spacing"
+                },
+                "content": {
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                        "oneOf": [{
+                            "$ref": "card_header.json"
+                        },{
+                            "$ref": "band_header.json"
+                        },{
+                            "$ref": "footnote.json"
+                        },{
+                            "$ref": "cta.json"
+                        },{
+                            "$ref": "customer_success.json"
+                        },{
+                            "$ref": "featured_item.json"
+                        },{
+                            "$ref": "generic.json"
+                        },{
+                            "$ref": "image_embed.json"
+                        },{
+                            "$ref": "icon_embed.json"
+                        },{
+                            "$ref": "link_tile.json"
+                        },{
+                            "$ref": "quote.json"
+                        },{
+                            "$ref": "icon_panel.json"
+                        },{
+                            "$ref": "video_embed.json"
+                        },{
+                            "$ref": "raw.json"
+                        }]
+                    }
+                }
+            }
+        },
+        "footer": {
+            "title": "Footer",
+            "type": "object",
+            "properties": {
+                "layout": {
+                    "$ref": "config.json#/properties/layout/properties/vertical_spacing"
+                },
+                "content": {
+                    "type": "array",
+                    "maxItems": 1,
+                    "options": {
+                        "collapsed": true
+                    },
+                    "items": {
+                        "oneOf": [{
+                            "$ref": "quote.json"
+                        },{
+                            "$ref": "cta.json"
+                        },{
+                            "$ref": "generic.json"
+                        },{
+                            "$ref": "raw.json"
+                        }]
+                    }
+                }
+            }
+        }
+    }
+}

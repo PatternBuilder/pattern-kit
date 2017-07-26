@@ -1,0 +1,23 @@
+<div class="rh-list-icons--component" data-rh-align="left" data-eq-pts="small: 0, medium: 420, large: 600">
+    {%- if title or summary %}
+        <header class="rh-list-icons-header">
+            {%- if title %}<h2 class="rh-list-icons-title">{{ title }}</h2>{% endif -%}
+            {%- if summary %}<p class="rh-list-icons-summary">{{ summary|raw }}</p>{% endif -%}
+        </header>
+    {% endif -%}
+    <ul class="rh-list-icons-items">
+        {% for icon in icons -%}
+            <li class="rh-list-icons-item">
+                {%- if icon.href %}
+                    <a href="{{ icon.href }}" class="{{ icon.class }} rh-list-icons-icon">
+                        <span class="rh-list-icons-description">{{ icon.text }}</span>
+                    </a>
+                {% else %}
+                    <span class="{{ icon.class }} rh-list-icons-icon">
+        <span class="rh-list-icons-description">{{ icon.text }}</span>
+      </span>
+                {% endif -%}
+            </li>
+        {% endfor -%}
+    </ul>
+</div>

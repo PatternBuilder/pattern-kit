@@ -1,0 +1,91 @@
+.rh-search {
+
+    &-input-container {
+        margin-bottom: $vertical-gutter;
+        .flexbox & {
+            display: flex;
+        }
+    }
+    // Search Field
+    &-text-input {
+        flex-grow: 1;
+        .no-flexbox & {
+            width: 70%;
+        }
+    }
+
+    // Filters
+    &-filter-container {
+        .no-flexbox & {
+            @include clearfix;
+        }
+        @include breakpoint($breakpoint-sm-min) {
+            .flexbox & {
+                display: flex;
+            }
+        }
+    }
+
+    &-filter-options {
+        flex-grow: 1;
+        flex-basis: 1px;
+        @include breakpoint($breakpoint-sm-min) {
+            .no-flexbox & {
+                @include span(8);
+            }
+            margin-right: 1em;
+        }
+    }
+
+    // Controls
+    &-controls {
+        align-items: flex-start;
+        display: flex;
+        .no-flexbox & {
+            @include span(last 4);
+        }
+    }
+
+    &-show-more {
+        margin-right: .8em;
+    }
+
+    &-visible-container {
+        @include breakpoint($breakpoint-sm-min) {
+            .flexbox & {
+                display: flex;
+            }
+        }
+    }
+
+    // Individual Select
+    &-select {
+        margin-bottom: 1em;
+        @include breakpoint($breakpoint-sm-min) {
+            margin-bottom: 0;
+            @include span(4);
+            &:nth-child(3n) {
+                margin-right: 0;
+            }
+        }
+    }
+
+    &-overflow-container {
+        &[data-rh-state="inactive"] {
+            max-height: 0;
+            overflow: hidden;
+        }
+        &[data-rh-state="active"] {
+            margin-top: $vertical-gutter/2;
+            max-height: none;
+        }
+        .no-flexbox & {
+            clear: both;
+        }
+        @include breakpoint($breakpoint-sm-min) {
+            .flexbox & {
+                display: flex;
+            }
+        }
+    }
+}

@@ -1,0 +1,46 @@
+{# TODO find a way to set this globally  #}
+{% set breakpoints = ["xxs","xs","sm","md","lg"] %}
+
+{# Initialize count object #}
+{% set count = {} %}
+
+{# Set all breakpoints to 0 count #}
+{% for b in breakpoints %}
+    {% set count = count|merge({ ( b ): 0 }) %}
+{% endfor %}
+
+{# Iterate over all menu_item components #}
+{% for item in column.menu if column.menu is iterable %}
+    {# If breakpoint is in the menu_list hidden value, add total count #}
+    {% for b, c in count if b in item.config.hidden %}
+        {# Merge overwrites if key already exists #}
+        {% set count = count|merge({ ( b ): c + 1 }) %}
+    {% endfor %}
+{% endfor %}
+
+{# If breakpoint exists on all menu_list components, add to column #}
+{% if  column.menu %}
+    {% set column_hide %}
+        data-rh-hide="{% for b, c in count if c == ( column.menu | length ) %}{{ b }} {% endfor %}"
+    {% endset %}
+{% endif %}
+
+{% embed "group.twig" with {
+    "global": _context,
+    "name": "group",
+    "misc_data": column_hide,
+    "config": {
+        "theme": config.theme,
+        "justify": "",
+        "vertical_layout": config.vertical_spacing
+    },
+    "background": {
+        "color": "transparent"
+    },
+    "body": {
+        "layout": config.vertical_spacing,
+        "theme": config.theme,
+        "content": column.menu
+    }
+} only %}
+{% endembed %}

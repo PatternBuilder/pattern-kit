@@ -1,0 +1,34 @@
+{% if links is iterable %}
+    <ul class="rh-navigation-link--component"
+        {% if style %}data-rh-nav-type="{{ style|lower }}"{% endif %}
+        >
+    {% for item in links %}
+        {% if (item.link.href and item.link.text) or item.icon %}
+            <li class="rh-navigation-link-container"
+                {% if "menu" in item.icon %}data-rh-toggle-open="click" data-rh-toggle-id="mainMenu" data-rh-state="closed"{% endif %}
+            >
+
+                {%- if item.icon %}
+                    <a class="rh-navigation-link-icon"
+                        data-rh-icon-type="{{ item.icon|lower|replace(' ', '-') }}"
+                        {% if "upload" in item.icon %}data-rh-scroll-to="top"{% endif %}
+                    >
+                        {% include item.icon ~ '.svg' ignore missing %}
+                        {% if "menu" in item.icon %}
+                            {% include 'web-icon-plus.svg' ignore missing %}
+                        {% else %}
+                            {% if item.link.text %}<span class="rh-navigation-link-description" data-rh-hide="sm md lg">{% include "no_html.twig" with { "string": item.link.text } only %}</span>{% endif %}
+                        {% endif %}
+                    </a>
+                {% else %}
+                    <a class="rh-navigation-link"
+                        href="{{ item.link.href }}"
+                        {% if item.link.title %}title="{% include "no_html.twig" with { "string": item.link.title } only %}"{% endif %}>
+                        {% include "no_html.twig" with { "string": item.link.text } only %}
+                    </a>
+                {% endif -%}
+            </li>
+        {% endif %}
+    {% endfor %}
+    </ul>
+{% endif %}

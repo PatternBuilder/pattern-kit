@@ -1,0 +1,76 @@
+{% if meta.class %}
+    {% set band_classes %}{% for item in meta.class %} {{ item }}{% endfor %}{% endset %}
+{% endif %}
+
+{% set band_props %}
+    {% if meta.id %} id="{{ meta.id }}"{% endif %}
+    {% if meta.uniqueId %} data-rh-unique-id="{{ meta.uniqueId }}"{% endif %}
+    {% if meta.dtm %} data-dtm-tracking="{% for item in meta.dtm %}{{ item }} {% endfor %}"{% endif %}
+    {% if background.color %} data-rh-band-background="{{ background.color }}" {% endif %}
+    {% if background.image_large.src %}data-rh-bq="{{ background.image_large.src }}{% if background.image_small.src %}, {{ background.image_small.src }}{% endif %}"{% endif %}
+
+    {% if background.isFixed %} data-rh-background-fixed{% endif %}
+    {% if background.align %} data-rh-background-align="{{ background.align }}"{% endif %}
+    {% if config.collapse %} data-rh-band-collapse="{{ config.collapse }}"{% endif %}
+{% endset %}
+
+{% set band_container %}
+    {% if aside.content is iterable or block('aside') is not empty %} data-rh-layout="8 4"{% endif %}
+{% endset %}
+
+{% set band_main %}
+    {% if config.vertical_spacing %} data-rh-layout="{{ config.vertical_spacing }}"{% endif %}
+{% endset %}
+
+{% set band_header %}
+    {% if header.layout %} data-rh-layout="{{ header.layout }}"{% endif %}
+    {% if header.theme %} data-rh-theme="{{ header.theme }}"{% endif %}
+{% endset %}
+
+{% set band_body %}
+    {% if body.layout %} data-rh-layout="{{ body.layout }}"{% endif %}
+    {% if body.theme %} data-rh-theme="{{ body.theme }}"{% endif %}
+{% endset %}
+
+{% set band_footer %}
+    {% if footer.layout %} data-rh-layout="{{ footer.layout }}"{% endif %}
+    {% if footer.theme %} data-rh-theme="{{ footer.theme }}"{% endif %}
+{% endset %}
+<div class="rh-band{{ band_classes }}"{{ band_props }}>
+    <div class="rh-band-container" {{ band_container }}>
+        <section class="rh-band-main" {{ band_main }}>
+            {% if header.content is iterable or block('header') is not empty %}
+                <header class="rh-band-header"{{ band_header }}>
+                    {% for item in header.content %}
+                        {% include item.template ?: item.name ~ '.twig' with item only %}
+                    {% else %} {% block header %}{% endblock %}
+                    {% endfor %}
+                </header>
+            {% endif %}
+            {% if body.content is iterable or block('body') is not empty %}
+                <div class="rh-band-content"{{ band_body }}>
+                    {% for item in body.content %}
+                        {% include item.template ?: item.name ~ '.twig' with item only %}
+                    {% else %} {% block body %}{% endblock %}
+                    {% endfor %}
+                </div>
+            {% endif %}
+            {% if footer.content is iterable or block('footer') is not empty %}
+                <footer class="rh-band-footer"{{ band_footer }}>
+                    {% for item in footer.content %}
+                        {% include item.template ?: item.name ~ '.twig' with item only %}
+                    {% else %} {% block footer %}{% endblock %}
+                    {% endfor %}
+                </footer>
+            {% endif %}
+        </section>
+        {% if aside.content is iterable or block('aside') is not empty %}
+            <aside class="rh-band-aside">
+                {% for item in aside.content %}
+                    {% include item.template ?: item.name ~ '.twig' with item only %}
+                {% else %} {% block aside %}{% endblock %}
+                {% endfor %}
+            </aside>
+        {% endif %}
+    </div>
+</div>

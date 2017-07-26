@@ -1,0 +1,36 @@
+name: band_group
+background:
+    image_large:
+        src: /fixtures/images/red.png
+    image_small:
+        src: /fixtures/images/blue.png
+    isFixed: false
+config:
+    group_height: content
+header:
+    content:
+        - name: band
+          background:
+              color: transparent
+          body:
+              content:
+                  - name: raw
+                    content: "<div style='height: 100px; background: gray'></div>"
+body:
+    content:
+        - name: band
+          background:
+              color: transparent
+          body:
+              content:
+                  - name: raw
+                    content: "<div style='height: 100px; background: white'></div>"
+footer:
+    content:
+        - name: band
+          background:
+              color: transparent
+          body:
+              content:
+                  - name: raw
+                    content: "<div style='height: 100px; background: #c00'></div>"

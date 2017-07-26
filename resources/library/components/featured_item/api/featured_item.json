@@ -1,0 +1,65 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Featured item",
+    "description": "Promoted or emphasized item",
+    "category": "component",
+    "type": "object",
+    "format": "grid",
+    "properties": {
+        "name": {
+            "type": "string",
+            "enum": [ "featured_item" ],
+            "options": {
+                "hidden": true
+            }
+        },
+        "template": {
+            "type": "string",
+            "options": {
+                "hidden": true
+            }
+        },
+        "misc_data": {
+            "type": "string",
+            "options": {
+                "hidden": true
+            }
+        },
+        "title": {
+            "title": "Title",
+            "type": "string"
+        },
+        "type": {
+            "title": "Category or Type",
+            "type": "string"
+        },
+        "date": {
+            "title": "Date",
+            "type": "string"
+        },
+        "location": {
+            "title": "Location",
+            "type": "string"
+        },
+        "logo": {
+            "title": "Image or Logo",
+            "$ref": "image.json"
+        },
+        "summary": {
+            "title": "Summary",
+            "description": "Summary text. Anchor tags allowed",
+            "type": "string",
+            "format": "textarea"
+        },
+        "primary_link": {
+            "title": "Primary Link",
+            "$ref": "link.json"
+        },
+        "secondary_link": {
+            "title": "Secondary Link",
+            "$ref": "link.json"
+        }
+    },
+    "required": [ "name", "title", "primary_link" ],
+    "additionalProperties": false
+}

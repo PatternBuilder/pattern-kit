@@ -1,0 +1,75 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Icon Panel Box",
+    "category": "sub_pattern",
+    "type": "object",
+    "properties": {
+        "name": {
+            "type": "string",
+            "enum": [ "icon_panel_box" ],
+            "options": {
+                "hidden": true
+            }
+        },
+        "container": {
+            "title": "Config",
+            "type": "object",
+            "properties": {
+                "theme": {
+                    "$ref": "config.json#/properties/component/properties/theme"
+                }
+            }
+        },
+        "icon": {
+            "title": "Icon",
+            "type": "object",
+            "properties": {
+                "filename": {
+                    "title": "Icon file name",
+                    "type": "string",
+                    "description": "<a target='_blank' href='http://styleguides-itmarketing.itos.redhat.com/webux/styleguide/docs/styles_-_icons.html'>Choose your icon from The RH Icon List</a>"
+                },
+                "size": {
+                    "$ref": "config.json#/properties/component/properties/size"
+                },
+                "background": {
+                    "title": "Background",
+                    "type": "string",
+                    "enum": [ "red", "gray" ]
+                }
+            }
+        },
+        "content": {
+            "title": "Content",
+            "required": [ "title", "summary" ],
+            "type": "object",
+            "properties": {
+                "title": {
+                    "title": "Title",
+                    "type": "string"
+                },
+                "summary": {
+                    "title": "Summary",
+                    "type": "string",
+                    "format": "html",
+                    "description": "Allowed tags: &lt;a&gt;&lt;br&gt;&lt;sup&gt;&lt;small&gt;"
+                }
+            }
+        },
+        "cta": {
+            "options": {
+                "collapsed": true
+            },
+            "title": "Optional CTA button",
+            "type": "object",
+            "properties": {
+                "link": {
+                    "title": "Call-to-action",
+                    "$ref": "link.json"
+                }
+            }
+        }
+    },
+    "required": [ "content", "container", "name" ],
+    "additionalProperties": false
+}

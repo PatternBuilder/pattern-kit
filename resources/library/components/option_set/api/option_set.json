@@ -1,0 +1,98 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Option set",
+    "description": "A set of options for a user to choose from.",
+    "type": "object",
+    "status": "private",
+    "format": "grid",
+    "category": "component",
+    "properties": {
+        "name": {
+            "type": "string",
+            "enum": [ "option_set" ],
+            "options": {
+                "hidden": true
+            }
+        },
+        "input_type": {
+            "title": "Option-set type",
+            "description": "Can users select only one of the options or multiple?",
+            "type": "string",
+            "enum": [ "Single select", "Multi-select" ],
+            "default": "Single select",
+            "options": {
+                "grid_columns": 4
+            }
+        },
+        "set_id": {
+            "title": "Custom ID",
+            "description": "Use this to set a customized ID for the option group.",
+            "type": "string",
+            "pattern": "^([a-z_0-9])*$",
+            "options": {
+                "grid_columns": 4
+            }
+        },
+        "input_item": {
+            "title": "Options",
+            "type": "array",
+            "minItems": 1,
+            "required": [ "items" ],
+            "options": {
+                "grid_columns": 12
+            },
+            "items": {
+                "title": "Option",
+                "type": "object",
+                "format": "grid",
+                "required": [ "label", "id" ],
+                "properties": {
+                    "selected": {
+                        "title": "Pre-selected",
+                        "description": "Is this option pre-selected on page load?",
+                        "type": "boolean",
+                        "default": false,
+                        "options": {
+                            "grid_columns": 6
+                        }
+                    },
+                    "disabled": {
+                        "title": "Disabled",
+                        "description": "Is this option disabled on page load?",
+                        "type": "boolean",
+                        "default": false,
+                        "options": {
+                            "grid_columns": 6
+                        }
+                    },
+                    "label": {
+                        "title": "Option label",
+                        "description": "Option label",
+                        "type": "string",
+                        "options": {
+                            "grid_columns": 6
+                        }
+                    },
+                    "id": {
+                        "title": "Option ID",
+                        "description": "Unique ID for this option. Make sure there are not duplicate IDs on your page.",
+                        "type": "string",
+                        "pattern": "^([a-z_0-9])+$",
+                        "options": {
+                            "grid_columns": 6
+                        }
+                    },
+                    "misc": {
+                        "title": "Miscellaneous data attribute",
+                        "type": "string",
+                        "options": {
+                            "grid_columns": 6
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "required": [ "name", "input_type", "input_item" ],
+    "additionalProperties": false
+}

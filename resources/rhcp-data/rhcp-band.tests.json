@@ -1,0 +1,205 @@
+{
+    "name": "rhcp-band",
+    "meta": {
+        "class": [ "foo", "bar", "baz" ],
+        "id": "customID",
+        "uniqueId": "1234"
+    },
+    "background": {
+        "color": "gray"
+    },
+    "header": {
+        "content": [
+            {
+                "name": "group",
+                "body": {
+                    "layout": "9 3",
+                    "content": [
+                        {
+                            "name": "card",
+                            "config": {
+                                "theme": "dark"
+                            }
+                        },
+                        {
+                            "name": "card",
+                            "config": {
+                                "theme": "dark"
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "aside": {
+        "content": [
+            {
+                "name": "card",
+                "background": {
+                    "color": "black"
+                },
+                "body": {
+                    "content": [
+                        {
+                            "name": "raw",
+                            "content": ""
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "footer": {
+        "layout": "8 4",
+        "content": [
+            {
+                "name": "group",
+                "body": {
+                    "layout": "4 4 of 8",
+                    "content": [
+                        {
+                            "name": "card",
+                            "config": {
+                                "theme": "dark"
+                            }
+                        },
+                        {
+                            "name": "card",
+                            "config": {
+                                "theme": "dark"
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "card",
+                "config": {
+                    "theme": "dark"
+                }
+            }
+        ]
+    },
+    "body": {
+        "layout": "stacked",
+        "content": [
+            {
+                "name": "group",
+                "body": {
+                    "layout": "gallery6",
+                    "content": [
+                        {
+                            "name": "card",
+                            "config": {
+                                "theme": "dark"
+                            }
+                        },
+                        {
+                            "name": "card",
+                            "config": {
+                                "theme": "dark"
+                            }
+                        },
+                        {
+                            "name": "card",
+                            "config": {
+                                "theme": "dark"
+                            }
+                        },
+                        {
+                            "name": "card",
+                            "config": {
+                                "theme": "dark"
+                            }
+                        },
+                        {
+                            "name": "card",
+                            "config": {
+                                "theme": "dark"
+                            }
+                        },
+                        {
+                            "name": "card",
+                            "config": {
+                                "theme": "dark"
+                            }
+                        },
+                        {
+                            "name": "card",
+                            "config": {
+                                "theme": "dark"
+                            }
+                        },
+                        {
+                            "name": "card",
+                            "config": {
+                                "theme": "dark"
+                            }
+                        },
+                        {
+                            "name": "card",
+                            "config": {
+                                "theme": "dark"
+                            }
+                        },
+                        {
+                            "name": "card",
+                            "config": {
+                                "theme": "dark"
+                            }
+                        },
+                        {
+                            "name": "card",
+                            "config": {
+                                "theme": "dark"
+                            }
+                        },
+                        {
+                            "name": "card",
+                            "config": {
+                                "theme": "dark"
+                            }
+                        },
+                        {
+                            "name": "card",
+                            "config": {
+                                "theme": "dark"
+                            }
+                        },
+                        {
+                            "name": "card",
+                            "config": {
+                                "theme": "dark"
+                            }
+                        },
+                        {
+                            "name": "card",
+                            "config": {
+                                "theme": "dark"
+                            }
+                        },
+                        {
+                            "name": "card",
+                            "config": {
+                                "theme": "dark"
+                            }
+                        },
+                        {
+                            "name": "card",
+                            "config": {
+                                "theme": "dark"
+                            }
+                        },
+                        {
+                            "name": "card",
+                            "config": {
+                                "theme": "dark"
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}

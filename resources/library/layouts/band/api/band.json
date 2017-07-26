@@ -1,0 +1,226 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Band",
+    "category": "layout",
+    "type": "object",
+    "format": "grid",
+    "required": ["name"],
+    "additionalProperties": false,
+    "properties": {
+        "name": {
+            "type": "string",
+            "enum": ["band"],
+            "options": {
+                "hidden": true
+            }
+        },
+        "template": {
+            "type": "string",
+            "options": {
+                "hidden": true
+            }
+        },
+        "meta": {
+            "type": "object",
+            "properties": {
+                "class": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "id": {
+                    "type": "string"
+                },
+                "uniqueId": {
+                    "type": "string",
+                    "options": {
+                        "hidden": true
+                    }
+                },
+                "dtm": {
+                    "title": "Tracking labels",
+                    "description": "Used for analytics tracking to uniquely identify a section. Enter each tracking string separately.",
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "config": {
+            "title": "Configuration",
+            "type": "object",
+            "format": "grid",
+            "properties": {
+                "collapse": {
+                    "title": "Collapse band padding",
+                    "type": "string",
+                    "enum": ["full_top", "full_bottom", "full", "top", "bottom", "both"]
+                },
+                "vertical_spacing": {
+                    "title": "Band vertical layout",
+                    "description": "Vertical space between header, body and footer",
+                    "type": "string",
+                    "default": "stacked",
+                    "enum": ["stacked", "tall-stacked"]
+                }
+            }
+        },
+        "background": {
+            "title": "Background Options",
+            "type": "object",
+            "format": "grid",
+            "properties": {
+                "color": {
+                    "type": "string",
+                    "enum": ["white", "gray", "black", "rich-black", "red", "transparent"]
+                },
+                "image_large": {
+                    "$ref": "image.json",
+                    "title": "Large Screen Background"
+                },
+                "image_small": {
+                    "$ref": "image.json",
+                    "title": "Small Screen Background"
+                },
+                "isFixed": {
+                    "title": "Fixed Background Option",
+                    "type": "boolean"
+                },
+                "align": {
+                    "title": "Alignment for background image",
+                    "type": "string",
+                    "enum": ["center-center", "right-center", "left-center"],
+                    "default": "center-center",
+                    "options": {
+                        "hidden": true
+                    }
+                }
+            }
+        },
+        "header": {
+            "title": "Header",
+            "type": "object",
+            "format": "grid",
+            "properties": {
+                "layout": {
+                    "type": "string"
+                },
+                "theme": {
+                    "type": "string",
+                    "enum": ["light", "dark"]
+                },
+                "content": {
+                    "type": "array",
+                    "maxItems": 1,
+                    "items": {
+                        "title": "Header Item",
+                        "oneOf": [{
+                            "$ref": "band_header.json"
+                        }]
+                    }
+                }
+            }
+        },
+        "body": {
+            "title": "Body",
+            "type": "object",
+            "format": "grid",
+            "properties": {
+                "layout": {
+                    "type": "string"
+                },
+                "theme": {
+                    "type": "string",
+                    "enum": ["light", "dark"]
+                },
+                "content": {
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                        "title": "Body Item",
+                        "oneOf": [{
+                            "$ref": "band_header.json"
+                        }, {
+                            "$ref": "cta.json"
+                        }, {
+                            "$ref": "customer_success.json"
+                        }, {
+                            "$ref": "featured_item.json"
+                        }, {
+                            "$ref": "generic.json"
+                        }, {
+                            "$ref": "image_embed.json"
+                        }, {
+                            "$ref": "link_tile.json"
+                        }, {
+                            "$ref": "pagination.json"
+                        }, {
+                            "$ref": "quote.json"
+                        }, {
+                            "$ref": "icon_panel.json"
+                        }, {
+                            "$ref": "icon_embed.json"
+                        }, {
+                            "$ref": "video_embed.json"
+                        }, {
+                            "$ref": "card.json"
+                        }, {
+                            "$ref": "group.json"
+                        }, {
+                            "$ref": "raw.json"
+                        }]
+                    }
+                }
+            }
+        },
+        "footer": {
+            "title": "Footer",
+            "type": "object",
+            "format": "grid",
+            "properties": {
+                "layout": {
+                    "type": "string"
+                },
+                "theme": {
+                    "type": "string",
+                    "enum": ["light", "dark"]
+                },
+                "content": {
+                    "type": "array",
+                    "maxItems": 1,
+                    "items": {
+                        "title": "Footer item",
+                        "oneOf": [{
+                            "$ref": "cta.json"
+                        },{
+                            "$ref": "footnote.json"
+                        }]
+                    }
+                }
+            }
+        },
+        "aside": {
+            "title": "Aside",
+            "type": "object",
+            "format": "grid",
+            "properties": {
+                "content": {
+                    "type": "array",
+                    "maxItems": 1,
+                    "items": {
+                        "title": "Aside Item",
+                        "oneOf": [{
+                            "$ref": "card.json"
+                        }, {
+                            "$ref": "group.json"
+                        }, {
+                            "$ref": "raw.json"
+                        }]
+                    }
+                }
+            }
+        }
+    }
+}

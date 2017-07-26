@@ -1,0 +1,71 @@
+.rh-form-header {
+    &--component {
+        @include flex(
+            $flow: column nowrap
+        );
+        flex-grow: 1;
+        position: relative;
+        > *:last-child {
+            margin-bottom: 0;
+        }
+    }
+    &-content {
+        @extend %tooltip-indicator-enabled;
+        position: relative;
+    }
+    &-title {
+        @extend %tooltip-title;
+    }
+    &-headline {
+        @extend %tooltip-headline;
+    }
+    &-summary {
+        @include breakpoint($breakpoint-md-min) {
+            @include span(8 of 12);
+        }
+        @include data-context(align, center) {
+            margin-left: auto;
+            margin-right: auto;
+        }
+        @include data-context(align, right) {
+            margin-left: auto;
+        }
+        > * {
+            @extend %detail-text;
+        }
+    }
+    &-tooltip {
+        display: none;
+        position: relative;
+        max-width: 350px;
+        margin: 0 0 10px;
+        padding: $box-padding/2;
+        // !important is required here due to slideDown/Up + pseudo element
+        overflow: visible !important;
+        background-color: color(white);
+        border: 1px solid color(gray3);
+        @include data(theme, dark) {
+            background-color: color(black);
+            border: 1px solid color(black);
+        }
+        &-content {
+            @extend %fade-in-on-open;
+            > * {
+                @extend %tooltip-text;
+            }
+        }
+        &-arrow {
+            @include arrow(
+                $type: up,
+                $color: color(white),
+                $width: 10px,
+                $height: 10px,
+                $pseudo: true) {
+                top: -10px;
+            }
+            @include data-context(theme, dark) {
+                border-top-color: color(black);
+            }
+        }
+    }
+}

@@ -1,0 +1,27 @@
+## Option set group subpattern
+
+### Example usage
+
+```
+{% include 'option_group.twig' with {
+    "header": {
+        "headline": "Subscription",
+        "summary": "<p>Sed porttitor lectus nibh. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Vivamus suscipit tortor eget felis porttitor volutpat. Curabitur aliquet quam id dui posuere blandit. Proin eget tortor risus.</p>",
+        "tooltip_text": "<p>Sed porttitor lectus nibh. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Vivamus suscipit tortor eget felis porttitor volutpat. Curabitur aliquet quam id dui posuere blandit. Proin eget tortor risus.</p>"
+    },
+    "option_items": {
+        "input_type": "Single select",
+        "legend": "Subscription",
+        "input_item": [{
+            "label": "Standard subscription (1 year)",
+            "id": "standard"
+        },{
+            "label": "Premium subscription (1 year)",
+            "id": "premium"
+        },{
+            "label": "Self-support",
+            "id": "self"
+        }]
+    }
+} only %}
+```

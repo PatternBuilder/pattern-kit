@@ -1,0 +1,96 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Pagination",
+    "category": "component",
+    "type": "object",
+    "format": "grid",
+    "required": [ "name", "pages" ],
+    "additionalProperties": false,
+    "properties": {
+        "name": {
+            "type": "string",
+            "enum": [ "pagination" ],
+            "options": {
+                "hidden": true
+            }
+        },
+        "template": {
+            "type": "string",
+            "options": {
+                "hidden": true
+            }
+        },
+        "misc_data": {
+            "type": "string",
+            "options": {
+                "hidden": true
+            }
+        },
+        "config": {
+            "type": "object",
+            "properties": {
+                "align": {
+                    "title": "Alignment",
+                    "type": "string",
+                    "default": "center",
+                    "enum": [ "left", "right", "center" ]
+                }
+            }
+        },
+        "pages": {
+            "format": "table",
+            "description": "Individual page links",
+            "type": "array",
+            "minItems": 1,
+            "items": {
+                "type": "object",
+                "format": "grid",
+                "required": [ "state", "link" ],
+                "properties": {
+                    "state": {
+                        "type": "string",
+                        "enum": [ "active", "inactive" ]
+                    },
+                    "link": {
+                        "$ref": "link.json"
+                    }
+                }
+            }
+        },
+        "buttons": {
+            "type": "object",
+            "properties": {
+                "prev": {
+                    "description": "Previous Button",
+                    "type": "object",
+                    "format": "grid",
+                    "required": [ "state", "link" ],
+                    "properties": {
+                        "state": {
+                            "type": "string",
+                            "enum": [ "active", "inactive" ]
+                        },
+                        "link": {
+                            "$ref": "link.json"
+                        }
+                    }
+                },
+                "next": {
+                    "description": "Next Button",
+                    "type": "object",
+                    "format": "grid",
+                    "required": [ "state", "link" ],
+                    "properties": {
+                        "state": {
+                            "type": "string",
+                            "enum": [ "active", "inactive" ]
+                        },
+                        "link": {
+                            "$ref": "link.json"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,12 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "category": "atom",
+    "entity": "video",
+    "type": "object",
+    "properties": {
+        "video_src": {
+            "type": "string"
+        }
+    },
+    "required": [ "video_src" ]
+}

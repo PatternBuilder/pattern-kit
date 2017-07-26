@@ -1,0 +1,54 @@
+
+{% if header.title or header.headline %}
+    {% set header_content = [{
+        "name": "band_header",
+        "config": {
+            "size": "band",
+            "seo": {
+                "position": "secondary",
+                "priority": header.seo_emphasis ?: "standard"
+            }
+        },
+        "title": header.title,
+        "headline": header.headline,
+        "summary": header.summary
+    }] %}
+{% endif %}
+
+{% if body.content %}
+    {% set body_content = [{
+        "name": "generic",
+        "content": body.content
+    }] %}
+{% endif %}
+
+{% if cta.link.href %}
+    {% set footer_content =  [{
+        "name": "cta",
+        "config": {
+            "type": cta.type ?: "primary"
+        },
+        "link": cta.link
+    }] %}
+{% endif %}
+
+{% embed 'band.twig' with {
+    "global": _context,
+    "meta": meta,
+    "background": {
+        "color": config.background
+    },
+    "header": {
+        "theme": header.theme,
+        "content": header_content
+    },
+    "body": {
+        "layout": config.layout,
+        "theme": header.theme,
+        "content": body_content
+    },
+    "footer": {
+        "content": footer_content
+    }
+} only %}
+{% endembed %}

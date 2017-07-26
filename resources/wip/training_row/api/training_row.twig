@@ -1,0 +1,15 @@
+<div class="rh-training-row--component" data-rh-featured="{{ featured }}">
+    <div class="rh-training-row-icons">
+        {% if icon -%}<span class="{{ icon }} rh-training-row-icon" role="icon"></span>{% endif %}
+        {%- if icon2 -%}<span class="{{ icon2 }} rh-training-row-icon" role="icon"></span>{% endif %}
+    </div>
+    <div class="rh-training-row-details">
+        <h3 class="rh-training-row-title">{{ title }}</h3>
+        {%- if designation -%} <p class="rh-training-row-designation">{{ designation }}</p>{% endif %}
+        <p class="rh-training-row-summary">{{ summary }}</p>
+    </div>
+    <div class="rh-training-row-contact">
+        <a class="rh-training-row-action"
+           href="{{ link.url }}"{%- if link.title -%} title="{{ link.title }}"{% endif %}>{{ link.text }}</a>
+    </div>
+</div>

@@ -1,0 +1,44 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Video embed",
+    "description": "The video embed component can be displayed with an inline video using a YouTube iFrame (for use in cards or as detail page) or a poster image that links to the video's detail page.",
+    "category": "component",
+    "type": "object",
+    "format": "grid",
+    "required": [ "video", "name" ],
+    "additionalProperties": false,
+    "properties": {
+        "name": {
+            "type": "string",
+            "enum": [ "video_embed" ],
+            "options": {
+                "hidden": true
+            }
+        },
+        "template": {
+            "type": "string",
+            "options": {
+                "hidden": true
+            }
+        },
+        "misc_data": {
+            "type": "string",
+            "options": {
+                "hidden": true
+            }
+        },
+        "video": {
+            "title": "Video Source",
+            "$ref": "video.json"
+        },
+        "title": {
+            "title": "Video Title and URL",
+            "$ref": "link.json"
+        },
+        "summary": {
+            "title": "Summary of the video content",
+            "type": "string",
+            "format": "textarea"
+        }
+    }
+}

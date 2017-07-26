@@ -1,0 +1,85 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Store option-set band",
+    "description": "Add this to your web store page to build sets of options.  Includes price, SKU, and add to cart button.",
+    "type": "object",
+    "category": "pattern",
+    "status": "private",
+    "format": "grid",
+    "properties": {
+        "name": {
+            "type": "string",
+            "enum": ["store_option_set_band"],
+            "options": {
+                "hidden": true
+            }
+        },
+        "meta": {
+            "type": "object",
+            "options": {
+                "hidden": true
+            },
+            "properties": {
+                "class": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "id": {
+                    "type": "string"
+                },
+                "uniqueId": {
+                    "type": "string"
+                }
+            }
+        },
+        "header": {
+            "title": "Header",
+            "type": "object",
+            "properties": {
+                "headline": {
+                    "$ref": "band_header.json#/properties/headline",
+                    "title": "Headline",
+                    "options": {
+                        "grid_column": 12,
+                        "preview": true
+                    }
+                },
+                "summary": {
+                    "$ref": "band_header.json#/properties/summary",
+                    "title": "Summary"
+                }
+            }
+        },
+        "body": {
+            "title": "Body",
+            "type": "object",
+            "properties": {
+                "content": {
+                    "title": "Sub patterns",
+                    "type": "array",
+                    "format": "tabs",
+                    "items": {
+                        "title": "Set",
+                        "oneOf": [{
+                            "$ref": "option_group.json"
+                        },{
+                            "$ref": "quantity_group.json"
+                        }]
+                    }
+                }
+            }
+        },
+        "footer": {
+            "$ref": "footnote.json#/properties/footnotes",
+            "title": "Footer",
+            "description": "Enter each point of text into a separate footnote item.",
+            "options": {
+                "collapsed": true
+            }
+        }
+    },
+    "required": ["name", "body"],
+    "additionalProperties": false
+}

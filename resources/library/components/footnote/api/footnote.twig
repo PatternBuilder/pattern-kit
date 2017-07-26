@@ -1,0 +1,21 @@
+<!-- Footnote Component -->
+<div class="rh-footnote--component"
+    {% if misc_data %} {{misc_data}}{% endif %}
+    {% if align %} data-rh-align="{{align}}"{% endif %}>
+
+    {% if indicator == "numbered" %}
+        {% set tag = "ol" %}
+    {% else %}
+        {% set tag = "ul" %}
+    {% endif %}
+
+    {% if footnotes is iterable %}
+        <{{ tag }} class="rh-footnote-container"
+            {% if indicator %}data-rh-list-symbol="{{ indicator }}"{%
+        endif %}>
+            {% for item in footnotes %}
+                <li class="rh-footnote-item">{{item.footnote|striptags('<a><strong><b><span><sup><em><i>')|raw}}</li>
+            {% endfor %}
+        </{{ tag }}>
+    {% endif %}
+</div>

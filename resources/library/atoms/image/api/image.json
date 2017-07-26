@@ -1,0 +1,26 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "category": "atom",
+    "title": "Image",
+    "entity": "image",
+    "type": "object",
+    "format": "grid",
+    "properties": {
+        "src": {
+            "title": "Image source",
+            "type": "string",
+            "format": "url",
+            "options": {
+                "grid_columns": 3
+            }
+        },
+        "alt": {
+            "title": "Alt Text",
+            "type": "string",
+            "options": {
+                "grid_columns": 3
+            }
+        }
+    },
+    "required": [ "src" ]
+}

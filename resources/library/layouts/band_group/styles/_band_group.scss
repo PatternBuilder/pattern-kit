@@ -1,0 +1,51 @@
+.rh-band-group {
+    &-wrapper {
+        position: relative;
+        @include data-context(group-size, full) {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+    }
+    &-background {
+        position: absolute;
+        will-change: transform;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        z-index: -1;
+        @include data(background-fixed) {
+            position: fixed;
+        }
+        $background-colors: (
+            gray: gray2,
+            white: white,
+            black: black,
+            rich-black: rich-black,
+            transparent: transparent,
+            red: brand-primary
+        );
+        @each $name, $color in $background-colors {
+            @include data(background, $name) {
+                background-color: color($color);
+            }
+        }
+    }
+    &-header {
+        z-index: 2; // Header must be above body
+        position: relative;
+    }
+    &-body {
+        position: relative;
+        @include data-context(group-size, full) {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+    }
+}

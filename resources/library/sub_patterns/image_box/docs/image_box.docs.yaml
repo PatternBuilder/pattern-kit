@@ -1,0 +1,25 @@
+name: image_box
+container:
+    type: card
+    background: gray
+    theme: light
+    align: left
+image:
+    align: bleed
+    src:
+        src: "/fixtures/images/mountain.jpg"
+    link:
+        href: "//www.redhat.com/en/resources/mufg-union-bank-serves-customers-faster-private-cloud-red-hat"
+        caption: This is a caption
+        title: Hover me
+    background:
+        color: gray
+        type: background
+copy:
+    title: My title
+    content: <p>This is copy</p>
+cta:
+    type: primary
+    link:
+        href: "//www.redhat.com/en/resources/mufg-union-bank-serves-customers-faster-private-cloud-red-hat"
+        text: Click me

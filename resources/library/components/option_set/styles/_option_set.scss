@@ -1,0 +1,22 @@
+.#{$repo}-option-set {
+    &--component {}
+    &-container {
+        @extend %list-flush-no-styles;
+        position: relative;
+        > * {
+            margin-bottom: 10px;
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+    &-item {
+        position: relative;
+        @include data-context(select-type, radio) {
+            @extend %custom-radio-container;
+        }
+        @include data-context(select-type, checkbox) {
+            @extend %custom-checkbox-container;
+        }
+    }
+}

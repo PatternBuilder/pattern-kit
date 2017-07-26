@@ -1,0 +1,275 @@
+%default-paragraph {
+    display: block;
+    color: color(copy);
+    @include data-context(theme, dark) {
+        color: color(white);
+    }
+    font-family: $base-font-family;
+    font-size: 1em;
+    font-weight: normal;
+    line-height: 1.44;
+    margin: 0 0 1em;
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+%strong-paragraph {
+    font-weight: bold;
+    font-size: 1em;
+    font-family: $base-font-family;
+    margin: 0 0 1em;
+    color: color(rich-black);
+    @include data-context(theme, dark) {
+        color: color(gray3);
+    }
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+%description-paragraph {
+    display: block;
+    color: color(copy);
+    @include data-context(theme, dark) {
+        color: color(gray3);
+    }
+    font-family: $base-font-family;
+    font-size: pem(16);
+    font-weight: normal;
+    line-height: 1.4;
+    margin: 0 0 1em;
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+%default-ul {
+    font-family: $base-font-family;
+    color: color(copy);
+    @include data-context(theme, dark) {
+        color: color(white);
+    }
+    font-size: 1em;
+    margin: 0 0 1.5em;
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+%default-li {
+    font-family: $base-font-family;
+    color: color(copy);
+    @include data-context(theme, dark) {
+        color: color(white);
+    }
+    font-size: 1em;
+    margin: 0;
+    line-height: 1.44;
+}
+%default-ol {
+    font-family: $base-font-family;
+    color: color(copy);
+    @include data-context(theme, dark) {
+        color: color(white);
+    }
+    font-size: 1em;
+    margin: 0 0 1.5em;
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+%default-reset {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    border: 0;
+}
+%default-dl {
+    font-family: $base-font-family;
+    color: color(copy);
+    @include data-context(theme, dark) {
+        color: color(white);
+    }
+    margin-top: 0;
+    font-size: 1em;
+    line-height: 1.2;
+    margin-bottom: 1.5em;
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+%default-dt {
+    font-family: $base-font-family;
+    color: color(copy);
+    font-weight: 600;
+    @include data-context(theme, dark) {
+        color: color(white);
+    }
+    margin-top: 0;
+    font-size: 1em;
+}
+%default-dd {
+    font-family: $base-font-family;
+    color: color(copy);
+    @include data-context(theme, dark) {
+        color: color(white);
+    }
+    margin: 0 0 1em;
+    font-size: 1em;
+}
+////
+// Quote styling
+////
+%quote {
+    font-family: $base-font-family;
+    margin: 0 0 1em;
+    font-size: pem(16);
+    @include eq-context(large) {
+        font-size: pem(25);
+        margin: 0 0 pem(18, 25);
+    }
+    line-height: 1.2;
+    color: color(black);
+    @include data-context(theme, dark) {
+        color: color(white);
+    }
+    font-style: italic;
+    @include get-web-icon(open-quote) {
+        color: color(brand-primary);
+        float: left;
+        margin-right: 1px;
+    }
+}
+%quote-footer {
+    font-family: $base-font-family;
+    color: color(copy);
+    @include data-context(theme, dark) {
+        color: color(gray1);
+    }
+    font-size: pem(14);
+    line-height: 1.142;
+    text-transform:uppercase;
+    &:before {
+        display: none;
+    }
+}
+
+%detail-text {
+    display: block;
+    font-family: $base-font-family;
+    font-size: .9em;
+    font-weight: normal;
+    line-height: 1.44;
+    color: color(copy);
+    margin: 0 0 1em;
+    border-bottom-color: color(gray1);
+    &:last-child {
+        margin-bottom: 0;
+    }
+    @include data-context(theme, dark) {
+        color: color(gray1);
+    }
+    a {
+        @extend %default-link;
+    }
+}
+
+
+%footnote-item {
+    display: block;
+    font-family: $base-font-family;
+    font-size: .8em;
+    font-weight: normal;
+    line-height: 1.44;
+    color: color(copy);
+    list-style: none;
+    margin: 0 0 .5em;
+    @include data-context(theme, dark) {
+        color: color(gray1);
+    }
+    &:last-child {
+        margin-bottom: 0;
+    }
+    @include data-context(list-symbol) {
+        counter-increment: step-counter;
+        position: relative;
+        margin-left: 1.2em;
+        &:before {
+            vertical-align: super;
+            position: absolute;
+            @include data-context(align, center, right) {
+                position: relative;
+            }
+        }
+    }
+    @include data-pseudo(list-symbol, before, numbered) {
+        font-size: .7em;
+        left: -15px;
+        content: "[" counter(step-counter) "] ";
+        @include data-context(align, center right) {
+            left: 0;
+        }
+    }
+    @include data-pseudo(list-symbol, before, asterisk) {
+        font-size: .8em;
+        left: -10px;
+        content: "*";
+        @include data-context(align, center right) {
+            left: 0;
+        }
+    }
+    a {
+        text-decoration: none;
+        color: inherit;
+        border-bottom-color: inherit;
+        border-bottom-width: 1px;
+        border-bottom-style: solid;
+        &:hover,
+        &:focus {
+            outline: none;
+        }
+    }
+}
+
+
+%site-footer-text {
+    font-family: $base-font-family;
+    font-size: .7em;
+    font-weight: normal;
+    line-height: 1.44;
+    color: color(copy);
+    @include data-context(theme, dark) {
+        color: color(gray3);
+    }
+    a {
+        text-decoration: none;
+        color: inherit;
+        //border-bottom: 1px solid #393939;
+        &:hover,
+        &:focus {
+            outline: none;
+            color: color(link);
+            //border-bottom-color: color(gray3);
+        }
+    }
+}
+
+%card-summary {
+    display: block;
+    font-family: $base-font-family;
+    font-size: 1em;
+    font-weight: normal;
+    line-height: 1.44;
+    color: color(copy);
+    @include data-context(theme, dark) {
+        color: color(white);
+    }
+    margin: 0 0 1em;
+    &:last-child {
+        margin-bottom: 0;
+    }
+    a {
+        text-decoration: none;
+        color: color(link);
+        &:hover {
+            color: color(link);
+        }
+    }
+}

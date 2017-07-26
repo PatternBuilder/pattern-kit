@@ -1,0 +1,23 @@
+{% embed 'carousel_slide.twig' with {
+    "global": _context,
+    'config': {
+        'theme': promo.theme
+    },
+    'background': {
+        'image_large': background.image_large.src,
+        'image_small': background.image_small.src,
+        'color': background.color,
+        'custom_color': background.custom_color
+    }
+} only %}
+
+    {% block body %}
+        {% include 'promo.twig' with {
+            "headline": global.promo.headline,
+            "text": global.promo.text,
+            "cta": global.promo.cta
+        } only %}
+    {% endblock %}
+
+{% endembed %}
+

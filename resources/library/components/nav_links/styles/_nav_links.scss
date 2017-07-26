@@ -1,0 +1,113 @@
+.#{$repo}-navigation-link {
+    @include data-context(nav-type, utility) {
+         @extend %nav-utility-link;
+    }
+    @include data-context(nav-type, menu) {
+         @extend %nav-menu-link;
+    }
+    &--component {
+        @include clearfix;
+        @extend %list-flush-no-styles;
+        @include flex(
+            $flow: row nowrap,
+            $align: center,
+            $justify: flex-start
+        );
+        @include data-context(toggle-target) {
+            flex-flow: column nowrap;
+        }
+        @include data(nav-type, menu) {
+            justify-content: center;
+            align-items: flex-start;
+            @include breakpoint($breakpoint-sm-min) {
+                justify-content: space-between;
+                flex-grow: 1;
+            }
+        }
+        @include data(nav-type, utility) {
+            @include breakpoint($breakpoint-zero $breakpoint-xs-max) {
+                display: flex;
+            }
+        }
+        @include data-context(menu-context, top-mobile) {
+            @include flex(
+                $align: center,
+                $justify: center
+            );
+        }
+        @include data-context(menu-context, bottom-mobile) {
+            padding: 0 $mobile-edge;
+            flex-grow: 1;
+            @include flex(
+                $flow: row wrap,
+                $align: center,
+                $justify: center
+            );
+        }
+        margin: 0;
+    }
+    &-container {
+        @extend %list-flush-no-styles;
+        @extend %text-align-enabled;
+        @include data-context(toggle-target) {
+            @include flex();
+            width: 100%;
+            padding: pem(10) $mobile-edge;
+            background-color: color(black);
+            border-bottom: 1px solid color(gray2, .1);
+            &:hover {
+                cursor: pointer;
+                background-color: color(black, .9);
+                @include breakpoint($breakpoint-sm-min) {
+                    background-color: transparent;
+                }
+            }
+            @include breakpoint($breakpoint-sm-min) {
+                @include flex( $flow: row wrap );
+                background-color: transparent;
+                border-bottom: none;
+                &:not(:last-child) {
+                    margin-right: 1em;
+                }
+            }
+        }
+        @include data-context(nav-type, utility) {
+            @include breakpoint($breakpoint-sm-min) {
+                &:not(:last-child) {
+                    padding-right: 1.4em;
+                }
+            }
+        }
+        @include data-context(menu-context, bottom-mobile) {
+            flex-grow: 1;
+        }
+    }
+    &-icon {
+        @extend %nav-utility-icon;
+        @include data(icon-type, web-icon-mobile-menu, web-icon-plus, web-icon-upload) {
+            @extend %nav-utility-icon-ui;
+        }
+        @include flex(
+            $flow: row wrap,
+            $align: center
+        );
+        @include breakpoint($breakpoint-sm-min) {
+            &:not(:last-child) {
+                padding-right: pem(30);
+            }
+        }
+    }
+
+    &-description {
+        @extend %nav-utility-icon-text;
+        padding: 8px $mobile-edge;
+        @include bp-styles("hide") {
+            display: none;
+        }
+        @include breakpoint($breakpoint-sm-min) {
+            display: block;
+            width: 100%;
+            padding: 0;
+        }
+    }
+}

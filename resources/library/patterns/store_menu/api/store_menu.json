@@ -1,0 +1,127 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Store menu",
+    "description": "",
+    "type": "object",
+    "category": "pattern",
+    "status": "private",
+    "format": "grid",
+    "properties": {
+        "name": {
+            "type": "string",
+            "readonly": true,
+            "enum": ["store_menu"],
+            "options": {
+                "hidden": true
+            }
+        },
+        "logo": {
+            "title": "Logo",
+            "type": "object",
+            "format": "grid",
+            "options": {
+                "grid_columns": 12
+            },
+            "properties": {
+                "link": {
+                    "title": "Link",
+                    "entity": "link",
+                    "type": "object",
+                    "format": "grid",
+                    "properties": {
+                        "href": {
+                            "$ref": "link.json#/properties/href",
+                            "options": {
+                                "grid_columns": 6
+                            }
+                        },
+                        "title": {
+                            "$ref": "link.json#/properties/title",
+                            "options": {
+                                "grid_columns": 6
+                            }
+                        }
+                    },
+                    "required": [ "href" ]
+                }
+            },
+            "required": [ "link" ]
+        },
+        "utility_links": {
+            "title": "Utility links",
+            "description": "",
+            "type": "array",
+            "maxItems": 4,
+            "items": {
+                "title": "Utility link",
+                "entity": "link",
+                "type": "object",
+                "format": "grid",
+                "properties": {
+                    "text": {
+                        "title": "Link text",
+                        "type": "string",
+                        "options": {
+                            "grid_columns": 4
+                        }
+                    },
+                    "title": {
+                        "title": "Title attribute",
+                        "description": "Shown on mouseover.",
+                        "type": "string",
+                        "options": {
+                            "grid_columns": 4
+                        }
+                    },
+                    "href": {
+                        "title": "Link URL",
+                        "type": "string",
+                        "format": "url",
+                        "options": {
+                            "grid_columns": 4
+                        }
+                    }
+                }
+            }
+        },
+        "nav_links": {
+            "title": "Menu links",
+            "description": "",
+            "type": "array",
+            "maxItems": 8,
+            "items": {
+                "title": "Menu link",
+                "entity": "link",
+                "type": "object",
+                "format": "grid",
+                "properties": {
+                    "text": {
+                        "title": "Link text",
+                        "type": "string",
+                        "options": {
+                            "grid_columns": 4
+                        }
+                    },
+                    "title": {
+                        "title": "Title attribute",
+                        "description": "Shown on mouseover.",
+                        "type": "string",
+                        "options": {
+                            "grid_columns": 4
+                        }
+                    },
+                    "href": {
+                        "title": "Link URL",
+                        "type": "string",
+                        "format": "url",
+                        "options": {
+                            "grid_columns": 4
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "required": ["name", "logo", "nav_links", "utility_links"],
+    "additionalProperties": false
+}

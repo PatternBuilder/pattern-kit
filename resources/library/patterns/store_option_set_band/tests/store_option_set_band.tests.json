@@ -1,0 +1,78 @@
+[{
+    "label": "Default value",
+    "data": {
+        "name": "store_option_set_band",
+        "header": {
+            "headline": "How would you like to configure Red Hat Enterprise Linux Server?",
+            "summary": "<p>Vidisse quem laboris, est fugiat nam dolor in cupidatat sed occaecat, ut tempor.</p>"
+        },
+        "body": {
+            "content": [{
+                "name": "quantity_group",
+                "headline": "Quantity",
+                "summary": "<p>Lorem description</p>",
+                "tooltip_text": "<p>Varias mentitum appellat eu quo malis excepteur senserit. Nam nescius praetermissum. Cillum de iis ipsum iudicem o non duis non duis, sed multos.</p>"
+            },{
+                "name": "option_group",
+                "header": {
+                    "headline": "Virtual hosts",
+                    "summary": "<p>Lorem description</p>",
+                    "tooltip_text": "<p>Varias mentitum appellat eu quo malis excepteur senserit. Nam nescius praetermissum. Cillum de iis ipsum iudicem o non duis non duis, sed multos.</p>"
+                },
+                "option_items": {
+                    "type": "Single select",
+                    "input_item": [{
+                        "label": "1 or 2",
+                        "id": "host1"
+                    },{
+                        "label": "Unlimited",
+                        "id": "host2"
+                    }]
+                }
+            },{
+                "name": "option_group",
+                "header": {
+                    "headline": "Subscription length",
+                    "summary": "<p>Lorem description</p>",
+                    "tooltip_text": "<p>Varias mentitum appellat eu quo malis excepteur senserit. Nam nescius praetermissum. Cillum de iis ipsum iudicem o non duis non duis, sed multos.</p>"
+                },
+                "option_items": {
+                    "type": "Single select",
+                    "input_item": [{
+                        "label": "Standard subscription",
+                        "id": "standard"
+                    },{
+                        "label": "Premium subscription",
+                        "id": "premium"
+                    },{
+                        "label": "Self-support",
+                        "id": "self"
+                    }]
+                }
+            },{
+                "name": "option_group",
+                "header": {
+                    "headline": "Add-on",
+                    "summary": "<p>Lorem description</p>",
+                    "tooltip_text": "<p>Varias mentitum appellat eu quo malis excepteur senserit. Nam nescius praetermissum. Cillum de iis ipsum iudicem o non duis non duis, sed multos.</p>"
+                },
+                "option_items": {
+                    "type": "Multi-select",
+                    "input_item": [{
+                        "label": "Smart Management",
+                        "id": "smart"
+                    },{
+                        "label": "High Availability",
+                        "id": "high"
+                    },{
+                        "label": "Resilient Storage",
+                        "id": "resilient"
+                    }]
+                }
+            }]
+        },
+        "footer": [{
+            "footnote": "This subscription is only available for a single socket-pair; it cannot be stacked or combined."
+        }]
+    }
+}]

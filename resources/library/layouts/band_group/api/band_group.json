@@ -1,0 +1,148 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Band Group",
+    "description": "The Band Group is a container that can hold any number of band type layouts. It also requires a background image that can be fixed, and responsive",
+    "category": "layout",
+    "type": "object",
+    "format": "grid",
+    "additionalProperties": false,
+    "required": [ "name", "config", "background" ],
+    "properties": {
+        "name": {
+            "type": "string",
+            "enum": [ "band_group" ],
+            "options": {
+                "hidden": true
+            }
+        },
+        "template": {
+            "type": "string",
+            "options": {
+                "hidden": true
+            }
+        },
+        "meta": {
+            "type": "object",
+            "properties": {
+                "class": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "id": {
+                    "type": "string"
+                },
+                "uniqueId": {
+                    "type": "string",
+                    "options": {
+                        "hidden": true
+                    }
+                }
+            }
+        },
+        "config": {
+            "title": "Configuration",
+            "type": "object",
+            "required": [ "group_height" ],
+            "properties": {
+                "group_height": {
+                    "title": "Group Height",
+                    "description": "Set the height of the band to the content (with padding) or the height of the window.",
+                    "type": "string",
+                    "enum": [ "content", "full" ]
+                }
+            }
+        },
+        "background": {
+            "title": "Background Options",
+            "type": "object",
+            "required": [ "image_large", "color" ],
+            "properties": {
+                "color": {
+                    "type": "string",
+                    "default": "gray",
+                    "enum": [ "white", "gray", "black", "rich-black", "red", "transparent" ]
+                },
+                "image_large": {
+                    "title": "Background Image for Large Screens",
+                    "$ref": "image.json"
+                },
+                "image_small": {
+                    "title": "Background Image for Small Screens",
+                    "$ref": "image.json"
+                },
+                "isFixed": {
+                    "title": "Fixed Background",
+                    "type": "boolean"
+                }
+            }
+        },
+        "header": {
+            "title": "Header",
+            "type": "object",
+            "properties": {
+                "content": {
+                    "format": "tabs",
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                        "title": "Header Item",
+                        "oneOf": [
+                            {
+                                "$ref": "band.json"
+                            },
+                            {
+                                "$ref": "raw.json"
+                            }
+                        ]
+                    }
+                }
+            }
+        },
+        "body": {
+            "title": "Body",
+            "type": "object",
+            "properties": {
+                "content": {
+                    "format": "tabs",
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                        "title": "Body Item",
+                        "format": "grid",
+                        "oneOf": [
+                            {
+                                "$ref": "band.json"
+                            },
+                            {
+                                "$ref": "raw.json"
+                            }
+                        ]
+                    }
+                }
+            }
+        },
+        "footer": {
+            "title": "Footer",
+            "type": "object",
+            "properties": {
+                "content": {
+                    "format": "tabs",
+                    "type": "array",
+                    "items": {
+                        "title": "Footer Item",
+                        "oneOf": [
+                            {
+                                "$ref": "band.json"
+                            },
+                            {
+                                "$ref": "raw.json"
+                            }
+                        ]
+                    }
+                }
+            }
+        }
+    }
+}

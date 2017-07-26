@@ -1,0 +1,136 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "category": "atom",
+    "title": "Configurations",
+    "properties": {
+        "component": {
+            "type": "object",
+            "format": "grid",
+            "properties": {
+                "theme": {
+                    "title": "Container theme",
+                    "description": "Dark theme is used for dark backgrounds",
+                    "type": "string",
+                    "enum": [ "light", "dark" ],
+                    "default": "light"
+                },
+                "card_background": {
+                    "title": "Background color",
+                    "description": "",
+                    "type": "string",
+                    "enum": [ "black", "rich-black", "white", "gray" ],
+                    "default": "black"
+                },
+                "align": {
+                    "title": "Text alignment",
+                    "type": "string",
+                    "enum": [ "left", "center", "right" ],
+                    "default": "left"
+                },
+                "size": {
+                    "title": "Size",
+                    "type": "string",
+                    "enum": [ "small", "medium", "large" ],
+                    "default": "medium"
+                },
+                "eqpts": {
+                    "title": "Element query",
+                    "description": "Optional. Example: small: 400, medium: 600, large: 900",
+                    "type": "string"
+                },
+                "justify": {
+                    "title": "Justify content",
+                    "description": "Justify will stretch card body to fill card height",
+                    "type": "string",
+                    "default": "top",
+                    "enum": [ "center", "top", "justify" ]
+                },
+                "layout": {
+                    "title": "Layout",
+                    "description": "Cards have padding and a background color or image while groups do not.",
+                    "type": "string",
+                    "enum": [ "Group", "Black card", "White card", "Gray card" ]
+                },
+                "card_image": {
+                    "title": "Card background image",
+                    "description": "Only for cards.  Use this to add a background image to your card.",
+                    "entity": "image",
+                    "type": "object",
+                    "properties": {
+                        "src": {
+                            "type": "string",
+                            "format": "url"
+                        }
+                    }
+                }
+            }
+        },
+        "layout": {
+            "type": "object",
+            "format": "grid",
+            "properties": {
+                "vertical_spacing": {
+                    "title": "Layout",
+                    "type": "string",
+                    "enum": [ "min-stacked", "stacked", "tall-stacked" ],
+                    "default": "stacked"
+                }
+            }
+        },
+        "pattern": {
+            "type": "object",
+            "format": "grid",
+            "properties": {
+                "theme": {
+                    "title": "Theme",
+                    "description": "Dark theme is used for dark backgrounds.",
+                    "type": "string",
+                    "enum": [ "light", "dark" ],
+                    "default": "light"
+                },
+                "background": {
+                    "title": "Background options",
+                    "type": "object",
+                    "format": "grid",
+                    "required": [ "color" ],
+                    "properties": {
+                        "image_large": {
+                            "title": "Large screen background image",
+                            "entity": "image",
+                            "type": "object",
+                            "properties": {
+                                "src": {
+                                    "type": "string",
+                                    "format": "url"
+                                }
+                            }
+                        },
+                        "image_small": {
+                            "title": "Small screen background image",
+                            "entity": "image",
+                            "type": "object",
+                            "properties": {
+                                "src": {
+                                    "type": "string",
+                                    "format": "url"
+                                }
+                            }
+                        },
+                        "isFixed": {
+                            "title": "Fixed background option",
+                            "description": "Fixing the background makes images stay in place when user scrolls, aka paralax.",
+                            "type": "boolean"
+                        },
+                        "color": {
+                            "title": "Background color",
+                            "description": "Background color if no images load",
+                            "type": "string",
+                            "enum": [ "white", "gray", "black", "rich-black", "red", "transparent" ],
+                            "default": "white"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

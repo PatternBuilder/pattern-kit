@@ -1,0 +1,72 @@
+name: store_footer
+columns:
+    - name: menu_column
+      column:
+          menu:
+            - name: menu_list
+              title: Quick links
+              links:
+                  - text: Contact sales
+                    href: "#"
+                  - text: How to buy
+                    href: "#"
+                  - text: FAQ
+                    href: "#"
+                  - text: Subscriptions
+                    href: "#"
+    - name: menu_column
+      column:
+          menu:
+            - name: menu_list
+              title: Linux Platforms
+              links:
+                  - text: Server
+                    href: "#"
+                  - text: Virtual Datacenter
+                    href: "#"
+                  - text: IBM Power
+                    href: "#"
+                  - text: Desktop
+                    href: "#"
+                  - text: Workstation
+                    href: "#"
+                  - text: IBM System Z
+                    href: "#"
+                  - text: Developer Suite
+                    href: "#"
+    - name: menu_column
+      column:
+          menu:
+            - name: menu_list
+              title: JBoss Middleware
+              links:
+                  - text: Developer Studio
+                    href: "#"
+                  - text: Application Platform
+                    href: "#"
+            - name: menu_list
+              title: Training
+              links:
+                  - text: Training Unit Voucher (10)
+                    href: "#"
+                  - text: Lorem ipsum donor sit
+                    href: "#"
+    - name: menu_column
+      column:
+          menu:
+            - name: menu_list
+              title: Management
+              links:
+                  - text: Satellite
+                    href: "#"
+                  - text: Lorem ipsum donor sit
+                    href: "#"
+aside:
+    - name: standard_text
+      container:
+          background: red
+          type: card
+          theme: dark
+          align: left
+      title: Raw HTML section
+      content: <p><strong>Test</strong> text <sup>html</sup></p>

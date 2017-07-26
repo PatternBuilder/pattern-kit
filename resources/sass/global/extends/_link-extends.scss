@@ -1,0 +1,355 @@
+%link-reset {
+    color: inherit;
+    text-decoration: none;
+}
+
+%default-link {
+    color: color(link);
+    font-family: $base-font-family;
+    text-decoration: none;
+    &:hover {
+        text-decoration: none;
+    }
+    &:focus {
+        @include accessibility-focus;
+    }
+    @include data-context(theme, red) {
+        color: color(white);
+        @include underline( color(white, .6) );
+        &:focus {
+            @include accessibility-focus(white);
+        }
+    }
+
+}
+
+%headline-link {
+    color: color(black);
+    font-family: $base-font-family;
+    font-weight: 400;
+    text-decoration: none;
+    line-height: 1.2;
+    margin-top: 0;
+    a:hover &,
+    a:focus & {
+        text-decoration: none;
+        color: color(copy);
+    }
+    @inclue data-context(theme, dark) {
+        color: color(white);
+        &:hover,
+        &:focus {
+            text-decoration: none;
+            color: color(link);
+        }
+    }
+}
+%footer-link {
+    font-family: $base-font-family;
+    color: color(copy);
+    text-decoration: none;
+    font-weight: 400;
+    font-size: .8em;
+    &:hover {
+        @include underline( color(copy, .6) );
+    }
+    &:focus {
+        @include accessibility-focus;
+    }
+    @include data-context(theme, dark) {
+        color: color(white);
+        &:hover {
+            @include underline( color(white, .6) );
+        }
+    }
+}
+
+%social-icon-link {
+    transition: color .2s;
+    color: color(black);
+    font-family: $base-font-family;
+    text-decoration: none;
+    font-weight: 600;
+    @include data-context(theme, dark) {
+        color: color(white)
+    }
+    a:hover ~ & {
+        text-decoration: none;
+        color: color(link);
+        @include data-context(theme, dark) {
+            text-decoration: none;
+            color: color(link);
+        }
+    }
+}
+
+%cta-primary {
+    @include make-button(color(brand-primary));
+}
+
+%cta-ghost-button {
+    @include make-button(
+        $btn-color: transparent,
+        $btn-text-color: color(black),
+        $border: 1px solid color(black),
+        $btn-color-hover: color(black),
+        $btn-text-color-hover: color(white)
+    );
+    @include data-context(cta-button, narrow) {
+        padding: pem(9) pem(27);
+    }
+    @include data-context(theme, dark) {
+        @include make-button(
+            $btn-color: transparent,
+            $btn-text-color: color(white),
+            $border: 1px solid color(white),
+            $btn-color-hover: color(white),
+            $btn-text-color-hover: color(black)
+        );
+    }
+}
+
+%cta-narrow-ghost-button {
+    @include make-button(
+        $btn-color: transparent,
+        $btn-text-color: color(black),
+        $border: 1px solid color(black),
+        $btn-color-hover: color(black),
+        $btn-text-color-hover: color(white),
+        $padding: pem(9) pem(27)
+    );
+    @include data-context(theme, dark) {
+        @include make-button(
+            $btn-color: transparent,
+            $btn-text-color: color(white),
+            $border: 1px solid color(white),
+            $btn-color-hover: color(white),
+            $btn-text-color-hover: color(black),
+            $padding: pem(9) pem(27)
+        );
+    }
+}
+
+%cta-primary-disabled {
+    @include make-button(color(gray1), $disabled: true);
+}
+
+%cta-secondary-button {
+    @include make-button(color(gray3));
+}
+
+%cta-secondary-link {
+    // @TODO
+    //@include transition-duration(.2s);
+    color: color(black);
+    font-weight: 800;
+    font-family: $base-font-family;
+    text-decoration: none;
+    // Allows button tag to be used
+    background: none;
+    border: 0;
+    &:hover,
+    &:focus {
+        color: color(link);
+        text-decoration: none;
+        // Allows button tag to be used
+        outline: 0;
+        cursor: pointer;
+    }
+    @include data-context(theme, dark) {
+        color: color(white);
+        &:hover {
+            color: color(link);
+        }
+    }
+    &:after {
+        content: "\25b6";
+        margin-left: .5em;
+        font-size: 50%;
+        line-height: 100%;
+        vertical-align: middle;
+    }
+}
+
+%hash-link, .hash-link {
+    color: inherit;
+    text-decoration: none;
+    &:focus {
+        color: inherit;
+        text-decoration: none;
+    }
+    @include get-web-icon(link, $position: after) {
+        color: color(gray1);
+        padding: ($fixed-header-offset + 30) 0 0 .3em;
+        visibility: hidden;
+    }
+    &:hover:after {
+        visibility: visible;
+    }
+}
+
+// Menu / navigational link styles
+%nav-menu-link {
+    font-family: $base-font-family;
+    font-weight: 600;
+    font-size: pem(18);
+    text-decoration: none;
+    line-height: 1.444;
+    color: color(black);
+    position: relative;
+    @include breakpoint($breakpoint-sm-min) {
+        font-size: pem(16);
+    }
+    @include breakpoint($breakpoint-md-min) {
+        font-size: pem(18);
+    }
+    @include breakpoint($breakpoint-lg-min) {
+        font-size: pem(20);
+    }
+    @include data-context(theme, dark) {
+        color: color(white);
+    }
+    &:before {
+        @include breakpoint($breakpoint-sm-min) {
+            content: "";
+            position: absolute;
+            height: pem(3);
+            width: pem(32);
+            background-color: color(black);
+            bottom: -.5em;
+        }
+        @include data-context(theme, dark) {
+            background-color: color(white);
+        }
+    }
+    &:hover,
+    &:focus {
+        text-decoration: none;
+        @include breakpoint($breakpoint-sm-min) {
+            &:before {
+                background-color: color(brand-primary);
+            }
+        }
+    }
+}
+
+%nav-utility-link {
+    display: flex;
+    width: 100%;
+    font-family: $base-font-family;
+    font-weight: 100;
+    font-size: pem(18);
+    text-decoration: none;
+    text-transform: none;
+    line-height: 1.2;
+    margin-top: 0;
+    color: color(gray1);
+    &:hover,
+    &:focus {
+        text-decoration: none;
+        @include breakpoint($breakpoint-sm-min) {
+            cursor: pointer;
+            color: color(link);
+        }
+    }
+    @include breakpoint($breakpoint-sm-min) {
+        display: inline-block;
+        width: auto;
+        color: color(copy);
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: pem(11);
+        &:hover {
+            color: color(black);
+        }
+    }
+}
+
+%nav-utility-icon {
+    font-family: $base-font-family;
+    text-decoration: none;
+    line-height: 1;
+    fill: color(gray1);
+    &:hover {
+        text-decoration: none;
+        cursor: pointer;
+        fill: color(black);
+        @include data-context(theme, dark) {
+            fill: color(white);
+        }
+    }
+    svg {
+        width: 14px;
+        height: auto;
+        display: block;
+    }
+}
+
+%nav-utility-icon-ui {
+    svg {
+        width: 25px;
+        height: auto;
+        max-height: 25px;
+    }
+    @include data(icon-type, web-icon-upload) {
+        svg {
+            display: none;
+            @include data-context(menu, fixed) {
+                display: block;
+            }
+        }
+    }
+    @include data(icon-type, web-icon-mobile-menu) {
+        svg:first-child {
+            display: block;
+            @include data-context(state, open) {
+                display: none;
+            }
+        }
+        svg:last-child {
+            display: none;
+            @include data-context(state, open) {
+                display: block;
+                transform: rotate(45deg);
+            }
+        }
+    }
+}
+
+%nav-utility-icon-text {
+    font-family: $base-font-family;
+    font-weight: 100;
+    font-size: .9em;
+    text-decoration: none;
+    line-height: 1.444;
+    color: color(copy);
+    &:hover,
+    &:focus {
+        text-decoration: none;
+        color: color(black);
+    }
+}
+
+%skip-navigation {
+    font-family: $base-font-family;
+    font-weight: 800;
+    color: color(link);
+    background-color: white;
+    position: absolute;
+    top: -1000px;
+    left: -1000px;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    &:active,
+    &:focus,
+    &:hover {
+        text-decoration: none;
+        cursor: pointer;
+        left: calc(50% - 64px);
+        top: 0;
+        width: auto;
+        height: auto;
+        overflow: visible;
+    }
+}

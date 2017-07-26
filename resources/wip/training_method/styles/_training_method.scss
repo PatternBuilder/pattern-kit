@@ -1,0 +1,60 @@
+.rh-training-method {
+    &--component {
+
+    }
+    &-media-container {
+        margin-bottom: 1em;
+    }
+    &-header {
+
+    }
+    &-title {
+        @extend %section-title;
+        color: color(black);
+    }
+    &-iframe-container {
+        @extend %iframe-embed-container;
+    }
+    &-select-container {
+        @extend %select-container;
+        .chosen-single {
+            background: color(gray3);
+        }
+    }
+    &-label {
+        display: block;
+        @extend %default-level5;
+    }
+    &-select {
+        width: 220px;
+    }
+    &-option {
+
+    }
+    &-detail-container {
+
+    }
+    &-detail-items {
+
+    }
+    &-detail-term {
+        @extend %default-level5;
+        float: left;
+        clear: left;
+        margin-right: 2%;
+        &::after {
+            content: ":";
+        }
+    }
+    &-detail-text {
+        @extend %default-dd;
+        margin-left: 0px;
+
+    }
+    &-cta-container {
+
+    }
+    &-cta {
+        @extend %cta-primary;
+    }
+}

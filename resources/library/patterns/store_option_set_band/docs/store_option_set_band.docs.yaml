@@ -1,0 +1,28 @@
+name: store_option_set_band
+header:
+    headline: How would you like to configure Red Hat Enterprise Linux Server?
+    summary: <p>Vidisse quem laboris, est fugiat nam dolor in cupidatat sed occaecat, ut tempor.</p>
+body:
+    content:
+        - @quantity_group
+        - @option_group
+        - name: option_group
+          header:
+              headline: Add-ons
+              summary: <p>Vidisse quem laboris, est fugiat nam.</p>
+              tooltip_text: <p>Vidisse quem laboris, est fugiat nam.</p>
+          option_items:
+              input_type: Multi-select
+              legend: Add-on products
+              input_item:
+                  - label: Product 1
+                    id: prod1
+                    addon: true
+                  - label: Product 2
+                    id: prod2
+                    addon: false
+                  - label: Product 3
+                    id: prod3
+                    addon: false
+footer:
+    - footnote: <p>This subscription is only available for a single socket-pair; it cannot be stacked or combined.</p>

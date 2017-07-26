@@ -1,0 +1,103 @@
+{
+    "name": "logo_wall",
+    "title": "Band Title",
+    "meta": {
+        "uniqueId": "1234"
+    },
+    "logos": [
+        {
+            "image": {
+                "src": "/fixtures/images/adobe_logo.png"
+            },
+            "link": {
+                "href": "",
+                "title": ""
+            }
+        },
+        {
+            "image": {
+                "src": "/fixtures/images/adobe_logo.png"
+            },
+            "link": {
+                "href": "",
+                "title": ""
+            }
+        },
+        {
+            "image": {
+                "src": "/fixtures/images/adobe_logo.png"
+            },
+            "link": {
+                "href": "",
+                "title": ""
+            }
+        },
+        {
+            "image": {
+                "src": "/fixtures/images/adobe_logo.png"
+            },
+            "link": {
+                "href": "",
+                "title": ""
+            }
+        },
+        {
+            "image": {
+                "src": "/fixtures/images/adobe_logo.png"
+            },
+            "link": {
+                "href": "",
+                "title": ""
+            }
+        },
+        {
+            "image": {
+                "src": "/fixtures/images/adobe_logo.png"
+            },
+            "link": {
+                "href": "",
+                "title": ""
+            }
+        },
+        {
+            "image": {
+                "src": "/fixtures/images/adobe_logo.png"
+            },
+            "link": {
+                "href": "",
+                "title": ""
+            }
+        },
+        {
+            "image": {
+                "src": "/fixtures/images/adobe_logo.png"
+            },
+            "link": {
+                "href": "",
+                "title": ""
+            }
+        },
+        {
+            "image": {
+                "src": "/fixtures/images/adobe_logo.png"
+            },
+            "link": {
+                "href": "",
+                "title": ""
+            }
+        },
+        {
+            "image": {
+                "src": "/fixtures/images/adobe_logo.png"
+            },
+            "link": {
+                "href": "",
+                "title": ""
+            }
+        }
+    ],
+    "link": {
+        "text": "CTA Text",
+        "href": "#"
+    }
+}

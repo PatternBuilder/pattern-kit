@@ -1,0 +1,117 @@
+.#{$repo}-image-embed {
+    &--component {
+        @include data-context(menu-context, top-mobile) {
+            @include flex(
+                $align: stretch,
+                $justify: center
+            );
+        }
+    }
+    // Image Tag container
+    &-container {
+        @include data-context(align, bleed) {
+            @extend %bleeding-container;
+        }
+        // external context - internal context - selector
+        @include data-pseudo(align, first-child, bleed) {
+            @extend %bleeding-container-top;
+        }
+        @include make-backgrounds("img-background", true);
+        @include make-backgrounds("img-container_border", true, border-color) {
+            border-width: 1px;
+            border-style: solid;
+        };
+        @include data-context(misc, redhat-logo-nav, redhat-logo-store) {
+            @include flex(
+                $align: center
+            );
+        }
+    }
+    // Image Tag
+    &-img {
+        max-width: 100%; // used when not 'full', but larger than container
+        display: block;
+        @include data-context(align, full, bleed) {
+            @extend %responsive-media;
+        }
+        @include data-context(align, left) {
+            margin-right: auto;
+        }
+        @include data-context(align, right) {
+            margin-left: auto;
+        }
+        @include data-context(align, center) {
+            margin-right: auto;
+            margin-left: auto;
+        }
+        @include data-context(align, reduced) {
+            @extend %responsive-media;
+            transform: scale(.75);
+        }
+        // border
+        @include make-backgrounds("img-image_border", true, border-color) {
+            border-width: 1px;
+            border-style: solid;
+        };
+        // hover transitions
+        @include data-context(img-hover, bw-color) {
+            @include rh-transition(all);
+            filter: grayscale(100%);
+        }
+        @include data-pseudo(img-hover, hover, bw-color) {
+            filter: grayscale(0);
+        }
+        @include data-context(img-hover, color-bw) {
+            @include rh-transition(all);
+            filter: grayscale(0);
+        }
+        @include data-pseudo(img-hover, hover, color-bw) {
+            filter: grayscale(100%);
+        }
+        @include data-context(embed-logo, redhat) {
+            background: transparent url("../images/redhat-logo-white.png") no-repeat left top;
+            width: 110px;
+            height: 35px;
+        }
+        @include data-context(misc, redhat-logo-nav) {
+            background: transparent url("../images/redhat-logo-dark.png") no-repeat left top;
+            width: 138px;
+            height: 44px;
+            @include data-context(theme, dark) {
+                background-image: url("../images/redhat-logo-white.png");
+            }
+        }
+        @include data-context(misc, redhat-logo-store) {
+            background: transparent url("../images/redhat-store-logo-dark.png") no-repeat left top;
+            background-size: contain;
+            width: 148px;
+            height: 24px;
+            @include breakpoint($breakpoint-sm-min) {
+                width: 170px;
+                height: 26px;
+            }
+            @include breakpoint($breakpoint-md-min) {
+                width: 200px;
+                height: 31px;
+            }
+            @include breakpoint($breakpoint-lg-min) {
+                width: 215px;
+                height: 33px;
+            }
+            @include data-context(theme, dark) {
+                background-image: url("../images/redhat-store-logo-light.png");
+            }
+        }
+        @include data-context(max-height, footer) {
+            max-height: 30px;
+        }
+    }
+    &-caption-link {
+        @extend %default-link;
+        font-style: italic;
+    }
+    &-caption {
+        margin-top: pem(5px);
+        @extend %default-paragraph;
+    }
+}

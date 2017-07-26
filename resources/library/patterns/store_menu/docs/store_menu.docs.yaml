@@ -1,0 +1,25 @@
+name: store_menu
+logo:
+    link:
+        href: //www.redhat.com
+        title: Red Hat Store
+utility_links:
+    - text: Redhat.com
+      href: "#"
+      title: Descriptive text
+    - text: Sales
+      href: "#"
+      title: Descriptive text
+    - text: FAQ
+      href: "#"
+      title: Descriptive text
+nav_links:
+    - text: Linux Platforms
+      href: "#"
+      title: Descriptive text
+    - text: JBoss Middleware
+      href: "#"
+      title: Descriptive text
+    - text: Training
+      href: "#"
+      title: Descriptive text

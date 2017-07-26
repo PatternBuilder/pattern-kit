@@ -1,0 +1,94 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Carousel",
+    "description": "",
+    "category": "layout",
+    "type": "object",
+    "format": "grid",
+    "properties": {
+        "config": {
+            "type": "object",
+            "properties": {
+                "theme": {
+                    "type": "string",
+                    "enum": [ "light", "dark" ]
+                },
+                "slick_config": {
+                    "type": "object",
+                    "additionalProperties": true
+                }
+            }
+        },
+        "background": {
+            "title": "Background Options",
+            "type": "object",
+            "properties": {
+                "color": {
+                    "type": "string",
+                    "enum": [ "white", "gray", "black", "rich-black", "red", "transparent" ],
+                    "description": "Please provide a fallback color for the entire carousel."
+                },
+                "image_large": {
+                    "title": "Large Screen Background Image",
+                    "type": "object",
+                    "entity": "image",
+                    "properties": {
+                        "src": {
+                            "title": "Image Source",
+                            "type": "string",
+                            "format": "url",
+                            "description": "Image must be at least 2,000px wide and 400px tall. Image must be a pattern; no photography."
+                        }
+                    }
+                },
+                "image_small": {
+                    "title": "Small Screen Background Image",
+                    "type": "object",
+                    "entity": "image",
+                    "properties": {
+                        "src": {
+                            "title": "Image Source",
+                            "type": "string",
+                            "format": "url",
+                            "description": "Image must be at least 768px wide and 400px tall. Image must be a pattern; no photography."
+                        }
+                    }
+                }
+            }
+        },
+        "body": {
+            "type": "object",
+            "properties": {
+                "content": {
+                    "type": "array",
+                    "items": {
+                        "oneOf": [
+                            {
+                                "$ref": "carousel_slide.json"
+                            },
+                            {
+                                "$ref": "raw.json"
+                            }
+                        ]
+                    }
+                }
+            }
+        },
+        "name": {
+            "type": "string",
+            "readonly": true,
+            "enum": [ "carousel" ],
+            "options": {
+                "hidden": true
+            }
+        },
+        "template": {
+            "type": "string",
+            "options": {
+                "hidden": true
+            }
+        }
+    },
+    "required": [ ],
+    "additionalProperties": false
+}

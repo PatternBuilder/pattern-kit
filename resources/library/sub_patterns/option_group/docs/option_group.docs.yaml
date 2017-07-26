@@ -1,0 +1,15 @@
+name: option_group
+header:
+    headline: Sockets
+    summary: <p>Sed porttitor lectus nibh. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Vivamus suscipit tortor eget felis porttitor volutpat.</p>
+    tooltip_text: <p>Sed porttitor lectus nibh. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Vivamus suscipit tortor eget felis porttitor volutpat.</p>
+option_items:
+    input_type: Single select
+    legend: Sockets
+    input_item:
+        - label: "2"
+          id: socket2
+        - label: "4"
+          id: socket4
+        - label: "6"
+          id: socket6

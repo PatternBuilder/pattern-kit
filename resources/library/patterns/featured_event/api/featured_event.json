@@ -1,0 +1,98 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Featured event",
+    "category": "pattern",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [ "background_color", "title", "events" ],
+    "properties": {
+        "name": {
+            "type": "string",
+            "enum": [ "featured_event" ],
+            "options": {
+                "hidden": true
+            }
+        },
+        "meta": {
+            "type": "object",
+            "properties": {
+                "class": {
+                    "options": {
+                        "hidden": true
+                    },
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "id": {
+                    "type": "string",
+                    "options": {
+                        "hidden": true
+                    }
+                },
+                "uniqueId": {
+                    "type": "string",
+                    "options": {
+                        "hidden": true
+                    }
+                }
+            }
+        },
+        "background_color": {
+            "title": "Band Background",
+            "type": "string",
+            "enum": [ "gray", "white" ]
+        },
+        "title": {
+            "title": "Band Title",
+            "type": "string",
+            "options": {
+                "preview": true
+            }
+        },
+        "headline": {
+            "title": "Band Headline",
+            "type": "string",
+            "options": {
+                "preview": true
+            }
+        },
+        "events": {
+            "title": "Events",
+            "type": "array",
+            "description": "Create one or two events",
+            "items": {
+                "title": "Event",
+                "type": "object",
+                "properties": {
+                    "title": {
+                        "title": "Event Title",
+                        "type": "string"
+                    },
+                    "date": {
+                        "title": "Event Date",
+                        "type": "string"
+                    },
+                    "category": {
+                        "title": "Event Category",
+                        "type": "string"
+                    },
+                    "summary": {
+                        "title": "Event Summary",
+                        "type": "string",
+                        "format": "textarea"
+                    },
+                    "image": {
+                        "title": "Event Image or Logo",
+                        "$ref": "image.json"
+                    },
+                    "link": {
+                        "title": "Event Link",
+                        "$ref": "link.json"
+                    }
+                }
+            }
+        }
+    }
+}

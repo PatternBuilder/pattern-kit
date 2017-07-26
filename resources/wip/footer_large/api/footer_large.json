@@ -1,0 +1,76 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Footer navigation",
+    "description": "Large footer with navigation",
+    "type": "object",
+    "category": "pattern",
+    "format": "grid",
+    "properties": {
+        "name": {
+            "type": "string",
+            "enum": ["footer_large"],
+            "options": {
+                "hidden": true
+            }
+        },
+        "logo": {
+            "title": "Optional logo",
+            "description": "Optional logo for the footer which appears in the far left column.",
+            "type": "object",
+            "properties": {
+                "image": {
+                    "$ref": "image_embed.json"
+                }
+            }
+        },
+        "menu": {
+            "title": "Footer menu",
+            "type": "object",
+            "format": "grid",
+            "properties": {
+                "content": {
+                    "title": "Menu columns",
+                    "type": "object",
+                    "format": "grid",
+                    "properties": {
+                        "columns": {
+                            "title": "",
+                            "type": "array",
+                            "minItems": 1,
+                            "maxItems": 4,
+                            "items": {
+                                "title": "Column",
+                                "$ref": "menu_column.json"
+                            }
+                        }
+                    },
+                    "required": ["columns"]
+                }
+            },
+            "required": ["content"]
+        },
+        "aside": {
+            "title": "Footer aside",
+            "type": "object",
+            "format": "grid",
+            "properties": {
+                "content": {
+                    "type": "array",
+                    "minItems": 1,
+                    "maxItems": 1,
+                    "item": {
+                        "title": "Aside content",
+                        "oneOf": [{
+                            "$ref": "menu_column.json"
+                        }, {
+                            "$ref": "standard_text.json"
+                        }]
+                    }
+                }
+            },
+            "required": ["content"]
+        }
+    },
+    "required": ["name", "menu", "aside"],
+    "additionalProperties": false
+}

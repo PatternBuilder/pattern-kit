@@ -1,0 +1,70 @@
+{% if logo.align == 'bleed' and container.type == 'group' %}
+    {% set logo_align = 'full' %}
+{% else %}
+    {% set logo_align = logo.align %}
+{% endif %}
+
+{% if container.type == 'card' %}
+    {% set vars = {
+        "name": "card",
+        "config": {
+            "theme": container.theme
+        },
+        "background": {
+            "color": container.background
+        },
+        "body": {
+            "content": [
+                {
+                    "name": "quote",
+                    "quotation": quote.quotation,
+                    "attribution_name": quote.attribution_name,
+                    "attribution_title": quote.attribution_title
+                }
+            ]
+        }
+    } %}
+{% elseif container.type == 'group' %}
+    {% set vars = {
+        "name": "group",
+        "config": {
+            "vertical_layout": "stacked"
+        },
+        "body": {
+            "layout": "stacked",
+            "theme": container.theme,
+            "content": [
+                {
+                    "name": "quote",
+                    "quotation": quote.quotation,
+                    "attribution_name": quote.attribution_name,
+                    "attribution_title": quote.attribution_title
+                }
+            ]
+        }
+    } %}
+{% endif %}
+
+{% if logo.image.src %}
+    {% set header_content = {
+        "header": {
+            "content": [
+                {
+                    "name": "image_embed",
+                    "config": {
+                        "align": logo_align
+                    },
+                    "image": logo.image,
+                    "link": logo.link,
+                    "background": {
+                        "color": logo.background.color,
+                        "type": logo.background.type
+                    }
+                }
+            ]
+        }
+    } %}
+    {% set vars = vars|merge(header_content) %}
+{% endif %}
+
+{% include vars.name ~ ".twig" with vars only %}

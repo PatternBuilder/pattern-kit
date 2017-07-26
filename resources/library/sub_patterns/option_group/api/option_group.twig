@@ -1,0 +1,45 @@
+{# Build option set array #}
+{% set options = [] %}
+{% for item in option_items.input_item %}
+    {% set misc = item.addon ? "addon" : "" %}
+    {% set options = options|merge([{
+        "selected": false,
+        "disabled": false,
+        "label": item.label,
+        "id": item.id,
+        "misc": misc
+    }]) %}
+{% endfor %}
+
+{% embed 'fieldset.twig' with {
+    "global": _context,
+    "config": {
+        "vertical_layout": "min-stacked"
+    },
+    "header": {
+        "layout": "",
+        "theme": "light",
+        "content": [{
+            "name": "form_header",
+            "headline": header.headline,
+            "style": "Title",
+            "summary": header.summary,
+            "tooltip": {
+                "theme": "dark",
+                "type": "help",
+                "text": header.tooltip_text
+            }
+        }]
+    },
+    "body": {
+        "layout": "stacked",
+        "theme": "light",
+        "legend": option_items.legend,
+        "content": [{
+            "name": "option_set",
+            "input_type": option_items.input_type,
+            "input_item": options
+        }]
+    }
+} only %}
+{% endembed %}

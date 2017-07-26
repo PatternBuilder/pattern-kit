@@ -1,0 +1,21 @@
+
+<div class="rh-card-header--component" {{ config.align ? "data-rh-align=" ~ config.align }} >
+
+    {% if title -%}
+    <h3 class="rh-card-header-title">
+        {% if hash_link -%}<a class="rh-card-header-hash" id="{{ hash_link }}" href="#{{ hash_link }}">{%- endif -%}
+        {{ title|striptags('<sup>')|raw }}
+        {% if hash_link -%}</a>{%- endif -%}
+    </h3>
+    {%- endif %}
+
+    {% if headline -%}
+        <{{ not title ? 'h3' : 'h4' }} class="rh-card-header-headline">{{ headline|striptags('<sup>')|raw }}</{{ not
+title ? 'h3' : 'h4' }}>
+    {%- endif %}
+
+    {% if summary -%}
+        <p class="rh-card-header-summary">{{ summary|striptags('<a><sup><b>')|raw }}</p>
+    {%- endif %}
+
+</div>

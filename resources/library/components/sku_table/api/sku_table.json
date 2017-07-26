@@ -1,0 +1,68 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "SKU table",
+    "description": "",
+    "type": "object",
+    "category": "component",
+    "status": "private",
+    "format": "grid",
+    "properties": {
+        "name": {
+            "type": "string",
+            "readonly": true,
+            "enum": ["sku_table"],
+            "options": {
+                "hidden": true
+            }
+        },
+        "rows": {
+            "title": "Rows",
+            "type": "array",
+            "items": {
+                "title": "Row",
+                "type": "object",
+                "properties": {
+                    "sku": {
+                        "title": "SKU",
+                        "description": "",
+                        "type": "string"
+                    },
+                    "description": {
+                        "title": "Description",
+                        "description": "",
+                        "type": "string"
+                    },
+                    "quantity": {
+                        "title": "Quantity",
+                        "description": "",
+                        "type": "string"
+                    },
+                    "price": {
+                        "title": "Price",
+                        "description": "",
+                        "type": "string"
+                    },
+                    "line_total": {
+                        "title": "Line total",
+                        "description": "",
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "subtotal": {
+            "title": "Subtotal",
+            "description": "",
+            "type": "string"
+        },
+        "jquery_inject": {
+            "type": "boolean",
+            "default": false,
+            "options": {
+                "hidden": true
+            }
+        }
+    },
+    "required": ["name"],
+    "additionalProperties": false
+}

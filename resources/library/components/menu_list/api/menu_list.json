@@ -1,0 +1,91 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Menu list",
+    "description": "Title with a list of links.",
+    "type": "object",
+    "category": "component",
+    "format": "grid",
+    "properties": {
+        "name": {
+            "type": "string",
+            "readonly": true,
+            "enum": ["menu_list"],
+            "options": {
+                "hidden": true
+            }
+        },
+        "config": {
+            "title": "Configuration",
+            "type": "object",
+            "format": "grid",
+            "options": {
+                "hidden": true
+            },
+            "properties": {
+                "hidden": {
+                    "title": "Hide element",
+                    "description": "At which breakpoints would you like this to be hidden?",
+                    "$ref": "breakpoints.json",
+                    "options": {
+                        "grid_columns": 6,
+                        "hidden": true
+                    }
+                },
+                "accordion": {
+                    "title": "Accordion",
+                    "description": "At which breakpoints would you like this to be displayed as an accordion?",
+                    "$ref": "breakpoints.json",
+                    "options": {
+                        "grid_columns": 6,
+                        "hidden": true
+                    }
+                }
+            }
+        },
+        "title": {
+            "title": "Menu title",
+            "description": "Short title that categorizes the list of links below it.",
+            "type": "string",
+            "options": {
+                "preview": true
+            }
+        },
+        "links": {
+            "title": "Navigation links",
+            "description": "List of links for navigational purposes or menus.",
+            "type": "array",
+            "items": {
+                "entity": "link",
+                "type": "object",
+                "format": "grid",
+                "properties": {
+                    "text": {
+                        "title": "Link text",
+                        "type": "string",
+                        "options": {
+                            "grid_columns": 4
+                        }
+                    },
+                    "href": {
+                        "title": "Link URL",
+                        "type": "string",
+                        "format": "url",
+                        "options": {
+                            "grid_columns": 4
+                        }
+                    },
+                    "title": {
+                        "title": "Title attribute",
+                        "description": "Shown on mouseover.",
+                        "type": "string",
+                        "options": {
+                            "grid_columns": 4
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "required": ["name", "title", "links"],
+    "additionalProperties": true
+}

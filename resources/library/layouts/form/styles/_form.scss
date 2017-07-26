@@ -1,0 +1,24 @@
+.#{$repo}-form {
+    &--layout {
+        @extend %default--band;
+        @include clearfix;
+        $background-colors: (
+            "white": color(white),
+            "gray": color(gray2),
+            "black": color(black),
+            "rich-black": color(rich-black),
+            "transparent": transparent
+        );
+        @each $name, $color in $background-colors {
+            @include data(band-background, $name) {
+                background-color: $color;
+            }
+        }
+    }
+    &-container {
+        @extend %default--container;
+    }
+    &-header {}
+    &-body {}
+    &-footer {}
+}

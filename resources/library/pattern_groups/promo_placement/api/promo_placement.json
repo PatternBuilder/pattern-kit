@@ -1,0 +1,125 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Promo Placement",
+    "description": "",
+    "type": "object",
+    "category": "pattern",
+    "status": "private",
+    "format": "grid",
+    "properties": {
+        "slides": {
+            "title": "Promo Placement Slides",
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "$ref": "promo_band.json"
+                    },
+                    {
+                        "$ref": "raw.json"
+                    }
+                ]
+            }
+        },
+        "config": {
+            "title": "Optional Promo Placement Config",
+            "type": "object",
+            "options": {
+                "collapsed": true
+            },
+            "properties": {
+                "theme": {
+                    "title": "Promo Placement Theme",
+                    "description": "Use theme to apply to all carousel contents if you are using a single carousel background",
+                    "type": "string",
+                    "enum": [ "light", "dark" ]
+                },
+                "slick_config": {
+                    "type": "object",
+                    "options": {
+                        "hidden": true
+                    },
+                    "additionalProperties": true
+                }
+            }
+        },
+        "background": {
+            "title": "Optional Promo Placement Background",
+            "type": "object",
+            "options": {
+                "collapsed": true
+            },
+            "format": "grid",
+            "properties": {
+                "image_large": {
+                    "title": "Large Screen Background Image",
+                    "entity": "image",
+                    "type": "object",
+                    "properties": {
+                        "src": {
+                            "title": "Source",
+                            "type": "string",
+                            "format": "url",
+                            "description": "Optional background image for entire carousel, will not move with text. If used, image must be at least 2,000px wide and 400px tall. Image must be a pattern; no photography."
+                        }
+                    }
+                },
+                "image_small": {
+                    "title": "Small Screen Background Image",
+                    "entity": "image",
+                    "type": "object",
+                    "properties": {
+                        "src": {
+                            "title": "Source",
+                            "type": "string",
+                            "format": "url",
+                            "description": "Optional background image for entire carousel, will not move with text. If used, image must be at least 768px wide and 400px tall. Image must be a pattern; no photography."
+                        }
+                    }
+                },
+                "color": {
+                    "title": "Background Color",
+                    "description": "Background color if no images load",
+                    "type": "string",
+                    "enum": [ "white", "gray", "black", "rich-black", "red", "transparent" ],
+                    "description": "Use a <a href='https://mojo.redhat.com/docs/DOC-1083766' target='_blank'>standard promo hexidecimal value</a> as a fallback. Include the # sign."
+                }
+            }
+        },
+        "name": {
+            "type": "string",
+            "enum": [ "promo_placement" ],
+            "options": {
+                "hidden": true
+            }
+        },
+        "meta": {
+            "type": "object",
+            "properties": {
+                "class": {
+                    "options": {
+                        "hidden": true
+                    },
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "id": {
+                    "type": "string",
+                    "options": {
+                        "hidden": true
+                    }
+                },
+                "uniqueId": {
+                    "type": "string",
+                    "options": {
+                        "hidden": true
+                    }
+                }
+            }
+        }
+    },
+    "required": [ "name", "slides" ],
+    "additionalProperties": false
+}

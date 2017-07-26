@@ -1,0 +1,30 @@
+name: form
+config:
+    collapse:
+    vertical_layout: tall-stacked
+background:
+    color: white
+header:
+    layout: stacked
+    theme: light
+    content:
+        - @store_header
+body:
+    layout: stacked
+    theme: light
+    content:
+        - @quantity_group
+        - @option_group
+        - @option_group
+submit:
+    id: add-to-cart
+    align: left
+    link:
+        text: Add to cart
+        title: Add this to your cart for purchase
+        href: "#"
+footer:
+    layout: stacked
+    theme: light
+    content:
+        - @footnote

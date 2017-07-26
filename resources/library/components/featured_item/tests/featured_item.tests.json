@@ -1,0 +1,19 @@
+{
+    "name": "featured_item",
+    "title": "Simplified system management",
+    "date": "September 10, 2014",
+    "type": "RedHat Partner Conference",
+    "location": "Chicago, IL",
+    "summary": "Join the virtual event on September 10 at 11 a.m. (ET) to learn how Red Hat Satellite is shaping the next generation of systems management for the Linux datacenter.",
+    "primary_link": {
+        "href": "#",
+        "text": "Primary CTA"
+    },
+    "secondary_link": {
+        "href": "#",
+        "text": "Secondary CTA"
+    },
+    "logo": {
+        "src": "http://www.redhat.com/cms/public/Adobe_Logo_RGB_225x158_0.png"
+    }
+}

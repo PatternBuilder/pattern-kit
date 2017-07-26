@@ -1,0 +1,11 @@
+name: generic_header
+theme: light
+title: Featured success stories
+headline: Cigna builds a private cloud
+summary: Migrating your company's operating system may seem like an overwhelming task but Red Hat<sup>&reg;</sup> Technical Account Management (TAM) is at your disposal throughout the entire migration process to assist your team.
+cta: 
+    type: primary
+    link:
+        href: #
+        title:
+        text: Read more

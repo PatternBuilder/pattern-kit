@@ -1,0 +1,14 @@
+name: fieldset
+config:
+    vertical_layout: min-stacked
+header:
+    layout:
+    theme: light
+    content:
+        - @form_header
+body:
+    layout: stacked
+    theme: light
+    legend: Legend test
+    content:
+        - @option_set

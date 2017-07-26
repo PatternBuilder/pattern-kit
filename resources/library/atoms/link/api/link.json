@@ -1,0 +1,43 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "category": "atom",
+    "title": "Link",
+    "entity": "link",
+    "type": "object",
+    "format": "grid",
+    "properties": {
+        "text": {
+            "title": "Link text",
+            "type": "string",
+            "options": {
+                "grid_columns": 4
+            }
+        },
+        "href": {
+            "title": "Link URL",
+            "type": "string",
+            "format": "url",
+            "options": {
+                "grid_columns": 4
+            }
+        },
+        "title": {
+            "title": "Title attribute",
+            "description": "Shown on mouseover.",
+            "type": "string",
+            "options": {
+                "grid_columns": 4
+            }
+        },
+        "target": {
+            "title": "Target",
+            "description": "Strongly recommend against - uses _blank to open links in a new window.",
+            "type": "string",
+            "enum": [ "_self" ],
+            "options": {
+                "hidden": true
+            }
+        }
+    },
+    "required": [ "href" ]
+}

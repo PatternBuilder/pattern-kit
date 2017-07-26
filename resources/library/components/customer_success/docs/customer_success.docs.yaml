@@ -1,0 +1,13 @@
+name: customer_success
+title: Cerner boosts performance and stability of mission-critical applications with Red Hat Enterprise Linux
+logo:
+    alt: Alt text
+    src: "//www.redhat.com/cms/public/Cerner_Logo_RGB_225x158.png"
+image:
+    alt: Alt text
+    src: "//www.redhat.com/cms/public/Cerner_Card_370x190.jpg"
+summary: Cerner continually evaluates the technology used to deliver its application hosting services with the goal of achieving new levels of stability and performance for its clients. In the mid-2000s Cerner's primary database vendor Oracle began pushing the firm to migrate the database tier of its flagship Cerner Millennium application suite to Red Hat Enterprise Linux.
+link:
+    href: "//www.redhat.com/en/success-stories/cerner"
+    title: Read more about the Cerna success story
+    text: Read more

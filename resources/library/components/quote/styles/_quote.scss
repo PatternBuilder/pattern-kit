@@ -1,0 +1,20 @@
+.#{$repo}-quote {
+    &--component {
+
+    }
+    &-container {
+        @extend %default-reset; // reset in case blockquote is used
+        font-size: 1em; // reset font size applied by bootstrap
+    }
+    &-quotation {
+        @extend %quote;
+    }
+    &-reference {
+        @extend %quote-footer;
+    }
+    &-attribution {
+        font-weight: bold;
+    }
+}
+
+

@@ -1,0 +1,18 @@
+{% set carousel_slide_props %}
+    data-rh-theme="{{ config.theme ?: 'light' }}"
+    data-rh-background="{{ background.color ?: 'transparent' }}"
+    {% if background.image_large %}
+        data-rh-bq="{{ background.image_large }}{% if background.image_small %}, {{ background.image_small }}{% endif %}"
+    {% endif %}
+    {% if background.custom_color %} style="background-color: {{ background.custom_color }}"{% endif %}
+{% endset %}
+
+
+<div class="rh-carousel-slide" {{ carousel_slide_props }} >
+    <div class="rh-carousel-slide-body">
+        {% for item in body.content %}
+            {% include item.template ?: item.name ~ '.twig' with item only %}
+        {% else %} {% block body %}{% endblock %}
+        {% endfor %}
+    </div>
+</div>

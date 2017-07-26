@@ -1,0 +1,110 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Social band",
+    "category": "pattern",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [ "header", "icons", "name" ],
+    "properties": {
+        "name": {
+            "type": "string",
+            "enum": [ "social_band" ],
+            "options": {
+                "hidden": true
+            }
+        },
+        "meta": {
+            "type": "object",
+            "properties": {
+                "class": {
+                    "options": {
+                        "hidden": true
+                    },
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "id": {
+                    "type": "string",
+                    "options": {
+                        "hidden": true
+                    }
+                },
+                "uniqueId": {
+                    "type": "string",
+                    "options": {
+                        "hidden": true
+                    }
+                }
+            }
+        },
+        "background": {
+            "type": "object",
+            "title": "Band Background",
+            "properties": {
+                "color": {
+                    "title": "Color",
+                    "type": "string",
+                    "enum": [ "white", "gray" ],
+                    "default": "white"
+                }
+            }
+        },
+        "header": {
+            "required": [ "title" ],
+            "type": "object",
+            "title": "Header",
+            "properties": {
+                "title": {
+                    "title": "Band Title",
+                    "type": "string",
+                    "options": {
+                        "preview": true
+                    }
+                },
+                "headline": {
+                    "title": "Band Headline",
+                    "type": "string",
+                    "options": {
+                        "preview": true
+                    }
+                }
+            }
+        },
+        "icons": {
+            "title": "Social Icons",
+            "type": "array",
+            "minItems": 1,
+            "format": "tabs",
+            "items": {
+                "required": [ "filename", "link" ],
+                "title": "Icons",
+                "type": "object",
+                "properties": {
+                    "filename": {
+                        "title": "Icon File Name",
+                        "type": "string",
+                        "description": "<a target='_blank' href='http://styleguides-itmarketing.itos.redhat.com/webux/styleguide/docs/styles_-_icons.html'>Choose your icon from The RH Icon List</a>"
+                    },
+                    "link": {
+                        "title": "Text and Social Link",
+                        "$ref": "link.json"
+                    }
+                }
+            }
+        },
+        "cta": {
+            "title": "Optional Call to Action",
+            "type": "object",
+            "options": {
+                "collapsed": "true"
+            },
+            "properties": {
+                "link": {
+                    "$ref": "link.json"
+                }
+            }
+        }
+    }
+}

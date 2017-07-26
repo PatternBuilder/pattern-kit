@@ -1,0 +1,47 @@
+.#{$repo}-icon-embed {
+    &-icon {
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: .5em;
+        width: 40px;
+        &:last-child {
+            margin-bottom: 0;
+        }
+        @include data(size, full) {
+            width: 100%;
+        }
+        @include data(size, small) {
+            width: 40px;
+        }
+        @include data(size, medium) {
+            width: 80px;
+        }
+        @include data(size, large) {
+            width: 120px;
+        }
+        svg {
+            width: 100%;
+            height: auto;
+            fill: color(black);
+            a:hover & {
+                fill: color(copy);
+            }
+        }
+    }
+    &-link {
+        @extend %link-reset;
+    }
+    &-text {
+        @extend %headline-link;
+        @include data(align, left) {
+            text-align: left;
+        }
+        @include data(align, center) {
+            text-align: center;
+        }
+        @include data(align, right) {
+            text-align: right;
+        }
+    }
+
+}

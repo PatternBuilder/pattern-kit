@@ -1,0 +1,37 @@
+[{
+    "label": "Default value",
+    "data": {
+        "name": "footnote",
+        "align": "center",
+        "indicator": "",
+        "footnotes": [{
+            "footnote": "Red Hat client data and Fortune Global 500 list, 2014 Red Hat client data and Fortune Global 500 list, 2014 Red Hat client data and Fortune Global 500 list, 2014 Red Hat client data and Fortune Global 500 list, 2014"
+        },{
+            "footnote": "Red Hat client data and Fortune 500 list, 2014"
+        }]
+    }
+}, {
+    "label": "Numbered variation",
+    "data": {
+        "name": "footnote",
+        "align": "left",
+        "indicator": "numbered",
+        "footnotes": [{
+            "footnote": "Red Hat client data and Fortune Global 500 list, 2014"
+        },{
+            "footnote": "Red Hat client data and Fortune 500 list, 2014"
+        }]
+    }
+}, {
+    "label": "Asterisk variation",
+    "data": {
+        "name": "footnote",
+        "align": "right",
+        "indicator": "asterisk",
+        "footnotes": [{
+            "footnote": "Red Hat client data and Fortune Global 500 list, 2014"
+        },{
+            "footnote": "Red Hat client data and Fortune 500 list, 2014"
+        }]
+    }
+}]

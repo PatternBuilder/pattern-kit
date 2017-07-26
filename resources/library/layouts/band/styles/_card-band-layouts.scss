@@ -1,0 +1,123 @@
+// For a max of 4 cards in a band
+[data-#{$repo}-layout="card-band4"] {
+    .flexbox & {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    margin-top: $vertical-gutter/-2;
+    @include breakpoint($breakpoint-sm-min) {
+        margin-top: $vertical-gutter * -1;
+    }
+    clear: both;
+    > div {
+        @include breakpoint($breakpoint-xxs-max max-width) {
+            @include span(3 of 6);
+            margin-top: $vertical-gutter/2;
+            &:nth-child(2n) {
+                margin-right: 0;
+            }
+        }
+
+        @include breakpoint($breakpoint-xs-min $breakpoint-xs-max) {
+            @include span(6);
+            margin-top: $vertical-gutter/2;
+            &:nth-child(2n) {
+                margin-right: 0;
+            }
+        }
+
+        @include breakpoint($breakpoint-sm-min) {
+            flex-grow: 1;
+            @include span(3);
+            margin-top: $vertical-gutter;
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+    }
+}
+
+// For a max of 5 cards in a band
+[data-#{$repo}-layout="card-band5"] {
+    .flexbox & {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    margin-top: $vertical-gutter/-2;
+    @include breakpoint($breakpoint-sm-min) {
+        margin-top: $vertical-gutter * -1;
+    }
+    clear: both;
+    > div {
+        @include breakpoint($breakpoint-xxs-max max-width) {
+            @include span(3 of 6);
+            margin-top: $vertical-gutter/2;
+            &:nth-child(2n) {
+                margin-right: 0;
+            }
+        }
+
+        @include breakpoint($breakpoint-xs-min $breakpoint-xs-max) {
+            @include span(6);
+            margin-top: $vertical-gutter/2;
+            &:nth-child(2n) {
+                margin-right: 0;
+            }
+        }
+
+        @include breakpoint($breakpoint-sm-min) {
+            flex-grow: 1;
+            @include span(3);
+            margin-top: $vertical-gutter;
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+    }
+}
+
+// For a max of 6 cards in a band
+[data-#{$repo}-layout="card-band6"] {
+    .flexbox & {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    margin-top: $vertical-gutter/-2;
+    @include breakpoint($breakpoint-sm-min) {
+        margin-top: $vertical-gutter * -1;
+    }
+    clear: both;
+    > div {
+        @include breakpoint($breakpoint-xxs-max max-width) {
+            @include span(3 of 6);
+            margin-top: $vertical-gutter/2;
+            &:nth-child(2n) {
+                margin-right: 0;
+            }
+        }
+
+        @include breakpoint($breakpoint-xs-min $breakpoint-xs-max) {
+            @include span(6);
+            margin-top: $vertical-gutter/2;
+            &:nth-child(2n) {
+                margin-right: 0;
+            }
+        }
+
+        @include breakpoint($breakpoint-sm-min $breakpoint-sm-max) {
+            @include span(4);
+            margin-top: $vertical-gutter;
+            &:nth-child(3n) {
+                margin-right: 0;
+            }
+        }
+        @include breakpoint($breakpoint-md-min) {
+            flex-grow: 1;
+            @include span(2);
+            margin-top: $vertical-gutter;
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+    }
+}

@@ -1,0 +1,56 @@
+/*doc
+---
+title: Band Layout
+category: Layout - Standard Band Options
+name: 00-3
+
+---
+
+webrh uses a data attribute based layout system. A single data attribute on the parent element will dictate the layout of all of its direct decendants.
+`data-rh-layout="4 4 4 flex"`
+
+This provides the back-end dev a simple method for laying out content without changing the markup of the contained components.
+
+These layouts are based on a 12 column grid system. Each number refers to the number of columns that each child element will occupy. Except for Galleries, in which the number refers to the number of total symmetric columns.
+
+Layout Types | Description | data-rh-layout values |
+-------------|--------------------------------------|--------------|
+**Primary** | Built to span a single row of a band. These can optionally use the flexbox layout system, just suffix the layout with -flex, i.e. `data-rh-layout="4 4 4 flex"`. Flexbox offers benefits such as rendering each column with equal heights. Primary layouts will collapse under `$bp-sm`. | `9 3` <br/> `3 9`  <br/>  `8 4`  <br/>  `4 8`  <br/>  `6 6`  <br/>  `4 4 4`  <br/>  `3 3 3 3` |
+**Secondary** | Create a single row nested inside of a primary layout. These collapse at `$bp-xs`. | `2 2`  <br/>  `3 3`  <br/>  `4 4`  <br/>  `3 3 3` |
+**Gallery** | These create equal width galleries with a column width specified in data attribute. This 2 up gallery uses flexbox and has appropriate bottom margins. They  collapse to 2 columns under `$bp-sm` and 1 column under `$bp-xs`. | `gallery2`  <br/>  `gallery3`  <br/>  `gallery4`  <br/> `gallery5`|
+**Card Band** | Specifically for bands holding cards. Cards may be 4 columns wide (for 3 cards) or 6 columns wide (for 2 cards).  | `card-band4`  <br/>  `card-band6` |
+**Stacked (Vertical)** | This is the default layout used for cards, or any container holding multiple components. Components themselves have no bottom margin, so stacked layout provides that bottom margin to all immediate children. | `stacked`  <br/>  `tall-stacked`|
+
+
+*/
+
+/*doc
+---
+title: Band Layout Examples
+category: Layout - Standard Band Options
+
+---
+
+####note
+numbers in [ ] refer to data-rh-layout value of column, not parent. `8[4 4] 4` means `8 4` on the parent and `4 4` on the larger 8 column div.
+
+```style
+ .component {
+  background: #ccc;
+  padding: 5px;
+  color: white;
+ }
+```
+
+```container_hide
+{% include "standard-band-layout-examples.html" %}
+```
+
+###Card Band Layout Examples
+[Pattern examples](../patterns/patterns_-_card_band.html)
+
+```container_hide
+{% include "standard-band-card-layout-examples.html" %}
+```
+
+*/

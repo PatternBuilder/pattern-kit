@@ -1,0 +1,56 @@
+.#{$repo}-social-icon {
+    &--component {
+        // content horizontal align values
+        @extend %text-align-enabled;
+        position: relative;
+    }
+    &-link {
+        text-decoration: none;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+    }
+    &-logo {
+        @extend %social-icon-link;
+        display: inline-block;
+        line-height: 1;
+        @include data-context(icon-size, small) {
+            font-size: 1.2em;
+        }
+        @include data-context(icon-size, medium) {
+            font-size: 2em;
+        }
+        @include data-context(icon-size, large) {
+            font-size: 3em;
+        }
+        @include data-context(position, below) {
+            display: block;
+            &:not(:last-child) {
+                margin-bottom: .2em;
+            }
+        }
+        @include data-context(position, right) {
+            &:not(:last-child) {
+                margin-right: .2em;
+            }
+        }
+    }
+    &-handle {
+        @extend %social-icon-link;
+        display: inline-block;
+        @include data-context(icon-size, small) {
+            font-size: .6em;
+        }
+        @include data-context(icon-size, medium) {
+            font-size: .8em;
+        }
+        @include data-context(icon-size, large) {
+            font-size: 1.2em;
+        }
+        @include data-context(position, below) {
+            display: block;
+        }
+    }
+}

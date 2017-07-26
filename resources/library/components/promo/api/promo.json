@@ -1,0 +1,31 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Promo",
+    "description": "",
+    "category": "component",
+    "type": "object",
+    "format": "grid",
+    "properties": {
+        "headline": {
+            "title": "Headline",
+            "type": "string"
+        },
+        "text": {
+            "title": "Text",
+            "type": "string",
+            "format": "textarea"
+        },
+        "cta": {
+            "$ref": "link.json"
+        },
+        "name": {
+            "type": "string",
+            "enum": [ "promo" ],
+            "options": {
+                "hidden": true
+            }
+        }
+    },
+    "required": [ "headline", "text", "cta" ],
+    "additionalProperties": false
+}

@@ -1,0 +1,44 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Styled Select",
+    "description": "A Styled Select Box",
+    "type": "object",
+    "properties": {
+        "name": {
+            "type": "string",
+            "readonly": "true",
+            "default": "styled_select",
+            "enum": [ "styled_select" ]
+        },
+        "template": {
+            "type": "string",
+            "default": "styled_select.twig"
+        },
+        "label": {
+            "type": "string"
+        },
+        "options": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+                "type": "object",
+                "properties": {
+                    "value": {
+                        "type": "string"
+                    },
+                    "selected": {
+                        "type": "boolean"
+                    },
+                    "text": {
+                        "type": "string"
+                    }
+                },
+                "required": [ "value", "text" ]
+            }
+        }
+    },
+    "required": [ "options" ],
+    "additionalProperties": false
+}
+
+

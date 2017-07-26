@@ -1,0 +1,47 @@
+{# Pass this into menu_list #}
+{% set preset_accordion_bps = ["xxs", "xs", "sm"] %}
+
+{% set main_content = [] %}
+{% for c in columns if columns is iterable %}
+    {# Build menu list components with preconfigured settings #}
+    {% set list_items = [] %}
+    {% for list in c.column.menu if c.column.menu is iterable %}
+        {% set list_items = list_items|merge([{
+            "name": "menu_list",
+            "config": {
+                "accordion": preset_accordion_bps
+            },
+            "title": list.title,
+            "links": list.links
+        }]) %}
+    {% endfor %}
+
+    {% set main_content = main_content|merge([{
+        "name": "menu_column",
+        "config": {
+            "theme": "dark",
+            "vertical_spacing": "stacked"
+        },
+        "column": {
+            "menu": list_items
+        }
+    }]) %}
+{% endfor %}
+
+{% embed 'footer.twig' with {
+    "global": _context,
+    "name": "footer",
+    "config": {
+        "collapse": "full",
+        "background_color": "black"
+    },
+    "main": {
+        "layout": "",
+        "theme": "dark",
+        "content": main_content
+    },
+    "aside": {
+        "content": aside
+    }
+} only %}
+{% endembed %}

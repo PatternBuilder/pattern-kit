@@ -1,0 +1,34 @@
+{% set body_content = [] %}
+
+{% for item in body %}
+    {% set body_content = body_content|merge([
+        item
+    ]) %}
+{% endfor %}
+
+{% include 'band_group.twig' with {
+    "name": "band_group",
+    "meta": meta,
+    "config": {
+        "group_height": group_height
+    },
+    "background": {
+        "color": background.color,
+        "image_large": {
+            "src": background.image_large.src
+        },
+        "image_small": {
+            "src": background.image_small.src
+        },
+        "isFixed": background.isFixed
+    },
+    "header": {
+        "content": [{
+            "name": "raw",
+            "content": navigation
+        }]
+    },
+    "body": {
+        "content": body_content
+    }
+} only %}

@@ -1,0 +1,58 @@
+{% if config.seo.position == 'primary' %}
+    {% if config.seo.priority == 'standard' %}
+        {% set title_tag = 'h1' %}
+        {% set headline_tag = 'h2' %}
+    {% endif %}
+    {% if config.seo.priority == 'title' %}
+        {% set title_tag = 'h1' %}
+        {% set headline_tag = 'p' %}
+    {% endif %}
+    {% if config.seo.priority == 'headline' %}
+        {% set title_tag = 'p' %}
+        {% set headline_tag = 'h1' %}
+    {% endif %}
+{% endif %}
+
+{% if config.seo.position == 'secondary' %}
+    {% if config.seo.priority == 'standard' %}
+        {% set title_tag = 'h2' %}
+        {% set headline_tag = 'h3' %}
+    {% endif %}
+    {% if config.seo.priority == 'title' %}
+        {% set title_tag = 'h2' %}
+        {% set headline_tag = 'p' %}
+    {% endif %}
+    {% if config.seo.priority == 'headline' %}
+        {% set title_tag = 'p' %}
+        {% set headline_tag = 'h2' %}
+    {% endif %}
+{% endif %}
+
+
+<div class="rh-band-header--component" {{ config.align ? "data-rh-align=" ~ config.align }} >
+
+    {% if title -%}
+    <{{ title_tag ?: 'h2' }} class="rh-band-header-title">
+
+    {% if hash_link -%}
+    <a class="rh-band-header-hash" id="{{ hash_link }}" href="#{{ hash_link }}">
+        {%- endif -%}
+
+        {% include "no_html.twig" with { "string": title } only %}
+        {% if hash_link -%}
+    </a>
+    {%- endif -%}
+</{{ title_tag ?: 'h2' }}>
+{%- endif %}
+
+    {% if headline -%}
+        <{{ headline_tag ?: 'h3' }} class="rh-band-header-{% if config.size == "hero" %}hero-{% endif %}headline">
+        {% include "no_html.twig" with { "string": headline } only %}
+        </{{ headline_tag ?: 'h3' }}>
+    {%- endif %}
+
+    {% if summary -%}
+        <p class="rh-band-header-{% if config.size == 'hero' %}hero-{% endif %}summary">{{ summary|striptags('<a><br>')|raw }}</p>
+    {%- endif %}
+
+</div>

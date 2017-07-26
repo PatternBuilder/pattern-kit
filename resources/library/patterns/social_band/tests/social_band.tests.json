@@ -1,0 +1,82 @@
+{
+    "name": "social_band",
+    "background": {
+        "color": "white"
+    },
+    "header": {
+        "title": "Social",
+        "headline": "Join the conversation"
+    },
+    "icons": [
+        {
+            "filename": "web-icon-facebook",
+            "link": {
+                "text": "Red Hat JBoss",
+                "href": "#",
+                "title": "Red Hat JBoss Facebook"
+            }
+        },
+        {
+            "filename": "web-icon-twitter",
+            "link": {
+                "text": "@JBossDeveloper",
+                "href": "#",
+                "title": "Red Hat JBoss Twitter"
+            }
+        },
+        {
+            "filename": "web-icon-linkedin",
+            "link": {
+                "text": "Red Hat JBoss",
+                "href": "#",
+                "title": "Red Hat JBoss LinkedIn"
+            }
+        },
+        {
+            "filename": "web-icon-youtube",
+            "link": {
+                "text": "Red Hat JBoss channel",
+                "href": "#",
+                "title": "Red Hat JBoss Youtube"
+            }
+        },
+        {
+            "filename": "web-icon-facebook",
+            "link": {
+                "text": "Red Hat JBoss",
+                "href": "#",
+                "title": "Red Hat JBoss Facebook"
+            }
+        },
+        {
+            "filename": "web-icon-twitter",
+            "link": {
+                "text": "@JBossDeveloper",
+                "href": "#",
+                "title": "Red Hat JBoss Twitter"
+            }
+        },
+        {
+            "filename": "web-icon-linkedin",
+            "link": {
+                "text": "Red Hat JBoss",
+                "href": "#",
+                "title": "Red Hat JBoss LinkedIn"
+            }
+        },
+        {
+            "filename": "web-icon-youtube",
+            "link": {
+                "text": "Red Hat JBoss channel",
+                "href": "#",
+                "title": "Red Hat JBoss Youtube"
+            }
+        }
+    ],
+    "cta": {
+        "link": {
+            "text": "CTA Text",
+            "href": "#"
+        }
+    }
+}

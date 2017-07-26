@@ -1,0 +1,44 @@
+{
+    "template": "testing.twig",
+    "data": {
+        "template": "training_method.twig",
+        "videoSrc": "<iframe width=\"560\" height=\"315\" src=\"//www.youtube.com/embed/ACi_dRUKE2Y\" frameborder=\"0\" allowfullscreen></iframe>",
+        "title": "Taste of training for RH124",
+        "typeLabel": "How will you train?",
+        "options": [
+            {
+                "value": "classroom",
+                "text": "Classroom",
+                "selected": true
+            },
+            {
+                "value": "german-classroom",
+                "text": "Virtuelles Klassenzimmer"
+            },
+            {
+                "value": "onsite-training",
+                "text": "On-site Training"
+            },
+            {
+                "value": "online-training",
+                "text": "Online Training"
+            },
+            {
+                "value": "remote-training",
+                "text": "Remote Training"
+            },
+            {
+                "value": "virrtua-classroom",
+                "text": "Vrtual Classroom"
+            }
+        ],
+        "duration_label": "Duration",
+        "duration_value": "5 days",
+        "cost_label": "Cost",
+        "cost_value": "$1320 or 9 Training Units ",
+        "link": {
+            "text": "Enroll",
+            "url": "#"
+        }
+    }
+}

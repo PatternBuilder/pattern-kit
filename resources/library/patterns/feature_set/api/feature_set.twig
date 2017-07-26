@@ -1,0 +1,78 @@
+{% if config.pattern_style == 'fset1' %}
+    {% set layout = "gallery2" %}
+    {% set icon_size = "medium" %}
+    {% set icon_background = "gray" %}
+    {% set align = "left" %}
+{% endif %}
+
+{%- if header.title or header.headline %}
+    {% set header_content = [{
+        "name": "band_header",
+        "config": {
+            "size": "band",
+            "seo": {
+                "position": "secondary",
+                "priority": header.seo_emphasis
+            }
+        },
+        "title": header.title,
+        "headline": header.headline,
+        "summary": header.summary
+    }] %}
+{% endif -%}
+
+{% set body_content = [] %}
+{% for feature in features %}
+    {% set body_content = body_content|merge([{
+        "name": "icon_panel",
+        "align": align,
+        "content": {
+            "title": feature.title,
+            "summary": feature.summary
+        },
+        "icon": {
+            "filename": feature.icon,
+            "size": icon_size ?: "medium",
+            "background": icon_background ?: "gray"
+        },
+        "link": feature.cta.link
+    }]) %}
+{% endfor %}
+
+{%- if cta.link.href %}
+    {% set footer_content = [{
+        "name": "cta",
+        "config": {
+            "type": cta.type
+        },
+        "link": cta.link
+    }] %}
+{% endif -%}
+
+{% embed 'band.twig' with {
+    "meta": meta,
+    "background": {
+        "color": background.color,
+        "image_large": {
+            "src": background.image_large.src
+        },
+        "image_small": {
+            "src": background.image_small.src
+        },
+        "isFixed": background.isFixed
+    },
+    "header": {
+        "theme": config.theme,
+        "content": header_content
+    },
+    "body": {
+        "layout": layout ?: "gallery2",
+        "theme": config.theme,
+        "content": body_content
+    },
+    "footer": {
+        "theme": config.theme,
+        "content": footer_content
+    }
+} only %}
+{% endembed %}

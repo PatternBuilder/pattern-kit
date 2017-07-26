@@ -1,0 +1,86 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Videos band",
+    "category": "pattern",
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+        "name": {
+            "type": "string",
+            "enum": [ "recent_videos" ],
+            "options": {
+                "hidden": true
+            }
+        },
+        "meta": {
+            "type": "object",
+            "properties": {
+                "class": {
+                    "options": {
+                        "hidden": true
+                    },
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "id": {
+                    "type": "string",
+                    "options": {
+                        "hidden": true
+                    }
+                },
+                "uniqueId": {
+                    "type": "string",
+                    "options": {
+                        "hidden": true
+                    }
+                }
+            }
+        },
+        "title": {
+            "title": "Band Title",
+            "type": "string",
+            "options": {
+                "preview": true
+            }
+        },
+        "headline": {
+            "title": "Band Headline",
+            "type": "string",
+            "options": {
+                "preview": true
+            }
+        },
+        "videos": {
+            "title": "Videos",
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "video": {
+                        "title": "Video Source",
+                        "$ref": "video.json"
+                    },
+                    "link": {
+                        "title": "Video Title",
+                        "title": "Video Title Link",
+                        "$ref": "link.json"
+                    },
+                    "summary": {
+                        "title": "Video Summary",
+                        "type": "string",
+                        "format": "textarea"
+                    }
+                }
+            }
+        },
+        "link": {
+            "title": "Optional Call to Action",
+            "options": {
+                "collapsed": "true"
+            },
+            "$ref": "link.json"
+        }
+    }
+}

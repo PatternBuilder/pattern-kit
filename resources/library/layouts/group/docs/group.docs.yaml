@@ -1,0 +1,15 @@
+name: group
+config:
+    vertical_layout: stacked
+header:
+    theme: light
+    content:
+        - @band_header
+body:
+    theme: light
+    content:
+        - @generic
+footer:
+    theme: light
+    content:
+        - @cta

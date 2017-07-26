@@ -1,0 +1,25 @@
+{
+    "name": "cta_band",
+    "background": {
+        "color": "black",
+        "image_large": {
+            "src": "/fixtures/images/blue.png",
+            "alt": ""
+        },
+        "image_small": {
+            "src": "/fixtures/images/red.png",
+            "alt": ""
+        }
+    },
+    "content": {
+        "theme": "dark",
+        "headline": "Welcome to redhat.com",
+        "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    },
+    "cta": {
+        "href": "www.redhat.com",
+        "title": "welcome ",
+        "text": "Learn More",
+        "target": "_self"
+    }
+}

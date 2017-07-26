@@ -1,0 +1,38 @@
+<!-- Featured item component-->
+<div class="rh-featured-item--component" data-eq-pts="small: 0, medium: 500, large: 700"
+        {% if misc_data %} {{ misc_data }}{% endif %}>
+    {% if summary or date or type or location -%}
+        <header class="rh-featured-item-header-group">
+            {% if title -%}<h2 class="rh-featured-item-title"> {% include "no_html.twig" with { "string": title } only %}  </h2>{% endif -%}
+            {% if date -%}<h4 class="rh-featured-item-date"> {% include "no_html.twig" with { "string": date } only %}  </h4>{% endif -%}
+            {% if type -%}<h4 class="rh-featured-item-type"> {% include "no_html.twig" with { "string": type } only %}  </h4>{% endif -%}
+            {% if location -%}<h4 class="rh-featured-item-location"> {% include "no_html.twig" with { "string": location } only %}  </h4>{% endif -%}
+        </header>
+    {%- endif %}
+    {% if summary or logo.src -%}
+        <article class="rh-featured-item-content">
+            {% if summary -%}
+                <div class="rh-featured-item-summary-container">
+                    <p class="rh-featured-item-summary">{% include "no_html.twig" with { "string": summary } only %} </p>
+                </div>
+            {%- endif %}
+            {% if logo.src -%}
+                <aside class="rh-featured-item-logo-container">
+                    <img class="rh-featured-item-logo"{% if logo.alt %} alt="{% include "no_html.twig" with { "string": logo.alt } only %}"{% endif %}
+                         src="{{ logo.src }}">
+                </aside>
+            {%- endif %}
+        </article>
+    {%- endif %}
+    <div class="rh-featured-item-cta-container">
+        <a class="rh-featured-item-cta" data-rh-state="primary"
+           href="{{ primary_link.href }}"{% if primary_link.title -%} title="{% include "no_html.twig" with { "string": primary_link.title } only %}" {%- endif %}>{% include "no_html.twig" with { "string": primary_link.text } only %} </a>
+        {% if secondary_link.text -%}
+            <a class="rh-featured-item-cta-secondary" data-rh-state="secondary"
+               href="{{ secondary_link.href }}"{% if secondary_link.title -%} title="{% include "no_html.twig" with { "string": secondary_link.title } only %}"{%- endif %}>
+                {% include "no_html.twig" with { "string": secondary_link.text } only %}
+            </a>
+        {%- endif %}
+    </div>
+</div>
+<!-- End featured item -->

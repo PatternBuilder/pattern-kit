@@ -1,0 +1,13 @@
+.#{$repo}-fieldset {
+    &--layout {
+        position: relative;
+    }
+    &-header {
+        @include flex();
+    }
+    &-body {
+        legend {
+            @extend %accessible-invisible;
+        }
+    }
+}

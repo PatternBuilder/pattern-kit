@@ -1,0 +1,30 @@
+<div class="rh-horizontal-tabs--layout">
+    <div class="rh-horizontal-tabs-container"{% if theme %} data-rh-theme="{{ theme }}"{%- endif %}{% if tabBackground %} data-rh-band-background="{{ tabBackground }}"{% endif %}
+         data-eq-pts="{{ eqpts }}">
+        {% if title or headline or summary -%}
+            <header class="rh-horizontal-tabs-header">
+                {% if title -%}<h2 class="rh-horizontal-tabs-title">{{ title }}</h2> {%- endif %}
+                {% if headline -%}<h1 class="rh-horizontal-tabs-headline">{{ headline }}</h1>{%- endif %}
+                {% if summary -%}<p class="rh-horizontal-tabs-summary">{{ summary }}</p>{%- endif %}
+            </header>
+        {%- endif %}
+        <div class="rh-horizontal-tabs-toggle-bar">
+            <span class="rh-horizontal-tabs-toggle-button">&#9776;</span>
+        </div>
+        <nav class="rh-horizontal-tabs-nav">
+            {% for value in values -%}
+                <a class="rh-horizontal-tabs-nav-link"
+                   data-rh-tab="{% if loop.first %}active{% else %}inactive{% endif %}"
+                   href="#{{ value.tab|lower|replace(' ', '_', 'g') }}">{{ value.tab }}</a>
+            {% endfor %}
+        </nav>
+    </div>
+    <div class="rh-horizontal-tabs-panes">
+        {% for value in values -%}
+            <div class="rh-horizontal-tabs-pane" id="{{ value.tab|lower|replace(' ', '_', 'g') }}"
+                 data-rh-state="{% if loop.first %}open{% else %}closed{% endif %}">
+                {% if value.pane -%}{% include value.pane with only %}{%- endif %} {% if value.text -%}{{ value.text }}{%- endif %}
+            </div>
+        {%- endfor %}
+    </div>
+</div>

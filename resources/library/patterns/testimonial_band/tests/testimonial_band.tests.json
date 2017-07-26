@@ -1,0 +1,57 @@
+[
+    {
+        "label": "Right-aligned",
+        "data": {
+            "name": "testimonial_band",
+            "background": {
+                "color": "rich-black",
+                "image_large": {
+                    "src": "/fixtures/images/red.png"
+                },
+                "image_small": {
+                    "src": "/fixtures/images/blue.png"
+                }
+            },
+            "config": {
+                "theme": "dark",
+                "layout": "right"
+            },
+            "quote": {
+                "quotation": "We think of Red Hat as one of just a handful of superior engineering and support organizations in the United States.",
+                "attribution_name": "John Defeo",
+                "attribution_title": "President of the world"
+            }
+        }
+    },
+    {
+        "label": "Left-aligned",
+        "data": {
+            "name": "testimonial_band",
+            "background": {
+                "color": "white",
+                "image_large": {
+                    "src": "/fixtures/images/bg3.jpg"
+                },
+                "image_small": {
+                    "src": "/fixtures/images/red.png"
+                }
+            },
+            "config": {
+                "theme": "light",
+                "layout": "left"
+            },
+            "quote": {
+                "quotation": "We think of Red Hat as one of just a handful of superior engineering and support organizations in the United States.",
+                "attribution_name": "John Defeo",
+                "attribution_title": "President of the world"
+            },
+            "cta": {
+                "type": "primary",
+                "link": {
+                    "text": "Watch the video",
+                    "href": "#"
+                }
+            }
+        }
+    }
+]

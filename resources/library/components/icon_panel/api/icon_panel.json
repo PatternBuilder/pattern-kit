@@ -1,0 +1,65 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Icon panel",
+    "description": "",
+    "category": "component",
+    "type": "object",
+    "format": "grid",
+    "properties": {
+        "name": {
+            "type": "string",
+            "enum": [ "icon_panel" ],
+            "options": {
+                "hidden": true
+            }
+        },
+        "align": {
+            "$ref": "config.json#/properties/component/properties/align"
+        },
+        "content": {
+            "title": "Content",
+            "required": [ "title", "summary" ],
+            "type": "object",
+            "properties": {
+                "title": {
+                    "title": "Title",
+                    "type": "string"
+                },
+                "summary": {
+                    "title": "Summary",
+                    "type": "string",
+                    "format": "html",
+                    "description": "Allowed tags: &lt;a&gt;&lt;br&gt;&lt;sup&gt;&lt;small&gt;"
+                }
+            }
+        },
+        "icon": {
+            "title": "Icon",
+            "type": "object",
+            "properties": {
+                "filename": {
+                    "title": "Icon file name",
+                    "type": "string",
+                    "description": "<a target='_blank' href='http://styleguides-itmarketing.itos.redhat.com/webux/styleguide/docs/styles_-_icons.html'>Choose your icon from The RH Icon List</a>"
+                },
+                "size": {
+                    "title": "Size",
+                    "type": "string",
+                    "enum": [ "small", "medium", "large" ],
+                    "default": "medium"
+                },
+                "background": {
+                    "title": "Background",
+                    "type": "string",
+                    "enum": [ "red", "gray" ]
+                }
+            }
+        },
+        "link": {
+            "title": "Call-to-action",
+            "$ref": "link.json"
+        }
+    },
+    "required": [ "content" ],
+    "additionalProperties": false
+}

@@ -1,0 +1,57 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Quantity",
+    "description": "",
+    "type": "object",
+    "category": "component",
+    "format": "grid",
+    "properties": {
+        "name": {
+            "type": "string",
+            "readonly": true,
+            "enum": ["quantity"],
+            "options": {
+                "hidden": true
+            }
+        },
+        "set_id": {
+            "type": "string",
+            "pattern": "^([a-z_0-9])*$",
+            "options": {
+                "hidden": true
+            }
+        },
+        "required": {
+            "title": "Required field",
+            "type": "boolean",
+            "default": true
+        },
+        "disabled": {
+            "title": "Disabled",
+            "type": "boolean",
+            "default": false
+        },
+        "min": {
+            "title": "Minimum accepted value",
+            "type": "number",
+            "default": 0
+        },
+        "max": {
+            "title": "Maximum accepted value",
+            "type": "number",
+            "default": 99
+        },
+        "step": {
+            "title": "Amount to iterate by",
+            "type": "number",
+            "default": 1
+        },
+        "value": {
+            "title": "Initial value",
+            "type": "number",
+            "default": 1
+        }
+    },
+    "required": ["name"],
+    "additionalProperties": false
+}

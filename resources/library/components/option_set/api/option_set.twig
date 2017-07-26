@@ -1,0 +1,29 @@
+<!-- Option set component -->
+{% if input_item is iterable %}
+    <div class="rh-option-set--component" data-rh-select-type="{{ input_type == 'Multi-select' ? 'checkbox' : 'radio' }}">
+        <ul class="rh-option-set-container">
+             {% if not set_id %}
+                {% set set_id = "" %}
+                {% for i in 1..5 %}
+                    {% set alpha = 'abcdefghijklmnopqrstuvwxyz' %}
+                    {% set numbers = '0123456789' %}
+                    {% set set_id = set_id ~ random(alpha ~ numbers ~ '-') %}
+                {% endfor %}
+            {% endif %}
+            {% set selected = false %}
+            {% for opt in input_item %}
+                {% if opt.id and opt.label %}
+                    <li class="rh-option-set-item" {% if opt.misc %}data-rh-misc="{{ opt.misc }}"{% endif %}>
+                        <input type="{{ input_type == 'Multi-select' ? 'checkbox' : 'radio' }}" name="{{ set_id }}" id="{{ opt.id }}" value="{% include "no_html.twig" with { "string": opt.label } only %}" role="{{ input_type == 'Multi-select' ? 'checkbox' : 'radio' }}"
+                            {% if opt.selected and not selected %}
+                                {% if select == "Single select" %}{%  set selected = true %}{% endif %}
+                                checked
+                            {% endif -%}
+                            {% if opt.disabled == "Yes" %} disabled{% endif %}/>
+                        <label for="{{ opt.id }}">{% include "no_html.twig" with { "string": opt.label } only %}</label>
+                    </li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    </div>
+{% endif %}

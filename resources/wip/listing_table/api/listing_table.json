@@ -1,0 +1,56 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Listing Table",
+    "description": "A vertical list of content",
+    "type": "object",
+    "properties": {
+        "name": {
+            "type": "string",
+            "readonly": "true",
+            "default": "listing_table",
+            "enum": [ "listing_table" ]
+        },
+        "template": {
+            "type": "string",
+            "default": "listing_table.twig"
+        },
+        "rows": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+                "type": "object",
+                "properties": {
+                    "theme": {
+                        "type": "string"
+                    },
+                    "background": {
+                        "type": "string"
+                    },
+                    "layout": {
+                        "type": "string"
+                    },
+                    "body_content": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "template": {
+                                    "type": "string"
+                                },
+                                "data": {
+                                    "type": "object"
+                                }
+                            }
+                        },
+                        "required": [ "template", "data" ]
+                    }
+                },
+                "required": [ "body_content" ]
+            }
+        }
+    },
+    "required": [ "rows" ],
+    "additionalProperties": false
+}
+
+

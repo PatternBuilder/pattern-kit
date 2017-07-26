@@ -1,0 +1,72 @@
+[{
+    "label": "Menu link style",
+    "data": {
+        "name": "nav_links",
+        "style": "Menu",
+        "links": [{
+            "link": {
+                "text": "Linux Platforms",
+                "href": "#",
+                "title": "Learn more about our Linux Platform offerings."
+            }
+        },{
+            "link": {
+                "text": "JBoss Middleware",
+                "href": "#",
+                "title": "Learn more about our JBoss Middleware offerings."
+            }
+        },{
+            "link": {
+                "text": "Training",
+                "href": "#",
+                "title": "Learn more about our Training offerings."
+            }
+        }]
+    }
+},{
+    "label": "Utility link style",
+    "data": {
+        "name": "nav_links",
+        "style": "Utility",
+        "links": [{
+            "link": {
+                "text": "Redhat.com",
+                "href": "#",
+                "title": "Learn more about Red Hat."
+            }
+        },{
+            "link": {
+                "text": "Sales",
+                "href": "#",
+                "title": "Learn more about purchasing from Red Hat's web store."
+            }
+        },{
+            "link": {
+                "text": "FAQ",
+                "href": "#",
+                "title": "Learn more about purchasing from Red Hat's web store."
+            }
+        }]
+    }
+},{
+    "label": "Utility link style with icon",
+    "data": {
+        "name": "nav_links",
+        "style": "Utility",
+        "links": [{
+            "icon": "web-icon-cart",
+            "link": {
+                "text": "Shopping cart",
+                "href": "#",
+                "title": "Buy now."
+            }
+        },{
+            "icon": "web-icon-search",
+            "link": {
+                "text": "Search",
+                "href": "#",
+                "title": "Buy now."
+            }
+        }]
+    }
+}]

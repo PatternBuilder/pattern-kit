@@ -1,0 +1,20 @@
+.rh-htab-nav {
+    &-tabs {
+        @extend %default-reset;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        @include breakpoint($breakpoint-sm-min) {
+            flex-wrap: nowrap;
+            justify-content: flex-start;
+        }
+    }
+    &-tab {
+        @extend %tab-link-horizontal-box;
+        @extend %tab-link-decoration;
+    }
+    &-link {
+        @extend %tab-link-text;
+
+    }
+}

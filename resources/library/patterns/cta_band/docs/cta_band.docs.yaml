@@ -1,0 +1,21 @@
+name: cta_band
+meta: 
+    id: cta_band_id
+    class: [ cta_band_class ]
+    uniqueId: cta_band_uniqe_id
+background: 
+    color: black
+    image_large: 
+        src: /fixtures/images/bg2.jpg
+        alt: 
+    image_small: 
+        src: /fixtures/images/bg1.jpg
+        alt: 
+content: 
+    theme: dark
+    headline: Welcome to redhat.com
+    summary: Lorem ipsum dolor sit amet consectetur adipiscing elit.
+cta: 
+    href: http://www.redhat.com
+    title: Welcome
+    text: Learn more

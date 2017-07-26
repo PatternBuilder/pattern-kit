@@ -1,0 +1,15 @@
+name: nav_links
+style: Menu
+links:
+    - link:
+          text: Linux Platforms
+          href: "#"
+          title: Descriptive text
+    - link:
+          text: JBoss Middleware
+          href: "#"
+          title: Descriptive text
+    - link:
+          text: Training
+          href: "#"
+          title: Descriptive text

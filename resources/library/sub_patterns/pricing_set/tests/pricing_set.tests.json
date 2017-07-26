@@ -1,0 +1,48 @@
+[
+    {
+        "config": {
+            "label": "Pricing set"
+        },
+        "data": {
+            "name": "pricing_set",
+            "config": {
+                "align": "center"
+            },
+            "price_data": {
+                "teaser": "Starting at",
+                "amount": "2499"
+            },
+            "cta": {
+                "link": {
+                    "href": "#"
+                }
+            }
+        }
+    },
+    {
+        "config": {
+            "label": "Pricing set with SKU, CTA secondary"
+        },
+        "data": {
+            "name": "pricing_set",
+            "config": {
+                "align": "left"
+            },
+            "price_data": {
+                "sku": "RH0009",
+                "amount": "799",
+                "currency": "EUR"
+            },
+            "cta": {
+                "config": {
+                    "type": "secondary",
+                    "align": "left"
+                },
+                "link": {
+                    "href": "#",
+                    "text": "Purchase"
+                }
+            }
+        }
+    }
+]

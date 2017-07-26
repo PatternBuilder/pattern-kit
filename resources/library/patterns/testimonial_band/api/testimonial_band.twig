@@ -1,0 +1,57 @@
+{% if config.layout == "right" %}
+    {% set layout = "only6" %}
+    {% set bg_align = "right-center" %}
+{% elseif config.layout == "left" %}
+    {% set layout = "6 6" %}
+    {% set bg_align = "left-center" %}
+{% elseif config.layout == "full" %}
+    {% set layout = "12" %}
+{% endif %}
+
+{% embed 'band.twig' with {
+    "global": _context,
+    "meta": meta,
+    "background": {
+        "color": background.color,
+        "image_large": {
+            "src": background.image_large.src
+        },
+        "image_small": {
+            "src": background.image_small.src
+        },
+        "align": bg_align
+    },
+    "body": {
+        "layout": layout,
+        "theme": config.theme
+    }
+} only %}
+
+{# BODY #}
+{% block body %}
+    {% include 'quote.twig' with {
+        "name": "quote",
+        "quotation": global.quote.quotation,
+        "attribution_name": global.quote.attribution_name,
+        "attribution_title": global.quote.attribution_title
+    } only %}
+{% endblock %}
+
+{# FOOTER #}
+{% block footer %}
+    {%- if global.cta.link.href %}
+        {% include "cta.twig" with {
+            "name": "cta",
+            "config": {
+                "type": global.cta.type
+            },
+            "link": {
+                "text": global.cta.link.text,
+                "href": global.cta.link.href,
+                "title": global.cta.link.title
+            }
+        } only %}
+    {% endif -%}
+{% endblock %}
+
+{% endembed %}
