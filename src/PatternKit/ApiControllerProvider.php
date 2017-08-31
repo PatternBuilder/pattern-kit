@@ -267,6 +267,8 @@ class ApiControllerProvider implements ControllerProviderInterface
             return "Sorry: Unable to determine the pattern requested.";
         }
 
+        $orig_contents = $contents;
+
         if (empty($pattern)) {
             $pattern = !empty($contents['name']) ? $contents['name'] : $contents['template'];
         }
@@ -274,30 +276,64 @@ class ApiControllerProvider implements ControllerProviderInterface
             $patternObj = PatternFactory::getPattern($pattern);
         }
 
-        $asset_data = $patternObj->getAssetData();
-
-        // Generate the list of properties to expose on the pattern.
-        $contents['propertylist'] = array_keys($contents);
-
-        // Remove 'name' from the list of properties.
-        $name_idx = array_keys($contents['propertylist'], 'name');
-        if (!empty($name_idx)) {
-            unset($contents['propertylist'][$name_idx[0]]);
-        }
-
         // Add global configuration.
         if (isset($app['config'])) {
             $contents["app_config"] = $app['config'];
         }
 
+        $asset_path = trim(dirname(get_asset_path($pattern, 'assets')), '.');
+
+        // If a host asset prefix was not specified, set empty value.
+        if (empty($contents['asset_host_prefix'])) {
+
+            if (!empty($contents['app_config']['pkhost'])) {
+                $contents['asset_host_prefix'] = $contents['app_config']['pkhost'] . $asset_path;
+            } else {
+                $protocol                      = (isset($_SERVER['HTTPS']) && (strcasecmp(
+                            'off',
+                            $_SERVER['HTTPS']
+                        ) !== 0)) ? 'https' : 'http';
+                $hostname                      = $_SERVER['SERVER_ADDR'];
+                $port                          = $_SERVER['SERVER_PORT'];
+                $contents['asset_host_prefix'] = "$protocol://$hostname:$port".$asset_path;
+            }
+            // $contents['asset_host_prefix'] = $asset_path;
+        }
+
+        // So that we have a record of the legacy stuff.
+        $contents['app_config']['global_assets'] = $contents['app_config']['assets'];
+
+        // Get the asset data (if available).
+        $asset_data = $patternObj->getAssetData();
         // If we have asset data, feed that to the renderer instead of global.
         if (!empty($asset_data)) {
-            // Override globals, this allows backward compatibility.
+
+            // Override globals - allows backward compatibility in templates.
             $contents['app_config']['assets']['js'] = array_merge(
               $asset_data['js']['early'],
               $asset_data['js']['deferred']
             );
             $contents['app_config']['assets']['css'] = $asset_data['css']['list'];
+
+            // If there is shared css, add it to the legacy list.
+            if (!empty($asset_data['css']['shared'])) {
+                foreach ($asset_data['css']['shared'] as $idx => $shared) {
+                    $contents['app_config']['assets']['css'][] = $shared['src'];
+                }
+            }
+
+            // Walk the list of css files and add appropriate prefixes.
+            if (!empty($contents['app_config']['assets']['css'])) {
+                foreach ($contents['app_config']['assets']['css'] as $idx => $filename) {
+                    $contents['app_config']['assets']['css'][$idx] = preg_replace('/^\\.\\//', $contents['asset_host_prefix'] .'/', $filename);
+                }
+            }
+            // Walk the list of js files and add appropriate prefixes.
+            if (!empty($contents['app_config']['assets']['js'])) {
+                foreach ($contents['app_config']['assets']['js'] as $idx => $filename) {
+                    $contents['app_config']['assets']['js'][$idx] = preg_replace('/^\\.\\//', $contents['asset_host_prefix'] .'/', $filename);
+                }
+            }
 
             // Add all the asset data to the config array.
             $contents['app_config']['assets']['custom'] = $asset_data;
@@ -322,9 +358,16 @@ class ApiControllerProvider implements ControllerProviderInterface
                 // Return a JSON object with all information necessary to render.
                 $json = json_encode(
                   (object)[
-                    'pattern' => $contents['name'],
-                    'assets'  => $contents["app_config"]['assets'],
-                    'body'    => $page_content,
+                      'pattern'       => $contents['name'],
+                      'host_prefix'   => $contents['asset_host_prefix'],
+                      'path'          => $asset_path,
+                      'assets'        => $contents["app_config"]['assets']['custom'] ?? [],
+                      'global_assets' => $contents["app_config"]['global_assets'] ?? [],
+                      'config'        => $orig_contents,
+                      'gzconfig'      =>  base64_encode(
+                          gzcompress(json_encode($orig_contents))
+                      ),
+                      'body'          => $page_content,
                   ],
                   JSON_HEX_QUOT | JSON_HEX_TAG
                 );
@@ -346,15 +389,17 @@ class ApiControllerProvider implements ControllerProviderInterface
                 $contents['embeddedCSS'] = '';
 
                 $module_path = dirname(get_asset_path($pattern, 'assets'));
-                foreach ($asset_data['css']['list'] as $cssfile) {
-                    if (substr($cssfile, 0, 4) == 'http') {
-                        continue;
-                    }
+                if (!empty($asset_data['css']['list'])) {
+                    foreach ($asset_data['css']['list'] as $cssfile) {
+                        if (substr($cssfile, 0, 4) == 'http') {
+                            continue;
+                        }
 
-                    if (substr($cssfile, 0, 2) == './') {
-                        $cssfile = $module_path . '/' . substr($cssfile, 2);
+                        if (substr($cssfile, 0, 2) == './') {
+                            $cssfile = $module_path.'/'.substr($cssfile, 2);
+                        }
+                        $contents['embeddedCSS'] .= file_get_contents($cssfile);
                     }
-                    $contents['embeddedCSS'] .= file_get_contents($cssfile);
                 }
 
                 $contents['dynamicProperties'] = [];

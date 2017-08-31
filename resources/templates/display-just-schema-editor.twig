@@ -42,17 +42,19 @@
 
 {% block footer %}
     <script type="text/javascript">
-      var data      = {};
+      data          = {};
       data.schema   = {{ schema|raw }};
       data.starting = {{ starting|raw }};
       data.current  = {};
 
       function schemaEditorSendSaveMessage() {
+        configVal = JSON.stringify(editor.getValue());
+
         // Send a message to the parent container.
         parent.window.postMessage(
           {
             name: 'saveData',
-            lzstring: LZString.compressToBase64(JSON.stringify(editor.getValue())),
+            lzstring: encodeURIComponent(btoa(pako.deflate(configVal, {to: 'string'}))),
             rawJSON: JSON.stringify(editor.getValue())
           },
           '*'
