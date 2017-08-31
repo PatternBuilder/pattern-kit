@@ -29,8 +29,8 @@ example subset of return below:
 All queries under this path can accept GET or POST, and may optionally specify a pattern at the end of the url to use default values for all parameters.
 
 When using GET, you can use either of the following parameters to specify values
-  * jsondata - a urlified json object
-  * data - A base64 encoded, gzdeflated json object.
+  * jsondata - a urlified json object. Simple to read and edit dynamically.
+  * data - A base64 encoded, gzdeflated json object. Obfuscated, and smaller in size.
   
 When using POST, you must use JSON.
 
@@ -60,16 +60,16 @@ Note that this endpoint provides a wealth of metadata about the pattern.
 ```
 /api/render/page
 ```
-Uses basic.twig
+Uses basic.twig and renders a full page, suitable for use in an iframe.
   
 ```
 /api/render/html
 ```
 
-Uses basic-html.twig
+Uses basic-html.twig, renders only the fragment of interest. Useful for wrapping with angular, react, etc.
 
 ```
 /api/render/webcomponent
 ```
 
-Uses webcomponent.twig
+Uses webcomponent.twig to deliver an import rel style web component.
