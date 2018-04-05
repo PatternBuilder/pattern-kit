@@ -55,20 +55,31 @@ a:hover, a:focus {
   color: #0eb3e4;
 }
 
+.dropdown-menu {
+    max-height: 80vh;
+    overflow: scroll;
+    border-radius: 0;
+    top: calc(100% + 7px);
+    background-color: #f0f0f0;
+}
+.dropdown-toggle::after {
+    border: none;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 600;
+    content: "\f078";
+    vertical-align: baseline;
+    height: auto;
+    width: auto;
+}
+
+.show .dropdown-toggle::after {
+    content: "\f077";
+}
+
 
 .resize-overlay {
     pointer-events: none;
     position: relative;
-}
-/* Styles for the navbar */
-.navbar-inverse .navbar-nav > li > a {
-    color: #fff;
-    font-weight: 400;
-    font-size: 16px;
-}
-.navbar-inverse .navbar-header .navbar-brand:hover {
-    cursor: default;
-    color: #999;
 }
 
 /* Styles for the pattern preview tool */
