@@ -5,7 +5,6 @@
 
 {% block navigation %}
     {% include 'navigation.twig' with nav only %}
-    <p><a id="direct_link" class="btn btn-primary" href="">Update URL</a></p>
 {% endblock %}
 
 {% block left %}
@@ -17,7 +16,7 @@
         <div id="json_holder">
             <h2>Data</h2>
             <div class="valid alert alert-danger"></div>
-            <pre></pre>
+            <pre><code class="json"></code></pre>
         </div>
     {% endset %}
 
@@ -85,7 +84,7 @@
     {% include 'editor-tabs.twig' with tabs_data %}
 
     <div class="direct_link_holder well">
-        <p><a id="direct_link" class="btn btn-primary " href="">Save and share this prototype</a></p>
+        <p><a id="direct_link" class="btn btn-primary " href="">Share this prototype</a></p>
         <p>A unique URL will be generated that contains all your content and settings within this pattern, which you can then share with anyone who has access to this tool.</p>
     </div>
 {% endblock %}

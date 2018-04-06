@@ -1,17 +1,30 @@
+{% spaceless %}
 <div class="container-fluid">
     <!-- Nav tabs -->
     <ul class="nav nav-tabs" role="tablist">
-        {% for tab in tabs %}
-            <li role="presentation" class="{{ tab.active ? "active" }}"><a href="#{{ tab.title|replace(' ', '_') }}" aria-controls="{{ tab.title|replace(' ', '_') }}" role="tab" data-toggle="tab">{{ tab.title }}</a></li>
-        {% endfor %}
+        {%- for tab in tabs -%}
+            <li class="nav-item" role="presentation">
+                <a class="nav-link {{ tab.active ? "active" }}"
+                    id="{{ tab.title|lower|replace(" ", "-") }}-tab"
+                    href="#{{ tab.title|lower|replace(" ", "-") }}"
+                    aria-controls="{{ tab.title|lower|replace(" ", "-") }}"
+                    aria-selected="{{ tab.active }}"
+                    role="tab" data-toggle="tab">
+                    {{- tab.title -}}
+                </a>
+            </li>
+        {%- endfor -%}
     </ul>
 
     <!-- Tab panes -->
     <div class="tab-content">
-        {% for tab in tabs %}
-            <div role="tabpanel" class="tab-pane {{ tab.active ? "active" }}" id="{{ tab.title|replace(' ', '_') }}">
-                {{ tab.content|raw }}
+        {%- for tab in tabs -%}
+            <div class="tab-pane fade{{ tab.active ? " show active" }}"
+                id="{{ tab.title|lower|replace(" ", "-") }}"
+                role="tabpanel" aria-labelledby="{{ tab.title|lower|replace(" ", "-") }}-tab">
+                {{- tab.content|raw -}}
             </div>
-        {% endfor %}
+        {%- endfor -%}
     </div>
 </div>
+{% endspaceless %}

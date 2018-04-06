@@ -9,7 +9,7 @@
         <div class="collapse navbar-collapse" id="patternkit-main-nav">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                 {% for key, category in categories %}
-                <li class="nav-item dropdown mr-2">
+                <li class="nav-item dropdown p-2 pr-1">
                     {% set cat_key = (category.title ?: key)|lower|replace(" ","-") %}
                     {% set active_child = false %}
                     {% for item in category.items if item.active %}
@@ -18,7 +18,7 @@
                     <a href="#" class="nav-link dropdown-toggle{{ active_child ? ' active' }}" id="{{ cat_key }}-dropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                         {{- category.title ?: key -}}s
                     </a>
-                    <div class="dropdown-menu d-grid" aria-labelledby="{{ cat_key }}-dropdown">
+                    <div class="dropdown-menu" aria-labelledby="{{ cat_key }}-dropdown">
                         {% for item in category.items %}
                             <a class="dropdown-item{{ item.active ? ' active' }}" href=" {{ path( 'schema', { pattern : item.path } ) }} ">{{ item.title }}</a>
                         {% endfor %}

@@ -200,6 +200,8 @@ var $each = function(obj,callback) {
 var $trigger = function(el,event) {
   var e = document.createEvent('HTMLEvents');
   e.initEvent(event, true, true);
+  // trigger code syntax highlighting
+  hljs.initHighlightingOnLoad();
   el.dispatchEvent(e);
 };
 var $triggerc = function(el,event) {
@@ -2015,7 +2017,7 @@ JSONEditor.defaults.editors.string = JSONEditor.AbstractEditor.extend({
         self.onChange(true);
       });
 
-    if(this.options.input_height) this.input.style.height = this.options.input_height;
+    if(this.options.input_height) this.input.style.height = this.options.input_height + 20;
     if(this.options.expand_height) {
       this.adjust_height = function(el) {
         if(!el) return;
