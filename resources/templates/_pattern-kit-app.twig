@@ -46,7 +46,7 @@
 {% block navigation %}
 {% endblock %}
 
-<div class="container-fluid">
+<div class="container-fluid p-4 {{ block("navigation") is not empty ? ' pt-5' }}">
     <div class="row">
         {% if block( "secondary_nav" ) %}
             <nav class="secondary-nav col-xs-12 col-sm-3">
@@ -55,13 +55,13 @@
         {% endif %}
 
         {% if block( "left" ) %}
-            <div class="left col-md-6 {% if block( "secondary_nav" ) %} col-xs-12 col-sm-9 {% endif %}">
+            <div class="col-md-6{% if block( "secondary_nav" ) %} col-xs-12 col-sm-9 {% endif %} p-0">
                 {% block left %}{% endblock %}
             </div>
         {% endif %}
 
         {% if block( "right" ) %}
-            <div class="right col-md-6">
+            <div class="col-md-6 p-0">
                 {% block right %}{% endblock %}
             </div>
         {% endif %}

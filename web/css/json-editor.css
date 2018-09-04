@@ -75,8 +75,12 @@ h1, .h1, h2, .h2 {
 a {
   color: var(--color-deepcerulean);
 }
-a:hover, a:focus {
+a:hover,
+a:focus {
   color: var(--color-cerulean);
+}
+iframe {
+    border: none;
 }
 
 
@@ -111,6 +115,9 @@ a:hover, a:focus {
     height: auto;
     width: auto;
 }
+.show .dropdown-toggle::after {
+    content: "\f077";
+}
 .dropdown-item {
     padding-top: .5rem;
     padding-bottom: .5rem;
@@ -126,16 +133,18 @@ a:hover, a:focus {
 .dropdown-item.active:hover, {
     cursor: default;
 }
-.navbar {
+
+
+/* .navbar {
     margin-bottom: 0;
 }
 .navbar + .container-fluid {
     margin-right: 15px;
     margin-left: 15px;
     margin-top: 15px;
-}
+} */
 
-.secondary-nav {
+/* .secondary-nav {
     max-width: 300px;
 }
 .secondary-nav + .left > *:first-child {
@@ -148,24 +157,19 @@ a:hover, a:focus {
     border-bottom: 1px solid #ddd;
     padding: 7px 3px;
 }
-.show .dropdown-toggle::after {
-    content: "\f077";
-}
-
 
 .resize-overlay {
     pointer-events: none;
     position: relative;
 }
+*/
 
 /* Styles for the pattern preview tool */
-#schema_holder .page-header {
-    padding-left: 60px;
-}
-#schema_holder + .alert {
+/* #schema_holder + .alert {
     margin: 20px 60px;
-}
-#display_holder {
+} */
+
+/*#display_holder {
   width: 100%;
   border: 0;
 }
@@ -222,7 +226,8 @@ a:hover, a:focus {
 
 
 @-webkit-keyframes androidBugfix { from { padding: 0; } to { padding: 0; } }
-body { -webkit-animation: androidBugfix infinite 1s; }
+body { -webkit-animation: androidBugfix infinite 1s; } */
+
 /* Layout styles for extra large browsers, side-by-side preview + data */
 /* @media (min-width:1800px) {
   body, html {
@@ -243,16 +248,16 @@ body { -webkit-animation: androidBugfix infinite 1s; }
 } */
 
 /* Styles specific to the schema content */
-.right {
+/* .right {
   background: white;
   padding-top: 10px;
-}
+} */
 /* .right > * {
   margin-left: 10px;
   margin-right: 10px;
   margin-bottom: 10px;
 } */
-.right .nav-tabs {
+/* .right .nav-tabs {
     margin-bottom: 30px;
     padding: 0 80px;
 }
@@ -263,7 +268,7 @@ body { -webkit-animation: androidBugfix infinite 1s; }
     .right .nav-tabs {
         padding-left: 10px;
     }
-}
+} */
 
 /* Styles specific to the interactive schema preview */
 /* #editor_holder {
@@ -279,7 +284,7 @@ body { -webkit-animation: androidBugfix infinite 1s; }
   background-color: var(--color-white) !important;
     font-size: 1.2em;
     color: var(--color-deepcerulean); /* aqua */
-  font-weight: bold !important;
+  /* font-weight: bold !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -334,7 +339,8 @@ body { -webkit-animation: androidBugfix infinite 1s; }
 #editor_holder [data-schematype="object"]:hover > h3 .btn-group .json-editor-btn-collapse i ,
 .json-editor-btn-collapse:hover i:before {
     color: var(--color-deepcerulean); /* #276edc;*/
-}
+} */
+/*
 .json-editor-btn-collapse i {
     font-size: 1.7em;
 }
@@ -347,7 +353,7 @@ body { -webkit-animation: androidBugfix infinite 1s; }
 #editor_holder [data-schematype="object"] > .well [data-schematype="object"] > .well [data-schematype="object"] > .well,
 #editor_holder [data-schematype="object"] > .well [data-schematype="object"] > .well [data-schematype="object"] > .well [data-schematype="object"] > .well [data-schematype="object"] > .well,
 #editor_holder [data-schematype="object"] > .well [data-schematype="object"] > .well [data-schematype="object"] > .well [data-schematype="object"] > .well [data-schematype="object"] > .well [data-schematype="object"] > .well [data-schematype="object"] > .well {
-    background-color: #e6ecf0;  /* soft sky */
+    background-color: #e6ecf0;
 }
 #editor_holder [data-schematype="object"] > .well [data-schematype="object"] > .well,
 #editor_holder [data-schematype="object"] > .well [data-schematype="object"] > .well [data-schematype="object"] > .well [data-schematype="object"] > .well,
@@ -368,7 +374,7 @@ body { -webkit-animation: androidBugfix infinite 1s; }
   padding-bottom: 10px !important;
   border: 3px solid #FFF;
   border-radius: 0;
-  background-color: rgba(205, 233, 219, 0.3);  /* sage */
+  background-color: rgba(205, 233, 219, 0.3);
 }
 #editor_holder [data-schematype="array"] > .well > div > .well:last-child {
     padding-bottom: 0 !important;
@@ -388,7 +394,7 @@ body { -webkit-animation: androidBugfix infinite 1s; }
 }
 #editor_holder [data-schematype="object"]:hover > h3 > span,
 #editor_holder [data-schematype="object"] .well .well .well:hover h3 span {
-    color: var(--color-deepcerulean); /* aqua */
+    color: var(--color-deepcerulean);
 }
 #editor_holder [data-schematype="array"] > h3 span {
     font-weight: 800;
@@ -460,7 +466,7 @@ body { -webkit-animation: androidBugfix infinite 1s; }
 } */
 
 /* Styles specific to styleguide / documentation */
-.docs-wrapper {
+/* .docs-wrapper {
   font-size: 1.1em;
   max-width: 800px;
 }
@@ -490,4 +496,4 @@ hr {
     border-top: 1px solid #bbb;
     margin-top: 30px;
     margin-bottom: 30px;
-}
+} */
