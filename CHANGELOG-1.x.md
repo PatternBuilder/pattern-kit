@@ -2,9 +2,14 @@
 
 Tag: [1.3](https://github.com/PatternBuilder/pattern-kit/releases/tag/V1.3)
 
+Refactor of pattern kit, additions to component renderer
+- Factored methods out of large controllers.
+- Removed redundant code
+- Added a pattern model class to abstract the patterns a bit.
+- Modified the way webcomponent renderer works.
+- Added style component server.
+- Changed from lzstring to pako for more portability across platforms (lzstring sucks at reproducibility cross-platform)
 - Add support for csscomponent, web component, page and html render endpoints
-- Refactor codebase to remove duplicated code, follow coding standards.
-- Code to support the aggregation of module assets
 - Refactor the route controller to make it easier to read.
 
 ## 1.2 Minor style tweaks and functionality additions (2017-03-09)
