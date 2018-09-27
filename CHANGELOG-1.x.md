@@ -1,3 +1,12 @@
+## 1.3 Code refactor and changes to allow assets to track with the module.
+
+Tag: [1.3](https://github.com/PatternBuilder/pattern-kit/releases/tag/V1.3)
+
+- Add support for csscomponent, web component, page and html render endpoints
+- Refactor codebase to remove duplicated code, follow coding standards.
+- Code to support the aggregation of module assets
+- Refactor the route controller to make it easier to read.
+
 ## 1.2 Minor style tweaks and functionality additions (2017-03-09)
 
 Tag: [1.2](https://github.com/PatternBuilder/pattern-kit/releases/tag/V1.2)
