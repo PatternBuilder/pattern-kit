@@ -21,6 +21,8 @@ date_default_timezone_set('America/Los_Angeles');
 define("ROOT_PATH", __DIR__ . "/..");
 
 $app = new Application();
+
+// Read global config and add to $app['config'].
 $app->register(new YamlConfigServiceProvider("./.pk-config.yml"));
 $app->register(new Silex\Provider\UrlGeneratorServiceProvider());
 
@@ -56,6 +58,7 @@ $app['debug'] = false;
 // Initialize an empty array to collect the templates.
 $twig_template_paths = array();
 
+// Add the templates used by patternkit itself.
 array_push($twig_template_paths, ROOT_PATH . '/resources/templates');
 
 // If there is a single template in config, it'll be a string, array otherwise.
@@ -93,7 +96,10 @@ function data_replace(&$data)
             if (is_array($value)) {
                 data_replace($value);
             } elseif (is_string($value) && $value[0] == '@') {
-                $file_path = 'file://' . realpath(get_asset_path(substr($value, 1), 'data'));
+                $patternObj = new \PatternKit\Model\PatternModel($value);
+                $file_path = 'file://' . realpath(
+                  $patternObj->get_asset_path($value, 'data')
+                );
                 if (($pathinfo = pathinfo($file_path)) && isset($pathinfo['extension']) && $pathinfo['extension'] == 'yaml') {
                     $data_replace_with = Yaml::parse(file_get_contents($file_path));
                 } else {
@@ -124,41 +130,72 @@ function get_asset_path($name, $type)
 {
     global $app;
 
-    if (in_array($type, array(
-    "templates",
-    "data",
-    "schemas",
-    "docs",
-    "sg",
-    "test_data",
-  ))) {
-        $return = null;
-        $paths  = $app['config']['paths'][$type];
-        if (is_array($paths)) {
-            $paths = array_reverse($paths);
-        }
-        if ($paths) {
-            foreach ($paths as $path) {
-                $extension      = $app['config']['extensions'][$type];
-                $yaml_extension = str_replace('.json', '.yaml', $extension);
-                $dir            = './' . $path;
-                $file_path      = "{$dir}/{$name}{$extension}";
-                $yaml_file_path = "{$dir}/{$name}{$yaml_extension}";
-                if (is_dir($dir) && is_readable($file_path)) {
-                    $return = $file_path;
-                    break;
-                } else {
-                    if (is_dir($dir) && is_readable($yaml_file_path)) {
-                        $return = $yaml_file_path;
+    switch ($type) {
+        case "templates":
+        case "data":
+        case "schemas":
+        case "docs":
+        case "sg":
+        case "test_data":
+            $return = null;
+            // Fetch the path from the global configuration.
+            $paths = $app['config']['paths'][$type];
+
+            // If there's an array of paths, we should visit each in reverse.
+            if (is_array($paths)) {
+                $paths = array_reverse($paths);
+            }
+
+            // If paths are set, iterate over them.
+            if ($paths) {
+                foreach ($paths as $path) {
+                    $extension      = $app['config']['extensions'][$type];
+                    $yaml_extension = str_replace(
+                      '.json',
+                      '.yaml',
+                      $extension
+                    );
+                    $dir            = './'.$path;
+                    $file_path      = "{$dir}/{$name}{$extension}";
+                    $yaml_file_path = "{$dir}/{$name}{$yaml_extension}";
+
+                    if (is_dir($dir) && is_readable($file_path)) {
+                        $return = $file_path;
                         break;
+                    } else {
+                        if (is_dir($dir) && is_readable($yaml_file_path)) {
+                            $return = $yaml_file_path;
+                            break;
+                        }
                     }
                 }
             }
-        }
 
-        return $return;
-    } else {
-        throw new Exception($type . ' is not equal to template, data or schema');
+            return $return;
+            break;
+
+        case 'assets':
+            // Default the path to empty.
+            $path = '';
+
+            $asset_path = $app['config']['paths'][$type][0];
+            // Fetch the path from the global configuration.
+            $dir = "./".$asset_path;
+
+            $file_path = "{$dir}/{$name}/{$name}.manifest.yaml";
+
+            if (is_dir($dir) && is_readable($file_path)) {
+                $path = $file_path;
+            }
+
+            return $path;
+
+            break;
+
+        default:
+            throw new Exception(
+              $type.' is not equal to template, data or schema'
+            );
     }
 }
 
@@ -195,7 +232,6 @@ function getNav($pattern)
             $nav['categories'][$value]['path']  = '/' . $value;
         }
     }
-
 
     foreach ($schema_paths as $path) {
         foreach ($path['files'] as $file) {
@@ -270,38 +306,38 @@ function listPatterns()
     $schema_paths = array();
     $list         = array();
 
-  // Read configuration and collect the list of schema folders.
-  foreach ($app['config']['paths']['schemas'] as $path) {
-      $files = scandir("./" . $path);
+    // Read configuration and collect the list of schema folders.
+    foreach ($app['config']['paths']['schemas'] as $path) {
+        $files = scandir("./" . $path);
 
-      $schema_paths[] = array(
+        $schema_paths[] = array(
       'location' => $path,
       'files'    => $files,
     );
-  }
-
-  // Iterate over the schema paths to find all schema.
-  foreach ($schema_paths as $path) {
-      // For each file in the schema folder(s).
-    foreach ($path['files'] as $raw_filename) {
-        $file = strtolower($raw_filename);
-      // Only look at the JSON files.
-      if (strpos($file, 'json') !== false) {
-          $pattern  = array();
-        // Load the schema and decode for the list.
-        $contents = json_decode(file_get_contents('./' . $path['location'] . "/" . $file), true);
-
-          $contents['name']    = substr($file, 0, -5);
-          $pattern['category'] = isset($contents['category']) ? $contents['category'] : false;
-          $pattern['title']    = isset($contents['title']) ? $contents['title'] : $contents['name'];
-
-        // Default to 1.0 for version of json for legacy support.
-        $pattern['version'] = !empty($contents['version']) ? $contents['version'] : '1.0';
-
-          $list[$contents['name']] = (object)$pattern;
-      }
     }
-  }
+
+    // Iterate over the schema paths to find all schema.
+    foreach ($schema_paths as $path) {
+        // For each file in the schema folder(s).
+        foreach ($path['files'] as $raw_filename) {
+            $file = strtolower($raw_filename);
+            // Only look at the JSON files.
+            if (strpos($file, 'json') !== false) {
+                $pattern  = array();
+                // Load the schema and decode for the list.
+                $contents = json_decode(file_get_contents('./' . $path['location'] . "/" . $file), true);
+
+                $contents['name']    = substr($file, 0, -5);
+                $pattern['category'] = isset($contents['category']) ? $contents['category'] : false;
+                $pattern['title']    = isset($contents['title']) ? $contents['title'] : $contents['name'];
+
+                // Default to 1.0 for version of json for legacy support.
+                $pattern['version'] = !empty($contents['version']) ? $contents['version'] : '1.0';
+
+                $list[$contents['name']] = (object)$pattern;
+            }
+        }
+    }
     return $list;
 }
 
