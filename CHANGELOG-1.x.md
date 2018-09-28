@@ -1,6 +1,5 @@
-## 1.3 Code refactor and changes to allow assets to track with the module.
-
-Tag: [1.3](https://github.com/PatternBuilder/pattern-kit/releases/tag/V1.3)
+## 1.4 Code refactor and changes to allow assets to track with the module.
+Tag: [1.4](https://github.com/PatternBuilder/pattern-kit/releases/tag/V1.4)
 
 Refactor of pattern kit, additions to component renderer
 - Factored methods out of large controllers.
@@ -11,6 +10,11 @@ Refactor of pattern kit, additions to component renderer
 - Changed from lzstring to pako for more portability across platforms (lzstring sucks at reproducibility cross-platform)
 - Add support for csscomponent, web component, page and html render endpoints
 - Refactor the route controller to make it easier to read.
+
+## 1.3 Documentation style updates
+Tag: [1.3](https://github.com/PatternBuilder/pattern-kit/releases/tag/V1.3)
+
+- Add font family, colors, spacing, etc. to styleguide. Cleaned up some extra scrollbars, set a max width on the content area of the docs area.
 
 ## 1.2 Minor style tweaks and functionality additions (2017-03-09)
 
