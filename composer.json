@@ -19,7 +19,7 @@
         "silex/silex": "=1.2.5",
         "symfony/twig-bridge": "^2.3",
         "symfony/yaml": "=2.6.13",
-        "twig/twig": "1.24.*"
+        "twig/twig": "^1.38"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^2"
