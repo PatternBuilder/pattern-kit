@@ -7,18 +7,21 @@ handleHeights = function () {
         overflowData,
         height;
 
-    for (index = 0; index < len; index++) {
-        snippet = $(iframes[index]).contents().find("#snippet"); // element for height measurement
-        overflow = snippet.css("overflow");
-        overflowData = snippet.attr("data-default-overflow");
-        if (overflowData !== undefined && overflowData !== "") {
-            overflow = overflowData;
-        } else {
-            snippet.attr("data-default-overflow", overflow); //sets default after first check, so temp value does not get picked on resize iterations
-        }
-        snippet.css("overflow", "scroll"); // sets temp value for measuring
-        height = snippet.get(0).offsetHeight;
-        snippet.css("overflow", overflow); // sets styling value
+  for (index = 0; index < len; index++) {
+    // Element for height measurement.
+    snippet      = $(iframes[index]).contents().find("#snippet");
+    overflow     = snippet.css("overflow");
+    overflowData = snippet.attr("data-default-overflow");
+    if (overflowData !== undefined && overflowData !== "") {
+      overflow = overflowData;
+    }
+    else {
+      // Sets default after first check, so temp value does not get picked on resize iterations.
+      snippet.attr("data-default-overflow", overflow);
+    }
+    snippet.css("overflow", "scroll"); // sets temp value for measuring
+    height = snippet.get(0).offsetHeight;
+    snippet.css("overflow", overflow); // sets styling value
 
         $(iframes[index]).height(height);
     }
@@ -81,38 +84,22 @@ interact('.js-resize-length')
   });
 
 
-
-
-
-
-
-var editor_update = function(markup, json) {
-    $("#display_holder").attr('srcdoc', markup);
-    $("#json_holder code").html(JSON.stringify(json,undefined,4));
-    $("#twig_holder").html(JSON.stringify(json,undefined,4));
-    updateDirectLink();
-    $('#display_holder').load(function(){
-        handleHeights();
-    });
-    // trigger code syntax highlighting
-    hljs.initHighlightingOnLoad();
-}
-
-
-var updateDirectLink = function() {
-    var url = window.location.href.replace(/\?.*/,'');
-
-    url += '?data='+LZString.compressToBase64(JSON.stringify(editor.getValue()));
-    document.getElementById('direct_link').href = url;
+var updateDirectLink = function () {
+  var url = window.location.href.replace(/\?.*/, '');
+  var configVal = JSON.stringify(editor.getValue());
+  url += '?data=' + encodeURIComponent(btoa(pako.deflate(configVal, {to: 'string'})));
+  document.getElementById('direct_link').href = url;
 };
 
-if(window.location.href.match('[?&]data=([^&]+)')) {
-    try {
-        data.starting = JSON.parse(LZString.decompressFromBase64(window.location.href.match('[?&]data=([^&]+)')[1]));
-    }
-    catch(e) {
-        console.log('invalid starting data');
-    }
+if (window.location.href.match('[?&]data=([^&]+)')) {
+  try {
+    var configVal = window.location.href.match('[?&]data=([^&]+)')[1];
+    configVal = atob(decodeURIComponent(configVal));
+    data.starting = JSON.parse(pako.inflate(configVal, {to: 'string'}));
+  }
+  catch (e) {
+    console.log('invalid starting data');
+  }
 }
 if (data.starting.name) {
   JSONEditor.defaults.options.startval = data.starting;
@@ -127,21 +114,50 @@ if (data.starting.name) {
   });
 
 
-  JSONEditor.plugins.sceditor.emoticonsEnabled = false;
-  JSONEditor.plugins.ace.theme = 'twilight';
+// Schema editor ajax debouncer.
+//
+// Returns a function, that, as long as it continues to be invoked, will not
+// be triggered. The function will be called after it stops being called for
+// N milliseconds. If `immediate` is passed, trigger the function on the
+// leading edge, instead of the trailing.
+schemaEditorDebounce = function (func, wait, immediate) {
+  var timeout;
+  return function () {
+    var context = this, args = arguments;
+    var later   = function () {
+      timeout = null;
+      if (!immediate) {
+        func.apply(context, args);
+      }
+    };
+    var callNow = immediate && !timeout;
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
 
+    if (callNow) {
+      func.apply(context, args);
+    }
+  };
+};
 
-  editor.on('change',function() {
+// On changes to the editor UI, validate the JSON And update the preview render.
+editor.on(
+  'change', schemaEditorDebounce(function () {
     var json = editor.getValue();
-    $.ajax({
-      url: "/api/validate",
-      method: 'POST',
-      contentType: 'application/json',
-      data: JSON.stringify(json,null,2)
-    }).success(function(response) {
-        if ( response.trim() === "The supplied JSON validates against the schema." ) {
+
+    $.ajax(
+      {
+        url:         "/api/validate",
+        method:      'POST',
+        contentType: 'application/json',
+        data:        JSON.stringify(json, null, 2)
+      }
+    ).success(
+      function (response) {
+        if (response.trim() === "The supplied JSON validates against the schema.") {
           $('.valid').removeClass('alert-danger').addClass('alert-success');
-      } else if ( response.includes( "The supplied JSON validates against the schema." ) ) {
+        }
+        else if (response.includes("The supplied JSON validates against the schema.")) {
           $('.valid').removeClass('alert-danger').addClass('alert-warning');
       }
       $('.valid').html(response);

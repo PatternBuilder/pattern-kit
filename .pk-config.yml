@@ -21,8 +21,9 @@ extensions:
   docs: .docs.md
   sg: .sg.md
 categories:
+    - Page
     - Pattern
-    - Sub Pattern
+    - Subpattern
     - Layout
     - Component
     - Atom
