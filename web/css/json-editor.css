@@ -124,7 +124,7 @@ body { -webkit-animation: androidBugfix infinite 1s; }
   max-width: 800px;
   margin-left: 20px;
 }
-.secondary-nav ~ .left *:nth-child(1) {
+.secondary-nav ~ .left ~ *:nth-child(1) {
   margin-top: 0;
 }
 .right {
