@@ -155,6 +155,7 @@ body { -webkit-animation: androidBugfix infinite 1s; }
   }
 }
 
+/* Styles specific to the schema content */
 .content {
   height: 100%;
 }
@@ -399,6 +400,54 @@ code {
     margin-left: 15px;
     margin-top: 15px;
 }
+
+/* Styles specific to styleguide / documentation */
+.docs-wrapper {
+  font-size: 1.1em;
+  max-width: 800px;
+}
+.right, .left {
+  overflow: auto;
+}
+.docs-wrapper a {
+  text-decoration: underline;
+}
+.docs-wrapper li {
+    margin-top: 3px;
+    margin-bottom: 8px;
+}
+.docs-wrapper li li {
+    margin-top: 3px;
+    margin-bottom: 1px;
+}
+.docs-wrapper th, td {
+    border: solid 1px #ccc;
+    padding: 5px;
+}
+
+.secondary-nav {
+    max-width: 300px;
+}
+.secondary-nav + .left > *:first-child {
+  margin-top: 0;
+}
+.secondary-nav .nav>li {
+    margin: 0;
+}
+.secondary-nav .nav>li>a {
+    border-bottom: 1px solid #ddd;
+    padding: 7px 3px;
+}
+
+code {
+    white-space: normal;
+}
+
+hr {
+  border-top: 1px solid #bbb;
+  margin-top: 30px;
+  margin-bottom: 30px;
+} 
 
 a[href="#top"] {
     margin-top: -50px;
