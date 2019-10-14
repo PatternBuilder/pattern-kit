@@ -159,20 +159,6 @@ body { -webkit-animation: androidBugfix infinite 1s; }
 .content {
   height: 100%;
 }
-
-.secondary-nav {
-  width: 250px;
-  float: left;
-}
-.secondary-nav ~ .left {
-  float: left;
-  width: calc(100vw - 300px);
-  max-width: 800px;
-  margin-left: 20px;
-}
-.secondary-nav ~ .left ~ *:nth-child(1) {
-  margin-top: 0;
-}
 .right {
   background: white;
   padding-top: 10px;
@@ -194,6 +180,7 @@ body { -webkit-animation: androidBugfix infinite 1s; }
         padding-left: 10px;
     }
 }
+
 
 /* Styles specific to the interactive schema preview */
 code {
@@ -327,7 +314,7 @@ code {
 #editor_holder [data-schematype="array"] > h3 span {
     font-weight: 800;
     color: #3E4551;
-},
+}
 #editor_holder [data-schematype="array"] label {
     font-weight: 600;
 }
@@ -425,13 +412,29 @@ code {
     padding: 5px;
 }
 
+.secondary-nav {
+  max-width: 300px;
+}
+.secondary-nav + .left > *:first-child {
+margin-top: 0;
+}
+.secondary-nav .nav>li {
+  margin: 0;
+}
+.secondary-nav .nav>li>a {
+  border-bottom: 1px solid #ddd;
+  padding: 7px 3px;
+}
+code {
+  white-space: normal;
+}
+
 a[href="#top"] {
     margin-top: -50px;
     float: right;
 }
-
 hr {
-  border-top: 1px solid #bbb;
-  margin-top: 30px;
-  margin-bottom: 30px;
+    border-top: 1px solid #bbb;
+    margin-top: 30px;
+    margin-bottom: 30px;
 } 
