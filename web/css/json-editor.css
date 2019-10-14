@@ -415,7 +415,7 @@ code {
     max-width: 300px;
 }
 .secondary-nav + .left > *:first-child {
-    margin-top: 0;
+  margin-top: 0;
 }
 .secondary-nav .nav>li {
     margin: 0;
@@ -427,7 +427,6 @@ code {
 code {
     white-space: normal;
 }
-
 a[href="#top"] {
     margin-top: -50px;
     float: right;
