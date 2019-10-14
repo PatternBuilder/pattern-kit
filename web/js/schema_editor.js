@@ -1,11 +1,11 @@
 handleHeights = function () {
-    var iframes = $("iframe"),
-        len = iframes.length,
-        index,
-        snippet,
-        overflow,
-        overflowData,
-        height;
+  var iframes = $("iframe"),
+      len     = iframes.length,
+      index,
+      snippet,
+      overflow,
+      overflowData,
+      height;
 
   for (index = 0; index < len; index++) {
     // Element for height measurement.
@@ -23,66 +23,78 @@ handleHeights = function () {
     height = snippet.get(0).offsetHeight;
     snippet.css("overflow", overflow); // sets styling value
 
-        $(iframes[index]).height(height);
-    }
+    $(iframes[index]).height(height);
+  }
 };
 
-
-var $preview = $(".js-snippet-preview"),
+var $preview       = $(".js-snippet-preview"),
     $previewSource = $preview.find("iframe"),
     //viewport
-    $handleLeft = $(".js-snippet-resize-handle-left"),
-    $handleRight = $(".js-snippet-resize-handle-right"),
-    $resizeLength = $(".js-resize-length"),
+    $handleLeft    = $(".js-snippet-resize-handle-left"),
+    $handleRight   = $(".js-snippet-resize-handle-right"),
+    $resizeLength  = $(".js-resize-length"),
     //data
-    snippetSource = $(".js-snippet-source");
+    snippetSource  = $(".js-snippet-source");
 
-(function() {
+(function () {
   var windowWidth = $(".left").width(),
-      width = 1024;
-
+      width       = 1024;
 
   if ((width) + 100 > windowWidth) {
-      width = (windowWidth - 100);
+    width = (windowWidth - 100);
   }
   $preview.css('width', width);
   $resizeLength.css('width', parseInt(width / 2, 10));
 })();
 
 interact('.js-resize-length')
-  .resizable({
-      edges: {
-          left: ".js-snippet-resize-handle-right",
-          right: ".js-snippet-resize-handle-left",
-          bottom: false,
-          top: false
+  .resizable(
+    {
+      edges:  {
+        left:   ".js-snippet-resize-handle-right",
+        right:  ".js-snippet-resize-handle-left",
+        bottom: false,
+        top:    false
       },
       onmove: function (e) {
 
-          var width = e.rect.width,
-              windowWidth = $(".left").width();
+        var width       = e.rect.width,
+            windowWidth = $(".left").width();
 
-          if (width < 160) {
-              width = 160;
-          } else if ((width * 2) + 100 > windowWidth) {
-              width = (windowWidth - 100) / 2;
-          }
+        if (width < 160) {
+          width = 160;
+        }
+        else if ((width * 2) + 100 > windowWidth) {
+          width = (windowWidth - 100) / 2;
+        }
 
-          $preview
-              .find(snippetSource)
-              .addClass('resize-overlay');
-          $preview[0].style.width = (width * 2) + 'px';
-          $resizeLength[0].style.width = width + 'px';
-          handleHeights();
+        $preview
+          .find(snippetSource)
+          .addClass('resize-overlay');
+        $preview[0].style.width      = (width * 2) + 'px';
+        $resizeLength[0].style.width = width + 'px';
+        handleHeights();
       },
-      onend: function () {
-          $preview
-              .find(snippetSource)
-              .removeClass('resize-overlay');
-          handleHeights();
+      onend:  function () {
+        $preview
+          .find(snippetSource)
+          .removeClass('resize-overlay');
+        handleHeights();
       }
-  });
+    }
+  );
 
+var editor_update = function (markup, json) {
+  $("#display_holder").attr('srcdoc', markup);
+  $("#json_holder pre").text(JSON.stringify(json, null, 2));
+  $("#twig_holder").text(JSON.stringify(json, null, 2));
+  updateDirectLink();
+  $('#display_holder').load(
+    function () {
+      handleHeights();
+    }
+  );
+};
 
 var updateDirectLink = function () {
   var url = window.location.href.replace(/\?.*/, '');
@@ -103,16 +115,20 @@ if (window.location.href.match('[?&]data=([^&]+)')) {
 }
 if (data.starting.name) {
   JSONEditor.defaults.options.startval = data.starting;
-};
+}
 
-  // Initialize the editor with a JSON schema
-  var editor = new JSONEditor(document.getElementById('editor_holder'),{
-    schema: data.schema,
-    theme: 'bootstrap3',
-    iconlib: 'fontawesome4',
+// Initialize the editor with a JSON schema
+var editor = new JSONEditor(
+  document.getElementById('editor_holder'), {
+    schema:            data.schema,
+    theme:             'bootstrap3',
+    iconlib:           'fontawesome4',
     keep_oneof_values: false
-  });
+  }
+);
 
+JSONEditor.plugins.sceditor.emoticonsEnabled = false;
+JSONEditor.plugins.ace.theme                 = 'twilight';
 
 // Schema editor ajax debouncer.
 //
@@ -159,16 +175,24 @@ editor.on(
         }
         else if (response.includes("The supplied JSON validates against the schema.")) {
           $('.valid').removeClass('alert-danger').addClass('alert-warning');
-      }
-      $('.valid').html(response);
-      $.ajax({
-        url: "/api/render/page",
-        method: 'POST',
-        contentType: 'application/json',
-        data: JSON.stringify(json,null,2)
-      }).done(function(markup) {
-        editor_update(markup, json);
-      });
+        }
 
-    });
-  });
+        $('.valid').html(response);
+        $.ajax(
+          {
+            url:         "/api/render/page",
+            method:      'POST',
+            contentType: 'application/json',
+            data:        JSON.stringify(json, null, 2)
+          }
+        ).done(
+          function (markup) {
+            editor_update(markup, json);
+          }
+        );
+
+      }
+    );
+  }, 500)
+);
+
