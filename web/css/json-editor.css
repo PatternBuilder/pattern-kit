@@ -425,22 +425,9 @@ code {
     padding: 5px;
 }
 
-.secondary-nav {
-    max-width: 300px;
-}
-.secondary-nav + .left > *:first-child {
-  margin-top: 0;
-}
-.secondary-nav .nav>li {
-    margin: 0;
-}
-.secondary-nav .nav>li>a {
-    border-bottom: 1px solid #ddd;
-    padding: 7px 3px;
-}
-
-code {
-    white-space: normal;
+a[href="#top"] {
+    margin-top: -50px;
+    float: right;
 }
 
 hr {
@@ -448,8 +435,3 @@ hr {
   margin-top: 30px;
   margin-bottom: 30px;
 } 
-
-a[href="#top"] {
-    margin-top: -50px;
-    float: right;
-}
