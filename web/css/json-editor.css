@@ -181,7 +181,6 @@ body { -webkit-animation: androidBugfix infinite 1s; }
     }
 }
 
-
 /* Styles specific to the interactive schema preview */
 code {
     color: #000000;
@@ -413,20 +412,20 @@ code {
 }
 
 .secondary-nav {
-  max-width: 300px;
+    max-width: 300px;
 }
 .secondary-nav + .left > *:first-child {
-margin-top: 0;
+    margin-top: 0;
 }
 .secondary-nav .nav>li {
-  margin: 0;
+    margin: 0;
 }
 .secondary-nav .nav>li>a {
-  border-bottom: 1px solid #ddd;
-  padding: 7px 3px;
+    border-bottom: 1px solid #ddd;
+    padding: 7px 3px;
 }
 code {
-  white-space: normal;
+    white-space: normal;
 }
 
 a[href="#top"] {
@@ -437,4 +436,4 @@ hr {
     border-top: 1px solid #bbb;
     margin-top: 30px;
     margin-bottom: 30px;
-} 
+}
