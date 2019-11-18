@@ -4,11 +4,13 @@
         {
           "name": "Micah Godbolt",
           "email": "micahgodbolt@gmail.com"
+        }, {
+            "name": "castastrophe"
         }
     ],
     "license": "MIT",
     "require": {
-        "php": ">=5.3.3",
+        "php": ">=7.1",
         "deralex/yaml-config-service-provider": "1.0.x-dev",
         "erusev/parsedown": "^1.6",
         "justinrainbow/json-schema": "~1.4",
