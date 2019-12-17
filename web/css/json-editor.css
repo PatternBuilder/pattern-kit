@@ -111,7 +111,10 @@ a:hover, a:focus {
 .sg-snippet-resize-handle.pos-right {
     border-right: 1px solid #ccc;
     left: -40px;
-    cursor: e-resize
+    cursor: e-resize;
+    background: #f8f4fe;
+    height: 98%;
+    top: 1%;
 }
 
 .sg-snippet-resize-handle.pos-right:before {
@@ -121,7 +124,10 @@ a:hover, a:focus {
 .sg-snippet-resize-handle.pos-left {
     border-left: 1px solid #ccc;
     cursor: w-resize;
-    right: -40px
+    right: -40px;
+    background: #f8f4fe;
+    height: 98%;
+    top: 1%;
 }
 
 .sg-snippet-resize-handle.pos-left:before {
