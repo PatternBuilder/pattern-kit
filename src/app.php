@@ -342,7 +342,7 @@ function listPatterns()
 }
 
 // Mount Routes.
-$app->mount('/', new PatternKit\SchemaControllerProvider());
+$app->mount('/schema', new PatternKit\SchemaControllerProvider());
 $app->mount('/api', new PatternKit\ApiControllerProvider());
 $app->mount('/tests', new PatternKit\TestsControllerProvider());
 $app->mount('/sg', new PatternKit\StyleGuideControllerProvider());
