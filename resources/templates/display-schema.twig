@@ -1,8 +1,5 @@
 {% extends '_pattern-kit-app.twig' %}
 
-
-
-
 {% block navigation %}
     {% include 'navigation.twig' with nav only %}
 {% endblock %}
@@ -54,7 +51,7 @@
                 'content': docs,
                 'active': true
             }, {
-                'title': 'Schema editor',
+                'title': 'Editor',
                 'content': '<div id="editor_holder"></div>',
                 'active': false
             }] | merge([ twig ]) | merge([ json_data ])
@@ -66,7 +63,7 @@
                 'content': docs,
                 'active': true
             },{
-                'title': 'Schema editor',
+                'title': 'Editor',
                 'content': '<div id="editor_holder"></div>',
                 'active': false
             },{
