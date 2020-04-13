@@ -1,3 +1,13 @@
+{% set body_props %}
+    {%- if app_config.body_attr -%}
+        {% for attr in app_config.body_attr -%}
+            {% if attr is iterable -%}
+                {% for key in attr|keys %} {{ key }}="{% for item in attr[ key ] %}{{ item }} {% endfor %}"{% endfor %}
+            {% else %} {{ attr }}{% endif %}
+        {%- endfor %}
+    {% endif -%}
+{% endset -%}
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,7 +22,7 @@
         <script type="text/javascript" src="{{js}}"></script>
     {% endfor %}
 </head>
-<body{% if app_config.body_attr %}{% for attr in app_config.body_attr %} {{ attr }}{% endfor %}{% endif %}>
+<body{{ body_props }}>
     <div id="snippet" data-default-overflow="scroll">
         {% if (name) or (template) %}
             {% include template ?: name ~ '.twig' %}

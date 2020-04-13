@@ -67,6 +67,9 @@ categories:
     - Atom
 body_attr:
   - unresolved
+  - class:
+    - foo
+    - bar
 assets:
   css:
     - path/to/css
