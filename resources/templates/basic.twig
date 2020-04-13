@@ -12,7 +12,7 @@
         <script type="text/javascript" src="{{js}}"></script>
     {% endfor %}
 </head>
-<body>
+<body{% if app_config.body_attr %}{% for attr in app_config.body_attr %} {{ attr }}{% endfor %}{% endif %}>
     <div id="snippet" data-default-overflow="scroll">
         {% if (name) or (template) %}
             {% include template ?: name ~ '.twig' %}
