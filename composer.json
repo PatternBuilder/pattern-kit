@@ -4,25 +4,32 @@
         {
           "name": "Micah Godbolt",
           "email": "micahgodbolt@gmail.com"
+        },
+        {
+          "name": "castastrophe",
+          "homepage": "https://www.castastrophe.com",
+          "role": "Front-end developer"
         }
     ],
     "license": "MIT",
     "require": {
-        "php": ">=5.3.3",
+        "php": ">=7.2",
         "deralex/yaml-config-service-provider": "1.0.x-dev",
         "erusev/parsedown": "^1.6",
         "justinrainbow/json-schema": "~1.4",
         "mnapoli/front-yaml": "^1.5",
         "monolog/monolog": "~1.6",
-        "nesbot/Carbon": "~1.6",
+        "nesbot/carbon": "~1.6",
         "psr/log": "^1.0",
         "silex/silex": "1.2.5",
         "symfony/twig-bridge": "^2.3",
-        "symfony/yaml": "2.6.13",
+        "symfony/yaml": "^2.6",
         "twig/twig": "^1.38"
     },
     "require-dev": {
-        "friendsofphp/php-cs-fixer": "<2.3"
+        "squizlabs/php_codesniffer": "3.*",
+        "kherge/box": "2.*",
+        "phpunit/phpunit": "9.*"
     },
     "autoload": {
         "psr-0": {
@@ -33,6 +40,13 @@
         "sort-packages": true
     },
     "scripts": {
-        "cs": "php-cs-fixer fix src"
+        "phar": "box build .",
+        "cs": "phpcs --standard=PSR2 -n src",
+        "cbf": "phpcbf --standard=PSR2 -n src",
+        "unit": "phpunit --colors=always < /dev/tty",
+        "test": [
+            "@unit",
+            "@cs"
+        ]
     }
 }
