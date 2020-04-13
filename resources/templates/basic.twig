@@ -2,7 +2,10 @@
     {%- if app_config.body_attr -%}
         {% for attr in app_config.body_attr -%}
             {% if attr is iterable -%}
-                {% for key in attr|keys %} {{ key }}="{% for item in attr[ key ] %}{{ item }} {% endfor %}"{% endfor %}
+                {% for key in attr|keys %}
+                    {% set items %}{% for item in attr[ key ] %} {{ item }}{% endfor %}{% endset %}
+                    {{ key }}="{{ items|trim }}"
+                {% endfor %}
             {% else %} {{ attr }}{% endif %}
         {%- endfor %}
     {% endif -%}
