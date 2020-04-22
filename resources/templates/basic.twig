@@ -1,3 +1,4 @@
+{% spaceless %}
 {% set body_props %}
     {%- if app_config.body_attr -%}
         {% for attr in app_config.body_attr -%}
@@ -10,6 +11,7 @@
         {%- endfor %}
     {% endif -%}
 {% endset -%}
+{% endspaceless %}
 
 <!DOCTYPE html>
 <html>
