@@ -29,7 +29,7 @@
         <script type="text/javascript" src="{{js}}"></script>
     {% endfor %}
 </head>
-<body{{ body_props|spaceless }}>
+<body{{ body_props }}>
     <div id="snippet" data-default-overflow="scroll">
         {% if (name) or (template) %}
             {% include template ?: name ~ '.twig' %}
