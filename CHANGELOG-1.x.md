@@ -1,8 +1,8 @@
-## 1.5
+## 1.5 Additional config features
 Tag: [1.5](https://github.com/PatternBuilder/pattern-kit/releases/tag/V1.5)
 
 - Add support for body attributes in the config
-- Update php version
+- Update documentation
 
 ## 1.4 Code refactor and changes to allow assets to track with the module.
 Tag: [1.4](https://github.com/PatternBuilder/pattern-kit/releases/tag/V1.4)
