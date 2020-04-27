@@ -1,17 +1,19 @@
-{% spaceless %}
 {% set body_props %}
     {%- if app_config.body_attr -%}
         {% for attr in app_config.body_attr -%}
             {% if attr is iterable -%}
                 {% for key in attr|keys %}
-                    {% set items %}{% for item in attr[ key ] %} {{ item }}{% endfor %}{% endset %}
+                    {% if attr[key] is iterable -%}
+                        {% set items %}
+                            {% for item in attr[key] %} {{ item }}{% endfor %}
+                        {% endset %}
+                    {% else %}{% set items = attr[key] ? "true" : "false" %}{% endif %}
                     {{ key }}="{{ items|trim }}"
                 {% endfor %}
             {% else %} {{ attr }}{% endif %}
         {%- endfor %}
     {% endif -%}
 {% endset -%}
-{% endspaceless %}
 
 <!DOCTYPE html>
 <html>
@@ -27,7 +29,7 @@
         <script type="text/javascript" src="{{js}}"></script>
     {% endfor %}
 </head>
-<body{{ body_props }}>
+<body{{ body_props|spaceless }}>
     <div id="snippet" data-default-overflow="scroll">
         {% if (name) or (template) %}
             {% include template ?: name ~ '.twig' %}
