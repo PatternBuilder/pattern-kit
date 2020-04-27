@@ -27,6 +27,7 @@ categories:
     - Layout
     - Component
     - Atom
+body_attr:
 assets:
   css:
   js:

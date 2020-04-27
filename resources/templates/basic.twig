@@ -1,3 +1,22 @@
+{% set body_props %}
+    {%- if app_config.body_attr -%}
+        {% for attr in app_config.body_attr -%}
+            {% if attr is iterable -%}
+                {% for key in attr|keys %}
+                    {% if attr[key] is iterable -%}
+                        {% set items %}
+                            {% for item in attr[key] %} {{ item }}{% endfor %}
+                        {% endset %}
+                    {% elseif attr[key] is same as(false) or attr[key] is same as(true) %}
+                        {% set items = attr[key] ? "true" : "false" %}
+                    {% else %}{% set items = attr[key]|trim %}{% endif %}
+                    {{ key }}="{{ items|trim }}"
+                {% endfor %}
+            {% else %} {{ attr }}{% endif %}
+        {%- endfor %}
+    {% endif -%}
+{% endset -%}
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,7 +31,7 @@
         <script type="text/javascript" src="{{js}}"></script>
     {% endfor %}
 </head>
-<body>
+<body{{ body_props }}>
     <div id="snippet" data-default-overflow="scroll">
         {% if (name) or (template) %}
             {% include template ?: name ~ '.twig' %}
