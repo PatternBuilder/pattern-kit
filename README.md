@@ -1,8 +1,8 @@
 # Pattern Kit
 
-Pattern Kit is an application that lets you preview your library of templates and manipulate their content by interacting with a form built from the schemas. It is both a development tool and a public facing pattern library.
+Pattern Kit is an application that lets you preview your library of templates and manipulate their content by interacting with a form built from the schemas. It is both a development tool and a public-facing pattern library.
 
-For a demo check out [Pattern Kit Demo](http://patternkit.info/sg/). 
+For a demo check out [Pattern Kit Demo](https://webrh-patternkit.int.open.paas.redhat.com/).  
 
 # Installation
 
@@ -38,6 +38,7 @@ $app['http_cache']->run();
 - Create arrays of paths to your data, schema, template, docs and styleguide files (relative to config)
 - Set the file extensions for each file type
 - List categories in order you'd like them to appear in navigation
+- Add any attributes you want printed on the body tag using `body_attr`
 - Create arrays of assets for css, js and footer js (including live reload if necessary)
 
 ```
@@ -62,11 +63,17 @@ extensions:
   docs: .docs.md
   sg: .sg.md
 categories:
-    - Pattern
-    - Sub Pattern
-    - Layout
-    - Component
-    - Atom
+  - Pattern
+  - Sub-pattern
+  - Layout
+  - Component
+  - Atom
+body_attr:
+  - unresolved
+  - id: main
+  - class:
+    - foo
+    - bar
 assets:
   css:
     - path/to/css
