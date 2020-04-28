@@ -1,35 +1,27 @@
 <?php
-/**
- * @file RoutesLoader.php
- */
 
 namespace PatternKit;
 
 use Silex\Application;
 
-/**
- * Class RoutesLoader
- *
- * @package PatternKit
- */
 class RoutesLoader
 {
     private $app;
 
-    /**
-     * RoutesLoader constructor.
-     *
-     * @param \Silex\Application $app
-     */
     public function __construct(Application $app)
     {
         $this->app = $app;
         $this->instantiateControllers();
+
     }
 
-    /**
-     * Bind the route to the controllers.
-     */
+    private function instantiateControllers()
+    {
+        $this->app['schema.controller'] = $this->app->share(function () {
+            return new Controllers\SchemaController();
+        });
+    }
+
     public function bindRoutesToControllers()
     {
         $api = $this->app["controllers_factory"];
@@ -39,3 +31,4 @@ class RoutesLoader
         $this->app->mount('/', $api);
     }
 }
+
