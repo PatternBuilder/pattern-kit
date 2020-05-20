@@ -61,6 +61,11 @@ color: #0eb3e4;
   position: relative;
 }
 /* Styles for the navbar */
+.navbar-inverse {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
 .navbar-inverse .navbar-nav > li > a {
   color: #fff;
   font-weight: 400;
