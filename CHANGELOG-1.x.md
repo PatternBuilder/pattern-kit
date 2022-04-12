@@ -1,3 +1,8 @@
+## 1.6 Update WYSIWYG editor version
+Tag: [1.6](https://github.com/PatternBuilder/pattern-kit/releases/tag/V1.6)
+
+- Updated sceditor to version 3.1.1
+
 ## 1.5 Additional config features
 Tag: [1.5](https://github.com/PatternBuilder/pattern-kit/releases/tag/V1.5)
 
