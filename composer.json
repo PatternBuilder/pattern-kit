@@ -14,7 +14,6 @@
     "license": "MIT",
     "require": {
         "php": ">=7.2",
-        "deralex/yaml-config-service-provider": "1.0.x-dev",
         "erusev/parsedown": "^1.6",
         "justinrainbow/json-schema": "~1.4",
         "mnapoli/front-yaml": "^1.5",
