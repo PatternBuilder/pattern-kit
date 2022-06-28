@@ -2052,6 +2052,7 @@ JSONEditor.defaults.editors.string = JSONEditor.AbstractEditor.extend({
     }
 
     if(this.format) this.input.setAttribute('data-schemaformat',this.format);
+    if(this.format === 'image') this.input.type = 'text';
 
     this.control = this.theme.getFormControl(this.label, this.input, this.description);
     this.container.appendChild(this.control);

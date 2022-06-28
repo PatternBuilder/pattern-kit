@@ -17,7 +17,7 @@ handleHeights = function () {
             snippet.attr("data-default-overflow", overflow); //sets default after first check, so temp value does not get picked on resize iterations
         }
         snippet.css("overflow", "scroll"); // sets temp value for measuring
-        height = snippet.get(0).offsetHeight;
+        height = snippet.length > 0 && snippet.get(0).offsetHeight;
         snippet.css("overflow", overflow); // sets styling value
 
         $(iframes[index]).height(height);
