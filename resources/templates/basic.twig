@@ -42,5 +42,8 @@
 {% for js in app_config.assets.footer_js %}
    <script type="text/javascript" src="{{js}}"></script>
 {% endfor %}
+{% for js in app_config.assets.footer_module_js %}
+   <script type="text/javascript" src="{{js}}"></script>
+{% endfor %}
 </body>
 </html>
